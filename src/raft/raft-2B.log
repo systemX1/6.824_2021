@@ -1,0 +1,959 @@
+19:58:51.684999 raft.go 501 raft.Make [S0 Follower t:0 vF:-1 c:-1 a:-1] init
+19:58:51.686479 raft.go 501 raft.Make [S1 Follower t:0 vF:-1 c:-1 a:-1] init
+19:58:51.687315 raft.go 501 raft.Make [S2 Follower t:0 vF:-1 c:-1 a:-1] init
+19:58:51.688260 raft.go 501 raft.Make [S3 Follower t:0 vF:-1 c:-1 a:-1] init
+19:58:51.689100 raft.go 501 raft.Make [S4 Follower t:0 vF:-1 c:-1 a:-1] init
+Test (2B): no agreement if too many followers disconnect ...
+19:58:51.689732 raft.go 448 raft.(*Raft).Start [S1 Follower t:0 vF:-1 c:-1 a:-1]: Client start to append command 10, [RLog c:-1 a:-1 []]
+19:58:51.689862 raft.go 448 raft.(*Raft).Start [S2 Follower t:0 vF:-1 c:-1 a:-1]: Client start to append command 10, [RLog c:-1 a:-1 []]
+19:58:51.689955 raft.go 448 raft.(*Raft).Start [S3 Follower t:0 vF:-1 c:-1 a:-1]: Client start to append command 10, [RLog c:-1 a:-1 []]
+19:58:51.690047 raft.go 448 raft.(*Raft).Start [S4 Follower t:0 vF:-1 c:-1 a:-1]: Client start to append command 10, [RLog c:-1 a:-1 []]
+19:58:51.690134 raft.go 448 raft.(*Raft).Start [S0 Follower t:0 vF:-1 c:-1 a:-1]: Client start to append command 10, [RLog c:-1 a:-1 []]
+19:58:51.741054 raft.go 448 raft.(*Raft).Start [S1 Follower t:0 vF:-1 c:-1 a:-1]: Client start to append command 10, [RLog c:-1 a:-1 []]
+19:58:51.741322 raft.go 448 raft.(*Raft).Start [S2 Follower t:0 vF:-1 c:-1 a:-1]: Client start to append command 10, [RLog c:-1 a:-1 []]
+19:58:51.741528 raft.go 448 raft.(*Raft).Start [S3 Follower t:0 vF:-1 c:-1 a:-1]: Client start to append command 10, [RLog c:-1 a:-1 []]
+19:58:51.741725 raft.go 448 raft.(*Raft).Start [S4 Follower t:0 vF:-1 c:-1 a:-1]: Client start to append command 10, [RLog c:-1 a:-1 []]
+19:58:51.741964 raft.go 448 raft.(*Raft).Start [S0 Follower t:0 vF:-1 c:-1 a:-1]: Client start to append command 10, [RLog c:-1 a:-1 []]
+19:58:51.793459 raft.go 448 raft.(*Raft).Start [S1 Follower t:0 vF:-1 c:-1 a:-1]: Client start to append command 10, [RLog c:-1 a:-1 []]
+19:58:51.793744 raft.go 448 raft.(*Raft).Start [S2 Follower t:0 vF:-1 c:-1 a:-1]: Client start to append command 10, [RLog c:-1 a:-1 []]
+19:58:51.793951 raft.go 448 raft.(*Raft).Start [S3 Follower t:0 vF:-1 c:-1 a:-1]: Client start to append command 10, [RLog c:-1 a:-1 []]
+19:58:51.794141 raft.go 448 raft.(*Raft).Start [S4 Follower t:0 vF:-1 c:-1 a:-1]: Client start to append command 10, [RLog c:-1 a:-1 []]
+19:58:51.794323 raft.go 448 raft.(*Raft).Start [S0 Follower t:0 vF:-1 c:-1 a:-1]: Client start to append command 10, [RLog c:-1 a:-1 []]
+19:58:51.845008 raft.go 448 raft.(*Raft).Start [S1 Follower t:0 vF:-1 c:-1 a:-1]: Client start to append command 10, [RLog c:-1 a:-1 []]
+19:58:51.845246 raft.go 448 raft.(*Raft).Start [S2 Follower t:0 vF:-1 c:-1 a:-1]: Client start to append command 10, [RLog c:-1 a:-1 []]
+19:58:51.845422 raft.go 448 raft.(*Raft).Start [S3 Follower t:0 vF:-1 c:-1 a:-1]: Client start to append command 10, [RLog c:-1 a:-1 []]
+19:58:51.845626 raft.go 448 raft.(*Raft).Start [S4 Follower t:0 vF:-1 c:-1 a:-1]: Client start to append command 10, [RLog c:-1 a:-1 []]
+19:58:51.845796 raft.go 448 raft.(*Raft).Start [S0 Follower t:0 vF:-1 c:-1 a:-1]: Client start to append command 10, [RLog c:-1 a:-1 []]
+19:58:51.889490 raft.go 536 raft.(*Raft).run [S2 Follower t:0 vF:-1 c:-1 a:-1] ElectionTimeout m=+0.209111321
+19:58:51.889673 raft.go 164 raft.(*Raft).startElection [S2 Candidate t:1 vF:2 c:-1 a:-1] is starting an election
+19:58:51.890202 raft.go 169 raft.(*Raft).startElection [S2 Candidate t:1 vF:2 c:-1 a:-1] votes to itself, votes:1
+19:58:51.890675 raft.go 195 raft.(*Raft).startRequestVote [S2 Candidate t:1 vF:2 c:-1 a:-1] is sending an RequestVote to 0
+19:58:51.890894 raft.go 195 raft.(*Raft).startRequestVote [S2 Candidate t:1 vF:2 c:-1 a:-1] is sending an RequestVote to 1
+19:58:51.891104 raft.go 195 raft.(*Raft).startRequestVote [S2 Candidate t:1 vF:2 c:-1 a:-1] is sending an RequestVote to 3
+19:58:51.891296 raft.go 195 raft.(*Raft).startRequestVote [S2 Candidate t:1 vF:2 c:-1 a:-1] is sending an RequestVote to 4
+19:58:51.893238 raft.go 246 raft.(*Raft).HandleRequestVote [S0 Follower t:0 vF:-1 c:-1 a:-1] received RequestVote RPC from 2 at term 1, LastLogIndex:-1, LastLogTerm:-1
+19:58:51.893433 raft.go 265 raft.(*Raft).HandleRequestVote [S0 Follower t:1 vF:2 c:-1 a:-1] HandleRequestVote has voted to 2
+19:58:51.893525 raft.go 246 raft.(*Raft).HandleRequestVote [S4 Follower t:0 vF:-1 c:-1 a:-1] received RequestVote RPC from 2 at term 1, LastLogIndex:-1, LastLogTerm:-1
+19:58:51.893778 raft.go 246 raft.(*Raft).HandleRequestVote [S3 Follower t:0 vF:-1 c:-1 a:-1] received RequestVote RPC from 2 at term 1, LastLogIndex:-1, LastLogTerm:-1
+19:58:51.893806 raft.go 265 raft.(*Raft).HandleRequestVote [S4 Follower t:1 vF:2 c:-1 a:-1] HandleRequestVote has voted to 2
+19:58:51.893990 raft.go 265 raft.(*Raft).HandleRequestVote [S3 Follower t:1 vF:2 c:-1 a:-1] HandleRequestVote has voted to 2
+19:58:51.894071 raft.go 246 raft.(*Raft).HandleRequestVote [S1 Follower t:0 vF:-1 c:-1 a:-1] received RequestVote RPC from 2 at term 1, LastLogIndex:-1, LastLogTerm:-1
+19:58:51.894174 raft.go 206 raft.(*Raft).startRequestVote [S2 Candidate t:1 vF:2 c:-1 a:-1] sendRequestVote to 0 succ
+19:58:51.894278 raft.go 179 raft.(*Raft).startElection.func1 [S2 Candidate t:1 vF:2 c:-1 a:-1] got vote from 0, votes:2
+19:58:51.894327 raft.go 265 raft.(*Raft).HandleRequestVote [S1 Follower t:1 vF:2 c:-1 a:-1] HandleRequestVote has voted to 2
+19:58:51.894600 raft.go 206 raft.(*Raft).startRequestVote [S2 Candidate t:1 vF:2 c:-1 a:-1] sendRequestVote to 3 succ
+19:58:51.894699 raft.go 179 raft.(*Raft).startElection.func1 [S2 Candidate t:1 vF:2 c:-1 a:-1] got vote from 3, votes:3
+19:58:51.894861 raft.go 188 raft.(*Raft).startElection.func1 [S2 Leader t:1 vF:2 c:-1 a:-1 m:[-1 -1 -1 -1 -1] n:[0 0 0 0 0]] WON the election, votes:3, peers:5
+19:58:51.895031 raft.go 206 raft.(*Raft).startRequestVote [S2 Leader t:1 vF:2 c:-1 a:-1 m:[-1 -1 -1 -1 -1] n:[0 0 0 0 0]] sendRequestVote to 4 succ
+19:58:51.895229 raft.go 179 raft.(*Raft).startElection.func1 [S2 Leader t:1 vF:2 c:-1 a:-1 m:[-1 -1 -1 -1 -1] n:[0 0 0 0 0]] got vote from 4, votes:4
+19:58:51.895391 raft.go 206 raft.(*Raft).startRequestVote [S2 Leader t:1 vF:2 c:-1 a:-1 m:[-1 -1 -1 -1 -1] n:[0 0 0 0 0]] sendRequestVote to 1 succ
+19:58:51.895520 raft.go 179 raft.(*Raft).startElection.func1 [S2 Leader t:1 vF:2 c:-1 a:-1 m:[-1 -1 -1 -1 -1] n:[0 0 0 0 0]] got vote from 1, votes:5
+19:58:51.896627 raft.go 448 raft.(*Raft).Start [S1 Follower t:1 vF:2 c:-1 a:-1]: Client start to append command 10, [RLog c:-1 a:-1 []]
+19:58:51.896873 raft.go 448 raft.(*Raft).Start [S2 Leader t:1 vF:2 c:-1 a:-1 m:[-1 -1 -1 -1 -1] n:[0 0 0 0 0]]: Client start to append command 10, [RLog c:-1 a:-1 []]
+19:58:51.897013 raftLog.go 30 raft.(*RaftLog).AppendEntries {0 1 10} [{0 1 10}]
+19:58:51.988404 raft.go 526 raft.(*Raft).run [S2 Leader t:1 vF:2 c:-1 a:-1 m:[-1 -1 0 -1 -1] n:[0 0 1 0 0]] sending heartbeat msg
+19:58:51.988580 raft.go 302 raft.(*Raft).startLogReplication [S2 Leader t:1 vF:2 c:-1 a:-1 m:[-1 -1 0 -1 -1] n:[0 0 1 0 0]] startLogReplication
+19:58:51.989626 raft.go 336 raft.(*Raft).startAppendEntries [S2 Leader t:1 vF:2 c:-1 a:-1 m:[-1 -1 0 -1 -1] n:[0 0 1 0 0]] sendAppendEntries to 4, [arg S2 term:1 preLogIdx:-1 preLogT:-1 [{0 1 10}] LComit:-1]
+19:58:51.989943 raft.go 336 raft.(*Raft).startAppendEntries [S2 Leader t:1 vF:2 c:-1 a:-1 m:[-1 -1 0 -1 -1] n:[0 0 1 0 0]] sendAppendEntries to 0, [arg S2 term:1 preLogIdx:-1 preLogT:-1 [{0 1 10}] LComit:-1]
+19:58:51.990359 raft.go 336 raft.(*Raft).startAppendEntries [S2 Leader t:1 vF:2 c:-1 a:-1 m:[-1 -1 0 -1 -1] n:[0 0 1 0 0]] sendAppendEntries to 1, [arg S2 term:1 preLogIdx:-1 preLogT:-1 [{0 1 10}] LComit:-1]
+19:58:51.990646 raft.go 336 raft.(*Raft).startAppendEntries [S2 Leader t:1 vF:2 c:-1 a:-1 m:[-1 -1 0 -1 -1] n:[0 0 1 0 0]] sendAppendEntries to 3, [arg S2 term:1 preLogIdx:-1 preLogT:-1 [{0 1 10}] LComit:-1]
+19:58:51.991676 raft.go 388 raft.(*Raft).HandleAppendEntries [S0 Follower t:1 vF:2 c:-1 a:-1] received AppendEntries [arg S2 term:1 preLogIdx:-1 preLogT:-1 [{0 1 10}] LComit:-1]
+19:58:51.991836 raft.go 402 raft.(*Raft).HandleAppendEntries [S0 Follower t:1 vF:-1 c:-1 a:-1] reset electionTimeout
+19:58:51.991924 raftLog.go 70 raft.(*RaftLog).TruncateAppend [] preLgIdx:-1 [{0 1 10}]
+19:58:51.991988 raftLog.go 73 raft.(*RaftLog).TruncateAppend [{0 1 10}]
+19:58:51.992089 raft.go 421 raft.(*Raft).HandleAppendEntries [S0 Follower t:1 vF:-1 c:-1 a:-1] [RLog c:-1 a:-1 [{0 1 10}]]
+19:58:51.992095 raft.go 388 raft.(*Raft).HandleAppendEntries [S3 Follower t:1 vF:2 c:-1 a:-1] received AppendEntries [arg S2 term:1 preLogIdx:-1 preLogT:-1 [{0 1 10}] LComit:-1]
+19:58:51.992091 raft.go 388 raft.(*Raft).HandleAppendEntries [S4 Follower t:1 vF:2 c:-1 a:-1] received AppendEntries [arg S2 term:1 preLogIdx:-1 preLogT:-1 [{0 1 10}] LComit:-1]
+19:58:51.992342 raft.go 402 raft.(*Raft).HandleAppendEntries [S3 Follower t:1 vF:-1 c:-1 a:-1] reset electionTimeout
+19:58:51.992358 raft.go 388 raft.(*Raft).HandleAppendEntries [S1 Follower t:1 vF:2 c:-1 a:-1] received AppendEntries [arg S2 term:1 preLogIdx:-1 preLogT:-1 [{0 1 10}] LComit:-1]
+19:58:51.992432 raftLog.go 70 raft.(*RaftLog).TruncateAppend [] preLgIdx:-1 [{0 1 10}]
+19:58:51.992458 raft.go 402 raft.(*Raft).HandleAppendEntries [S4 Follower t:1 vF:-1 c:-1 a:-1] reset electionTimeout
+19:58:51.992505 raftLog.go 73 raft.(*RaftLog).TruncateAppend [{0 1 10}]
+19:58:51.992589 raftLog.go 70 raft.(*RaftLog).TruncateAppend [] preLgIdx:-1 [{0 1 10}]
+19:58:51.992613 raft.go 421 raft.(*Raft).HandleAppendEntries [S3 Follower t:1 vF:-1 c:-1 a:-1] [RLog c:-1 a:-1 [{0 1 10}]]
+19:58:51.992685 raftLog.go 73 raft.(*RaftLog).TruncateAppend [{0 1 10}]
+19:58:51.992608 raft.go 402 raft.(*Raft).HandleAppendEntries [S1 Follower t:1 vF:-1 c:-1 a:-1] reset electionTimeout
+19:58:51.992803 raft.go 421 raft.(*Raft).HandleAppendEntries [S4 Follower t:1 vF:-1 c:-1 a:-1] [RLog c:-1 a:-1 [{0 1 10}]]
+19:58:51.992869 raftLog.go 70 raft.(*RaftLog).TruncateAppend [] preLgIdx:-1 [{0 1 10}]
+19:58:51.992950 raftLog.go 73 raft.(*RaftLog).TruncateAppend [{0 1 10}]
+19:58:51.993061 raft.go 373 raft.(*Raft).startAppendEntries [S2 Leader t:1 vF:2 c:-1 a:-1 m:[0 -1 0 -1 -1] n:[1 0 1 0 0]] sendAppendEntries to 0 succ, [arg S2 term:1 preLogIdx:-1 preLogT:-1 [{0 1 10}] LComit:-1] [rply term:1 succ:true]
+19:58:51.993076 raft.go 421 raft.(*Raft).HandleAppendEntries [S1 Follower t:1 vF:-1 c:-1 a:-1] [RLog c:-1 a:-1 [{0 1 10}]]
+19:58:51.993413 raft.go 367 raft.(*Raft).startAppendEntries SetCommitIndex [S2 Leader t:1 vF:2 c:0 a:-1 m:[0 -1 0 0 -1] n:[1 0 1 1 0]] [RLog c:0 a:-1 [{0 1 10}]]
+19:58:51.993597 raft.go 373 raft.(*Raft).startAppendEntries [S2 Leader t:1 vF:2 c:0 a:-1 m:[0 -1 0 0 -1] n:[1 0 1 1 0]] sendAppendEntries to 3 succ, [arg S2 term:1 preLogIdx:-1 preLogT:-1 [{0 1 10}] LComit:-1] [rply term:1 succ:true]
+19:58:51.993799 raft.go 373 raft.(*Raft).startAppendEntries [S2 Leader t:1 vF:2 c:0 a:-1 m:[0 -1 0 0 0] n:[1 0 1 1 1]] sendAppendEntries to 4 succ, [arg S2 term:1 preLogIdx:-1 preLogT:-1 [{0 1 10}] LComit:-1] [rply term:1 succ:true]
+19:58:51.993977 raft.go 373 raft.(*Raft).startAppendEntries [S2 Leader t:1 vF:2 c:0 a:-1 m:[0 0 0 0 0] n:[1 1 1 1 1]] sendAppendEntries to 1 succ, [arg S2 term:1 preLogIdx:-1 preLogT:-1 [{0 1 10}] LComit:-1] [rply term:1 succ:true]
+19:58:52.088491 raft.go 526 raft.(*Raft).run [S2 Leader t:1 vF:2 c:0 a:-1 m:[0 0 0 0 0] n:[1 1 1 1 1]] sending heartbeat msg
+19:58:52.088642 raft.go 302 raft.(*Raft).startLogReplication [S2 Leader t:1 vF:2 c:0 a:-1 m:[0 0 0 0 0] n:[1 1 1 1 1]] startLogReplication
+19:58:52.089460 raft.go 336 raft.(*Raft).startAppendEntries [S2 Leader t:1 vF:2 c:0 a:-1 m:[0 0 0 0 0] n:[1 1 1 1 1]] sendAppendEntries to 4, [arg S2 term:1 preLogIdx:0 preLogT:1 [] LComit:0]
+19:58:52.089636 raft.go 558 raft.(*Raft).applyClient lastApplied:-1, commitIndex:0
+19:58:52.089930 raft.go 566 raft.(*Raft).applyClient [S2 Leader t:1 vF:2 c:0 a:0 m:[0 0 0 0 0] n:[1 1 1 1 1]] [RLog c:0 a:0 [{0 1 10}]] applyMsg:{true 10 1}
+19:58:52.090184 raft.go 336 raft.(*Raft).startAppendEntries [S2 Leader t:1 vF:2 c:0 a:0 m:[0 0 0 0 0] n:[1 1 1 1 1]] sendAppendEntries to 3, [arg S2 term:1 preLogIdx:0 preLogT:1 [] LComit:0]
+19:58:52.090610 raft.go 336 raft.(*Raft).startAppendEntries [S2 Leader t:1 vF:2 c:0 a:0 m:[0 0 0 0 0] n:[1 1 1 1 1]] sendAppendEntries to 0, [arg S2 term:1 preLogIdx:0 preLogT:1 [] LComit:0]
+19:58:52.090970 raft.go 388 raft.(*Raft).HandleAppendEntries [S4 Follower t:1 vF:-1 c:-1 a:-1] received AppendEntries [arg S2 term:1 preLogIdx:0 preLogT:1 [] LComit:0]
+19:58:52.091045 raft.go 336 raft.(*Raft).startAppendEntries [S2 Leader t:1 vF:2 c:0 a:0 m:[0 0 0 0 0] n:[1 1 1 1 1]] sendAppendEntries to 1, [arg S2 term:1 preLogIdx:0 preLogT:1 [] LComit:0]
+19:58:52.091171 raft.go 400 raft.(*Raft).HandleAppendEntries [S4 Follower t:1 vF:-1 c:-1 a:-1] reset electionTimeout
+19:58:52.091273 raftLog.go 70 raft.(*RaftLog).TruncateAppend [{0 1 10}] preLgIdx:0 []
+19:58:52.091349 raftLog.go 90 raft.(*RaftLog).TruncateAppend [{0 1 10}] 
+19:58:52.091489 raft.go 421 raft.(*Raft).HandleAppendEntries [S4 Follower t:1 vF:-1 c:0 a:-1] [RLog c:0 a:-1 [{0 1 10}]]
+19:58:52.092166 raft.go 388 raft.(*Raft).HandleAppendEntries [S0 Follower t:1 vF:-1 c:-1 a:-1] received AppendEntries [arg S2 term:1 preLogIdx:0 preLogT:1 [] LComit:0]
+19:58:52.092253 raft.go 388 raft.(*Raft).HandleAppendEntries [S3 Follower t:1 vF:-1 c:-1 a:-1] received AppendEntries [arg S2 term:1 preLogIdx:0 preLogT:1 [] LComit:0]
+19:58:52.092389 raft.go 371 raft.(*Raft).startAppendEntries [S2 Leader t:1 vF:2 c:0 a:0 m:[0 0 0 0 0] n:[1 1 1 1 1]] sendAppendEntries to 4 succ
+19:58:52.092461 raft.go 400 raft.(*Raft).HandleAppendEntries [S0 Follower t:1 vF:-1 c:-1 a:-1] reset electionTimeout
+19:58:52.092567 raftLog.go 70 raft.(*RaftLog).TruncateAppend [{0 1 10}] preLgIdx:0 []
+19:58:52.092567 raft.go 400 raft.(*Raft).HandleAppendEntries [S3 Follower t:1 vF:-1 c:-1 a:-1] reset electionTimeout
+19:58:52.092648 raftLog.go 90 raft.(*RaftLog).TruncateAppend [{0 1 10}] 
+19:58:52.092800 raftLog.go 70 raft.(*RaftLog).TruncateAppend [{0 1 10}] preLgIdx:0 []
+19:58:52.092898 raft.go 421 raft.(*Raft).HandleAppendEntries [S0 Follower t:1 vF:-1 c:0 a:-1] [RLog c:0 a:-1 [{0 1 10}]]
+19:58:52.092961 raftLog.go 90 raft.(*RaftLog).TruncateAppend [{0 1 10}] 
+19:58:52.093196 raft.go 421 raft.(*Raft).HandleAppendEntries [S3 Follower t:1 vF:-1 c:0 a:-1] [RLog c:0 a:-1 [{0 1 10}]]
+19:58:52.093336 raft.go 388 raft.(*Raft).HandleAppendEntries [S1 Follower t:1 vF:-1 c:-1 a:-1] received AppendEntries [arg S2 term:1 preLogIdx:0 preLogT:1 [] LComit:0]
+19:58:52.093634 raft.go 400 raft.(*Raft).HandleAppendEntries [S1 Follower t:1 vF:-1 c:-1 a:-1] reset electionTimeout
+19:58:52.093792 raftLog.go 70 raft.(*RaftLog).TruncateAppend [{0 1 10}] preLgIdx:0 []
+19:58:52.093811 raft.go 371 raft.(*Raft).startAppendEntries [S2 Leader t:1 vF:2 c:0 a:0 m:[0 0 0 0 0] n:[1 1 1 1 1]] sendAppendEntries to 0 succ
+19:58:52.093928 raftLog.go 90 raft.(*RaftLog).TruncateAppend [{0 1 10}] 
+19:58:52.094159 raft.go 421 raft.(*Raft).HandleAppendEntries [S1 Follower t:1 vF:-1 c:0 a:-1] [RLog c:0 a:-1 [{0 1 10}]]
+19:58:52.094497 raft.go 371 raft.(*Raft).startAppendEntries [S2 Leader t:1 vF:2 c:0 a:0 m:[0 0 0 0 0] n:[1 1 1 1 1]] sendAppendEntries to 3 succ
+19:58:52.095132 raft.go 371 raft.(*Raft).startAppendEntries [S2 Leader t:1 vF:2 c:0 a:0 m:[0 0 0 0 0] n:[1 1 1 1 1]] sendAppendEntries to 1 succ
+19:58:52.186361 raft.go 558 raft.(*Raft).applyClient lastApplied:-1, commitIndex:0
+19:58:52.186913 raft.go 566 raft.(*Raft).applyClient [S0 Follower t:1 vF:-1 c:0 a:0] [RLog c:0 a:0 [{0 1 10}]] applyMsg:{true 10 1}
+19:58:52.187168 raft.go 558 raft.(*Raft).applyClient lastApplied:-1, commitIndex:0
+19:58:52.187709 raft.go 566 raft.(*Raft).applyClient [S1 Follower t:1 vF:-1 c:0 a:0] [RLog c:0 a:0 [{0 1 10}]] applyMsg:{true 10 1}
+19:58:52.188058 raft.go 526 raft.(*Raft).run [S2 Leader t:1 vF:2 c:0 a:0 m:[0 0 0 0 0] n:[1 1 1 1 1]] sending heartbeat msg
+19:58:52.188322 raft.go 302 raft.(*Raft).startLogReplication [S2 Leader t:1 vF:2 c:0 a:0 m:[0 0 0 0 0] n:[1 1 1 1 1]] startLogReplication
+19:58:52.188841 raft.go 558 raft.(*Raft).applyClient lastApplied:-1, commitIndex:0
+19:58:52.189310 raft.go 566 raft.(*Raft).applyClient [S3 Follower t:1 vF:-1 c:0 a:0] [RLog c:0 a:0 [{0 1 10}]] applyMsg:{true 10 1}
+19:58:52.189744 raft.go 558 raft.(*Raft).applyClient lastApplied:-1, commitIndex:0
+19:58:52.190054 raft.go 336 raft.(*Raft).startAppendEntries [S2 Leader t:1 vF:2 c:0 a:0 m:[0 0 0 0 0] n:[1 1 1 1 1]] sendAppendEntries to 0, [arg S2 term:1 preLogIdx:0 preLogT:1 [] LComit:0]
+19:58:52.190323 raft.go 566 raft.(*Raft).applyClient [S4 Follower t:1 vF:-1 c:0 a:0] [RLog c:0 a:0 [{0 1 10}]] applyMsg:{true 10 1}
+19:58:52.190724 raft.go 336 raft.(*Raft).startAppendEntries [S2 Leader t:1 vF:2 c:0 a:0 m:[0 0 0 0 0] n:[1 1 1 1 1]] sendAppendEntries to 1, [arg S2 term:1 preLogIdx:0 preLogT:1 [] LComit:0]
+19:58:52.191435 raft.go 336 raft.(*Raft).startAppendEntries [S2 Leader t:1 vF:2 c:0 a:0 m:[0 0 0 0 0] n:[1 1 1 1 1]] sendAppendEntries to 3, [arg S2 term:1 preLogIdx:0 preLogT:1 [] LComit:0]
+19:58:52.192147 raft.go 336 raft.(*Raft).startAppendEntries [S2 Leader t:1 vF:2 c:0 a:0 m:[0 0 0 0 0] n:[1 1 1 1 1]] sendAppendEntries to 4, [arg S2 term:1 preLogIdx:0 preLogT:1 [] LComit:0]
+19:58:52.194172 raft.go 388 raft.(*Raft).HandleAppendEntries [S0 Follower t:1 vF:-1 c:0 a:0] received AppendEntries [arg S2 term:1 preLogIdx:0 preLogT:1 [] LComit:0]
+19:58:52.194641 raft.go 388 raft.(*Raft).HandleAppendEntries [S1 Follower t:1 vF:-1 c:0 a:0] received AppendEntries [arg S2 term:1 preLogIdx:0 preLogT:1 [] LComit:0]
+19:58:52.194714 raft.go 400 raft.(*Raft).HandleAppendEntries [S0 Follower t:1 vF:-1 c:0 a:0] reset electionTimeout
+19:58:52.195087 raftLog.go 70 raft.(*RaftLog).TruncateAppend [{0 1 10}] preLgIdx:0 []
+19:58:52.195372 raftLog.go 90 raft.(*RaftLog).TruncateAppend [{0 1 10}] 
+19:58:52.195461 raft.go 400 raft.(*Raft).HandleAppendEntries [S1 Follower t:1 vF:-1 c:0 a:0] reset electionTimeout
+19:58:52.195549 raft.go 388 raft.(*Raft).HandleAppendEntries [S3 Follower t:1 vF:-1 c:0 a:0] received AppendEntries [arg S2 term:1 preLogIdx:0 preLogT:1 [] LComit:0]
+19:58:52.195685 raftLog.go 70 raft.(*RaftLog).TruncateAppend [{0 1 10}] preLgIdx:0 []
+19:58:52.195769 raft.go 421 raft.(*Raft).HandleAppendEntries [S0 Follower t:1 vF:-1 c:0 a:0] [RLog c:0 a:0 [{0 1 10}]]
+19:58:52.195831 raftLog.go 90 raft.(*RaftLog).TruncateAppend [{0 1 10}] 
+19:58:52.195973 raft.go 400 raft.(*Raft).HandleAppendEntries [S3 Follower t:1 vF:-1 c:0 a:0] reset electionTimeout
+19:58:52.196115 raft.go 421 raft.(*Raft).HandleAppendEntries [S1 Follower t:1 vF:-1 c:0 a:0] [RLog c:0 a:0 [{0 1 10}]]
+19:58:52.196187 raftLog.go 70 raft.(*RaftLog).TruncateAppend [{0 1 10}] preLgIdx:0 []
+19:58:52.196372 raftLog.go 90 raft.(*RaftLog).TruncateAppend [{0 1 10}] 
+19:58:52.196637 raft.go 421 raft.(*Raft).HandleAppendEntries [S3 Follower t:1 vF:-1 c:0 a:0] [RLog c:0 a:0 [{0 1 10}]]
+19:58:52.196728 raft.go 388 raft.(*Raft).HandleAppendEntries [S4 Follower t:1 vF:-1 c:0 a:0] received AppendEntries [arg S2 term:1 preLogIdx:0 preLogT:1 [] LComit:0]
+19:58:52.197262 raft.go 400 raft.(*Raft).HandleAppendEntries [S4 Follower t:1 vF:-1 c:0 a:0] reset electionTimeout
+19:58:52.197516 raftLog.go 70 raft.(*RaftLog).TruncateAppend [{0 1 10}] preLgIdx:0 []
+19:58:52.197715 raftLog.go 90 raft.(*RaftLog).TruncateAppend [{0 1 10}] 
+19:58:52.197758 raft.go 371 raft.(*Raft).startAppendEntries [S2 Leader t:1 vF:2 c:0 a:0 m:[0 0 0 0 0] n:[1 1 1 1 1]] sendAppendEntries to 1 succ
+19:58:52.198061 raft.go 421 raft.(*Raft).HandleAppendEntries [S4 Follower t:1 vF:-1 c:0 a:0] [RLog c:0 a:0 [{0 1 10}]]
+19:58:52.198219 raft.go 371 raft.(*Raft).startAppendEntries [S2 Leader t:1 vF:2 c:0 a:0 m:[0 0 0 0 0] n:[1 1 1 1 1]] sendAppendEntries to 0 succ
+19:58:52.198558 raft.go 371 raft.(*Raft).startAppendEntries [S2 Leader t:1 vF:2 c:0 a:0 m:[0 0 0 0 0] n:[1 1 1 1 1]] sendAppendEntries to 3 succ
+19:58:52.199997 raft.go 371 raft.(*Raft).startAppendEntries [S2 Leader t:1 vF:2 c:0 a:0 m:[0 0 0 0 0] n:[1 1 1 1 1]] sendAppendEntries to 4 succ
+19:58:52.202980 ********************************************************
+19:58:52.203131 3 of 5 followers disconnect
+19:58:52.288964 raft.go 526 raft.(*Raft).run [S2 Leader t:1 vF:2 c:0 a:0 m:[0 0 0 0 0] n:[1 1 1 1 1]] sending heartbeat msg
+19:58:52.289168 raft.go 302 raft.(*Raft).startLogReplication [S2 Leader t:1 vF:2 c:0 a:0 m:[0 0 0 0 0] n:[1 1 1 1 1]] startLogReplication
+19:58:52.290103 raft.go 336 raft.(*Raft).startAppendEntries [S2 Leader t:1 vF:2 c:0 a:0 m:[0 0 0 0 0] n:[1 1 1 1 1]] sendAppendEntries to 0, [arg S2 term:1 preLogIdx:0 preLogT:1 [] LComit:0]
+19:58:52.290539 raft.go 336 raft.(*Raft).startAppendEntries [S2 Leader t:1 vF:2 c:0 a:0 m:[0 0 0 0 0] n:[1 1 1 1 1]] sendAppendEntries to 1, [arg S2 term:1 preLogIdx:0 preLogT:1 [] LComit:0]
+19:58:52.290978 raft.go 336 raft.(*Raft).startAppendEntries [S2 Leader t:1 vF:2 c:0 a:0 m:[0 0 0 0 0] n:[1 1 1 1 1]] sendAppendEntries to 3, [arg S2 term:1 preLogIdx:0 preLogT:1 [] LComit:0]
+19:58:52.291445 raft.go 336 raft.(*Raft).startAppendEntries [S2 Leader t:1 vF:2 c:0 a:0 m:[0 0 0 0 0] n:[1 1 1 1 1]] sendAppendEntries to 4, [arg S2 term:1 preLogIdx:0 preLogT:1 [] LComit:0]
+19:58:52.291836 raft.go 388 raft.(*Raft).HandleAppendEntries [S0 Follower t:1 vF:-1 c:0 a:0] received AppendEntries [arg S2 term:1 preLogIdx:0 preLogT:1 [] LComit:0]
+19:58:52.292095 raft.go 400 raft.(*Raft).HandleAppendEntries [S0 Follower t:1 vF:-1 c:0 a:0] reset electionTimeout
+19:58:52.292246 raftLog.go 70 raft.(*RaftLog).TruncateAppend [{0 1 10}] preLgIdx:0 []
+19:58:52.292344 raftLog.go 90 raft.(*RaftLog).TruncateAppend [{0 1 10}] 
+19:58:52.292409 raft.go 388 raft.(*Raft).HandleAppendEntries [S1 Follower t:1 vF:-1 c:0 a:0] received AppendEntries [arg S2 term:1 preLogIdx:0 preLogT:1 [] LComit:0]
+19:58:52.292514 raft.go 421 raft.(*Raft).HandleAppendEntries [S0 Follower t:1 vF:-1 c:0 a:0] [RLog c:0 a:0 [{0 1 10}]]
+19:58:52.292682 raft.go 400 raft.(*Raft).HandleAppendEntries [S1 Follower t:1 vF:-1 c:0 a:0] reset electionTimeout
+19:58:52.292817 raftLog.go 70 raft.(*RaftLog).TruncateAppend [{0 1 10}] preLgIdx:0 []
+19:58:52.292956 raftLog.go 90 raft.(*RaftLog).TruncateAppend [{0 1 10}] 
+19:58:52.293008 raft.go 388 raft.(*Raft).HandleAppendEntries [S3 Follower t:1 vF:-1 c:0 a:0] received AppendEntries [arg S2 term:1 preLogIdx:0 preLogT:1 [] LComit:0]
+19:58:52.293142 raft.go 421 raft.(*Raft).HandleAppendEntries [S1 Follower t:1 vF:-1 c:0 a:0] [RLog c:0 a:0 [{0 1 10}]]
+19:58:52.293279 raft.go 400 raft.(*Raft).HandleAppendEntries [S3 Follower t:1 vF:-1 c:0 a:0] reset electionTimeout
+19:58:52.293437 raftLog.go 70 raft.(*RaftLog).TruncateAppend [{0 1 10}] preLgIdx:0 []
+19:58:52.293542 raftLog.go 90 raft.(*RaftLog).TruncateAppend [{0 1 10}] 
+19:58:52.293583 raft.go 388 raft.(*Raft).HandleAppendEntries [S4 Follower t:1 vF:-1 c:0 a:0] received AppendEntries [arg S2 term:1 preLogIdx:0 preLogT:1 [] LComit:0]
+19:58:52.293673 raft.go 371 raft.(*Raft).startAppendEntries [S2 Leader t:1 vF:2 c:0 a:0 m:[0 0 0 0 0] n:[1 1 1 1 1]] sendAppendEntries to 0 succ
+19:58:52.293725 raft.go 421 raft.(*Raft).HandleAppendEntries [S3 Follower t:1 vF:-1 c:0 a:0] [RLog c:0 a:0 [{0 1 10}]]
+19:58:52.293850 raft.go 400 raft.(*Raft).HandleAppendEntries [S4 Follower t:1 vF:-1 c:0 a:0] reset electionTimeout
+19:58:52.293991 raftLog.go 70 raft.(*RaftLog).TruncateAppend [{0 1 10}] preLgIdx:0 []
+19:58:52.294109 raftLog.go 90 raft.(*RaftLog).TruncateAppend [{0 1 10}] 
+19:58:52.294248 raft.go 371 raft.(*Raft).startAppendEntries [S2 Leader t:1 vF:2 c:0 a:0 m:[0 0 0 0 0] n:[1 1 1 1 1]] sendAppendEntries to 1 succ
+19:58:52.294304 raft.go 421 raft.(*Raft).HandleAppendEntries [S4 Follower t:1 vF:-1 c:0 a:0] [RLog c:0 a:0 [{0 1 10}]]
+19:58:52.294846 raft.go 371 raft.(*Raft).startAppendEntries [S2 Leader t:1 vF:2 c:0 a:0 m:[0 0 0 0 0] n:[1 1 1 1 1]] sendAppendEntries to 3 succ
+19:58:52.295528 raft.go 371 raft.(*Raft).startAppendEntries [S2 Leader t:1 vF:2 c:0 a:0 m:[0 0 0 0 0] n:[1 1 1 1 1]] sendAppendEntries to 4 succ
+19:58:52.388680 raft.go 526 raft.(*Raft).run [S2 Leader t:1 vF:2 c:0 a:0 m:[0 0 0 0 0] n:[1 1 1 1 1]] sending heartbeat msg
+19:58:52.389041 raft.go 302 raft.(*Raft).startLogReplication [S2 Leader t:1 vF:2 c:0 a:0 m:[0 0 0 0 0] n:[1 1 1 1 1]] startLogReplication
+19:58:52.390654 raft.go 336 raft.(*Raft).startAppendEntries [S2 Leader t:1 vF:2 c:0 a:0 m:[0 0 0 0 0] n:[1 1 1 1 1]] sendAppendEntries to 0, [arg S2 term:1 preLogIdx:0 preLogT:1 [] LComit:0]
+19:58:52.391165 raft.go 336 raft.(*Raft).startAppendEntries [S2 Leader t:1 vF:2 c:0 a:0 m:[0 0 0 0 0] n:[1 1 1 1 1]] sendAppendEntries to 1, [arg S2 term:1 preLogIdx:0 preLogT:1 [] LComit:0]
+19:58:52.391902 raft.go 336 raft.(*Raft).startAppendEntries [S2 Leader t:1 vF:2 c:0 a:0 m:[0 0 0 0 0] n:[1 1 1 1 1]] sendAppendEntries to 3, [arg S2 term:1 preLogIdx:0 preLogT:1 [] LComit:0]
+19:58:52.392595 raft.go 336 raft.(*Raft).startAppendEntries [S2 Leader t:1 vF:2 c:0 a:0 m:[0 0 0 0 0] n:[1 1 1 1 1]] sendAppendEntries to 4, [arg S2 term:1 preLogIdx:0 preLogT:1 [] LComit:0]
+19:58:52.394031 raft.go 388 raft.(*Raft).HandleAppendEntries [S1 Follower t:1 vF:-1 c:0 a:0] received AppendEntries [arg S2 term:1 preLogIdx:0 preLogT:1 [] LComit:0]
+19:58:52.394383 raft.go 400 raft.(*Raft).HandleAppendEntries [S1 Follower t:1 vF:-1 c:0 a:0] reset electionTimeout
+19:58:52.394405 raft.go 388 raft.(*Raft).HandleAppendEntries [S0 Follower t:1 vF:-1 c:0 a:0] received AppendEntries [arg S2 term:1 preLogIdx:0 preLogT:1 [] LComit:0]
+19:58:52.394546 raftLog.go 70 raft.(*RaftLog).TruncateAppend [{0 1 10}] preLgIdx:0 []
+19:58:52.394681 raftLog.go 90 raft.(*RaftLog).TruncateAppend [{0 1 10}] 
+19:58:52.394906 raft.go 421 raft.(*Raft).HandleAppendEntries [S1 Follower t:1 vF:-1 c:0 a:0] [RLog c:0 a:0 [{0 1 10}]]
+19:58:52.394979 raft.go 400 raft.(*Raft).HandleAppendEntries [S0 Follower t:1 vF:-1 c:0 a:0] reset electionTimeout
+19:58:52.395147 raft.go 388 raft.(*Raft).HandleAppendEntries [S4 Follower t:1 vF:-1 c:0 a:0] received AppendEntries [arg S2 term:1 preLogIdx:0 preLogT:1 [] LComit:0]
+19:58:52.395250 raftLog.go 70 raft.(*RaftLog).TruncateAppend [{0 1 10}] preLgIdx:0 []
+19:58:52.395493 raft.go 400 raft.(*Raft).HandleAppendEntries [S4 Follower t:1 vF:-1 c:0 a:0] reset electionTimeout
+19:58:52.395681 raftLog.go 70 raft.(*RaftLog).TruncateAppend [{0 1 10}] preLgIdx:0 []
+19:58:52.395704 raft.go 388 raft.(*Raft).HandleAppendEntries [S3 Follower t:1 vF:-1 c:0 a:0] received AppendEntries [arg S2 term:1 preLogIdx:0 preLogT:1 [] LComit:0]
+19:58:52.395825 raftLog.go 90 raft.(*RaftLog).TruncateAppend [{0 1 10}] 
+19:58:52.395501 raftLog.go 90 raft.(*RaftLog).TruncateAppend [{0 1 10}] 
+19:58:52.396077 raft.go 421 raft.(*Raft).HandleAppendEntries [S4 Follower t:1 vF:-1 c:0 a:0] [RLog c:0 a:0 [{0 1 10}]]
+19:58:52.396162 raft.go 400 raft.(*Raft).HandleAppendEntries [S3 Follower t:1 vF:-1 c:0 a:0] reset electionTimeout
+19:58:52.396315 raft.go 371 raft.(*Raft).startAppendEntries [S2 Leader t:1 vF:2 c:0 a:0 m:[0 0 0 0 0] n:[1 1 1 1 1]] sendAppendEntries to 1 succ
+19:58:52.396374 raftLog.go 70 raft.(*RaftLog).TruncateAppend [{0 1 10}] preLgIdx:0 []
+19:58:52.396557 raftLog.go 90 raft.(*RaftLog).TruncateAppend [{0 1 10}] 
+19:58:52.396339 raft.go 421 raft.(*Raft).HandleAppendEntries [S0 Follower t:1 vF:-1 c:0 a:0] [RLog c:0 a:0 [{0 1 10}]]
+19:58:52.396785 raft.go 421 raft.(*Raft).HandleAppendEntries [S3 Follower t:1 vF:-1 c:0 a:0] [RLog c:0 a:0 [{0 1 10}]]
+19:58:52.397601 raft.go 371 raft.(*Raft).startAppendEntries [S2 Leader t:1 vF:2 c:0 a:0 m:[0 0 0 0 0] n:[1 1 1 1 1]] sendAppendEntries to 4 succ
+19:58:52.398336 raft.go 371 raft.(*Raft).startAppendEntries [S2 Leader t:1 vF:2 c:0 a:0 m:[0 0 0 0 0] n:[1 1 1 1 1]] sendAppendEntries to 0 succ
+19:58:52.398727 raft.go 371 raft.(*Raft).startAppendEntries [S2 Leader t:1 vF:2 c:0 a:0 m:[0 0 0 0 0] n:[1 1 1 1 1]] sendAppendEntries to 3 succ
+19:58:52.488432 raft.go 526 raft.(*Raft).run [S2 Leader t:1 vF:2 c:0 a:0 m:[0 0 0 0 0] n:[1 1 1 1 1]] sending heartbeat msg
+19:58:52.488746 raft.go 302 raft.(*Raft).startLogReplication [S2 Leader t:1 vF:2 c:0 a:0 m:[0 0 0 0 0] n:[1 1 1 1 1]] startLogReplication
+19:58:52.490231 raft.go 336 raft.(*Raft).startAppendEntries [S2 Leader t:1 vF:2 c:0 a:0 m:[0 0 0 0 0] n:[1 1 1 1 1]] sendAppendEntries to 4, [arg S2 term:1 preLogIdx:0 preLogT:1 [] LComit:0]
+19:58:52.490968 raft.go 336 raft.(*Raft).startAppendEntries [S2 Leader t:1 vF:2 c:0 a:0 m:[0 0 0 0 0] n:[1 1 1 1 1]] sendAppendEntries to 0, [arg S2 term:1 preLogIdx:0 preLogT:1 [] LComit:0]
+19:58:52.491691 raft.go 336 raft.(*Raft).startAppendEntries [S2 Leader t:1 vF:2 c:0 a:0 m:[0 0 0 0 0] n:[1 1 1 1 1]] sendAppendEntries to 1, [arg S2 term:1 preLogIdx:0 preLogT:1 [] LComit:0]
+19:58:52.492504 raft.go 336 raft.(*Raft).startAppendEntries [S2 Leader t:1 vF:2 c:0 a:0 m:[0 0 0 0 0] n:[1 1 1 1 1]] sendAppendEntries to 3, [arg S2 term:1 preLogIdx:0 preLogT:1 [] LComit:0]
+19:58:52.493240 raft.go 388 raft.(*Raft).HandleAppendEntries [S4 Follower t:1 vF:-1 c:0 a:0] received AppendEntries [arg S2 term:1 preLogIdx:0 preLogT:1 [] LComit:0]
+19:58:52.493580 raft.go 388 raft.(*Raft).HandleAppendEntries [S0 Follower t:1 vF:-1 c:0 a:0] received AppendEntries [arg S2 term:1 preLogIdx:0 preLogT:1 [] LComit:0]
+19:58:52.493764 raft.go 400 raft.(*Raft).HandleAppendEntries [S4 Follower t:1 vF:-1 c:0 a:0] reset electionTimeout
+19:58:52.493956 raft.go 400 raft.(*Raft).HandleAppendEntries [S0 Follower t:1 vF:-1 c:0 a:0] reset electionTimeout
+19:58:52.494055 raftLog.go 70 raft.(*RaftLog).TruncateAppend [{0 1 10}] preLgIdx:0 []
+19:58:52.494148 raftLog.go 70 raft.(*RaftLog).TruncateAppend [{0 1 10}] preLgIdx:0 []
+19:58:52.494272 raftLog.go 90 raft.(*RaftLog).TruncateAppend [{0 1 10}] 
+19:58:52.494325 raftLog.go 90 raft.(*RaftLog).TruncateAppend [{0 1 10}] 
+19:58:52.494716 raft.go 421 raft.(*Raft).HandleAppendEntries [S4 Follower t:1 vF:-1 c:0 a:0] [RLog c:0 a:0 [{0 1 10}]]
+19:58:52.494811 raft.go 388 raft.(*Raft).HandleAppendEntries [S1 Follower t:1 vF:-1 c:0 a:0] received AppendEntries [arg S2 term:1 preLogIdx:0 preLogT:1 [] LComit:0]
+19:58:52.494765 raft.go 421 raft.(*Raft).HandleAppendEntries [S0 Follower t:1 vF:-1 c:0 a:0] [RLog c:0 a:0 [{0 1 10}]]
+19:58:52.495193 raft.go 400 raft.(*Raft).HandleAppendEntries [S1 Follower t:1 vF:-1 c:0 a:0] reset electionTimeout
+19:58:52.495550 raftLog.go 70 raft.(*RaftLog).TruncateAppend [{0 1 10}] preLgIdx:0 []
+19:58:52.495732 raftLog.go 90 raft.(*RaftLog).TruncateAppend [{0 1 10}] 
+19:58:52.496048 raft.go 421 raft.(*Raft).HandleAppendEntries [S1 Follower t:1 vF:-1 c:0 a:0] [RLog c:0 a:0 [{0 1 10}]]
+19:58:52.496606 raft.go 388 raft.(*Raft).HandleAppendEntries [S3 Follower t:1 vF:-1 c:0 a:0] received AppendEntries [arg S2 term:1 preLogIdx:0 preLogT:1 [] LComit:0]
+19:58:52.497062 raft.go 371 raft.(*Raft).startAppendEntries [S2 Leader t:1 vF:2 c:0 a:0 m:[0 0 0 0 0] n:[1 1 1 1 1]] sendAppendEntries to 0 succ
+19:58:52.497078 raft.go 400 raft.(*Raft).HandleAppendEntries [S3 Follower t:1 vF:-1 c:0 a:0] reset electionTimeout
+19:58:52.497503 raft.go 371 raft.(*Raft).startAppendEntries [S2 Leader t:1 vF:2 c:0 a:0 m:[0 0 0 0 0] n:[1 1 1 1 1]] sendAppendEntries to 4 succ
+19:58:52.497537 raftLog.go 70 raft.(*RaftLog).TruncateAppend [{0 1 10}] preLgIdx:0 []
+19:58:52.497748 raftLog.go 90 raft.(*RaftLog).TruncateAppend [{0 1 10}] 
+19:58:52.497960 raft.go 371 raft.(*Raft).startAppendEntries [S2 Leader t:1 vF:2 c:0 a:0 m:[0 0 0 0 0] n:[1 1 1 1 1]] sendAppendEntries to 1 succ
+19:58:52.497989 raft.go 421 raft.(*Raft).HandleAppendEntries [S3 Follower t:1 vF:-1 c:0 a:0] [RLog c:0 a:0 [{0 1 10}]]
+19:58:52.499608 raft.go 371 raft.(*Raft).startAppendEntries [S2 Leader t:1 vF:2 c:0 a:0 m:[0 0 0 0 0] n:[1 1 1 1 1]] sendAppendEntries to 3 succ
+19:58:52.588434 raft.go 526 raft.(*Raft).run [S2 Leader t:1 vF:2 c:0 a:0 m:[0 0 0 0 0] n:[1 1 1 1 1]] sending heartbeat msg
+19:58:52.588624 raft.go 302 raft.(*Raft).startLogReplication [S2 Leader t:1 vF:2 c:0 a:0 m:[0 0 0 0 0] n:[1 1 1 1 1]] startLogReplication
+19:58:52.589561 raft.go 336 raft.(*Raft).startAppendEntries [S2 Leader t:1 vF:2 c:0 a:0 m:[0 0 0 0 0] n:[1 1 1 1 1]] sendAppendEntries to 4, [arg S2 term:1 preLogIdx:0 preLogT:1 [] LComit:0]
+19:58:52.590090 raft.go 336 raft.(*Raft).startAppendEntries [S2 Leader t:1 vF:2 c:0 a:0 m:[0 0 0 0 0] n:[1 1 1 1 1]] sendAppendEntries to 0, [arg S2 term:1 preLogIdx:0 preLogT:1 [] LComit:0]
+19:58:52.590604 raft.go 336 raft.(*Raft).startAppendEntries [S2 Leader t:1 vF:2 c:0 a:0 m:[0 0 0 0 0] n:[1 1 1 1 1]] sendAppendEntries to 1, [arg S2 term:1 preLogIdx:0 preLogT:1 [] LComit:0]
+19:58:52.590966 raft.go 336 raft.(*Raft).startAppendEntries [S2 Leader t:1 vF:2 c:0 a:0 m:[0 0 0 0 0] n:[1 1 1 1 1]] sendAppendEntries to 3, [arg S2 term:1 preLogIdx:0 preLogT:1 [] LComit:0]
+19:58:52.591113 raft.go 388 raft.(*Raft).HandleAppendEntries [S4 Follower t:1 vF:-1 c:0 a:0] received AppendEntries [arg S2 term:1 preLogIdx:0 preLogT:1 [] LComit:0]
+19:58:52.591345 raft.go 400 raft.(*Raft).HandleAppendEntries [S4 Follower t:1 vF:-1 c:0 a:0] reset electionTimeout
+19:58:52.591451 raftLog.go 70 raft.(*RaftLog).TruncateAppend [{0 1 10}] preLgIdx:0 []
+19:58:52.591538 raftLog.go 90 raft.(*RaftLog).TruncateAppend [{0 1 10}] 
+19:58:52.591682 raft.go 421 raft.(*Raft).HandleAppendEntries [S4 Follower t:1 vF:-1 c:0 a:0] [RLog c:0 a:0 [{0 1 10}]]
+19:58:52.592450 raft.go 388 raft.(*Raft).HandleAppendEntries [S0 Follower t:1 vF:-1 c:0 a:0] received AppendEntries [arg S2 term:1 preLogIdx:0 preLogT:1 [] LComit:0]
+19:58:52.592790 raft.go 400 raft.(*Raft).HandleAppendEntries [S0 Follower t:1 vF:-1 c:0 a:0] reset electionTimeout
+19:58:52.592807 raft.go 371 raft.(*Raft).startAppendEntries [S2 Leader t:1 vF:2 c:0 a:0 m:[0 0 0 0 0] n:[1 1 1 1 1]] sendAppendEntries to 4 succ
+19:58:52.592939 raft.go 388 raft.(*Raft).HandleAppendEntries [S3 Follower t:1 vF:-1 c:0 a:0] received AppendEntries [arg S2 term:1 preLogIdx:0 preLogT:1 [] LComit:0]
+19:58:52.592948 raft.go 388 raft.(*Raft).HandleAppendEntries [S1 Follower t:1 vF:-1 c:0 a:0] received AppendEntries [arg S2 term:1 preLogIdx:0 preLogT:1 [] LComit:0]
+19:58:52.592984 raftLog.go 70 raft.(*RaftLog).TruncateAppend [{0 1 10}] preLgIdx:0 []
+19:58:52.593288 raftLog.go 90 raft.(*RaftLog).TruncateAppend [{0 1 10}] 
+19:58:52.593297 raft.go 400 raft.(*Raft).HandleAppendEntries [S3 Follower t:1 vF:-1 c:0 a:0] reset electionTimeout
+19:58:52.593464 raft.go 400 raft.(*Raft).HandleAppendEntries [S1 Follower t:1 vF:-1 c:0 a:0] reset electionTimeout
+19:58:52.593537 raftLog.go 70 raft.(*RaftLog).TruncateAppend [{0 1 10}] preLgIdx:0 []
+19:58:52.593580 raftLog.go 70 raft.(*RaftLog).TruncateAppend [{0 1 10}] preLgIdx:0 []
+19:58:52.593618 raftLog.go 90 raft.(*RaftLog).TruncateAppend [{0 1 10}] 
+19:58:52.593666 raftLog.go 90 raft.(*RaftLog).TruncateAppend [{0 1 10}] 
+19:58:52.593539 raft.go 421 raft.(*Raft).HandleAppendEntries [S0 Follower t:1 vF:-1 c:0 a:0] [RLog c:0 a:0 [{0 1 10}]]
+19:58:52.593761 raft.go 421 raft.(*Raft).HandleAppendEntries [S3 Follower t:1 vF:-1 c:0 a:0] [RLog c:0 a:0 [{0 1 10}]]
+19:58:52.593800 raft.go 421 raft.(*Raft).HandleAppendEntries [S1 Follower t:1 vF:-1 c:0 a:0] [RLog c:0 a:0 [{0 1 10}]]
+19:58:52.594507 raft.go 371 raft.(*Raft).startAppendEntries [S2 Leader t:1 vF:2 c:0 a:0 m:[0 0 0 0 0] n:[1 1 1 1 1]] sendAppendEntries to 0 succ
+19:58:52.594684 raft.go 371 raft.(*Raft).startAppendEntries [S2 Leader t:1 vF:2 c:0 a:0 m:[0 0 0 0 0] n:[1 1 1 1 1]] sendAppendEntries to 3 succ
+19:58:52.594861 raft.go 371 raft.(*Raft).startAppendEntries [S2 Leader t:1 vF:2 c:0 a:0 m:[0 0 0 0 0] n:[1 1 1 1 1]] sendAppendEntries to 1 succ
+19:58:52.688741 raft.go 526 raft.(*Raft).run [S2 Leader t:1 vF:2 c:0 a:0 m:[0 0 0 0 0] n:[1 1 1 1 1]] sending heartbeat msg
+19:58:52.689130 raft.go 302 raft.(*Raft).startLogReplication [S2 Leader t:1 vF:2 c:0 a:0 m:[0 0 0 0 0] n:[1 1 1 1 1]] startLogReplication
+19:58:52.690294 raft.go 448 raft.(*Raft).Start [S2 Leader t:1 vF:2 c:0 a:0 m:[0 0 0 0 0] n:[1 1 1 1 1]]: Client start to append command 20, [RLog c:0 a:0 [{0 1 10}]]
+19:58:52.690483 raftLog.go 30 raft.(*RaftLog).AppendEntries {1 1 20} [{0 1 10} {1 1 20}]
+19:58:52.690931 raft.go 336 raft.(*Raft).startAppendEntries [S2 Leader t:1 vF:2 c:0 a:0 m:[0 0 1 0 0] n:[1 1 2 1 1]] sendAppendEntries to 0, [arg S2 term:1 preLogIdx:0 preLogT:1 [{1 1 20}] LComit:0]
+19:58:52.691629 raft.go 336 raft.(*Raft).startAppendEntries [S2 Leader t:1 vF:2 c:0 a:0 m:[0 0 1 0 0] n:[1 1 2 1 1]] sendAppendEntries to 1, [arg S2 term:1 preLogIdx:0 preLogT:1 [{1 1 20}] LComit:0]
+19:58:52.692280 raft.go 336 raft.(*Raft).startAppendEntries [S2 Leader t:1 vF:2 c:0 a:0 m:[0 0 1 0 0] n:[1 1 2 1 1]] sendAppendEntries to 3, [arg S2 term:1 preLogIdx:0 preLogT:1 [{1 1 20}] LComit:0]
+19:58:52.692934 raft.go 336 raft.(*Raft).startAppendEntries [S2 Leader t:1 vF:2 c:0 a:0 m:[0 0 1 0 0] n:[1 1 2 1 1]] sendAppendEntries to 4, [arg S2 term:1 preLogIdx:0 preLogT:1 [{1 1 20}] LComit:0]
+19:58:52.694127 raft.go 388 raft.(*Raft).HandleAppendEntries [S1 Follower t:1 vF:-1 c:0 a:0] received AppendEntries [arg S2 term:1 preLogIdx:0 preLogT:1 [{1 1 20}] LComit:0]
+19:58:52.694464 raft.go 402 raft.(*Raft).HandleAppendEntries [S1 Follower t:1 vF:-1 c:0 a:0] reset electionTimeout
+19:58:52.694686 raftLog.go 70 raft.(*RaftLog).TruncateAppend [{0 1 10}] preLgIdx:0 [{1 1 20}]
+19:58:52.694829 raftLog.go 90 raft.(*RaftLog).TruncateAppend [{0 1 10} {1 1 20}] 
+19:58:52.695064 raft.go 421 raft.(*Raft).HandleAppendEntries [S1 Follower t:1 vF:-1 c:0 a:0] [RLog c:0 a:0 [{0 1 10} {1 1 20}]]
+19:58:52.696668 raft.go 373 raft.(*Raft).startAppendEntries [S2 Leader t:1 vF:2 c:0 a:0 m:[0 1 1 0 0] n:[1 2 2 1 1]] sendAppendEntries to 1 succ, [arg S2 term:1 preLogIdx:0 preLogT:1 [{1 1 20}] LComit:0] [rply term:1 succ:true]
+19:58:52.788307 raft.go 526 raft.(*Raft).run [S2 Leader t:1 vF:2 c:0 a:0 m:[0 1 1 0 0] n:[1 2 2 1 1]] sending heartbeat msg
+19:58:52.788639 raft.go 302 raft.(*Raft).startLogReplication [S2 Leader t:1 vF:2 c:0 a:0 m:[0 1 1 0 0] n:[1 2 2 1 1]] startLogReplication
+19:58:52.789982 raft.go 336 raft.(*Raft).startAppendEntries [S2 Leader t:1 vF:2 c:0 a:0 m:[0 1 1 0 0] n:[1 2 2 1 1]] sendAppendEntries to 3, [arg S2 term:1 preLogIdx:0 preLogT:1 [{1 1 20}] LComit:0]
+19:58:52.790704 raft.go 336 raft.(*Raft).startAppendEntries [S2 Leader t:1 vF:2 c:0 a:0 m:[0 1 1 0 0] n:[1 2 2 1 1]] sendAppendEntries to 0, [arg S2 term:1 preLogIdx:0 preLogT:1 [{1 1 20}] LComit:0]
+19:58:52.791378 raft.go 336 raft.(*Raft).startAppendEntries [S2 Leader t:1 vF:2 c:0 a:0 m:[0 1 1 0 0] n:[1 2 2 1 1]] sendAppendEntries to 1, [arg S2 term:1 preLogIdx:1 preLogT:1 [] LComit:0]
+19:58:52.792024 raft.go 336 raft.(*Raft).startAppendEntries [S2 Leader t:1 vF:2 c:0 a:0 m:[0 1 1 0 0] n:[1 2 2 1 1]] sendAppendEntries to 4, [arg S2 term:1 preLogIdx:0 preLogT:1 [{1 1 20}] LComit:0]
+19:58:52.793743 raft.go 388 raft.(*Raft).HandleAppendEntries [S1 Follower t:1 vF:-1 c:0 a:0] received AppendEntries [arg S2 term:1 preLogIdx:1 preLogT:1 [] LComit:0]
+19:58:52.794071 raft.go 400 raft.(*Raft).HandleAppendEntries [S1 Follower t:1 vF:-1 c:0 a:0] reset electionTimeout
+19:58:52.794263 raftLog.go 70 raft.(*RaftLog).TruncateAppend [{0 1 10} {1 1 20}] preLgIdx:1 []
+19:58:52.794443 raftLog.go 90 raft.(*RaftLog).TruncateAppend [{0 1 10} {1 1 20}] 
+19:58:52.794688 raft.go 421 raft.(*Raft).HandleAppendEntries [S1 Follower t:1 vF:-1 c:0 a:0] [RLog c:0 a:0 [{0 1 10} {1 1 20}]]
+19:58:52.796300 raft.go 371 raft.(*Raft).startAppendEntries [S2 Leader t:1 vF:2 c:0 a:0 m:[0 1 1 0 0] n:[1 2 2 1 1]] sendAppendEntries to 1 succ
+19:58:52.888820 raft.go 526 raft.(*Raft).run [S2 Leader t:1 vF:2 c:0 a:0 m:[0 1 1 0 0] n:[1 2 2 1 1]] sending heartbeat msg
+19:58:52.889190 raft.go 302 raft.(*Raft).startLogReplication [S2 Leader t:1 vF:2 c:0 a:0 m:[0 1 1 0 0] n:[1 2 2 1 1]] startLogReplication
+19:58:52.890521 raft.go 336 raft.(*Raft).startAppendEntries [S2 Leader t:1 vF:2 c:0 a:0 m:[0 1 1 0 0] n:[1 2 2 1 1]] sendAppendEntries to 4, [arg S2 term:1 preLogIdx:0 preLogT:1 [{1 1 20}] LComit:0]
+19:58:52.891192 raft.go 336 raft.(*Raft).startAppendEntries [S2 Leader t:1 vF:2 c:0 a:0 m:[0 1 1 0 0] n:[1 2 2 1 1]] sendAppendEntries to 0, [arg S2 term:1 preLogIdx:0 preLogT:1 [{1 1 20}] LComit:0]
+19:58:52.891796 raft.go 336 raft.(*Raft).startAppendEntries [S2 Leader t:1 vF:2 c:0 a:0 m:[0 1 1 0 0] n:[1 2 2 1 1]] sendAppendEntries to 1, [arg S2 term:1 preLogIdx:1 preLogT:1 [] LComit:0]
+19:58:52.892541 raft.go 336 raft.(*Raft).startAppendEntries [S2 Leader t:1 vF:2 c:0 a:0 m:[0 1 1 0 0] n:[1 2 2 1 1]] sendAppendEntries to 3, [arg S2 term:1 preLogIdx:0 preLogT:1 [{1 1 20}] LComit:0]
+19:58:52.894566 raft.go 388 raft.(*Raft).HandleAppendEntries [S1 Follower t:1 vF:-1 c:0 a:0] received AppendEntries [arg S2 term:1 preLogIdx:1 preLogT:1 [] LComit:0]
+19:58:52.894896 raft.go 400 raft.(*Raft).HandleAppendEntries [S1 Follower t:1 vF:-1 c:0 a:0] reset electionTimeout
+19:58:52.895095 raftLog.go 70 raft.(*RaftLog).TruncateAppend [{0 1 10} {1 1 20}] preLgIdx:1 []
+19:58:52.895235 raftLog.go 90 raft.(*RaftLog).TruncateAppend [{0 1 10} {1 1 20}] 
+19:58:52.895491 raft.go 421 raft.(*Raft).HandleAppendEntries [S1 Follower t:1 vF:-1 c:0 a:0] [RLog c:0 a:0 [{0 1 10} {1 1 20}]]
+19:58:52.896968 raft.go 371 raft.(*Raft).startAppendEntries [S2 Leader t:1 vF:2 c:0 a:0 m:[0 1 1 0 0] n:[1 2 2 1 1]] sendAppendEntries to 1 succ
+19:58:52.910593 raft.go 536 raft.(*Raft).run [S0 Follower t:1 vF:-1 c:0 a:0] ElectionTimeout m=+1.230088500
+19:58:52.910969 raft.go 164 raft.(*Raft).startElection [S0 Candidate t:2 vF:0 c:0 a:0] is starting an election
+19:58:52.911150 raft.go 169 raft.(*Raft).startElection [S0 Candidate t:2 vF:0 c:0 a:0] votes to itself, votes:1
+19:58:52.912199 raft.go 195 raft.(*Raft).startRequestVote [S0 Candidate t:2 vF:0 c:0 a:0] is sending an RequestVote to 1
+19:58:52.912575 raft.go 195 raft.(*Raft).startRequestVote [S0 Candidate t:2 vF:0 c:0 a:0] is sending an RequestVote to 2
+19:58:52.912967 raft.go 195 raft.(*Raft).startRequestVote [S0 Candidate t:2 vF:0 c:0 a:0] is sending an RequestVote to 3
+19:58:52.913536 raft.go 195 raft.(*Raft).startRequestVote [S0 Candidate t:2 vF:0 c:0 a:0] is sending an RequestVote to 4
+19:58:52.969674 raft.go 536 raft.(*Raft).run [S4 Follower t:1 vF:-1 c:0 a:0] ElectionTimeout m=+1.289348599
+19:58:52.969856 raft.go 164 raft.(*Raft).startElection [S4 Candidate t:2 vF:4 c:0 a:0] is starting an election
+19:58:52.970618 raft.go 169 raft.(*Raft).startElection [S4 Candidate t:2 vF:4 c:0 a:0] votes to itself, votes:1
+19:58:52.970762 raft.go 195 raft.(*Raft).startRequestVote [S4 Candidate t:2 vF:4 c:0 a:0] is sending an RequestVote to 3
+19:58:52.970955 raft.go 195 raft.(*Raft).startRequestVote [S4 Candidate t:2 vF:4 c:0 a:0] is sending an RequestVote to 0
+19:58:52.971159 raft.go 195 raft.(*Raft).startRequestVote [S4 Candidate t:2 vF:4 c:0 a:0] is sending an RequestVote to 1
+19:58:52.971431 raft.go 195 raft.(*Raft).startRequestVote [S4 Candidate t:2 vF:4 c:0 a:0] is sending an RequestVote to 2
+19:58:52.988100 raft.go 526 raft.(*Raft).run [S2 Leader t:1 vF:2 c:0 a:0 m:[0 1 1 0 0] n:[1 2 2 1 1]] sending heartbeat msg
+19:58:52.988256 raft.go 302 raft.(*Raft).startLogReplication [S2 Leader t:1 vF:2 c:0 a:0 m:[0 1 1 0 0] n:[1 2 2 1 1]] startLogReplication
+19:58:52.989098 raft.go 336 raft.(*Raft).startAppendEntries [S2 Leader t:1 vF:2 c:0 a:0 m:[0 1 1 0 0] n:[1 2 2 1 1]] sendAppendEntries to 4, [arg S2 term:1 preLogIdx:0 preLogT:1 [{1 1 20}] LComit:0]
+19:58:52.989508 raft.go 336 raft.(*Raft).startAppendEntries [S2 Leader t:1 vF:2 c:0 a:0 m:[0 1 1 0 0] n:[1 2 2 1 1]] sendAppendEntries to 0, [arg S2 term:1 preLogIdx:0 preLogT:1 [{1 1 20}] LComit:0]
+19:58:52.989913 raft.go 336 raft.(*Raft).startAppendEntries [S2 Leader t:1 vF:2 c:0 a:0 m:[0 1 1 0 0] n:[1 2 2 1 1]] sendAppendEntries to 1, [arg S2 term:1 preLogIdx:1 preLogT:1 [] LComit:0]
+19:58:52.990253 raft.go 336 raft.(*Raft).startAppendEntries [S2 Leader t:1 vF:2 c:0 a:0 m:[0 1 1 0 0] n:[1 2 2 1 1]] sendAppendEntries to 3, [arg S2 term:1 preLogIdx:0 preLogT:1 [{1 1 20}] LComit:0]
+19:58:52.991883 raft.go 388 raft.(*Raft).HandleAppendEntries [S1 Follower t:1 vF:-1 c:0 a:0] received AppendEntries [arg S2 term:1 preLogIdx:1 preLogT:1 [] LComit:0]
+19:58:52.992152 raft.go 400 raft.(*Raft).HandleAppendEntries [S1 Follower t:1 vF:-1 c:0 a:0] reset electionTimeout
+19:58:52.992299 raftLog.go 70 raft.(*RaftLog).TruncateAppend [{0 1 10} {1 1 20}] preLgIdx:1 []
+19:58:52.992415 raftLog.go 90 raft.(*RaftLog).TruncateAppend [{0 1 10} {1 1 20}] 
+19:58:52.992603 raft.go 421 raft.(*Raft).HandleAppendEntries [S1 Follower t:1 vF:-1 c:0 a:0] [RLog c:0 a:0 [{0 1 10} {1 1 20}]]
+19:58:52.993708 raft.go 371 raft.(*Raft).startAppendEntries [S2 Leader t:1 vF:2 c:0 a:0 m:[0 1 1 0 0] n:[1 2 2 1 1]] sendAppendEntries to 1 succ
+19:58:53.031148 raft.go 536 raft.(*Raft).run [S3 Follower t:1 vF:-1 c:0 a:0] ElectionTimeout m=+1.350371960
+19:58:53.031481 raft.go 164 raft.(*Raft).startElection [S3 Candidate t:2 vF:3 c:0 a:0] is starting an election
+19:58:53.032136 raft.go 169 raft.(*Raft).startElection [S3 Candidate t:2 vF:3 c:0 a:0] votes to itself, votes:1
+19:58:53.032477 raft.go 195 raft.(*Raft).startRequestVote [S3 Candidate t:2 vF:3 c:0 a:0] is sending an RequestVote to 0
+19:58:53.032950 raft.go 195 raft.(*Raft).startRequestVote [S3 Candidate t:2 vF:3 c:0 a:0] is sending an RequestVote to 1
+19:58:53.033304 raft.go 195 raft.(*Raft).startRequestVote [S3 Candidate t:2 vF:3 c:0 a:0] is sending an RequestVote to 2
+19:58:53.033754 raft.go 195 raft.(*Raft).startRequestVote [S3 Candidate t:2 vF:3 c:0 a:0] is sending an RequestVote to 4
+19:58:53.087951 raft.go 526 raft.(*Raft).run [S2 Leader t:1 vF:2 c:0 a:0 m:[0 1 1 0 0] n:[1 2 2 1 1]] sending heartbeat msg
+19:58:53.088289 raft.go 302 raft.(*Raft).startLogReplication [S2 Leader t:1 vF:2 c:0 a:0 m:[0 1 1 0 0] n:[1 2 2 1 1]] startLogReplication
+19:58:53.089999 raft.go 336 raft.(*Raft).startAppendEntries [S2 Leader t:1 vF:2 c:0 a:0 m:[0 1 1 0 0] n:[1 2 2 1 1]] sendAppendEntries to 0, [arg S2 term:1 preLogIdx:0 preLogT:1 [{1 1 20}] LComit:0]
+19:58:53.090715 raft.go 336 raft.(*Raft).startAppendEntries [S2 Leader t:1 vF:2 c:0 a:0 m:[0 1 1 0 0] n:[1 2 2 1 1]] sendAppendEntries to 1, [arg S2 term:1 preLogIdx:1 preLogT:1 [] LComit:0]
+19:58:53.091528 raft.go 336 raft.(*Raft).startAppendEntries [S2 Leader t:1 vF:2 c:0 a:0 m:[0 1 1 0 0] n:[1 2 2 1 1]] sendAppendEntries to 3, [arg S2 term:1 preLogIdx:0 preLogT:1 [{1 1 20}] LComit:0]
+19:58:53.092330 raft.go 336 raft.(*Raft).startAppendEntries [S2 Leader t:1 vF:2 c:0 a:0 m:[0 1 1 0 0] n:[1 2 2 1 1]] sendAppendEntries to 4, [arg S2 term:1 preLogIdx:0 preLogT:1 [{1 1 20}] LComit:0]
+19:58:53.093622 raft.go 388 raft.(*Raft).HandleAppendEntries [S1 Follower t:1 vF:-1 c:0 a:0] received AppendEntries [arg S2 term:1 preLogIdx:1 preLogT:1 [] LComit:0]
+19:58:53.094160 raft.go 400 raft.(*Raft).HandleAppendEntries [S1 Follower t:1 vF:-1 c:0 a:0] reset electionTimeout
+19:58:53.094484 raftLog.go 70 raft.(*RaftLog).TruncateAppend [{0 1 10} {1 1 20}] preLgIdx:1 []
+19:58:53.094695 raftLog.go 90 raft.(*RaftLog).TruncateAppend [{0 1 10} {1 1 20}] 
+19:58:53.094938 raft.go 421 raft.(*Raft).HandleAppendEntries [S1 Follower t:1 vF:-1 c:0 a:0] [RLog c:0 a:0 [{0 1 10} {1 1 20}]]
+19:58:53.096455 raft.go 371 raft.(*Raft).startAppendEntries [S2 Leader t:1 vF:2 c:0 a:0 m:[0 1 1 0 0] n:[1 2 2 1 1]] sendAppendEntries to 1 succ
+19:58:53.188197 raft.go 526 raft.(*Raft).run [S2 Leader t:1 vF:2 c:0 a:0 m:[0 1 1 0 0] n:[1 2 2 1 1]] sending heartbeat msg
+19:58:53.188492 raft.go 302 raft.(*Raft).startLogReplication [S2 Leader t:1 vF:2 c:0 a:0 m:[0 1 1 0 0] n:[1 2 2 1 1]] startLogReplication
+19:58:53.189803 raft.go 336 raft.(*Raft).startAppendEntries [S2 Leader t:1 vF:2 c:0 a:0 m:[0 1 1 0 0] n:[1 2 2 1 1]] sendAppendEntries to 4, [arg S2 term:1 preLogIdx:0 preLogT:1 [{1 1 20}] LComit:0]
+19:58:53.190539 raft.go 336 raft.(*Raft).startAppendEntries [S2 Leader t:1 vF:2 c:0 a:0 m:[0 1 1 0 0] n:[1 2 2 1 1]] sendAppendEntries to 0, [arg S2 term:1 preLogIdx:0 preLogT:1 [{1 1 20}] LComit:0]
+19:58:53.191261 raft.go 336 raft.(*Raft).startAppendEntries [S2 Leader t:1 vF:2 c:0 a:0 m:[0 1 1 0 0] n:[1 2 2 1 1]] sendAppendEntries to 1, [arg S2 term:1 preLogIdx:1 preLogT:1 [] LComit:0]
+19:58:53.191901 raft.go 336 raft.(*Raft).startAppendEntries [S2 Leader t:1 vF:2 c:0 a:0 m:[0 1 1 0 0] n:[1 2 2 1 1]] sendAppendEntries to 3, [arg S2 term:1 preLogIdx:0 preLogT:1 [{1 1 20}] LComit:0]
+19:58:53.194056 raft.go 388 raft.(*Raft).HandleAppendEntries [S1 Follower t:1 vF:-1 c:0 a:0] received AppendEntries [arg S2 term:1 preLogIdx:1 preLogT:1 [] LComit:0]
+19:58:53.194419 raft.go 400 raft.(*Raft).HandleAppendEntries [S1 Follower t:1 vF:-1 c:0 a:0] reset electionTimeout
+19:58:53.194610 raftLog.go 70 raft.(*RaftLog).TruncateAppend [{0 1 10} {1 1 20}] preLgIdx:1 []
+19:58:53.194769 raftLog.go 90 raft.(*RaftLog).TruncateAppend [{0 1 10} {1 1 20}] 
+19:58:53.195005 raft.go 421 raft.(*Raft).HandleAppendEntries [S1 Follower t:1 vF:-1 c:0 a:0] [RLog c:0 a:0 [{0 1 10} {1 1 20}]]
+19:58:53.196541 raft.go 371 raft.(*Raft).startAppendEntries [S2 Leader t:1 vF:2 c:0 a:0 m:[0 1 1 0 0] n:[1 2 2 1 1]] sendAppendEntries to 1 succ
+19:58:53.231038 raft.go 536 raft.(*Raft).run [S4 Candidate t:2 vF:4 c:0 a:0] ElectionTimeout m=+1.550690582
+19:58:53.231416 raft.go 164 raft.(*Raft).startElection [S4 Candidate t:3 vF:4 c:0 a:0] is starting an election
+19:58:53.232236 raft.go 169 raft.(*Raft).startElection [S4 Candidate t:3 vF:4 c:0 a:0] votes to itself, votes:1
+19:58:53.232414 raft.go 195 raft.(*Raft).startRequestVote [S4 Candidate t:3 vF:4 c:0 a:0] is sending an RequestVote to 0
+19:58:53.232808 raft.go 195 raft.(*Raft).startRequestVote [S4 Candidate t:3 vF:4 c:0 a:0] is sending an RequestVote to 1
+19:58:53.233166 raft.go 195 raft.(*Raft).startRequestVote [S4 Candidate t:3 vF:4 c:0 a:0] is sending an RequestVote to 2
+19:58:53.233477 raft.go 195 raft.(*Raft).startRequestVote [S4 Candidate t:3 vF:4 c:0 a:0] is sending an RequestVote to 3
+19:58:53.287985 raft.go 526 raft.(*Raft).run [S2 Leader t:1 vF:2 c:0 a:0 m:[0 1 1 0 0] n:[1 2 2 1 1]] sending heartbeat msg
+19:58:53.288295 raft.go 302 raft.(*Raft).startLogReplication [S2 Leader t:1 vF:2 c:0 a:0 m:[0 1 1 0 0] n:[1 2 2 1 1]] startLogReplication
+19:58:53.290186 raft.go 336 raft.(*Raft).startAppendEntries [S2 Leader t:1 vF:2 c:0 a:0 m:[0 1 1 0 0] n:[1 2 2 1 1]] sendAppendEntries to 4, [arg S2 term:1 preLogIdx:0 preLogT:1 [{1 1 20}] LComit:0]
+19:58:53.290699 raft.go 336 raft.(*Raft).startAppendEntries [S2 Leader t:1 vF:2 c:0 a:0 m:[0 1 1 0 0] n:[1 2 2 1 1]] sendAppendEntries to 0, [arg S2 term:1 preLogIdx:0 preLogT:1 [{1 1 20}] LComit:0]
+19:58:53.291137 raft.go 336 raft.(*Raft).startAppendEntries [S2 Leader t:1 vF:2 c:0 a:0 m:[0 1 1 0 0] n:[1 2 2 1 1]] sendAppendEntries to 1, [arg S2 term:1 preLogIdx:1 preLogT:1 [] LComit:0]
+19:58:53.292035 raft.go 336 raft.(*Raft).startAppendEntries [S2 Leader t:1 vF:2 c:0 a:0 m:[0 1 1 0 0] n:[1 2 2 1 1]] sendAppendEntries to 3, [arg S2 term:1 preLogIdx:0 preLogT:1 [{1 1 20}] LComit:0]
+19:58:53.294428 raft.go 388 raft.(*Raft).HandleAppendEntries [S1 Follower t:1 vF:-1 c:0 a:0] received AppendEntries [arg S2 term:1 preLogIdx:1 preLogT:1 [] LComit:0]
+19:58:53.294794 raft.go 400 raft.(*Raft).HandleAppendEntries [S1 Follower t:1 vF:-1 c:0 a:0] reset electionTimeout
+19:58:53.295000 raftLog.go 70 raft.(*RaftLog).TruncateAppend [{0 1 10} {1 1 20}] preLgIdx:1 []
+19:58:53.295179 raftLog.go 90 raft.(*RaftLog).TruncateAppend [{0 1 10} {1 1 20}] 
+19:58:53.295435 raft.go 421 raft.(*Raft).HandleAppendEntries [S1 Follower t:1 vF:-1 c:0 a:0] [RLog c:0 a:0 [{0 1 10} {1 1 20}]]
+19:58:53.296928 raft.go 371 raft.(*Raft).startAppendEntries [S2 Leader t:1 vF:2 c:0 a:0 m:[0 1 1 0 0] n:[1 2 2 1 1]] sendAppendEntries to 1 succ
+19:58:53.337752 raft.go 536 raft.(*Raft).run [S3 Candidate t:2 vF:3 c:0 a:0] ElectionTimeout m=+1.657476115
+19:58:53.337943 raft.go 164 raft.(*Raft).startElection [S3 Candidate t:3 vF:3 c:0 a:0] is starting an election
+19:58:53.338337 raft.go 169 raft.(*Raft).startElection [S3 Candidate t:3 vF:3 c:0 a:0] votes to itself, votes:1
+19:58:53.338546 raft.go 195 raft.(*Raft).startRequestVote [S3 Candidate t:3 vF:3 c:0 a:0] is sending an RequestVote to 0
+19:58:53.338713 raft.go 195 raft.(*Raft).startRequestVote [S3 Candidate t:3 vF:3 c:0 a:0] is sending an RequestVote to 1
+19:58:53.338911 raft.go 195 raft.(*Raft).startRequestVote [S3 Candidate t:3 vF:3 c:0 a:0] is sending an RequestVote to 2
+19:58:53.339272 raft.go 195 raft.(*Raft).startRequestVote [S3 Candidate t:3 vF:3 c:0 a:0] is sending an RequestVote to 4
+19:58:53.366132 raft.go 536 raft.(*Raft).run [S0 Candidate t:2 vF:0 c:0 a:0] ElectionTimeout m=+1.685793331
+19:58:53.366367 raft.go 164 raft.(*Raft).startElection [S0 Candidate t:3 vF:0 c:0 a:0] is starting an election
+19:58:53.366454 raft.go 169 raft.(*Raft).startElection [S0 Candidate t:3 vF:0 c:0 a:0] votes to itself, votes:1
+19:58:53.367225 raft.go 195 raft.(*Raft).startRequestVote [S0 Candidate t:3 vF:0 c:0 a:0] is sending an RequestVote to 1
+19:58:53.367549 raft.go 195 raft.(*Raft).startRequestVote [S0 Candidate t:3 vF:0 c:0 a:0] is sending an RequestVote to 2
+19:58:53.367807 raft.go 195 raft.(*Raft).startRequestVote [S0 Candidate t:3 vF:0 c:0 a:0] is sending an RequestVote to 3
+19:58:53.368015 raft.go 195 raft.(*Raft).startRequestVote [S0 Candidate t:3 vF:0 c:0 a:0] is sending an RequestVote to 4
+19:58:53.388060 raft.go 526 raft.(*Raft).run [S2 Leader t:1 vF:2 c:0 a:0 m:[0 1 1 0 0] n:[1 2 2 1 1]] sending heartbeat msg
+19:58:53.388373 raft.go 302 raft.(*Raft).startLogReplication [S2 Leader t:1 vF:2 c:0 a:0 m:[0 1 1 0 0] n:[1 2 2 1 1]] startLogReplication
+19:58:53.390135 raft.go 336 raft.(*Raft).startAppendEntries [S2 Leader t:1 vF:2 c:0 a:0 m:[0 1 1 0 0] n:[1 2 2 1 1]] sendAppendEntries to 4, [arg S2 term:1 preLogIdx:0 preLogT:1 [{1 1 20}] LComit:0]
+19:58:53.390633 raft.go 336 raft.(*Raft).startAppendEntries [S2 Leader t:1 vF:2 c:0 a:0 m:[0 1 1 0 0] n:[1 2 2 1 1]] sendAppendEntries to 0, [arg S2 term:1 preLogIdx:0 preLogT:1 [{1 1 20}] LComit:0]
+19:58:53.391088 raft.go 336 raft.(*Raft).startAppendEntries [S2 Leader t:1 vF:2 c:0 a:0 m:[0 1 1 0 0] n:[1 2 2 1 1]] sendAppendEntries to 1, [arg S2 term:1 preLogIdx:1 preLogT:1 [] LComit:0]
+19:58:53.391796 raft.go 336 raft.(*Raft).startAppendEntries [S2 Leader t:1 vF:2 c:0 a:0 m:[0 1 1 0 0] n:[1 2 2 1 1]] sendAppendEntries to 3, [arg S2 term:1 preLogIdx:0 preLogT:1 [{1 1 20}] LComit:0]
+19:58:53.394360 raft.go 388 raft.(*Raft).HandleAppendEntries [S1 Follower t:1 vF:-1 c:0 a:0] received AppendEntries [arg S2 term:1 preLogIdx:1 preLogT:1 [] LComit:0]
+19:58:53.394715 raft.go 400 raft.(*Raft).HandleAppendEntries [S1 Follower t:1 vF:-1 c:0 a:0] reset electionTimeout
+19:58:53.394912 raftLog.go 70 raft.(*RaftLog).TruncateAppend [{0 1 10} {1 1 20}] preLgIdx:1 []
+19:58:53.395075 raftLog.go 90 raft.(*RaftLog).TruncateAppend [{0 1 10} {1 1 20}] 
+19:58:53.395307 raft.go 421 raft.(*Raft).HandleAppendEntries [S1 Follower t:1 vF:-1 c:0 a:0] [RLog c:0 a:0 [{0 1 10} {1 1 20}]]
+19:58:53.396873 raft.go 371 raft.(*Raft).startAppendEntries [S2 Leader t:1 vF:2 c:0 a:0 m:[0 1 1 0 0] n:[1 2 2 1 1]] sendAppendEntries to 1 succ
+19:58:53.459971 raft.go 536 raft.(*Raft).run [S4 Candidate t:3 vF:4 c:0 a:0] ElectionTimeout m=+1.779516409
+19:58:53.460353 raft.go 164 raft.(*Raft).startElection [S4 Candidate t:4 vF:4 c:0 a:0] is starting an election
+19:58:53.461507 raft.go 169 raft.(*Raft).startElection [S4 Candidate t:4 vF:4 c:0 a:0] votes to itself, votes:1
+19:58:53.461753 raft.go 195 raft.(*Raft).startRequestVote [S4 Candidate t:4 vF:4 c:0 a:0] is sending an RequestVote to 0
+19:58:53.462179 raft.go 195 raft.(*Raft).startRequestVote [S4 Candidate t:4 vF:4 c:0 a:0] is sending an RequestVote to 1
+19:58:53.462771 raft.go 195 raft.(*Raft).startRequestVote [S4 Candidate t:4 vF:4 c:0 a:0] is sending an RequestVote to 2
+19:58:53.463202 raft.go 195 raft.(*Raft).startRequestVote [S4 Candidate t:4 vF:4 c:0 a:0] is sending an RequestVote to 3
+19:58:53.487921 raft.go 526 raft.(*Raft).run [S2 Leader t:1 vF:2 c:0 a:0 m:[0 1 1 0 0] n:[1 2 2 1 1]] sending heartbeat msg
+19:58:53.488244 raft.go 302 raft.(*Raft).startLogReplication [S2 Leader t:1 vF:2 c:0 a:0 m:[0 1 1 0 0] n:[1 2 2 1 1]] startLogReplication
+19:58:53.490211 raft.go 336 raft.(*Raft).startAppendEntries [S2 Leader t:1 vF:2 c:0 a:0 m:[0 1 1 0 0] n:[1 2 2 1 1]] sendAppendEntries to 0, [arg S2 term:1 preLogIdx:0 preLogT:1 [{1 1 20}] LComit:0]
+19:58:53.490903 raft.go 336 raft.(*Raft).startAppendEntries [S2 Leader t:1 vF:2 c:0 a:0 m:[0 1 1 0 0] n:[1 2 2 1 1]] sendAppendEntries to 1, [arg S2 term:1 preLogIdx:1 preLogT:1 [] LComit:0]
+19:58:53.491759 raft.go 336 raft.(*Raft).startAppendEntries [S2 Leader t:1 vF:2 c:0 a:0 m:[0 1 1 0 0] n:[1 2 2 1 1]] sendAppendEntries to 3, [arg S2 term:1 preLogIdx:0 preLogT:1 [{1 1 20}] LComit:0]
+19:58:53.492476 raft.go 336 raft.(*Raft).startAppendEntries [S2 Leader t:1 vF:2 c:0 a:0 m:[0 1 1 0 0] n:[1 2 2 1 1]] sendAppendEntries to 4, [arg S2 term:1 preLogIdx:0 preLogT:1 [{1 1 20}] LComit:0]
+19:58:53.493684 raft.go 388 raft.(*Raft).HandleAppendEntries [S1 Follower t:1 vF:-1 c:0 a:0] received AppendEntries [arg S2 term:1 preLogIdx:1 preLogT:1 [] LComit:0]
+19:58:53.494038 raft.go 400 raft.(*Raft).HandleAppendEntries [S1 Follower t:1 vF:-1 c:0 a:0] reset electionTimeout
+19:58:53.494342 raftLog.go 70 raft.(*RaftLog).TruncateAppend [{0 1 10} {1 1 20}] preLgIdx:1 []
+19:58:53.494509 raftLog.go 90 raft.(*RaftLog).TruncateAppend [{0 1 10} {1 1 20}] 
+19:58:53.494791 raft.go 421 raft.(*Raft).HandleAppendEntries [S1 Follower t:1 vF:-1 c:0 a:0] [RLog c:0 a:0 [{0 1 10} {1 1 20}]]
+19:58:53.496390 raft.go 371 raft.(*Raft).startAppendEntries [S2 Leader t:1 vF:2 c:0 a:0 m:[0 1 1 0 0] n:[1 2 2 1 1]] sendAppendEntries to 1 succ
+19:58:53.589010 raft.go 526 raft.(*Raft).run [S2 Leader t:1 vF:2 c:0 a:0 m:[0 1 1 0 0] n:[1 2 2 1 1]] sending heartbeat msg
+19:58:53.589312 raft.go 302 raft.(*Raft).startLogReplication [S2 Leader t:1 vF:2 c:0 a:0 m:[0 1 1 0 0] n:[1 2 2 1 1]] startLogReplication
+19:58:53.590676 raft.go 336 raft.(*Raft).startAppendEntries [S2 Leader t:1 vF:2 c:0 a:0 m:[0 1 1 0 0] n:[1 2 2 1 1]] sendAppendEntries to 0, [arg S2 term:1 preLogIdx:0 preLogT:1 [{1 1 20}] LComit:0]
+19:58:53.591345 raft.go 336 raft.(*Raft).startAppendEntries [S2 Leader t:1 vF:2 c:0 a:0 m:[0 1 1 0 0] n:[1 2 2 1 1]] sendAppendEntries to 1, [arg S2 term:1 preLogIdx:1 preLogT:1 [] LComit:0]
+19:58:53.592074 raft.go 336 raft.(*Raft).startAppendEntries [S2 Leader t:1 vF:2 c:0 a:0 m:[0 1 1 0 0] n:[1 2 2 1 1]] sendAppendEntries to 3, [arg S2 term:1 preLogIdx:0 preLogT:1 [{1 1 20}] LComit:0]
+19:58:53.592940 raft.go 336 raft.(*Raft).startAppendEntries [S2 Leader t:1 vF:2 c:0 a:0 m:[0 1 1 0 0] n:[1 2 2 1 1]] sendAppendEntries to 4, [arg S2 term:1 preLogIdx:0 preLogT:1 [{1 1 20}] LComit:0]
+19:58:53.594219 raft.go 388 raft.(*Raft).HandleAppendEntries [S1 Follower t:1 vF:-1 c:0 a:0] received AppendEntries [arg S2 term:1 preLogIdx:1 preLogT:1 [] LComit:0]
+19:58:53.594595 raft.go 400 raft.(*Raft).HandleAppendEntries [S1 Follower t:1 vF:-1 c:0 a:0] reset electionTimeout
+19:58:53.594786 raftLog.go 70 raft.(*RaftLog).TruncateAppend [{0 1 10} {1 1 20}] preLgIdx:1 []
+19:58:53.594950 raftLog.go 90 raft.(*RaftLog).TruncateAppend [{0 1 10} {1 1 20}] 
+19:58:53.595180 raft.go 421 raft.(*Raft).HandleAppendEntries [S1 Follower t:1 vF:-1 c:0 a:0] [RLog c:0 a:0 [{0 1 10} {1 1 20}]]
+19:58:53.596532 raft.go 371 raft.(*Raft).startAppendEntries [S2 Leader t:1 vF:2 c:0 a:0 m:[0 1 1 0 0] n:[1 2 2 1 1]] sendAppendEntries to 1 succ
+19:58:53.688244 raft.go 526 raft.(*Raft).run [S2 Leader t:1 vF:2 c:0 a:0 m:[0 1 1 0 0] n:[1 2 2 1 1]] sending heartbeat msg
+19:58:53.688546 raft.go 302 raft.(*Raft).startLogReplication [S2 Leader t:1 vF:2 c:0 a:0 m:[0 1 1 0 0] n:[1 2 2 1 1]] startLogReplication
+19:58:53.690043 raft.go 336 raft.(*Raft).startAppendEntries [S2 Leader t:1 vF:2 c:0 a:0 m:[0 1 1 0 0] n:[1 2 2 1 1]] sendAppendEntries to 0, [arg S2 term:1 preLogIdx:0 preLogT:1 [{1 1 20}] LComit:0]
+19:58:53.690814 raft.go 336 raft.(*Raft).startAppendEntries [S2 Leader t:1 vF:2 c:0 a:0 m:[0 1 1 0 0] n:[1 2 2 1 1]] sendAppendEntries to 1, [arg S2 term:1 preLogIdx:1 preLogT:1 [] LComit:0]
+19:58:53.691575 raft.go 336 raft.(*Raft).startAppendEntries [S2 Leader t:1 vF:2 c:0 a:0 m:[0 1 1 0 0] n:[1 2 2 1 1]] sendAppendEntries to 3, [arg S2 term:1 preLogIdx:0 preLogT:1 [{1 1 20}] LComit:0]
+19:58:53.692327 raft.go 336 raft.(*Raft).startAppendEntries [S2 Leader t:1 vF:2 c:0 a:0 m:[0 1 1 0 0] n:[1 2 2 1 1]] sendAppendEntries to 4, [arg S2 term:1 preLogIdx:0 preLogT:1 [{1 1 20}] LComit:0]
+19:58:53.694370 raft.go 388 raft.(*Raft).HandleAppendEntries [S1 Follower t:1 vF:-1 c:0 a:0] received AppendEntries [arg S2 term:1 preLogIdx:1 preLogT:1 [] LComit:0]
+19:58:53.694771 raft.go 400 raft.(*Raft).HandleAppendEntries [S1 Follower t:1 vF:-1 c:0 a:0] reset electionTimeout
+19:58:53.694986 raftLog.go 70 raft.(*RaftLog).TruncateAppend [{0 1 10} {1 1 20}] preLgIdx:1 []
+19:58:53.695163 raftLog.go 90 raft.(*RaftLog).TruncateAppend [{0 1 10} {1 1 20}] 
+19:58:53.695408 raft.go 421 raft.(*Raft).HandleAppendEntries [S1 Follower t:1 vF:-1 c:0 a:0] [RLog c:0 a:0 [{0 1 10} {1 1 20}]]
+19:58:53.697021 raft.go 371 raft.(*Raft).startAppendEntries [S2 Leader t:1 vF:2 c:0 a:0 m:[0 1 1 0 0] n:[1 2 2 1 1]] sendAppendEntries to 1 succ
+19:58:53.761098 raft.go 536 raft.(*Raft).run [S3 Candidate t:3 vF:3 c:0 a:0] ElectionTimeout m=+2.080589442
+19:58:53.761463 raft.go 164 raft.(*Raft).startElection [S3 Candidate t:4 vF:3 c:0 a:0] is starting an election
+19:58:53.762424 raft.go 169 raft.(*Raft).startElection [S3 Candidate t:4 vF:3 c:0 a:0] votes to itself, votes:1
+19:58:53.762938 raft.go 195 raft.(*Raft).startRequestVote [S3 Candidate t:4 vF:3 c:0 a:0] is sending an RequestVote to 0
+19:58:53.763357 raft.go 195 raft.(*Raft).startRequestVote [S3 Candidate t:4 vF:3 c:0 a:0] is sending an RequestVote to 1
+19:58:53.763872 raft.go 195 raft.(*Raft).startRequestVote [S3 Candidate t:4 vF:3 c:0 a:0] is sending an RequestVote to 2
+19:58:53.764336 raft.go 195 raft.(*Raft).startRequestVote [S3 Candidate t:4 vF:3 c:0 a:0] is sending an RequestVote to 4
+19:58:53.781481 raft.go 536 raft.(*Raft).run [S0 Candidate t:3 vF:0 c:0 a:0] ElectionTimeout m=+2.101082934
+19:58:53.781813 raft.go 164 raft.(*Raft).startElection [S0 Candidate t:4 vF:0 c:0 a:0] is starting an election
+19:58:53.781986 raft.go 169 raft.(*Raft).startElection [S0 Candidate t:4 vF:0 c:0 a:0] votes to itself, votes:1
+19:58:53.783182 raft.go 195 raft.(*Raft).startRequestVote [S0 Candidate t:4 vF:0 c:0 a:0] is sending an RequestVote to 1
+19:58:53.783522 raft.go 195 raft.(*Raft).startRequestVote [S0 Candidate t:4 vF:0 c:0 a:0] is sending an RequestVote to 2
+19:58:53.784002 raft.go 195 raft.(*Raft).startRequestVote [S0 Candidate t:4 vF:0 c:0 a:0] is sending an RequestVote to 3
+19:58:53.784361 raft.go 195 raft.(*Raft).startRequestVote [S0 Candidate t:4 vF:0 c:0 a:0] is sending an RequestVote to 4
+19:58:53.788168 raft.go 526 raft.(*Raft).run [S2 Leader t:1 vF:2 c:0 a:0 m:[0 1 1 0 0] n:[1 2 2 1 1]] sending heartbeat msg
+19:58:53.788443 raft.go 302 raft.(*Raft).startLogReplication [S2 Leader t:1 vF:2 c:0 a:0 m:[0 1 1 0 0] n:[1 2 2 1 1]] startLogReplication
+19:58:53.790014 raft.go 336 raft.(*Raft).startAppendEntries [S2 Leader t:1 vF:2 c:0 a:0 m:[0 1 1 0 0] n:[1 2 2 1 1]] sendAppendEntries to 0, [arg S2 term:1 preLogIdx:0 preLogT:1 [{1 1 20}] LComit:0]
+19:58:53.790532 raft.go 336 raft.(*Raft).startAppendEntries [S2 Leader t:1 vF:2 c:0 a:0 m:[0 1 1 0 0] n:[1 2 2 1 1]] sendAppendEntries to 1, [arg S2 term:1 preLogIdx:1 preLogT:1 [] LComit:0]
+19:58:53.791283 raft.go 336 raft.(*Raft).startAppendEntries [S2 Leader t:1 vF:2 c:0 a:0 m:[0 1 1 0 0] n:[1 2 2 1 1]] sendAppendEntries to 3, [arg S2 term:1 preLogIdx:0 preLogT:1 [{1 1 20}] LComit:0]
+19:58:53.792152 raft.go 336 raft.(*Raft).startAppendEntries [S2 Leader t:1 vF:2 c:0 a:0 m:[0 1 1 0 0] n:[1 2 2 1 1]] sendAppendEntries to 4, [arg S2 term:1 preLogIdx:0 preLogT:1 [{1 1 20}] LComit:0]
+19:58:53.793355 raft.go 388 raft.(*Raft).HandleAppendEntries [S1 Follower t:1 vF:-1 c:0 a:0] received AppendEntries [arg S2 term:1 preLogIdx:1 preLogT:1 [] LComit:0]
+19:58:53.793695 raft.go 400 raft.(*Raft).HandleAppendEntries [S1 Follower t:1 vF:-1 c:0 a:0] reset electionTimeout
+19:58:53.793871 raftLog.go 70 raft.(*RaftLog).TruncateAppend [{0 1 10} {1 1 20}] preLgIdx:1 []
+19:58:53.794001 raftLog.go 90 raft.(*RaftLog).TruncateAppend [{0 1 10} {1 1 20}] 
+19:58:53.794219 raft.go 421 raft.(*Raft).HandleAppendEntries [S1 Follower t:1 vF:-1 c:0 a:0] [RLog c:0 a:0 [{0 1 10} {1 1 20}]]
+19:58:53.795593 raft.go 371 raft.(*Raft).startAppendEntries [S2 Leader t:1 vF:2 c:0 a:0 m:[0 1 1 0 0] n:[1 2 2 1 1]] sendAppendEntries to 1 succ
+19:58:53.870335 raft.go 203 raft.(*Raft).startRequestVote [S0 Candidate t:4 vF:0 c:0 a:0] sendRequestVote to 1 failed
+19:58:53.888347 raft.go 526 raft.(*Raft).run [S2 Leader t:1 vF:2 c:0 a:0 m:[0 1 1 0 0] n:[1 2 2 1 1]] sending heartbeat msg
+19:58:53.888638 raft.go 302 raft.(*Raft).startLogReplication [S2 Leader t:1 vF:2 c:0 a:0 m:[0 1 1 0 0] n:[1 2 2 1 1]] startLogReplication
+19:58:53.889940 raft.go 336 raft.(*Raft).startAppendEntries [S2 Leader t:1 vF:2 c:0 a:0 m:[0 1 1 0 0] n:[1 2 2 1 1]] sendAppendEntries to 0, [arg S2 term:1 preLogIdx:0 preLogT:1 [{1 1 20}] LComit:0]
+19:58:53.890649 raft.go 336 raft.(*Raft).startAppendEntries [S2 Leader t:1 vF:2 c:0 a:0 m:[0 1 1 0 0] n:[1 2 2 1 1]] sendAppendEntries to 1, [arg S2 term:1 preLogIdx:1 preLogT:1 [] LComit:0]
+19:58:53.891417 raft.go 336 raft.(*Raft).startAppendEntries [S2 Leader t:1 vF:2 c:0 a:0 m:[0 1 1 0 0] n:[1 2 2 1 1]] sendAppendEntries to 3, [arg S2 term:1 preLogIdx:0 preLogT:1 [{1 1 20}] LComit:0]
+19:58:53.892097 raft.go 336 raft.(*Raft).startAppendEntries [S2 Leader t:1 vF:2 c:0 a:0 m:[0 1 1 0 0] n:[1 2 2 1 1]] sendAppendEntries to 4, [arg S2 term:1 preLogIdx:0 preLogT:1 [{1 1 20}] LComit:0]
+19:58:53.893271 raft.go 388 raft.(*Raft).HandleAppendEntries [S1 Follower t:1 vF:-1 c:0 a:0] received AppendEntries [arg S2 term:1 preLogIdx:1 preLogT:1 [] LComit:0]
+19:58:53.893633 raft.go 400 raft.(*Raft).HandleAppendEntries [S1 Follower t:1 vF:-1 c:0 a:0] reset electionTimeout
+19:58:53.893829 raftLog.go 70 raft.(*RaftLog).TruncateAppend [{0 1 10} {1 1 20}] preLgIdx:1 []
+19:58:53.893977 raftLog.go 90 raft.(*RaftLog).TruncateAppend [{0 1 10} {1 1 20}] 
+19:58:53.894205 raft.go 421 raft.(*Raft).HandleAppendEntries [S1 Follower t:1 vF:-1 c:0 a:0] [RLog c:0 a:0 [{0 1 10} {1 1 20}]]
+19:58:53.895606 raft.go 371 raft.(*Raft).startAppendEntries [S2 Leader t:1 vF:2 c:0 a:0 m:[0 1 1 0 0] n:[1 2 2 1 1]] sendAppendEntries to 1 succ
+19:58:53.913248 raft.go 536 raft.(*Raft).run [S4 Candidate t:4 vF:4 c:0 a:0] ElectionTimeout m=+2.232808770
+19:58:53.913653 raft.go 164 raft.(*Raft).startElection [S4 Candidate t:5 vF:4 c:0 a:0] is starting an election
+19:58:53.914688 raft.go 169 raft.(*Raft).startElection [S4 Candidate t:5 vF:4 c:0 a:0] votes to itself, votes:1
+19:58:53.914900 raft.go 195 raft.(*Raft).startRequestVote [S4 Candidate t:5 vF:4 c:0 a:0] is sending an RequestVote to 0
+19:58:53.915268 raft.go 195 raft.(*Raft).startRequestVote [S4 Candidate t:5 vF:4 c:0 a:0] is sending an RequestVote to 1
+19:58:53.915741 raft.go 195 raft.(*Raft).startRequestVote [S4 Candidate t:5 vF:4 c:0 a:0] is sending an RequestVote to 2
+19:58:53.916215 raft.go 195 raft.(*Raft).startRequestVote [S4 Candidate t:5 vF:4 c:0 a:0] is sending an RequestVote to 3
+19:58:53.989156 raft.go 526 raft.(*Raft).run [S2 Leader t:1 vF:2 c:0 a:0 m:[0 1 1 0 0] n:[1 2 2 1 1]] sending heartbeat msg
+19:58:53.989487 raft.go 302 raft.(*Raft).startLogReplication [S2 Leader t:1 vF:2 c:0 a:0 m:[0 1 1 0 0] n:[1 2 2 1 1]] startLogReplication
+19:58:53.991015 raft.go 336 raft.(*Raft).startAppendEntries [S2 Leader t:1 vF:2 c:0 a:0 m:[0 1 1 0 0] n:[1 2 2 1 1]] sendAppendEntries to 0, [arg S2 term:1 preLogIdx:0 preLogT:1 [{1 1 20}] LComit:0]
+19:58:53.991695 raft.go 336 raft.(*Raft).startAppendEntries [S2 Leader t:1 vF:2 c:0 a:0 m:[0 1 1 0 0] n:[1 2 2 1 1]] sendAppendEntries to 1, [arg S2 term:1 preLogIdx:1 preLogT:1 [] LComit:0]
+19:58:53.992364 raft.go 336 raft.(*Raft).startAppendEntries [S2 Leader t:1 vF:2 c:0 a:0 m:[0 1 1 0 0] n:[1 2 2 1 1]] sendAppendEntries to 3, [arg S2 term:1 preLogIdx:0 preLogT:1 [{1 1 20}] LComit:0]
+19:58:53.993056 raft.go 336 raft.(*Raft).startAppendEntries [S2 Leader t:1 vF:2 c:0 a:0 m:[0 1 1 0 0] n:[1 2 2 1 1]] sendAppendEntries to 4, [arg S2 term:1 preLogIdx:0 preLogT:1 [{1 1 20}] LComit:0]
+19:58:53.995091 raft.go 388 raft.(*Raft).HandleAppendEntries [S1 Follower t:1 vF:-1 c:0 a:0] received AppendEntries [arg S2 term:1 preLogIdx:1 preLogT:1 [] LComit:0]
+19:58:53.995437 raft.go 400 raft.(*Raft).HandleAppendEntries [S1 Follower t:1 vF:-1 c:0 a:0] reset electionTimeout
+19:58:53.995647 raftLog.go 70 raft.(*RaftLog).TruncateAppend [{0 1 10} {1 1 20}] preLgIdx:1 []
+19:58:53.995790 raftLog.go 90 raft.(*RaftLog).TruncateAppend [{0 1 10} {1 1 20}] 
+19:58:53.996069 raft.go 421 raft.(*Raft).HandleAppendEntries [S1 Follower t:1 vF:-1 c:0 a:0] [RLog c:0 a:0 [{0 1 10} {1 1 20}]]
+19:58:53.997587 raft.go 371 raft.(*Raft).startAppendEntries [S2 Leader t:1 vF:2 c:0 a:0 m:[0 1 1 0 0] n:[1 2 2 1 1]] sendAppendEntries to 1 succ
+19:58:54.027965 raft.go 536 raft.(*Raft).run [S0 Candidate t:4 vF:0 c:0 a:0] ElectionTimeout m=+2.347511451
+19:58:54.028384 raft.go 164 raft.(*Raft).startElection [S0 Candidate t:5 vF:0 c:0 a:0] is starting an election
+19:58:54.028575 raft.go 169 raft.(*Raft).startElection [S0 Candidate t:5 vF:0 c:0 a:0] votes to itself, votes:1
+19:58:54.029816 raft.go 195 raft.(*Raft).startRequestVote [S0 Candidate t:5 vF:0 c:0 a:0] is sending an RequestVote to 1
+19:58:54.030285 raft.go 195 raft.(*Raft).startRequestVote [S0 Candidate t:5 vF:0 c:0 a:0] is sending an RequestVote to 2
+19:58:54.030831 raft.go 195 raft.(*Raft).startRequestVote [S0 Candidate t:5 vF:0 c:0 a:0] is sending an RequestVote to 3
+19:58:54.031349 raft.go 195 raft.(*Raft).startRequestVote [S0 Candidate t:5 vF:0 c:0 a:0] is sending an RequestVote to 4
+19:58:54.046250 raft.go 536 raft.(*Raft).run [S3 Candidate t:4 vF:3 c:0 a:0] ElectionTimeout m=+2.365801129
+19:58:54.046644 raft.go 164 raft.(*Raft).startElection [S3 Candidate t:5 vF:3 c:0 a:0] is starting an election
+19:58:54.047719 raft.go 169 raft.(*Raft).startElection [S3 Candidate t:5 vF:3 c:0 a:0] votes to itself, votes:1
+19:58:54.048300 raft.go 195 raft.(*Raft).startRequestVote [S3 Candidate t:5 vF:3 c:0 a:0] is sending an RequestVote to 0
+19:58:54.048820 raft.go 195 raft.(*Raft).startRequestVote [S3 Candidate t:5 vF:3 c:0 a:0] is sending an RequestVote to 1
+19:58:54.049382 raft.go 195 raft.(*Raft).startRequestVote [S3 Candidate t:5 vF:3 c:0 a:0] is sending an RequestVote to 2
+19:58:54.049908 raft.go 195 raft.(*Raft).startRequestVote [S3 Candidate t:5 vF:3 c:0 a:0] is sending an RequestVote to 4
+19:58:54.063711 raft.go 203 raft.(*Raft).startRequestVote [S4 Candidate t:5 vF:4 c:0 a:0] sendRequestVote to 3 failed
+19:58:54.088083 raft.go 526 raft.(*Raft).run [S2 Leader t:1 vF:2 c:0 a:0 m:[0 1 1 0 0] n:[1 2 2 1 1]] sending heartbeat msg
+19:58:54.088253 raft.go 302 raft.(*Raft).startLogReplication [S2 Leader t:1 vF:2 c:0 a:0 m:[0 1 1 0 0] n:[1 2 2 1 1]] startLogReplication
+19:58:54.089032 raft.go 336 raft.(*Raft).startAppendEntries [S2 Leader t:1 vF:2 c:0 a:0 m:[0 1 1 0 0] n:[1 2 2 1 1]] sendAppendEntries to 0, [arg S2 term:1 preLogIdx:0 preLogT:1 [{1 1 20}] LComit:0]
+19:58:54.089321 raft.go 336 raft.(*Raft).startAppendEntries [S2 Leader t:1 vF:2 c:0 a:0 m:[0 1 1 0 0] n:[1 2 2 1 1]] sendAppendEntries to 1, [arg S2 term:1 preLogIdx:1 preLogT:1 [] LComit:0]
+19:58:54.089800 raft.go 336 raft.(*Raft).startAppendEntries [S2 Leader t:1 vF:2 c:0 a:0 m:[0 1 1 0 0] n:[1 2 2 1 1]] sendAppendEntries to 3, [arg S2 term:1 preLogIdx:0 preLogT:1 [{1 1 20}] LComit:0]
+19:58:54.090151 raft.go 336 raft.(*Raft).startAppendEntries [S2 Leader t:1 vF:2 c:0 a:0 m:[0 1 1 0 0] n:[1 2 2 1 1]] sendAppendEntries to 4, [arg S2 term:1 preLogIdx:0 preLogT:1 [{1 1 20}] LComit:0]
+19:58:54.091097 raft.go 388 raft.(*Raft).HandleAppendEntries [S1 Follower t:1 vF:-1 c:0 a:0] received AppendEntries [arg S2 term:1 preLogIdx:1 preLogT:1 [] LComit:0]
+19:58:54.091273 raft.go 400 raft.(*Raft).HandleAppendEntries [S1 Follower t:1 vF:-1 c:0 a:0] reset electionTimeout
+19:58:54.091385 raftLog.go 70 raft.(*RaftLog).TruncateAppend [{0 1 10} {1 1 20}] preLgIdx:1 []
+19:58:54.091466 raftLog.go 90 raft.(*RaftLog).TruncateAppend [{0 1 10} {1 1 20}] 
+19:58:54.091586 raft.go 421 raft.(*Raft).HandleAppendEntries [S1 Follower t:1 vF:-1 c:0 a:0] [RLog c:0 a:0 [{0 1 10} {1 1 20}]]
+19:58:54.092305 raft.go 371 raft.(*Raft).startAppendEntries [S2 Leader t:1 vF:2 c:0 a:0 m:[0 1 1 0 0] n:[1 2 2 1 1]] sendAppendEntries to 1 succ
+19:58:54.147029 raft.go 536 raft.(*Raft).run [S4 Candidate t:5 vF:4 c:0 a:0] ElectionTimeout m=+2.466576457
+19:58:54.147433 raft.go 164 raft.(*Raft).startElection [S4 Candidate t:6 vF:4 c:0 a:0] is starting an election
+19:58:54.148432 raft.go 169 raft.(*Raft).startElection [S4 Candidate t:6 vF:4 c:0 a:0] votes to itself, votes:1
+19:58:54.148657 raft.go 195 raft.(*Raft).startRequestVote [S4 Candidate t:6 vF:4 c:0 a:0] is sending an RequestVote to 0
+19:58:54.149100 raft.go 195 raft.(*Raft).startRequestVote [S4 Candidate t:6 vF:4 c:0 a:0] is sending an RequestVote to 1
+19:58:54.149538 raft.go 195 raft.(*Raft).startRequestVote [S4 Candidate t:6 vF:4 c:0 a:0] is sending an RequestVote to 2
+19:58:54.150080 raft.go 195 raft.(*Raft).startRequestVote [S4 Candidate t:6 vF:4 c:0 a:0] is sending an RequestVote to 3
+19:58:54.188066 raft.go 526 raft.(*Raft).run [S2 Leader t:1 vF:2 c:0 a:0 m:[0 1 1 0 0] n:[1 2 2 1 1]] sending heartbeat msg
+19:58:54.188428 raft.go 302 raft.(*Raft).startLogReplication [S2 Leader t:1 vF:2 c:0 a:0 m:[0 1 1 0 0] n:[1 2 2 1 1]] startLogReplication
+19:58:54.190330 raft.go 336 raft.(*Raft).startAppendEntries [S2 Leader t:1 vF:2 c:0 a:0 m:[0 1 1 0 0] n:[1 2 2 1 1]] sendAppendEntries to 0, [arg S2 term:1 preLogIdx:0 preLogT:1 [{1 1 20}] LComit:0]
+19:58:54.190964 raft.go 336 raft.(*Raft).startAppendEntries [S2 Leader t:1 vF:2 c:0 a:0 m:[0 1 1 0 0] n:[1 2 2 1 1]] sendAppendEntries to 1, [arg S2 term:1 preLogIdx:1 preLogT:1 [] LComit:0]
+19:58:54.191720 raft.go 336 raft.(*Raft).startAppendEntries [S2 Leader t:1 vF:2 c:0 a:0 m:[0 1 1 0 0] n:[1 2 2 1 1]] sendAppendEntries to 3, [arg S2 term:1 preLogIdx:0 preLogT:1 [{1 1 20}] LComit:0]
+19:58:54.192556 raft.go 336 raft.(*Raft).startAppendEntries [S2 Leader t:1 vF:2 c:0 a:0 m:[0 1 1 0 0] n:[1 2 2 1 1]] sendAppendEntries to 4, [arg S2 term:1 preLogIdx:0 preLogT:1 [{1 1 20}] LComit:0]
+19:58:54.193797 raft.go 388 raft.(*Raft).HandleAppendEntries [S1 Follower t:1 vF:-1 c:0 a:0] received AppendEntries [arg S2 term:1 preLogIdx:1 preLogT:1 [] LComit:0]
+19:58:54.194171 raft.go 400 raft.(*Raft).HandleAppendEntries [S1 Follower t:1 vF:-1 c:0 a:0] reset electionTimeout
+19:58:54.194399 raftLog.go 70 raft.(*RaftLog).TruncateAppend [{0 1 10} {1 1 20}] preLgIdx:1 []
+19:58:54.194555 raftLog.go 90 raft.(*RaftLog).TruncateAppend [{0 1 10} {1 1 20}] 
+19:58:54.194801 raft.go 421 raft.(*Raft).HandleAppendEntries [S1 Follower t:1 vF:-1 c:0 a:0] [RLog c:0 a:0 [{0 1 10} {1 1 20}]]
+19:58:54.196244 raft.go 371 raft.(*Raft).startAppendEntries [S2 Leader t:1 vF:2 c:0 a:0 m:[0 1 1 0 0] n:[1 2 2 1 1]] sendAppendEntries to 1 succ
+19:58:54.277417 raft.go 203 raft.(*Raft).startRequestVote [S4 Candidate t:6 vF:4 c:0 a:0] sendRequestVote to 0 failed
+19:58:54.288131 raft.go 526 raft.(*Raft).run [S2 Leader t:1 vF:2 c:0 a:0 m:[0 1 1 0 0] n:[1 2 2 1 1]] sending heartbeat msg
+19:58:54.288412 raft.go 302 raft.(*Raft).startLogReplication [S2 Leader t:1 vF:2 c:0 a:0 m:[0 1 1 0 0] n:[1 2 2 1 1]] startLogReplication
+19:58:54.289748 raft.go 336 raft.(*Raft).startAppendEntries [S2 Leader t:1 vF:2 c:0 a:0 m:[0 1 1 0 0] n:[1 2 2 1 1]] sendAppendEntries to 0, [arg S2 term:1 preLogIdx:0 preLogT:1 [{1 1 20}] LComit:0]
+19:58:54.290401 raft.go 336 raft.(*Raft).startAppendEntries [S2 Leader t:1 vF:2 c:0 a:0 m:[0 1 1 0 0] n:[1 2 2 1 1]] sendAppendEntries to 1, [arg S2 term:1 preLogIdx:1 preLogT:1 [] LComit:0]
+19:58:54.291182 raft.go 336 raft.(*Raft).startAppendEntries [S2 Leader t:1 vF:2 c:0 a:0 m:[0 1 1 0 0] n:[1 2 2 1 1]] sendAppendEntries to 3, [arg S2 term:1 preLogIdx:0 preLogT:1 [{1 1 20}] LComit:0]
+19:58:54.291489 raft.go 203 raft.(*Raft).startRequestVote [S0 Candidate t:5 vF:0 c:0 a:0] sendRequestVote to 2 failed
+19:58:54.291847 raft.go 336 raft.(*Raft).startAppendEntries [S2 Leader t:1 vF:2 c:0 a:0 m:[0 1 1 0 0] n:[1 2 2 1 1]] sendAppendEntries to 4, [arg S2 term:1 preLogIdx:0 preLogT:1 [{1 1 20}] LComit:0]
+19:58:54.293567 raft.go 388 raft.(*Raft).HandleAppendEntries [S1 Follower t:1 vF:-1 c:0 a:0] received AppendEntries [arg S2 term:1 preLogIdx:1 preLogT:1 [] LComit:0]
+19:58:54.293978 raft.go 400 raft.(*Raft).HandleAppendEntries [S1 Follower t:1 vF:-1 c:0 a:0] reset electionTimeout
+19:58:54.294196 raftLog.go 70 raft.(*RaftLog).TruncateAppend [{0 1 10} {1 1 20}] preLgIdx:1 []
+19:58:54.294406 raftLog.go 90 raft.(*RaftLog).TruncateAppend [{0 1 10} {1 1 20}] 
+19:58:54.294654 raft.go 421 raft.(*Raft).HandleAppendEntries [S1 Follower t:1 vF:-1 c:0 a:0] [RLog c:0 a:0 [{0 1 10} {1 1 20}]]
+19:58:54.296081 raft.go 371 raft.(*Raft).startAppendEntries [S2 Leader t:1 vF:2 c:0 a:0 m:[0 1 1 0 0] n:[1 2 2 1 1]] sendAppendEntries to 1 succ
+19:58:54.316541 raft.go 536 raft.(*Raft).run [S0 Candidate t:5 vF:0 c:0 a:0] ElectionTimeout m=+2.636089944
+19:58:54.316974 raft.go 164 raft.(*Raft).startElection [S0 Candidate t:6 vF:0 c:0 a:0] is starting an election
+19:58:54.317157 raft.go 169 raft.(*Raft).startElection [S0 Candidate t:6 vF:0 c:0 a:0] votes to itself, votes:1
+19:58:54.318198 raft.go 195 raft.(*Raft).startRequestVote [S0 Candidate t:6 vF:0 c:0 a:0] is sending an RequestVote to 1
+19:58:54.318540 raft.go 195 raft.(*Raft).startRequestVote [S0 Candidate t:6 vF:0 c:0 a:0] is sending an RequestVote to 2
+19:58:54.319081 raft.go 195 raft.(*Raft).startRequestVote [S0 Candidate t:6 vF:0 c:0 a:0] is sending an RequestVote to 3
+19:58:54.319546 raft.go 195 raft.(*Raft).startRequestVote [S0 Candidate t:6 vF:0 c:0 a:0] is sending an RequestVote to 4
+19:58:54.389178 raft.go 526 raft.(*Raft).run [S2 Leader t:1 vF:2 c:0 a:0 m:[0 1 1 0 0] n:[1 2 2 1 1]] sending heartbeat msg
+19:58:54.389512 raft.go 302 raft.(*Raft).startLogReplication [S2 Leader t:1 vF:2 c:0 a:0 m:[0 1 1 0 0] n:[1 2 2 1 1]] startLogReplication
+19:58:54.391148 raft.go 336 raft.(*Raft).startAppendEntries [S2 Leader t:1 vF:2 c:0 a:0 m:[0 1 1 0 0] n:[1 2 2 1 1]] sendAppendEntries to 4, [arg S2 term:1 preLogIdx:0 preLogT:1 [{1 1 20}] LComit:0]
+19:58:54.391825 raft.go 336 raft.(*Raft).startAppendEntries [S2 Leader t:1 vF:2 c:0 a:0 m:[0 1 1 0 0] n:[1 2 2 1 1]] sendAppendEntries to 0, [arg S2 term:1 preLogIdx:0 preLogT:1 [{1 1 20}] LComit:0]
+19:58:54.392559 raft.go 336 raft.(*Raft).startAppendEntries [S2 Leader t:1 vF:2 c:0 a:0 m:[0 1 1 0 0] n:[1 2 2 1 1]] sendAppendEntries to 1, [arg S2 term:1 preLogIdx:1 preLogT:1 [] LComit:0]
+19:58:54.393463 raft.go 336 raft.(*Raft).startAppendEntries [S2 Leader t:1 vF:2 c:0 a:0 m:[0 1 1 0 0] n:[1 2 2 1 1]] sendAppendEntries to 3, [arg S2 term:1 preLogIdx:0 preLogT:1 [{1 1 20}] LComit:0]
+19:58:54.396529 raft.go 388 raft.(*Raft).HandleAppendEntries [S1 Follower t:1 vF:-1 c:0 a:0] received AppendEntries [arg S2 term:1 preLogIdx:1 preLogT:1 [] LComit:0]
+19:58:54.396939 raft.go 400 raft.(*Raft).HandleAppendEntries [S1 Follower t:1 vF:-1 c:0 a:0] reset electionTimeout
+19:58:54.397135 raftLog.go 70 raft.(*RaftLog).TruncateAppend [{0 1 10} {1 1 20}] preLgIdx:1 []
+19:58:54.397307 raftLog.go 90 raft.(*RaftLog).TruncateAppend [{0 1 10} {1 1 20}] 
+19:58:54.397554 raft.go 421 raft.(*Raft).HandleAppendEntries [S1 Follower t:1 vF:-1 c:0 a:0] [RLog c:0 a:0 [{0 1 10} {1 1 20}]]
+19:58:54.398999 raft.go 371 raft.(*Raft).startAppendEntries [S2 Leader t:1 vF:2 c:0 a:0 m:[0 1 1 0 0] n:[1 2 2 1 1]] sendAppendEntries to 1 succ
+19:58:54.488398 raft.go 526 raft.(*Raft).run [S2 Leader t:1 vF:2 c:0 a:0 m:[0 1 1 0 0] n:[1 2 2 1 1]] sending heartbeat msg
+19:58:54.489548 raft.go 302 raft.(*Raft).startLogReplication [S2 Leader t:1 vF:2 c:0 a:0 m:[0 1 1 0 0] n:[1 2 2 1 1]] startLogReplication
+19:58:54.490799 raft.go 336 raft.(*Raft).startAppendEntries [S2 Leader t:1 vF:2 c:0 a:0 m:[0 1 1 0 0] n:[1 2 2 1 1]] sendAppendEntries to 4, [arg S2 term:1 preLogIdx:0 preLogT:1 [{1 1 20}] LComit:0]
+19:58:54.491379 raft.go 336 raft.(*Raft).startAppendEntries [S2 Leader t:1 vF:2 c:0 a:0 m:[0 1 1 0 0] n:[1 2 2 1 1]] sendAppendEntries to 0, [arg S2 term:1 preLogIdx:0 preLogT:1 [{1 1 20}] LComit:0]
+19:58:54.491938 raft.go 336 raft.(*Raft).startAppendEntries [S2 Leader t:1 vF:2 c:0 a:0 m:[0 1 1 0 0] n:[1 2 2 1 1]] sendAppendEntries to 1, [arg S2 term:1 preLogIdx:1 preLogT:1 [] LComit:0]
+19:58:54.492565 raft.go 336 raft.(*Raft).startAppendEntries [S2 Leader t:1 vF:2 c:0 a:0 m:[0 1 1 0 0] n:[1 2 2 1 1]] sendAppendEntries to 3, [arg S2 term:1 preLogIdx:0 preLogT:1 [{1 1 20}] LComit:0]
+19:58:54.492785 raft.go 536 raft.(*Raft).run [S3 Candidate t:5 vF:3 c:0 a:0] ElectionTimeout m=+2.812418547
+19:58:54.493160 raft.go 164 raft.(*Raft).startElection [S3 Candidate t:6 vF:3 c:0 a:0] is starting an election
+19:58:54.494643 raft.go 169 raft.(*Raft).startElection [S3 Candidate t:6 vF:3 c:0 a:0] votes to itself, votes:1
+19:58:54.495140 raft.go 388 raft.(*Raft).HandleAppendEntries [S1 Follower t:1 vF:-1 c:0 a:0] received AppendEntries [arg S2 term:1 preLogIdx:1 preLogT:1 [] LComit:0]
+19:58:54.495192 raft.go 195 raft.(*Raft).startRequestVote [S3 Candidate t:6 vF:3 c:0 a:0] is sending an RequestVote to 0
+19:58:54.495500 raft.go 400 raft.(*Raft).HandleAppendEntries [S1 Follower t:1 vF:-1 c:0 a:0] reset electionTimeout
+19:58:54.495603 raft.go 195 raft.(*Raft).startRequestVote [S3 Candidate t:6 vF:3 c:0 a:0] is sending an RequestVote to 1
+19:58:54.495714 raftLog.go 70 raft.(*RaftLog).TruncateAppend [{0 1 10} {1 1 20}] preLgIdx:1 []
+19:58:54.495967 raftLog.go 90 raft.(*RaftLog).TruncateAppend [{0 1 10} {1 1 20}] 
+19:58:54.496000 raft.go 195 raft.(*Raft).startRequestVote [S3 Candidate t:6 vF:3 c:0 a:0] is sending an RequestVote to 2
+19:58:54.496338 raft.go 421 raft.(*Raft).HandleAppendEntries [S1 Follower t:1 vF:-1 c:0 a:0] [RLog c:0 a:0 [{0 1 10} {1 1 20}]]
+19:58:54.496407 raft.go 195 raft.(*Raft).startRequestVote [S3 Candidate t:6 vF:3 c:0 a:0] is sending an RequestVote to 4
+19:58:54.497934 raft.go 371 raft.(*Raft).startAppendEntries [S2 Leader t:1 vF:2 c:0 a:0 m:[0 1 1 0 0] n:[1 2 2 1 1]] sendAppendEntries to 1 succ
+19:58:54.561677 raft.go 536 raft.(*Raft).run [S0 Candidate t:6 vF:0 c:0 a:0] ElectionTimeout m=+2.881229728
+19:58:54.562078 raft.go 164 raft.(*Raft).startElection [S0 Candidate t:7 vF:0 c:0 a:0] is starting an election
+19:58:54.562259 raft.go 169 raft.(*Raft).startElection [S0 Candidate t:7 vF:0 c:0 a:0] votes to itself, votes:1
+19:58:54.563301 raft.go 195 raft.(*Raft).startRequestVote [S0 Candidate t:7 vF:0 c:0 a:0] is sending an RequestVote to 3
+19:58:54.563712 raft.go 195 raft.(*Raft).startRequestVote [S0 Candidate t:7 vF:0 c:0 a:0] is sending an RequestVote to 1
+19:58:54.564244 raft.go 195 raft.(*Raft).startRequestVote [S0 Candidate t:7 vF:0 c:0 a:0] is sending an RequestVote to 2
+19:58:54.564690 raft.go 195 raft.(*Raft).startRequestVote [S0 Candidate t:7 vF:0 c:0 a:0] is sending an RequestVote to 4
+19:58:54.575122 raft.go 536 raft.(*Raft).run [S4 Candidate t:6 vF:4 c:0 a:0] ElectionTimeout m=+2.894719575
+19:58:54.575605 raft.go 164 raft.(*Raft).startElection [S4 Candidate t:7 vF:4 c:0 a:0] is starting an election
+19:58:54.576996 raft.go 169 raft.(*Raft).startElection [S4 Candidate t:7 vF:4 c:0 a:0] votes to itself, votes:1
+19:58:54.577276 raft.go 195 raft.(*Raft).startRequestVote [S4 Candidate t:7 vF:4 c:0 a:0] is sending an RequestVote to 0
+19:58:54.577794 raft.go 195 raft.(*Raft).startRequestVote [S4 Candidate t:7 vF:4 c:0 a:0] is sending an RequestVote to 1
+19:58:54.578356 raft.go 195 raft.(*Raft).startRequestVote [S4 Candidate t:7 vF:4 c:0 a:0] is sending an RequestVote to 2
+19:58:54.578930 raft.go 195 raft.(*Raft).startRequestVote [S4 Candidate t:7 vF:4 c:0 a:0] is sending an RequestVote to 3
+19:58:54.579326 raft.go 203 raft.(*Raft).startRequestVote [S4 Candidate t:7 vF:4 c:0 a:0] sendRequestVote to 1 failed
+19:58:54.588051 raft.go 526 raft.(*Raft).run [S2 Leader t:1 vF:2 c:0 a:0 m:[0 1 1 0 0] n:[1 2 2 1 1]] sending heartbeat msg
+19:58:54.588352 raft.go 302 raft.(*Raft).startLogReplication [S2 Leader t:1 vF:2 c:0 a:0 m:[0 1 1 0 0] n:[1 2 2 1 1]] startLogReplication
+19:58:54.589918 raft.go 336 raft.(*Raft).startAppendEntries [S2 Leader t:1 vF:2 c:0 a:0 m:[0 1 1 0 0] n:[1 2 2 1 1]] sendAppendEntries to 4, [arg S2 term:1 preLogIdx:0 preLogT:1 [{1 1 20}] LComit:0]
+19:58:54.590702 raft.go 336 raft.(*Raft).startAppendEntries [S2 Leader t:1 vF:2 c:0 a:0 m:[0 1 1 0 0] n:[1 2 2 1 1]] sendAppendEntries to 0, [arg S2 term:1 preLogIdx:0 preLogT:1 [{1 1 20}] LComit:0]
+19:58:54.591430 raft.go 336 raft.(*Raft).startAppendEntries [S2 Leader t:1 vF:2 c:0 a:0 m:[0 1 1 0 0] n:[1 2 2 1 1]] sendAppendEntries to 1, [arg S2 term:1 preLogIdx:1 preLogT:1 [] LComit:0]
+19:58:54.592042 raft.go 336 raft.(*Raft).startAppendEntries [S2 Leader t:1 vF:2 c:0 a:0 m:[0 1 1 0 0] n:[1 2 2 1 1]] sendAppendEntries to 3, [arg S2 term:1 preLogIdx:0 preLogT:1 [{1 1 20}] LComit:0]
+19:58:54.594300 raft.go 388 raft.(*Raft).HandleAppendEntries [S1 Follower t:1 vF:-1 c:0 a:0] received AppendEntries [arg S2 term:1 preLogIdx:1 preLogT:1 [] LComit:0]
+19:58:54.594699 raft.go 400 raft.(*Raft).HandleAppendEntries [S1 Follower t:1 vF:-1 c:0 a:0] reset electionTimeout
+19:58:54.594899 raftLog.go 70 raft.(*RaftLog).TruncateAppend [{0 1 10} {1 1 20}] preLgIdx:1 []
+19:58:54.595053 raftLog.go 90 raft.(*RaftLog).TruncateAppend [{0 1 10} {1 1 20}] 
+19:58:54.595290 raft.go 421 raft.(*Raft).HandleAppendEntries [S1 Follower t:1 vF:-1 c:0 a:0] [RLog c:0 a:0 [{0 1 10} {1 1 20}]]
+19:58:54.596901 raft.go 371 raft.(*Raft).startAppendEntries [S2 Leader t:1 vF:2 c:0 a:0 m:[0 1 1 0 0] n:[1 2 2 1 1]] sendAppendEntries to 1 succ
+19:58:54.604273 raft.go 203 raft.(*Raft).startRequestVote [S4 Candidate t:7 vF:4 c:0 a:0] sendRequestVote to 1 failed
+19:58:54.609460 raft.go 203 raft.(*Raft).startRequestVote [S4 Candidate t:7 vF:4 c:0 a:0] sendRequestVote to 3 failed
+19:58:54.668287 raft.go 203 raft.(*Raft).startRequestVote [S4 Candidate t:7 vF:4 c:0 a:0] sendRequestVote to 3 failed
+19:58:54.687982 raft.go 526 raft.(*Raft).run [S2 Leader t:1 vF:2 c:0 a:0 m:[0 1 1 0 0] n:[1 2 2 1 1]] sending heartbeat msg
+19:58:54.688307 raft.go 302 raft.(*Raft).startLogReplication [S2 Leader t:1 vF:2 c:0 a:0 m:[0 1 1 0 0] n:[1 2 2 1 1]] startLogReplication
+19:58:54.689624 raft.go 336 raft.(*Raft).startAppendEntries [S2 Leader t:1 vF:2 c:0 a:0 m:[0 1 1 0 0] n:[1 2 2 1 1]] sendAppendEntries to 1, [arg S2 term:1 preLogIdx:1 preLogT:1 [] LComit:0]
+19:58:54.690400 raft.go 336 raft.(*Raft).startAppendEntries [S2 Leader t:1 vF:2 c:0 a:0 m:[0 1 1 0 0] n:[1 2 2 1 1]] sendAppendEntries to 0, [arg S2 term:1 preLogIdx:0 preLogT:1 [{1 1 20}] LComit:0]
+19:58:54.690796 ********************************************************
+19:58:54.690954 repair
+19:58:54.691124 ********************************************************
+19:58:54.691182 the disconnected majority may have chosen a leader from among their own ranks, forgetting index 2.
+19:58:54.691194 raft.go 336 raft.(*Raft).startAppendEntries [S2 Leader t:1 vF:2 c:0 a:0 m:[0 1 1 0 0] n:[1 2 2 1 1]] sendAppendEntries to 3, [arg S2 term:1 preLogIdx:0 preLogT:1 [{1 1 20}] LComit:0]
+19:58:54.691938 raft.go 336 raft.(*Raft).startAppendEntries [S2 Leader t:1 vF:2 c:0 a:0 m:[0 1 1 0 0] n:[1 2 2 1 1]] sendAppendEntries to 4, [arg S2 term:1 preLogIdx:0 preLogT:1 [{1 1 20}] LComit:0]
+19:58:54.692078 raft.go 388 raft.(*Raft).HandleAppendEntries [S1 Follower t:1 vF:-1 c:0 a:0] received AppendEntries [arg S2 term:1 preLogIdx:1 preLogT:1 [] LComit:0]
+19:58:54.692441 raft.go 400 raft.(*Raft).HandleAppendEntries [S1 Follower t:1 vF:-1 c:0 a:0] reset electionTimeout
+19:58:54.692635 raftLog.go 70 raft.(*RaftLog).TruncateAppend [{0 1 10} {1 1 20}] preLgIdx:1 []
+19:58:54.692778 raftLog.go 90 raft.(*RaftLog).TruncateAppend [{0 1 10} {1 1 20}] 
+19:58:54.693045 raft.go 421 raft.(*Raft).HandleAppendEntries [S1 Follower t:1 vF:-1 c:0 a:0] [RLog c:0 a:0 [{0 1 10} {1 1 20}]]
+19:58:54.694438 raft.go 388 raft.(*Raft).HandleAppendEntries [S0 Candidate t:7 vF:0 c:0 a:0] received AppendEntries [arg S2 term:1 preLogIdx:0 preLogT:1 [{1 1 20}] LComit:0]
+19:58:54.694598 raft.go 371 raft.(*Raft).startAppendEntries [S2 Leader t:1 vF:2 c:0 a:0 m:[0 1 1 0 0] n:[1 2 2 1 1]] sendAppendEntries to 1 succ
+19:58:54.694966 raft.go 388 raft.(*Raft).HandleAppendEntries [S4 Candidate t:7 vF:4 c:0 a:0] received AppendEntries [arg S2 term:1 preLogIdx:0 preLogT:1 [{1 1 20}] LComit:0]
+19:58:54.695520 raft.go 388 raft.(*Raft).HandleAppendEntries [S3 Candidate t:6 vF:3 c:0 a:0] received AppendEntries [arg S2 term:1 preLogIdx:0 preLogT:1 [{1 1 20}] LComit:0]
+19:58:54.696827 raft.go 357 raft.(*Raft).startAppendEntries [S2 Follower t:7 vF:2 c:0 a:0] sendAppendEntries to 0 failed, [rply term:7 succ:false]
+19:58:54.697517 raft.go 357 raft.(*Raft).startAppendEntries [S2 Follower t:7 vF:2 c:0 a:0] sendAppendEntries to 3 failed, [rply term:6 succ:false]
+19:58:54.719661 raft.go 536 raft.(*Raft).run [S3 Candidate t:6 vF:3 c:0 a:0] ElectionTimeout m=+3.039202848
+19:58:54.720042 raft.go 164 raft.(*Raft).startElection [S3 Candidate t:7 vF:3 c:0 a:0] is starting an election
+19:58:54.720894 raft.go 169 raft.(*Raft).startElection [S3 Candidate t:7 vF:3 c:0 a:0] votes to itself, votes:1
+19:58:54.721487 raft.go 195 raft.(*Raft).startRequestVote [S3 Candidate t:7 vF:3 c:0 a:0] is sending an RequestVote to 0
+19:58:54.721809 raft.go 203 raft.(*Raft).startRequestVote [S0 Candidate t:7 vF:0 c:0 a:0] sendRequestVote to 2 failed
+19:58:54.721962 raft.go 195 raft.(*Raft).startRequestVote [S3 Candidate t:7 vF:3 c:0 a:0] is sending an RequestVote to 1
+19:58:54.722482 raft.go 195 raft.(*Raft).startRequestVote [S3 Candidate t:7 vF:3 c:0 a:0] is sending an RequestVote to 2
+19:58:54.722864 raft.go 195 raft.(*Raft).startRequestVote [S3 Candidate t:7 vF:3 c:0 a:0] is sending an RequestVote to 4
+19:58:54.723936 raft.go 246 raft.(*Raft).HandleRequestVote [S1 Follower t:1 vF:-1 c:0 a:0] received RequestVote RPC from 3 at term 7, LastLogIndex:0, LastLogTerm:1
+19:58:54.724223 raft.go 246 raft.(*Raft).HandleRequestVote [S0 Candidate t:7 vF:0 c:0 a:0] received RequestVote RPC from 3 at term 7, LastLogIndex:0, LastLogTerm:1
+19:58:54.724300 raft.go 246 raft.(*Raft).HandleRequestVote [S2 Follower t:7 vF:2 c:0 a:0] received RequestVote RPC from 3 at term 7, LastLogIndex:0, LastLogTerm:1
+19:58:54.725320 raft.go 206 raft.(*Raft).startRequestVote [S3 Candidate t:7 vF:3 c:0 a:0] sendRequestVote to 1 succ
+19:58:54.725718 raft.go 246 raft.(*Raft).HandleRequestVote [S4 Candidate t:7 vF:4 c:0 a:0] received RequestVote RPC from 3 at term 7, LastLogIndex:0, LastLogTerm:1
+19:58:54.725748 raft.go 206 raft.(*Raft).startRequestVote [S3 Candidate t:7 vF:3 c:0 a:0] sendRequestVote to 2 succ
+19:58:54.726340 raft.go 206 raft.(*Raft).startRequestVote [S3 Candidate t:7 vF:3 c:0 a:0] sendRequestVote to 0 succ
+19:58:54.727266 raft.go 206 raft.(*Raft).startRequestVote [S3 Candidate t:7 vF:3 c:0 a:0] sendRequestVote to 4 succ
+19:58:54.745525 raft.go 203 raft.(*Raft).startRequestVote [S0 Candidate t:7 vF:0 c:0 a:0] sendRequestVote to 1 failed
+19:58:54.747008 raft.go 203 raft.(*Raft).startRequestVote [S0 Candidate t:7 vF:0 c:0 a:0] sendRequestVote to 3 failed
+19:58:54.764911 raft.go 203 raft.(*Raft).startRequestVote [S0 Candidate t:7 vF:0 c:0 a:0] sendRequestVote to 2 failed
+19:58:54.801325 raft.go 203 raft.(*Raft).startRequestVote [S0 Candidate t:7 vF:0 c:0 a:0] sendRequestVote to 1 failed
+19:58:54.821788 raft.go 536 raft.(*Raft).run [S4 Candidate t:7 vF:4 c:0 a:0] ElectionTimeout m=+3.141520514
+19:58:54.821957 raft.go 203 raft.(*Raft).startRequestVote [S0 Candidate t:7 vF:0 c:0 a:0] sendRequestVote to 4 failed
+19:58:54.822065 raft.go 164 raft.(*Raft).startElection [S4 Candidate t:8 vF:4 c:0 a:0] is starting an election
+19:58:54.822567 raft.go 203 raft.(*Raft).startRequestVote [S3 Candidate t:7 vF:3 c:0 a:0] sendRequestVote to 0 failed
+19:58:54.822748 raft.go 169 raft.(*Raft).startElection [S4 Candidate t:8 vF:4 c:0 a:0] votes to itself, votes:1
+19:58:54.822879 raft.go 195 raft.(*Raft).startRequestVote [S4 Candidate t:8 vF:4 c:0 a:0] is sending an RequestVote to 1
+19:58:54.823180 raft.go 195 raft.(*Raft).startRequestVote [S4 Candidate t:8 vF:4 c:0 a:0] is sending an RequestVote to 2
+19:58:54.823440 raft.go 195 raft.(*Raft).startRequestVote [S4 Candidate t:8 vF:4 c:0 a:0] is sending an RequestVote to 0
+19:58:54.823627 raft.go 195 raft.(*Raft).startRequestVote [S4 Candidate t:8 vF:4 c:0 a:0] is sending an RequestVote to 3
+19:58:54.824116 raft.go 246 raft.(*Raft).HandleRequestVote [S2 Follower t:7 vF:2 c:0 a:0] received RequestVote RPC from 4 at term 8, LastLogIndex:0, LastLogTerm:1
+19:58:54.824134 raft.go 246 raft.(*Raft).HandleRequestVote [S1 Follower t:7 vF:-1 c:0 a:0] received RequestVote RPC from 4 at term 8, LastLogIndex:0, LastLogTerm:1
+19:58:54.824625 raft.go 246 raft.(*Raft).HandleRequestVote [S0 Candidate t:7 vF:0 c:0 a:0] received RequestVote RPC from 4 at term 8, LastLogIndex:0, LastLogTerm:1
+19:58:54.824791 raft.go 206 raft.(*Raft).startRequestVote [S4 Candidate t:8 vF:4 c:0 a:0] sendRequestVote to 2 succ
+19:58:54.824808 raft.go 265 raft.(*Raft).HandleRequestVote [S0 Follower t:8 vF:4 c:0 a:0] HandleRequestVote has voted to 4
+19:58:54.825063 raft.go 246 raft.(*Raft).HandleRequestVote [S3 Candidate t:7 vF:3 c:0 a:0] received RequestVote RPC from 4 at term 8, LastLogIndex:0, LastLogTerm:1
+19:58:54.825124 raft.go 206 raft.(*Raft).startRequestVote [S4 Candidate t:8 vF:4 c:0 a:0] sendRequestVote to 1 succ
+19:58:54.825307 raft.go 265 raft.(*Raft).HandleRequestVote [S3 Follower t:8 vF:4 c:0 a:0] HandleRequestVote has voted to 4
+19:58:54.825463 raft.go 206 raft.(*Raft).startRequestVote [S4 Candidate t:8 vF:4 c:0 a:0] sendRequestVote to 0 succ
+19:58:54.825594 raft.go 179 raft.(*Raft).startElection.func1 [S4 Candidate t:8 vF:4 c:0 a:0] got vote from 0, votes:2
+19:58:54.825978 raft.go 206 raft.(*Raft).startRequestVote [S4 Candidate t:8 vF:4 c:0 a:0] sendRequestVote to 3 succ
+19:58:54.826107 raft.go 179 raft.(*Raft).startElection.func1 [S4 Candidate t:8 vF:4 c:0 a:0] got vote from 3, votes:3
+19:58:54.826243 raft.go 188 raft.(*Raft).startElection.func1 [S4 Leader t:8 vF:4 c:0 a:0 m:[-1 -1 -1 -1 0] n:[1 1 1 1 1]] WON the election, votes:3, peers:5
+19:58:54.890289 raft.go 526 raft.(*Raft).run [S4 Leader t:8 vF:4 c:0 a:0 m:[-1 -1 -1 -1 0] n:[1 1 1 1 1]] sending heartbeat msg
+19:58:54.890599 raft.go 302 raft.(*Raft).startLogReplication [S4 Leader t:8 vF:4 c:0 a:0 m:[-1 -1 -1 -1 0] n:[1 1 1 1 1]] startLogReplication
+19:58:54.891915 raft.go 336 raft.(*Raft).startAppendEntries [S4 Leader t:8 vF:4 c:0 a:0 m:[-1 -1 -1 -1 0] n:[1 1 1 1 1]] sendAppendEntries to 3, [arg S4 term:8 preLogIdx:0 preLogT:1 [] LComit:0]
+19:58:54.892580 raft.go 336 raft.(*Raft).startAppendEntries [S4 Leader t:8 vF:4 c:0 a:0 m:[-1 -1 -1 -1 0] n:[1 1 1 1 1]] sendAppendEntries to 0, [arg S4 term:8 preLogIdx:0 preLogT:1 [] LComit:0]
+19:58:54.893366 raft.go 336 raft.(*Raft).startAppendEntries [S4 Leader t:8 vF:4 c:0 a:0 m:[-1 -1 -1 -1 0] n:[1 1 1 1 1]] sendAppendEntries to 1, [arg S4 term:8 preLogIdx:0 preLogT:1 [] LComit:0]
+19:58:54.894051 raft.go 336 raft.(*Raft).startAppendEntries [S4 Leader t:8 vF:4 c:0 a:0 m:[-1 -1 -1 -1 0] n:[1 1 1 1 1]] sendAppendEntries to 2, [arg S4 term:8 preLogIdx:0 preLogT:1 [] LComit:0]
+19:58:54.895315 raft.go 388 raft.(*Raft).HandleAppendEntries [S3 Follower t:8 vF:4 c:0 a:0] received AppendEntries [arg S4 term:8 preLogIdx:0 preLogT:1 [] LComit:0]
+19:58:54.895452 raft.go 388 raft.(*Raft).HandleAppendEntries [S0 Follower t:8 vF:4 c:0 a:0] received AppendEntries [arg S4 term:8 preLogIdx:0 preLogT:1 [] LComit:0]
+19:58:54.895732 raft.go 400 raft.(*Raft).HandleAppendEntries [S3 Follower t:8 vF:-1 c:0 a:0] reset electionTimeout
+19:58:54.895829 raft.go 400 raft.(*Raft).HandleAppendEntries [S0 Follower t:8 vF:-1 c:0 a:0] reset electionTimeout
+19:58:54.895963 raftLog.go 70 raft.(*RaftLog).TruncateAppend [{0 1 10}] preLgIdx:0 []
+19:58:54.896031 raftLog.go 70 raft.(*RaftLog).TruncateAppend [{0 1 10}] preLgIdx:0 []
+19:58:54.896138 raftLog.go 90 raft.(*RaftLog).TruncateAppend [{0 1 10}] 
+19:58:54.896188 raftLog.go 90 raft.(*RaftLog).TruncateAppend [{0 1 10}] 
+19:58:54.896403 raft.go 421 raft.(*Raft).HandleAppendEntries [S3 Follower t:8 vF:-1 c:0 a:0] [RLog c:0 a:0 [{0 1 10}]]
+19:58:54.896508 raft.go 421 raft.(*Raft).HandleAppendEntries [S0 Follower t:8 vF:-1 c:0 a:0] [RLog c:0 a:0 [{0 1 10}]]
+19:58:54.896637 raft.go 388 raft.(*Raft).HandleAppendEntries [S1 Follower t:8 vF:-1 c:0 a:0] received AppendEntries [arg S4 term:8 preLogIdx:0 preLogT:1 [] LComit:0]
+19:58:54.896845 raft.go 388 raft.(*Raft).HandleAppendEntries [S2 Follower t:8 vF:2 c:0 a:0] received AppendEntries [arg S4 term:8 preLogIdx:0 preLogT:1 [] LComit:0]
+19:58:54.897062 raft.go 400 raft.(*Raft).HandleAppendEntries [S1 Follower t:8 vF:-1 c:0 a:0] reset electionTimeout
+19:58:54.897310 raft.go 400 raft.(*Raft).HandleAppendEntries [S2 Follower t:8 vF:-1 c:0 a:0] reset electionTimeout
+19:58:54.897318 raftLog.go 70 raft.(*RaftLog).TruncateAppend [{0 1 10} {1 1 20}] preLgIdx:0 []
+19:58:54.897555 raftLog.go 70 raft.(*RaftLog).TruncateAppend [{0 1 10} {1 1 20}] preLgIdx:0 []
+19:58:54.897696 raftLog.go 90 raft.(*RaftLog).TruncateAppend [{0 1 10}] 
+19:58:54.897746 raftLog.go 90 raft.(*RaftLog).TruncateAppend [{0 1 10}] 
+19:58:54.897973 raft.go 421 raft.(*Raft).HandleAppendEntries [S1 Follower t:8 vF:-1 c:0 a:0] [RLog c:0 a:0 [{0 1 10}]]
+19:58:54.898014 raft.go 421 raft.(*Raft).HandleAppendEntries [S2 Follower t:8 vF:-1 c:0 a:0] [RLog c:0 a:0 [{0 1 10}]]
+19:58:54.898071 raft.go 371 raft.(*Raft).startAppendEntries [S4 Leader t:8 vF:4 c:0 a:0 m:[-1 -1 -1 0 0] n:[1 1 1 1 1]] sendAppendEntries to 3 succ
+19:58:54.898675 raft.go 371 raft.(*Raft).startAppendEntries [S4 Leader t:8 vF:4 c:0 a:0 m:[0 -1 -1 0 0] n:[1 1 1 1 1]] sendAppendEntries to 0 succ
+19:58:54.899627 raft.go 371 raft.(*Raft).startAppendEntries [S4 Leader t:8 vF:4 c:0 a:0 m:[0 0 -1 0 0] n:[1 1 1 1 1]] sendAppendEntries to 1 succ
+19:58:54.900048 raft.go 371 raft.(*Raft).startAppendEntries [S4 Leader t:8 vF:4 c:0 a:0 m:[0 0 0 0 0] n:[1 1 1 1 1]] sendAppendEntries to 2 succ
+19:58:54.989846 raft.go 526 raft.(*Raft).run [S4 Leader t:8 vF:4 c:0 a:0 m:[0 0 0 0 0] n:[1 1 1 1 1]] sending heartbeat msg
+19:58:54.990138 raft.go 302 raft.(*Raft).startLogReplication [S4 Leader t:8 vF:4 c:0 a:0 m:[0 0 0 0 0] n:[1 1 1 1 1]] startLogReplication
+19:58:54.991669 raft.go 336 raft.(*Raft).startAppendEntries [S4 Leader t:8 vF:4 c:0 a:0 m:[0 0 0 0 0] n:[1 1 1 1 1]] sendAppendEntries to 0, [arg S4 term:8 preLogIdx:0 preLogT:1 [] LComit:0]
+19:58:54.992378 raft.go 336 raft.(*Raft).startAppendEntries [S4 Leader t:8 vF:4 c:0 a:0 m:[0 0 0 0 0] n:[1 1 1 1 1]] sendAppendEntries to 3, [arg S4 term:8 preLogIdx:0 preLogT:1 [] LComit:0]
+19:58:54.993170 raft.go 336 raft.(*Raft).startAppendEntries [S4 Leader t:8 vF:4 c:0 a:0 m:[0 0 0 0 0] n:[1 1 1 1 1]] sendAppendEntries to 1, [arg S4 term:8 preLogIdx:0 preLogT:1 [] LComit:0]
+19:58:54.993797 raft.go 336 raft.(*Raft).startAppendEntries [S4 Leader t:8 vF:4 c:0 a:0 m:[0 0 0 0 0] n:[1 1 1 1 1]] sendAppendEntries to 2, [arg S4 term:8 preLogIdx:0 preLogT:1 [] LComit:0]
+19:58:54.995505 raft.go 388 raft.(*Raft).HandleAppendEntries [S0 Follower t:8 vF:-1 c:0 a:0] received AppendEntries [arg S4 term:8 preLogIdx:0 preLogT:1 [] LComit:0]
+19:58:54.995520 raft.go 388 raft.(*Raft).HandleAppendEntries [S1 Follower t:8 vF:-1 c:0 a:0] received AppendEntries [arg S4 term:8 preLogIdx:0 preLogT:1 [] LComit:0]
+19:58:54.996067 raft.go 388 raft.(*Raft).HandleAppendEntries [S3 Follower t:8 vF:-1 c:0 a:0] received AppendEntries [arg S4 term:8 preLogIdx:0 preLogT:1 [] LComit:0]
+19:58:54.996081 raft.go 400 raft.(*Raft).HandleAppendEntries [S0 Follower t:8 vF:-1 c:0 a:0] reset electionTimeout
+19:58:54.996310 raft.go 400 raft.(*Raft).HandleAppendEntries [S1 Follower t:8 vF:-1 c:0 a:0] reset electionTimeout
+19:58:54.996499 raftLog.go 70 raft.(*RaftLog).TruncateAppend [{0 1 10}] preLgIdx:0 []
+19:58:54.996596 raft.go 400 raft.(*Raft).HandleAppendEntries [S3 Follower t:8 vF:-1 c:0 a:0] reset electionTimeout
+19:58:54.996747 raftLog.go 90 raft.(*RaftLog).TruncateAppend [{0 1 10}] 
+19:58:54.996556 raft.go 388 raft.(*Raft).HandleAppendEntries [S2 Follower t:8 vF:-1 c:0 a:0] received AppendEntries [arg S4 term:8 preLogIdx:0 preLogT:1 [] LComit:0]
+19:58:54.996599 raftLog.go 70 raft.(*RaftLog).TruncateAppend [{0 1 10}] preLgIdx:0 []
+19:58:54.997339 raft.go 400 raft.(*Raft).HandleAppendEntries [S2 Follower t:8 vF:-1 c:0 a:0] reset electionTimeout
+19:58:54.997401 raftLog.go 90 raft.(*RaftLog).TruncateAppend [{0 1 10}] 
+19:58:54.996885 raftLog.go 70 raft.(*RaftLog).TruncateAppend [{0 1 10}] preLgIdx:0 []
+19:58:54.997142 raft.go 421 raft.(*Raft).HandleAppendEntries [S0 Follower t:8 vF:-1 c:0 a:0] [RLog c:0 a:0 [{0 1 10}]]
+19:58:54.997816 raftLog.go 90 raft.(*RaftLog).TruncateAppend [{0 1 10}] 
+19:58:54.997558 raftLog.go 70 raft.(*RaftLog).TruncateAppend [{0 1 10}] preLgIdx:0 []
+19:58:54.997822 raft.go 421 raft.(*Raft).HandleAppendEntries [S1 Follower t:8 vF:-1 c:0 a:0] [RLog c:0 a:0 [{0 1 10}]]
+19:58:54.998258 raft.go 421 raft.(*Raft).HandleAppendEntries [S3 Follower t:8 vF:-1 c:0 a:0] [RLog c:0 a:0 [{0 1 10}]]
+19:58:54.998260 raftLog.go 90 raft.(*RaftLog).TruncateAppend [{0 1 10}] 
+19:58:54.999062 raft.go 421 raft.(*Raft).HandleAppendEntries [S2 Follower t:8 vF:-1 c:0 a:0] [RLog c:0 a:0 [{0 1 10}]]
+19:58:55.000028 raft.go 371 raft.(*Raft).startAppendEntries [S4 Leader t:8 vF:4 c:0 a:0 m:[0 0 0 0 0] n:[1 1 1 1 1]] sendAppendEntries to 0 succ
+19:58:55.000494 raft.go 371 raft.(*Raft).startAppendEntries [S4 Leader t:8 vF:4 c:0 a:0 m:[0 0 0 0 0] n:[1 1 1 1 1]] sendAppendEntries to 1 succ
+19:58:55.000948 raft.go 371 raft.(*Raft).startAppendEntries [S4 Leader t:8 vF:4 c:0 a:0 m:[0 0 0 0 0] n:[1 1 1 1 1]] sendAppendEntries to 3 succ
+19:58:55.001304 raft.go 371 raft.(*Raft).startAppendEntries [S4 Leader t:8 vF:4 c:0 a:0 m:[0 0 0 0 0] n:[1 1 1 1 1]] sendAppendEntries to 2 succ
+19:58:55.090536 raft.go 526 raft.(*Raft).run [S4 Leader t:8 vF:4 c:0 a:0 m:[0 0 0 0 0] n:[1 1 1 1 1]] sending heartbeat msg
+19:58:55.090844 raft.go 302 raft.(*Raft).startLogReplication [S4 Leader t:8 vF:4 c:0 a:0 m:[0 0 0 0 0] n:[1 1 1 1 1]] startLogReplication
+19:58:55.092105 raft.go 336 raft.(*Raft).startAppendEntries [S4 Leader t:8 vF:4 c:0 a:0 m:[0 0 0 0 0] n:[1 1 1 1 1]] sendAppendEntries to 0, [arg S4 term:8 preLogIdx:0 preLogT:1 [] LComit:0]
+19:58:55.092769 raft.go 336 raft.(*Raft).startAppendEntries [S4 Leader t:8 vF:4 c:0 a:0 m:[0 0 0 0 0] n:[1 1 1 1 1]] sendAppendEntries to 1, [arg S4 term:8 preLogIdx:0 preLogT:1 [] LComit:0]
+19:58:55.093593 raft.go 336 raft.(*Raft).startAppendEntries [S4 Leader t:8 vF:4 c:0 a:0 m:[0 0 0 0 0] n:[1 1 1 1 1]] sendAppendEntries to 2, [arg S4 term:8 preLogIdx:0 preLogT:1 [] LComit:0]
+19:58:55.094223 raft.go 336 raft.(*Raft).startAppendEntries [S4 Leader t:8 vF:4 c:0 a:0 m:[0 0 0 0 0] n:[1 1 1 1 1]] sendAppendEntries to 3, [arg S4 term:8 preLogIdx:0 preLogT:1 [] LComit:0]
+19:58:55.094524 raft.go 388 raft.(*Raft).HandleAppendEntries [S0 Follower t:8 vF:-1 c:0 a:0] received AppendEntries [arg S4 term:8 preLogIdx:0 preLogT:1 [] LComit:0]
+19:58:55.094878 raft.go 400 raft.(*Raft).HandleAppendEntries [S0 Follower t:8 vF:-1 c:0 a:0] reset electionTimeout
+19:58:55.095036 raftLog.go 70 raft.(*RaftLog).TruncateAppend [{0 1 10}] preLgIdx:0 []
+19:58:55.095179 raftLog.go 90 raft.(*RaftLog).TruncateAppend [{0 1 10}] 
+19:58:55.095406 raft.go 421 raft.(*Raft).HandleAppendEntries [S0 Follower t:8 vF:-1 c:0 a:0] [RLog c:0 a:0 [{0 1 10}]]
+19:58:55.096534 raft.go 388 raft.(*Raft).HandleAppendEntries [S1 Follower t:8 vF:-1 c:0 a:0] received AppendEntries [arg S4 term:8 preLogIdx:0 preLogT:1 [] LComit:0]
+19:58:55.096702 raft.go 388 raft.(*Raft).HandleAppendEntries [S3 Follower t:8 vF:-1 c:0 a:0] received AppendEntries [arg S4 term:8 preLogIdx:0 preLogT:1 [] LComit:0]
+19:58:55.096917 raft.go 371 raft.(*Raft).startAppendEntries [S4 Leader t:8 vF:4 c:0 a:0 m:[0 0 0 0 0] n:[1 1 1 1 1]] sendAppendEntries to 0 succ
+19:58:55.097101 raft.go 388 raft.(*Raft).HandleAppendEntries [S2 Follower t:8 vF:-1 c:0 a:0] received AppendEntries [arg S4 term:8 preLogIdx:0 preLogT:1 [] LComit:0]
+19:58:55.097139 raft.go 400 raft.(*Raft).HandleAppendEntries [S1 Follower t:8 vF:-1 c:0 a:0] reset electionTimeout
+19:58:55.097321 raft.go 400 raft.(*Raft).HandleAppendEntries [S3 Follower t:8 vF:-1 c:0 a:0] reset electionTimeout
+19:58:55.097520 raftLog.go 70 raft.(*RaftLog).TruncateAppend [{0 1 10}] preLgIdx:0 []
+19:58:55.097611 raft.go 400 raft.(*Raft).HandleAppendEntries [S2 Follower t:8 vF:-1 c:0 a:0] reset electionTimeout
+19:58:55.097778 raftLog.go 90 raft.(*RaftLog).TruncateAppend [{0 1 10}] 
+19:58:55.097880 raftLog.go 70 raft.(*RaftLog).TruncateAppend [{0 1 10}] preLgIdx:0 []
+19:58:55.097566 raftLog.go 70 raft.(*RaftLog).TruncateAppend [{0 1 10}] preLgIdx:0 []
+19:58:55.098131 raftLog.go 90 raft.(*RaftLog).TruncateAppend [{0 1 10}] 
+19:58:55.098214 raft.go 421 raft.(*Raft).HandleAppendEntries [S1 Follower t:8 vF:-1 c:0 a:0] [RLog c:0 a:0 [{0 1 10}]]
+19:58:55.098281 raftLog.go 90 raft.(*RaftLog).TruncateAppend [{0 1 10}] 
+19:58:55.098537 raft.go 421 raft.(*Raft).HandleAppendEntries [S2 Follower t:8 vF:-1 c:0 a:0] [RLog c:0 a:0 [{0 1 10}]]
+19:58:55.098741 raft.go 421 raft.(*Raft).HandleAppendEntries [S3 Follower t:8 vF:-1 c:0 a:0] [RLog c:0 a:0 [{0 1 10}]]
+19:58:55.100123 raft.go 371 raft.(*Raft).startAppendEntries [S4 Leader t:8 vF:4 c:0 a:0 m:[0 0 0 0 0] n:[1 1 1 1 1]] sendAppendEntries to 1 succ
+19:58:55.100522 raft.go 371 raft.(*Raft).startAppendEntries [S4 Leader t:8 vF:4 c:0 a:0 m:[0 0 0 0 0] n:[1 1 1 1 1]] sendAppendEntries to 3 succ
+19:58:55.100950 raft.go 371 raft.(*Raft).startAppendEntries [S4 Leader t:8 vF:4 c:0 a:0 m:[0 0 0 0 0] n:[1 1 1 1 1]] sendAppendEntries to 2 succ
+19:58:55.129590 raft.go 203 raft.(*Raft).startRequestVote [S0 Follower t:8 vF:-1 c:0 a:0] sendRequestVote to 3 failed
+19:58:55.190335 raft.go 526 raft.(*Raft).run [S4 Leader t:8 vF:4 c:0 a:0 m:[0 0 0 0 0] n:[1 1 1 1 1]] sending heartbeat msg
+19:58:55.190494 raft.go 302 raft.(*Raft).startLogReplication [S4 Leader t:8 vF:4 c:0 a:0 m:[0 0 0 0 0] n:[1 1 1 1 1]] startLogReplication
+19:58:55.191128 raft.go 336 raft.(*Raft).startAppendEntries [S4 Leader t:8 vF:4 c:0 a:0 m:[0 0 0 0 0] n:[1 1 1 1 1]] sendAppendEntries to 3, [arg S4 term:8 preLogIdx:0 preLogT:1 [] LComit:0]
+19:58:55.191422 raft.go 336 raft.(*Raft).startAppendEntries [S4 Leader t:8 vF:4 c:0 a:0 m:[0 0 0 0 0] n:[1 1 1 1 1]] sendAppendEntries to 0, [arg S4 term:8 preLogIdx:0 preLogT:1 [] LComit:0]
+19:58:55.191837 raft.go 336 raft.(*Raft).startAppendEntries [S4 Leader t:8 vF:4 c:0 a:0 m:[0 0 0 0 0] n:[1 1 1 1 1]] sendAppendEntries to 1, [arg S4 term:8 preLogIdx:0 preLogT:1 [] LComit:0]
+19:58:55.192207 raft.go 336 raft.(*Raft).startAppendEntries [S4 Leader t:8 vF:4 c:0 a:0 m:[0 0 0 0 0] n:[1 1 1 1 1]] sendAppendEntries to 2, [arg S4 term:8 preLogIdx:0 preLogT:1 [] LComit:0]
+19:58:55.192301 raft.go 388 raft.(*Raft).HandleAppendEntries [S3 Follower t:8 vF:-1 c:0 a:0] received AppendEntries [arg S4 term:8 preLogIdx:0 preLogT:1 [] LComit:0]
+19:58:55.192487 raft.go 400 raft.(*Raft).HandleAppendEntries [S3 Follower t:8 vF:-1 c:0 a:0] reset electionTimeout
+19:58:55.192578 raftLog.go 70 raft.(*RaftLog).TruncateAppend [{0 1 10}] preLgIdx:0 []
+19:58:55.192644 raftLog.go 90 raft.(*RaftLog).TruncateAppend [{0 1 10}] 
+19:58:55.192753 raft.go 421 raft.(*Raft).HandleAppendEntries [S3 Follower t:8 vF:-1 c:0 a:0] [RLog c:0 a:0 [{0 1 10}]]
+19:58:55.193252 raft.go 388 raft.(*Raft).HandleAppendEntries [S0 Follower t:8 vF:-1 c:0 a:0] received AppendEntries [arg S4 term:8 preLogIdx:0 preLogT:1 [] LComit:0]
+19:58:55.193433 raft.go 388 raft.(*Raft).HandleAppendEntries [S2 Follower t:8 vF:-1 c:0 a:0] received AppendEntries [arg S4 term:8 preLogIdx:0 preLogT:1 [] LComit:0]
+19:58:55.193492 raft.go 371 raft.(*Raft).startAppendEntries [S4 Leader t:8 vF:4 c:0 a:0 m:[0 0 0 0 0] n:[1 1 1 1 1]] sendAppendEntries to 3 succ
+19:58:55.193525 raft.go 400 raft.(*Raft).HandleAppendEntries [S0 Follower t:8 vF:-1 c:0 a:0] reset electionTimeout
+19:58:55.193605 raft.go 388 raft.(*Raft).HandleAppendEntries [S1 Follower t:8 vF:-1 c:0 a:0] received AppendEntries [arg S4 term:8 preLogIdx:0 preLogT:1 [] LComit:0]
+19:58:55.193672 raftLog.go 70 raft.(*RaftLog).TruncateAppend [{0 1 10}] preLgIdx:0 []
+19:58:55.193778 raftLog.go 90 raft.(*RaftLog).TruncateAppend [{0 1 10}] 
+19:58:55.193874 raft.go 400 raft.(*Raft).HandleAppendEntries [S1 Follower t:8 vF:-1 c:0 a:0] reset electionTimeout
+19:58:55.193611 raft.go 400 raft.(*Raft).HandleAppendEntries [S2 Follower t:8 vF:-1 c:0 a:0] reset electionTimeout
+19:58:55.193966 raft.go 421 raft.(*Raft).HandleAppendEntries [S0 Follower t:8 vF:-1 c:0 a:0] [RLog c:0 a:0 [{0 1 10}]]
+19:58:55.194074 raftLog.go 70 raft.(*RaftLog).TruncateAppend [{0 1 10}] preLgIdx:0 []
+19:58:55.194006 raftLog.go 70 raft.(*RaftLog).TruncateAppend [{0 1 10}] preLgIdx:0 []
+19:58:55.194164 raftLog.go 90 raft.(*RaftLog).TruncateAppend [{0 1 10}] 
+19:58:55.194239 raftLog.go 90 raft.(*RaftLog).TruncateAppend [{0 1 10}] 
+19:58:55.194309 raft.go 421 raft.(*Raft).HandleAppendEntries [S2 Follower t:8 vF:-1 c:0 a:0] [RLog c:0 a:0 [{0 1 10}]]
+19:58:55.194442 raft.go 421 raft.(*Raft).HandleAppendEntries [S1 Follower t:8 vF:-1 c:0 a:0] [RLog c:0 a:0 [{0 1 10}]]
+19:58:55.195019 raft.go 371 raft.(*Raft).startAppendEntries [S4 Leader t:8 vF:4 c:0 a:0 m:[0 0 0 0 0] n:[1 1 1 1 1]] sendAppendEntries to 0 succ
+19:58:55.195213 raft.go 371 raft.(*Raft).startAppendEntries [S4 Leader t:8 vF:4 c:0 a:0 m:[0 0 0 0 0] n:[1 1 1 1 1]] sendAppendEntries to 2 succ
+19:58:55.198404 raft.go 371 raft.(*Raft).startAppendEntries [S4 Leader t:8 vF:4 c:0 a:0 m:[0 0 0 0 0] n:[1 1 1 1 1]] sendAppendEntries to 1 succ
+19:58:55.200911 raft.go 448 raft.(*Raft).Start [S4 Leader t:8 vF:4 c:0 a:0 m:[0 0 0 0 0] n:[1 1 1 1 1]]: Client start to append command 30, [RLog c:0 a:0 [{0 1 10}]]
+19:58:55.201024 raftLog.go 30 raft.(*RaftLog).AppendEntries {1 8 30} [{0 1 10} {1 8 30}]
+19:58:55.201146 raft.go 448 raft.(*Raft).Start [S1 Follower t:8 vF:-1 c:0 a:0]: Client start to append command 1000, [RLog c:0 a:0 [{0 1 10}]]
+19:58:55.201264 raft.go 448 raft.(*Raft).Start [S2 Follower t:8 vF:-1 c:0 a:0]: Client start to append command 1000, [RLog c:0 a:0 [{0 1 10}]]
+19:58:55.201394 raft.go 448 raft.(*Raft).Start [S3 Follower t:8 vF:-1 c:0 a:0]: Client start to append command 1000, [RLog c:0 a:0 [{0 1 10}]]
+19:58:55.201540 raft.go 448 raft.(*Raft).Start [S4 Leader t:8 vF:4 c:0 a:0 m:[0 0 0 0 1] n:[1 1 1 1 2]]: Client start to append command 1000, [RLog c:0 a:0 [{0 1 10} {1 8 30}]]
+19:58:55.201623 raftLog.go 30 raft.(*RaftLog).AppendEntries {2 8 1000} [{0 1 10} {1 8 30} {2 8 1000}]
+19:58:55.203146 raft.go 203 raft.(*Raft).startRequestVote [S0 Follower t:8 vF:-1 c:0 a:0] sendRequestVote to 2 failed
+19:58:55.280843 raft.go 203 raft.(*Raft).startRequestVote [S0 Follower t:8 vF:-1 c:0 a:0] sendRequestVote to 4 failed
+19:58:55.290874 raft.go 526 raft.(*Raft).run [S4 Leader t:8 vF:4 c:0 a:0 m:[0 0 0 0 2] n:[1 1 1 1 3]] sending heartbeat msg
+19:58:55.291164 raft.go 302 raft.(*Raft).startLogReplication [S4 Leader t:8 vF:4 c:0 a:0 m:[0 0 0 0 2] n:[1 1 1 1 3]] startLogReplication
+19:58:55.292445 raft.go 336 raft.(*Raft).startAppendEntries [S4 Leader t:8 vF:4 c:0 a:0 m:[0 0 0 0 2] n:[1 1 1 1 3]] sendAppendEntries to 2, [arg S4 term:8 preLogIdx:0 preLogT:1 [{1 8 30} {2 8 1000}] LComit:0]
+19:58:55.293232 raft.go 336 raft.(*Raft).startAppendEntries [S4 Leader t:8 vF:4 c:0 a:0 m:[0 0 0 0 2] n:[1 1 1 1 3]] sendAppendEntries to 0, [arg S4 term:8 preLogIdx:0 preLogT:1 [{1 8 30} {2 8 1000}] LComit:0]
+19:58:55.293926 raft.go 336 raft.(*Raft).startAppendEntries [S4 Leader t:8 vF:4 c:0 a:0 m:[0 0 0 0 2] n:[1 1 1 1 3]] sendAppendEntries to 1, [arg S4 term:8 preLogIdx:0 preLogT:1 [{1 8 30} {2 8 1000}] LComit:0]
+19:58:55.294900 raft.go 336 raft.(*Raft).startAppendEntries [S4 Leader t:8 vF:4 c:0 a:0 m:[0 0 0 0 2] n:[1 1 1 1 3]] sendAppendEntries to 3, [arg S4 term:8 preLogIdx:0 preLogT:1 [{1 8 30} {2 8 1000}] LComit:0]
+19:58:55.295451 raft.go 388 raft.(*Raft).HandleAppendEntries [S2 Follower t:8 vF:-1 c:0 a:0] received AppendEntries [arg S4 term:8 preLogIdx:0 preLogT:1 [{1 8 30} {2 8 1000}] LComit:0]
+19:58:55.295696 raft.go 388 raft.(*Raft).HandleAppendEntries [S0 Follower t:8 vF:-1 c:0 a:0] received AppendEntries [arg S4 term:8 preLogIdx:0 preLogT:1 [{1 8 30} {2 8 1000}] LComit:0]
+19:58:55.295938 raft.go 402 raft.(*Raft).HandleAppendEntries [S2 Follower t:8 vF:-1 c:0 a:0] reset electionTimeout
+19:58:55.296012 raft.go 402 raft.(*Raft).HandleAppendEntries [S0 Follower t:8 vF:-1 c:0 a:0] reset electionTimeout
+19:58:55.296227 raftLog.go 70 raft.(*RaftLog).TruncateAppend [{0 1 10}] preLgIdx:0 [{1 8 30} {2 8 1000}]
+19:58:55.296241 raftLog.go 70 raft.(*RaftLog).TruncateAppend [{0 1 10}] preLgIdx:0 [{1 8 30} {2 8 1000}]
+19:58:55.296384 raftLog.go 90 raft.(*RaftLog).TruncateAppend [{0 1 10} {1 8 30} {2 8 1000}] 
+19:58:55.296499 raft.go 388 raft.(*Raft).HandleAppendEntries [S1 Follower t:8 vF:-1 c:0 a:0] received AppendEntries [arg S4 term:8 preLogIdx:0 preLogT:1 [{1 8 30} {2 8 1000}] LComit:0]
+19:58:55.296537 raftLog.go 90 raft.(*RaftLog).TruncateAppend [{0 1 10} {1 8 30} {2 8 1000}] 
+19:58:55.296637 raft.go 421 raft.(*Raft).HandleAppendEntries [S0 Follower t:8 vF:-1 c:0 a:0] [RLog c:0 a:0 [{0 1 10} {1 8 30} {2 8 1000}]]
+19:58:55.296805 raft.go 402 raft.(*Raft).HandleAppendEntries [S1 Follower t:8 vF:-1 c:0 a:0] reset electionTimeout
+19:58:55.297012 raft.go 421 raft.(*Raft).HandleAppendEntries [S2 Follower t:8 vF:-1 c:0 a:0] [RLog c:0 a:0 [{0 1 10} {1 8 30} {2 8 1000}]]
+19:58:55.297038 raftLog.go 70 raft.(*RaftLog).TruncateAppend [{0 1 10}] preLgIdx:0 [{1 8 30} {2 8 1000}]
+19:58:55.297467 raftLog.go 90 raft.(*RaftLog).TruncateAppend [{0 1 10} {1 8 30} {2 8 1000}] 
+19:58:55.297782 raft.go 421 raft.(*Raft).HandleAppendEntries [S1 Follower t:8 vF:-1 c:0 a:0] [RLog c:0 a:0 [{0 1 10} {1 8 30} {2 8 1000}]]
+19:58:55.298268 raft.go 373 raft.(*Raft).startAppendEntries [S4 Leader t:8 vF:4 c:0 a:0 m:[2 0 0 0 2] n:[3 1 1 1 3]] sendAppendEntries to 0 succ, [arg S4 term:8 preLogIdx:0 preLogT:1 [{1 8 30} {2 8 1000}] LComit:0] [rply term:8 succ:true]
+19:58:55.298696 raft.go 388 raft.(*Raft).HandleAppendEntries [S3 Follower t:8 vF:-1 c:0 a:0] received AppendEntries [arg S4 term:8 preLogIdx:0 preLogT:1 [{1 8 30} {2 8 1000}] LComit:0]
+19:58:55.299191 raft.go 402 raft.(*Raft).HandleAppendEntries [S3 Follower t:8 vF:-1 c:0 a:0] reset electionTimeout
+19:58:55.299296 raft.go 367 raft.(*Raft).startAppendEntries SetCommitIndex [S4 Leader t:8 vF:4 c:2 a:0 m:[2 0 2 0 2] n:[3 1 3 1 3]] [RLog c:2 a:0 [{0 1 10} {1 8 30} {2 8 1000}]]
+19:58:55.299465 raftLog.go 70 raft.(*RaftLog).TruncateAppend [{0 1 10}] preLgIdx:0 [{1 8 30} {2 8 1000}]
+19:58:55.299752 raftLog.go 90 raft.(*RaftLog).TruncateAppend [{0 1 10} {1 8 30} {2 8 1000}] 
+19:58:55.299842 raft.go 373 raft.(*Raft).startAppendEntries [S4 Leader t:8 vF:4 c:2 a:0 m:[2 0 2 0 2] n:[3 1 3 1 3]] sendAppendEntries to 2 succ, [arg S4 term:8 preLogIdx:0 preLogT:1 [{1 8 30} {2 8 1000}] LComit:0] [rply term:8 succ:true]
+19:58:55.300124 raft.go 421 raft.(*Raft).HandleAppendEntries [S3 Follower t:8 vF:-1 c:0 a:0] [RLog c:0 a:0 [{0 1 10} {1 8 30} {2 8 1000}]]
+19:58:55.300463 raft.go 373 raft.(*Raft).startAppendEntries [S4 Leader t:8 vF:4 c:2 a:0 m:[2 2 2 0 2] n:[3 3 3 1 3]] sendAppendEntries to 1 succ, [arg S4 term:8 preLogIdx:0 preLogT:1 [{1 8 30} {2 8 1000}] LComit:0] [rply term:8 succ:true]
+19:58:55.301728 raft.go 373 raft.(*Raft).startAppendEntries [S4 Leader t:8 vF:4 c:2 a:0 m:[2 2 2 2 2] n:[3 3 3 3 3]] sendAppendEntries to 3 succ, [arg S4 term:8 preLogIdx:0 preLogT:1 [{1 8 30} {2 8 1000}] LComit:0] [rply term:8 succ:true]
+19:58:55.329422 raft.go 203 raft.(*Raft).startRequestVote [S3 Follower t:8 vF:-1 c:0 a:0] sendRequestVote to 0 failed
+19:58:55.390141 raft.go 526 raft.(*Raft).run [S4 Leader t:8 vF:4 c:2 a:0 m:[2 2 2 2 2] n:[3 3 3 3 3]] sending heartbeat msg
+19:58:55.390453 raft.go 302 raft.(*Raft).startLogReplication [S4 Leader t:8 vF:4 c:2 a:0 m:[2 2 2 2 2] n:[3 3 3 3 3]] startLogReplication
+19:58:55.391792 raft.go 336 raft.(*Raft).startAppendEntries [S4 Leader t:8 vF:4 c:2 a:0 m:[2 2 2 2 2] n:[3 3 3 3 3]] sendAppendEntries to 3, [arg S4 term:8 preLogIdx:2 preLogT:8 [] LComit:2]
+19:58:55.391936 raft.go 558 raft.(*Raft).applyClient lastApplied:0, commitIndex:2
+19:58:55.392484 raft.go 336 raft.(*Raft).startAppendEntries [S4 Leader t:8 vF:4 c:2 a:1 m:[2 2 2 2 2] n:[3 3 3 3 3]] sendAppendEntries to 0, [arg S4 term:8 preLogIdx:2 preLogT:8 [] LComit:2]
+19:58:55.393157 raft.go 336 raft.(*Raft).startAppendEntries [S4 Leader t:8 vF:4 c:2 a:1 m:[2 2 2 2 2] n:[3 3 3 3 3]] sendAppendEntries to 1, [arg S4 term:8 preLogIdx:2 preLogT:8 [] LComit:2]
+19:58:55.393834 raft.go 336 raft.(*Raft).startAppendEntries [S4 Leader t:8 vF:4 c:2 a:1 m:[2 2 2 2 2] n:[3 3 3 3 3]] sendAppendEntries to 2, [arg S4 term:8 preLogIdx:2 preLogT:8 [] LComit:2]
+19:58:55.394380 raft.go 388 raft.(*Raft).HandleAppendEntries [S3 Follower t:8 vF:-1 c:0 a:0] received AppendEntries [arg S4 term:8 preLogIdx:2 preLogT:8 [] LComit:2]
+19:58:55.394516 raft.go 566 raft.(*Raft).applyClient [S4 Leader t:8 vF:4 c:2 a:1 m:[2 2 2 2 2] n:[3 3 3 3 3]] [RLog c:2 a:1 [{0 1 10} {1 8 30} {2 8 1000}]] applyMsg:{true 30 2}
+19:58:55.394748 raft.go 400 raft.(*Raft).HandleAppendEntries [S3 Follower t:8 vF:-1 c:0 a:0] reset electionTimeout
+19:58:55.394995 raftLog.go 70 raft.(*RaftLog).TruncateAppend [{0 1 10} {1 8 30} {2 8 1000}] preLgIdx:2 []
+19:58:55.395187 raftLog.go 90 raft.(*RaftLog).TruncateAppend [{0 1 10} {1 8 30} {2 8 1000}] 
+19:58:55.395455 raft.go 421 raft.(*Raft).HandleAppendEntries [S3 Follower t:8 vF:-1 c:2 a:0] [RLog c:2 a:0 [{0 1 10} {1 8 30} {2 8 1000}]]
+19:58:55.395696 raft.go 388 raft.(*Raft).HandleAppendEntries [S1 Follower t:8 vF:-1 c:0 a:0] received AppendEntries [arg S4 term:8 preLogIdx:2 preLogT:8 [] LComit:2]
+19:58:55.396072 raft.go 400 raft.(*Raft).HandleAppendEntries [S1 Follower t:8 vF:-1 c:0 a:0] reset electionTimeout
+19:58:55.396167 raft.go 388 raft.(*Raft).HandleAppendEntries [S0 Follower t:8 vF:-1 c:0 a:0] received AppendEntries [arg S4 term:8 preLogIdx:2 preLogT:8 [] LComit:2]
+19:58:55.396289 raftLog.go 70 raft.(*RaftLog).TruncateAppend [{0 1 10} {1 8 30} {2 8 1000}] preLgIdx:2 []
+19:58:55.396538 raftLog.go 90 raft.(*RaftLog).TruncateAppend [{0 1 10} {1 8 30} {2 8 1000}] 
+19:58:55.394776 raft.go 558 raft.(*Raft).applyClient lastApplied:1, commitIndex:2
+19:58:55.396832 raft.go 421 raft.(*Raft).HandleAppendEntries [S1 Follower t:8 vF:-1 c:2 a:0] [RLog c:2 a:0 [{0 1 10} {1 8 30} {2 8 1000}]]
+19:58:55.396910 raft.go 400 raft.(*Raft).HandleAppendEntries [S0 Follower t:8 vF:-1 c:0 a:0] reset electionTimeout
+19:58:55.397247 raft.go 566 raft.(*Raft).applyClient [S4 Leader t:8 vF:4 c:2 a:2 m:[2 2 2 2 2] n:[3 3 3 3 3]] [RLog c:2 a:2 [{0 1 10} {1 8 30} {2 8 1000}]] applyMsg:{true 1000 3}
+19:58:55.397457 raftLog.go 70 raft.(*RaftLog).TruncateAppend [{0 1 10} {1 8 30} {2 8 1000}] preLgIdx:2 []
+19:58:55.397597 raft.go 371 raft.(*Raft).startAppendEntries [S4 Leader t:8 vF:4 c:2 a:2 m:[2 2 2 2 2] n:[3 3 3 3 3]] sendAppendEntries to 3 succ
+19:58:55.397787 raftLog.go 90 raft.(*RaftLog).TruncateAppend [{0 1 10} {1 8 30} {2 8 1000}] 
+19:58:55.398255 raft.go 421 raft.(*Raft).HandleAppendEntries [S0 Follower t:8 vF:-1 c:2 a:0] [RLog c:2 a:0 [{0 1 10} {1 8 30} {2 8 1000}]]
+19:58:55.398320 raft.go 388 raft.(*Raft).HandleAppendEntries [S2 Follower t:8 vF:-1 c:0 a:0] received AppendEntries [arg S4 term:8 preLogIdx:2 preLogT:8 [] LComit:2]
+19:58:55.398446 raft.go 371 raft.(*Raft).startAppendEntries [S4 Leader t:8 vF:4 c:2 a:2 m:[2 2 2 2 2] n:[3 3 3 3 3]] sendAppendEntries to 1 succ
+19:58:55.398890 raft.go 400 raft.(*Raft).HandleAppendEntries [S2 Follower t:8 vF:-1 c:0 a:0] reset electionTimeout
+19:58:55.399244 raftLog.go 70 raft.(*RaftLog).TruncateAppend [{0 1 10} {1 8 30} {2 8 1000}] preLgIdx:2 []
+19:58:55.399537 raftLog.go 90 raft.(*RaftLog).TruncateAppend [{0 1 10} {1 8 30} {2 8 1000}] 
+19:58:55.399980 raft.go 421 raft.(*Raft).HandleAppendEntries [S2 Follower t:8 vF:-1 c:2 a:0] [RLog c:2 a:0 [{0 1 10} {1 8 30} {2 8 1000}]]
+19:58:55.400646 raft.go 371 raft.(*Raft).startAppendEntries [S4 Leader t:8 vF:4 c:2 a:2 m:[2 2 2 2 2] n:[3 3 3 3 3]] sendAppendEntries to 0 succ
+19:58:55.401710 raft.go 371 raft.(*Raft).startAppendEntries [S4 Leader t:8 vF:4 c:2 a:2 m:[2 2 2 2 2] n:[3 3 3 3 3]] sendAppendEntries to 2 succ
+19:58:55.437977 raft.go 203 raft.(*Raft).startRequestVote [S3 Follower t:8 vF:-1 c:2 a:0] sendRequestVote to 4 failed
+19:58:55.486135 raft.go 558 raft.(*Raft).applyClient lastApplied:0, commitIndex:2
+19:58:55.486573 raft.go 566 raft.(*Raft).applyClient [S0 Follower t:8 vF:-1 c:2 a:1] [RLog c:2 a:1 [{0 1 10} {1 8 30} {2 8 1000}]] applyMsg:{true 30 2}
+19:58:55.486727 raft.go 558 raft.(*Raft).applyClient lastApplied:1, commitIndex:2
+19:58:55.487009 raft.go 558 raft.(*Raft).applyClient lastApplied:0, commitIndex:2
+19:58:55.487078 raft.go 566 raft.(*Raft).applyClient [S0 Follower t:8 vF:-1 c:2 a:2] [RLog c:2 a:2 [{0 1 10} {1 8 30} {2 8 1000}]] applyMsg:{true 1000 3}
+19:58:55.487472 raft.go 566 raft.(*Raft).applyClient [S1 Follower t:8 vF:-1 c:2 a:1] [RLog c:2 a:1 [{0 1 10} {1 8 30} {2 8 1000}]] applyMsg:{true 30 2}
+19:58:55.487646 raft.go 558 raft.(*Raft).applyClient lastApplied:1, commitIndex:2
+19:58:55.487923 raft.go 566 raft.(*Raft).applyClient [S1 Follower t:8 vF:-1 c:2 a:2] [RLog c:2 a:2 [{0 1 10} {1 8 30} {2 8 1000}]] applyMsg:{true 1000 3}
+19:58:55.488222 raft.go 558 raft.(*Raft).applyClient lastApplied:0, commitIndex:2
+19:58:55.488608 raft.go 566 raft.(*Raft).applyClient [S2 Follower t:8 vF:-1 c:2 a:1] [RLog c:2 a:1 [{0 1 10} {1 8 30} {2 8 1000}]] applyMsg:{true 30 2}
+19:58:55.488741 raft.go 558 raft.(*Raft).applyClient lastApplied:1, commitIndex:2
+19:58:55.489045 raft.go 566 raft.(*Raft).applyClient [S2 Follower t:8 vF:-1 c:2 a:2] [RLog c:2 a:2 [{0 1 10} {1 8 30} {2 8 1000}]] applyMsg:{true 1000 3}
+19:58:55.489051 raft.go 558 raft.(*Raft).applyClient lastApplied:0, commitIndex:2
+19:58:55.489452 raft.go 566 raft.(*Raft).applyClient [S3 Follower t:8 vF:-1 c:2 a:1] [RLog c:2 a:1 [{0 1 10} {1 8 30} {2 8 1000}]] applyMsg:{true 30 2}
+19:58:55.489572 raft.go 558 raft.(*Raft).applyClient lastApplied:1, commitIndex:2
+19:58:55.489844 raft.go 566 raft.(*Raft).applyClient [S3 Follower t:8 vF:-1 c:2 a:2] [RLog c:2 a:2 [{0 1 10} {1 8 30} {2 8 1000}]] applyMsg:{true 1000 3}
+19:58:55.489907 raft.go 526 raft.(*Raft).run [S4 Leader t:8 vF:4 c:2 a:2 m:[2 2 2 2 2] n:[3 3 3 3 3]] sending heartbeat msg
+19:58:55.490196 raft.go 302 raft.(*Raft).startLogReplication [S4 Leader t:8 vF:4 c:2 a:2 m:[2 2 2 2 2] n:[3 3 3 3 3]] startLogReplication
+  ... Passed --   3.8  5  216   46558    3
+19:58:55.491008 raft.go 470 raft.(*Raft).Kill [S0 Follower t:8 vF:-1 c:2 a:2] is killed [RLog c:2 a:2 [{0 1 10} {1 8 30} {2 8 1000}]]
+19:58:55.491293 raft.go 470 raft.(*Raft).Kill [S1 Follower t:8 vF:-1 c:2 a:2] is killed [RLog c:2 a:2 [{0 1 10} {1 8 30} {2 8 1000}]]
+19:58:55.491377 raft.go 336 raft.(*Raft).startAppendEntries [S4 Leader t:8 vF:4 c:2 a:2 m:[2 2 2 2 2] n:[3 3 3 3 3]] sendAppendEntries to 0, [arg S4 term:8 preLogIdx:2 preLogT:8 [] LComit:2]
+19:58:55.491562 raft.go 470 raft.(*Raft).Kill [S2 Follower t:8 vF:-1 c:2 a:2] is killed [RLog c:2 a:2 [{0 1 10} {1 8 30} {2 8 1000}]]
+19:58:55.491814 raft.go 470 raft.(*Raft).Kill [S3 Follower t:8 vF:-1 c:2 a:2] is killed [RLog c:2 a:2 [{0 1 10} {1 8 30} {2 8 1000}]]
+19:58:55.491894 raft.go 336 raft.(*Raft).startAppendEntries [S4 Leader t:8 vF:4 c:2 a:2 m:[2 2 2 2 2] n:[3 3 3 3 3]] sendAppendEntries to 1, [arg S4 term:8 preLogIdx:2 preLogT:8 [] LComit:2]
+19:58:55.492429 raft.go 336 raft.(*Raft).startAppendEntries [S4 Leader t:8 vF:4 c:2 a:2 m:[2 2 2 2 2] n:[3 3 3 3 3]] sendAppendEntries to 2, [arg S4 term:8 preLogIdx:2 preLogT:8 [] LComit:2]
+19:58:55.493059 raft.go 336 raft.(*Raft).startAppendEntries [S4 Leader t:8 vF:4 c:2 a:2 m:[2 2 2 2 2] n:[3 3 3 3 3]] sendAppendEntries to 3, [arg S4 term:8 preLogIdx:2 preLogT:8 [] LComit:2]
+19:58:55.494237 raft.go 388 raft.(*Raft).HandleAppendEntries [S0 Dead t:8 vF:-1 c:2 a:2] received AppendEntries [arg S4 term:8 preLogIdx:2 preLogT:8 [] LComit:2]
+19:58:55.494500 raft.go 388 raft.(*Raft).HandleAppendEntries [S2 Dead t:8 vF:-1 c:2 a:2] received AppendEntries [arg S4 term:8 preLogIdx:2 preLogT:8 [] LComit:2]
+19:58:55.494701 raft.go 470 raft.(*Raft).Kill [S4 Leader t:8 vF:4 c:2 a:2 m:[2 2 2 2 2] n:[3 3 3 3 3]] is killed [RLog c:2 a:2 [{0 1 10} {1 8 30} {2 8 1000}]]
+19:58:55.494854 raft.go 400 raft.(*Raft).HandleAppendEntries [S2 Follower t:8 vF:-1 c:2 a:2] reset electionTimeout
+19:58:55.494710 raft.go 400 raft.(*Raft).HandleAppendEntries [S0 Follower t:8 vF:-1 c:2 a:2] reset electionTimeout
+19:58:55.495084 raftLog.go 70 raft.(*RaftLog).TruncateAppend [{0 1 10} {1 8 30} {2 8 1000}] preLgIdx:2 []
+19:58:55.495262 raftLog.go 90 raft.(*RaftLog).TruncateAppend [{0 1 10} {1 8 30} {2 8 1000}] 
+19:58:55.495298 raftLog.go 70 raft.(*RaftLog).TruncateAppend [{0 1 10} {1 8 30} {2 8 1000}] preLgIdx:2 []
+19:58:55.495527 raft.go 421 raft.(*Raft).HandleAppendEntries [S2 Follower t:8 vF:-1 c:2 a:2] [RLog c:2 a:2 [{0 1 10} {1 8 30} {2 8 1000}]]
+19:58:55.495604 raftLog.go 90 raft.(*RaftLog).TruncateAppend [{0 1 10} {1 8 30} {2 8 1000}] 
+PASS
+19:58:55.496073 raft.go 421 raft.(*Raft).HandleAppendEntries [S0 Follower t:8 vF:-1 c:2 a:2] [RLog c:2 a:2 [{0 1 10} {1 8 30} {2 8 1000}]]
+19:58:55.496334 raft.go 388 raft.(*Raft).HandleAppendEntries [S3 Dead t:8 vF:-1 c:2 a:2] received AppendEntries [arg S4 term:8 preLogIdx:2 preLogT:8 [] LComit:2]
+19:58:55.494272 raft.go 388 raft.(*Raft).HandleAppendEntries [S1 Dead t:8 vF:-1 c:2 a:2] received AppendEntries [arg S4 term:8 preLogIdx:2 preLogT:8 [] LComit:2]
+19:58:55.496845 raft.go 400 raft.(*Raft).HandleAppendEntries [S3 Follower t:8 vF:-1 c:2 a:2] reset electionTimeout
+19:58:55.497172 raft.go 400 raft.(*Raft).HandleAppendEntries [S1 Follower t:8 vF:-1 c:2 a:2] reset electionTimeout
+19:58:55.497190 raftLog.go 70 raft.(*RaftLog).TruncateAppend [{0 1 10} {1 8 30} {2 8 1000}] preLgIdx:2 []
+19:58:55.497460 raftLog.go 70 raft.(*RaftLog).TruncateAppend [{0 1 10} {1 8 30} {2 8 1000}] preLgIdx:2 []
+19:58:55.497635 raftLog.go 90 raft.(*RaftLog).TruncateAppend [{0 1 10} {1 8 30} {2 8 1000}] 
+19:58:55.497646 raftLog.go 90 raft.(*RaftLog).TruncateAppend [{0 1 10} {1 8 30} {2 8 1000}] 
+19:58:55.496916 raft.go 371 raft.(*Raft).startAppendEntries [S4 Dead t:8 vF:4 c:2 a:2] sendAppendEntries to 2 succ
+19:58:55.497904 raft.go 421 raft.(*Raft).HandleAppendEntries [S1 Follower t:8 vF:-1 c:2 a:2] [RLog c:2 a:2 [{0 1 10} {1 8 30} {2 8 1000}]]
+19:58:55.498057 raft.go 421 raft.(*Raft).HandleAppendEntries [S3 Follower t:8 vF:-1 c:2 a:2] [RLog c:2 a:2 [{0 1 10} {1 8 30} {2 8 1000}]]
+19:58:55.498154 raft.go 371 raft.(*Raft).startAppendEntries [S4 Dead t:8 vF:4 c:2 a:2] sendAppendEntries to 0 succ
+19:58:55.499364 raft.go 371 raft.(*Raft).startAppendEntries [S4 Dead t:8 vF:4 c:2 a:2] sendAppendEntries to 1 succ
+19:58:55.499643 raft.go 371 raft.(*Raft).startAppendEntries [S4 Dead t:8 vF:4 c:2 a:2] sendAppendEntries to 3 succ
+ok  	_/home/sy/Repo/others/MIT6.824-DistributedSystem/6.824/src/raft	3.847s
