@@ -428,7 +428,7 @@ func TestBackup2B(t *testing.T) {
 	// submit lots of commands that won't commit
 	PrintStars()
 	log.Printf("1 submit lots of commands that won't commit")
-	for i := 0; i < 10; i++ {
+	for i := 0; i < 50; i++ {
 		cfg.rafts[leader1].Start(rand.Int())
 	}
 
@@ -447,7 +447,7 @@ func TestBackup2B(t *testing.T) {
 	// lots of successful commands to new group.
 	PrintStars()
 	log.Printf("2 lots of successful commands to new group.")
-	for i := 0; i < 10; i++ {
+	for i := 0; i < 50; i++ {
 		cfg.one(rand.Int(), 3, true)
 	}
 
@@ -464,7 +464,7 @@ func TestBackup2B(t *testing.T) {
 	// lots more commands that won't commit2
 	PrintStars()
 	log.Printf("3 lots more commands that won't commit")
-	for i := 0; i < 10; i++ {
+	for i := 0; i < 50; i++ {
 		cfg.rafts[leader2].Start(rand.Int())
 	}
 
@@ -483,7 +483,7 @@ func TestBackup2B(t *testing.T) {
 	// lots of successful commands to new group2,
 	PrintStars()
 	log.Printf("4 lots of successful commands to new group, ")
-	for i := 0; i < 10; i++ {
+	for i := 0; i < 50; i++ {
 		cfg.one(rand.Int(), 3, true)
 	}
 
@@ -767,7 +767,7 @@ func TestFigure82C(t *testing.T) {
 			ms := rand.Int63() % (int64(RaftElectionTimeout/time.Millisecond) / 2)
 			time.Sleep(time.Duration(ms) * time.Millisecond)
 		} else {
-			ms := (rand.Int63() % 13)
+			ms := rand.Int63() % 13
 			time.Sleep(time.Duration(ms) * time.Millisecond)
 		}
 

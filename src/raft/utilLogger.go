@@ -19,7 +19,6 @@ func init() {
 
 const (
 	all 			uint = math.MaxUint32
-	always 			uint = 0
 	requsetVote 	uint = 1
 	heartbeat 		uint = 1 << 2
 	logReplicate 	uint = 1 << 3
@@ -80,6 +79,10 @@ func DPrintf(debugLevel uint, format string, a ...interface{}) (n int, err error
 
 func PrintLine()  {
 	log.Printf("========================================================")
+}
+
+func PrintLine2()  {
+	log.Printf("=====================================")
 }
 
 func PrintStars() {

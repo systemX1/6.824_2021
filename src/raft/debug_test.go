@@ -223,10 +223,7 @@ func TestRaftCheckAppendEntries(t *testing.T) {
 	_, ok := rL.CheckAppendEntries(3, 3)
 	log.Printf("%v", ok)
 
-	log.Printf("majority:%v", majority([]int{20, -1, -1, 10, 20}) )
-	log.Printf("majority:%v", majority([]int{1, 1, -1, -1, 1}) )
 
-	log.Printf("%v", 2 < (5 / 2) )
 
 	rL.Entries = []LogEntry{
 		{1, 2, 100},
@@ -238,6 +235,9 @@ func TestRaftCheckAppendEntries(t *testing.T) {
 		nextIdx = next.(int) + 1
 	}
 	log.Printf("nextIdx:%v", nextIdx)
+
+	rL.Entries = nil
+	log.Printf("%v", rL.getEntry(21, Pointer))
 }
 
 

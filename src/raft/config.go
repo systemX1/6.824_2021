@@ -166,8 +166,8 @@ func (cfg *config) applier(i int, applyCh chan ApplyMsg) {
 				err_msg = fmt.Sprintf("server %v apply out of order %v", i, m.CommandIndex)
 			}
 			if err_msg != "" {
-				log.Fatalf("apply error: %v\n", err_msg)
 				cfg.applyErr[i] = err_msg
+				log.Fatalf("apply error: %v\n\n", err_msg)
 				// keep reading after error so that Raft doesn't block
 				// holding locks...
 			}
@@ -206,8 +206,8 @@ func (cfg *config) applierSnap(i int, applyCh chan ApplyMsg) {
 				err_msg = fmt.Sprintf("server %v apply out of order %v", i, m.CommandIndex)
 			}
 			if err_msg != "" {
-				log.Fatalf("apply error: %v\n", err_msg)
 				cfg.applyErr[i] = err_msg
+				log.Fatalf("apply error: %v\n\n", err_msg)
 				// keep reading after error so that Raft doesn't block
 				// holding locks...
 			}

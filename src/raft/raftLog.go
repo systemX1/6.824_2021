@@ -35,23 +35,30 @@ func (rL *RfLog) AppendEntries(entries ...LogEntry) {
 }
 
 // CheckAppendEntries return if prevLogIndex and lastLogTerm correspond to paras
-func (rL *RfLog) CheckAppendEntries(prevLogIndex, lastLogTerm int) (bool, bool) {
+func (rL *RfLog) CheckAppendEntries(prevLogIndex, prevLogTerm int) (bool, bool) {
 	rL.Lock()
 	defer rL.Unlock()
 	lastEntry := rL.getLastEntry(Pointer)
-	if prevLogIndex == -1 || lastEntry == nil {
+	lastEntryTerm := -1
+	if lastEntry != nil {
+		lastEntryTerm = lastEntry.(*LogEntry).Index
+	}
+	//if prevLogIndex == -1 || lastEntry == nil {
+	//	return true, true
+	//}
+	if prevLogIndex == -1 {
 		return true, true
 	}
 
-	prevLogTerm := -1
+	myPrevLogTerm := -1
 	if prevLog := rL.getEntry(prevLogIndex, Term); prevLog != nil {
-		prevLogTerm = prevLog.(int)
+		myPrevLogTerm = prevLog.(int)
 	}
 
-	if prevLogTerm != lastLogTerm {
+	if myPrevLogTerm != prevLogTerm {
 		return false, false
 	}
-	if prevLogIndex > lastEntry.(*LogEntry).Index {
+	if prevLogIndex > lastEntryTerm {
 		return false, true
 	}
 	return true, true
@@ -179,12 +186,6 @@ func (rL *RfLog) SetLastApplied(i int) int {
 	defer rL.Unlock()
 	rL.lastApplied = i
 	return rL.lastApplied
-}
-
-func (rL *RfLog) Len() int {
-	rL.Lock()
-	defer rL.Unlock()
-	return len(rL.Entries)
 }
 
 func (rL *RfLog) GetUncommited(nextIndex int) (entries []LogEntry) {
