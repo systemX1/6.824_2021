@@ -33,15 +33,15 @@ func TestSliceDebug(t *testing.T) {
 
 func TestLoggerDebug(t *testing.T) {
 	funcName, file, line, ok := runtime.Caller(0)
-	if(ok){
+	if ok {
 		fmt.Println("func name: " + runtime.FuncForPC(funcName).Name())
 		fmt.Printf("file: %s, line: %d\n",file,line)
 	}
 }
 
 func TestRaftLogCheckAppendEntries(t *testing.T) {
-	rL := &RaftLog{commitIndex: -1, lastApplied: -1}
-	rL.entries = []LogEntry{
+	rL := &RfLog{commitIndex: -1, lastApplied: -1}
+	rL.Entries = []LogEntry{
 		{0, 1, 0},
 		{1, 2, 100}, {2, 2, 200},
 		{3, 3, 300}, {4, 3, 400},
@@ -50,7 +50,7 @@ func TestRaftLogCheckAppendEntries(t *testing.T) {
 	// Index: 0 1 2 3 4
 	// Term:  2 2 3 3 3
 	log.Println()
-	log.Println(rL.entries)
+	log.Println(rL.Entries)
 	log.Println(rL.CheckAppendEntries(1, 2))
 	log.Println(rL.CheckAppendEntries(0, 2))
 	log.Println(rL.CheckAppendEntries(1, 3))
@@ -66,8 +66,8 @@ func TestRaftLogCheckAppendEntries(t *testing.T) {
 	log.Println(rL.ConflictingEntryTermIndex(5))
 
 	log.Println()
-	rL.entries = nil
-	log.Println(rL.entries)
+	rL.Entries = nil
+	log.Println(rL.Entries)
 	log.Println(rL.CheckAppendEntries(1, 2))
 	log.Println(rL.CheckAppendEntries(0, 2))
 	log.Println(rL.CheckAppendEntries(1, 3))
@@ -81,14 +81,14 @@ func TestRaftLogCheckAppendEntries(t *testing.T) {
 	log.Println(rL.ConflictingEntryTermIndex(4))
 	log.Println(rL.ConflictingEntryTermIndex(5))
 
-	rL.entries = []LogEntry{
+	rL.Entries = []LogEntry{
 		{0, 1, 0},
 		{1, 2, 100}, {2, 2, 200},
 		{3, 2, 300}, {4, 2, 400},
 		{5, 2, 500}, {6, 2, 600},
 	}
 	log.Println()
-	log.Println(rL.entries)
+	log.Println(rL.Entries)
 	log.Println(rL.CheckAppendEntries(1, 2))
 	log.Println(rL.CheckAppendEntries(0, 2))
 	log.Println(rL.CheckAppendEntries(1, 3))
@@ -104,13 +104,13 @@ func TestRaftLogCheckAppendEntries(t *testing.T) {
 }
 
 func TestRaftLogTruncate(t *testing.T) {
-	rL := &RaftLog{commitIndex: -1, lastApplied: -1}
-	rL.entries = []LogEntry{
+	rL := &RfLog{commitIndex: -1, lastApplied: -1}
+	rL.Entries = []LogEntry{
 		{0, 2, 0}, {1, 2, 100},
 		{2, 3, 200}, {3, 3, 300},
 		{4, 3, 400},
 	}
-	bak := rL.entries
+	bak := rL.Entries
 	// Index: 0 1 2 3 4
 	// Term:  2 2 3 3 3
 
@@ -124,7 +124,7 @@ func TestRaftLogTruncate(t *testing.T) {
 
 	// Index: 0 1 2 3 4
 	// Term:  2 2 3 3 3
-	rL.entries = bak
+	rL.Entries = bak
 	// Index:         4 5
 	// Term:          3 3
 	e = []LogEntry{
@@ -135,7 +135,7 @@ func TestRaftLogTruncate(t *testing.T) {
 
 	// Index: 0 1 2 3 4
 	// Term:  2 2 3 3 3
-	rL.entries = bak
+	rL.Entries = bak
 	// Index:           5 6
 	// Term:            3 3
 	e = []LogEntry{
@@ -146,7 +146,7 @@ func TestRaftLogTruncate(t *testing.T) {
 
 	// Index: 0 1 2 3 4
 	// Term:  2 2 3 3 3
-	rL.entries = bak
+	rL.Entries = bak
 	// Index: 0 1
 	// Term:  1 1
 	e = []LogEntry{
@@ -157,7 +157,7 @@ func TestRaftLogTruncate(t *testing.T) {
 
 	// Index: 0 1 2 3 4
 	// Term:  2 2 3 3 3
-	rL.entries = bak
+	rL.Entries = bak
 	// Index:
 	// Term:
 	e = nil
@@ -166,7 +166,7 @@ func TestRaftLogTruncate(t *testing.T) {
 
 	// Index: 0 1 2 3 4
 	// Term:  2 2 3 3 3
-	rL.entries = bak
+	rL.Entries = bak
 	// Index:
 	// Term:
 	e = nil
@@ -181,7 +181,7 @@ type TestLogEntry struct {
 }
 
 func TestRaftLogEntry(t *testing.T) {
-	//entries := []TestLogEntry{
+	//Entries := []TestLogEntry{
 	//	{1, 2, 0}, {2, 2, 100},
 	//	{3, 3, 200}, {-1, -1, 300},
 	//	{4, 3, 300},
@@ -197,13 +197,13 @@ func TestRaftLogEntry(t *testing.T) {
 }
 
 func TestRaftLogGetLastEntry(t *testing.T) {
-	rL := &RaftLog{commitIndex: -1, lastApplied: -1}
-	rL.entries = []LogEntry{
+	rL := &RfLog{commitIndex: -1, lastApplied: -1}
+	rL.Entries = []LogEntry{
 		{0, 2, 0}, {1, 2, 100},
 		{2, 3, 200}, {3, 3, 300},
 		{4, 3, 400},
 	}
-	//bak := rL.entries
+	//bak := rL.Entries
 	// Index: 0 1 2 3 4
 	// Term:  2 2 3 3 3
 	lastLog := rL.GetLastEntryPointer()
@@ -214,8 +214,8 @@ func TestRaftLogGetLastEntry(t *testing.T) {
 }
 
 func TestRaftCheckAppendEntries(t *testing.T) {
-	rL := &RaftLog{commitIndex: -1, lastApplied: -1}
-	rL.entries = []LogEntry{
+	rL := &RfLog{commitIndex: -1, lastApplied: -1}
+	rL.Entries = []LogEntry{
 		{0, 2, 0}, {1, 2, 100},
 		{2, 3, 200}, {3, 3, 300},
 		{4, 3, 400},
@@ -228,6 +228,16 @@ func TestRaftCheckAppendEntries(t *testing.T) {
 
 	log.Printf("%v", 2 < (5 / 2) )
 
+	rL.Entries = []LogEntry{
+		{1, 2, 100},
+		{2, 3, 200}, {3, 3, 300},
+		{8, 3, 400},
+	}
+	nextIdx := 1
+	if next := rL.getLastEntry(Index); next != nil {
+		nextIdx = next.(int) + 1
+	}
+	log.Printf("nextIdx:%v", nextIdx)
 }
 
 

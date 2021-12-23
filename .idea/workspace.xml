@@ -5,28 +5,57 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="60242920-15ec-48b0-a8b0-92cd967e992b" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/6.824_2021.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/mrcoordinator.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/mrcoordinator.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/mrsequential.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/mrsequential.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/mrworker.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/mrworker.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/mr/coordinator.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/mr/coordinator.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/mr/rpc.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/mr/rpc.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/mr/worker.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/mr/worker.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/mrapps/crash.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/mrapps/crash.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/mrapps/early_exit.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/mrapps/early_exit.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/mrapps/indexer.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/mrapps/indexer.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/mrapps/jobcount.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/mrapps/jobcount.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/mrapps/mtiming.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/mrapps/mtiming.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/mrapps/nocrash.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/mrapps/nocrash.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/mrapps/rtiming.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/mrapps/rtiming.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/mrapps/wc.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/mrapps/wc.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/raft/raft-2C.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/raft/config.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/raft/config.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/raft/debug_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/raft/debug_test.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/raft/log/test-1.err" beforeDir="false" afterPath="$PROJECT_DIR$/src/raft/log/test-1.err" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/raft/log/test-1.log" beforeDir="false" afterPath="$PROJECT_DIR$/src/raft/log/test-1.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/raft/log/test-10.err" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/raft/log/test-10.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/raft/log/test-11.err" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/raft/log/test-11.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/raft/log/test-12.err" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/raft/log/test-12.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/raft/log/test-13.err" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/raft/log/test-13.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/raft/log/test-14.err" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/raft/log/test-14.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/raft/log/test-15.err" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/raft/log/test-15.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/raft/log/test-16.err" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/raft/log/test-16.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/raft/log/test-17.err" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/raft/log/test-17.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/raft/log/test-18.err" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/raft/log/test-18.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/raft/log/test-19.err" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/raft/log/test-19.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/raft/log/test-2.err" beforeDir="false" afterPath="$PROJECT_DIR$/src/raft/log/test-2.err" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/raft/log/test-2.log" beforeDir="false" afterPath="$PROJECT_DIR$/src/raft/log/test-2.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/raft/log/test-20.err" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/raft/log/test-20.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/raft/log/test-3.err" beforeDir="false" afterPath="$PROJECT_DIR$/src/raft/log/test-3.err" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/raft/log/test-3.log" beforeDir="false" afterPath="$PROJECT_DIR$/src/raft/log/test-3.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/raft/log/test-4.err" beforeDir="false" afterPath="$PROJECT_DIR$/src/raft/log/test-4.err" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/raft/log/test-4.log" beforeDir="false" afterPath="$PROJECT_DIR$/src/raft/log/test-4.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/raft/log/test-5.err" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/raft/log/test-5.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/raft/log/test-6.err" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/raft/log/test-6.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/raft/log/test-7.err" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/raft/log/test-7.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/raft/log/test-8.err" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/raft/log/test-8.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/raft/log/test-9.err" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/raft/log/test-9.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/raft/log/tester" beforeDir="false" afterPath="$PROJECT_DIR$/src/raft/log/tester" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/raft/persister.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/raft/persister.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/raft/raft.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/raft/raft.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/raft/raftLog.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/raft/raftLog.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/raft/test_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/raft/test_test.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/raft/util.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/raft/util.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/raft/utilLogger.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/raft/utilLogger.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -55,12 +84,10 @@
     <property name="go.modules.go.list.on.any.changes.was.set" value="true" />
     <property name="go.sdk.automatically.set" value="true" />
     <property name="last_opened_file_path" value="$USER_HOME$" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
-  </component>
-  <component name="VgoProject">
-    <integration-enabled>true</integration-enabled>
   </component>
 </project>
