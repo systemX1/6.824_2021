@@ -80,17 +80,22 @@ func (rL *RfLog) TruncateAppend(prevLogIndex int, entries []LogEntry) {
 		return
 	}
 
-	// remove conflict Entries
-
+	// binarySearch, find real index
 	lastEntryIndex := -1
 	if lastEntry := rL.getLastEntry(Index); lastEntry != nil {
 		lastEntryIndex = lastEntry.(int)
 	}
+	entry := sort.Search(len(rL.Entries), func(i int) bool { return rL.Entries[i].Index >= prevLogIndex })
+	if entry < len(rL.Entries) && rL.Entries[entry].Index == prevLogIndex {
+		prevLogIndex = entry
+	}
+
+	// remove conflict Entries
 	if entries == nil && rL.Entries != nil && prevLogIndex + 1 <= lastEntryIndex {
 		rL.Entries = rL.Entries[:prevLogIndex + 1]	// TODO
 	}
 	for i, j := prevLogIndex + 1, 0;
-		i < prevLogIndex + len(entries) && i < len(rL.Entries);
+		i < prevLogIndex + len(entries) && i < lastEntryIndex;
 		i, j = i + 1, j + 1 {
 		if rL.Entries[i].Term != entries[j].Term {
 			rL.Entries = rL.Entries[:i]
