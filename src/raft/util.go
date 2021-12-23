@@ -11,7 +11,7 @@ const (
 	heartbeatTimeout = 100 * time.Millisecond
 )
 
-// time funcs
+// GetElectionTimeout time func
 func GetElectionTimeout() time.Duration {
 	rand.Seed(time.Now().UnixNano())
 	return time.Duration(int(randFloats(2, 5)*100000)) *

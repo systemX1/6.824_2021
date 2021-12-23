@@ -6,33 +6,36 @@ import (
 	"sync"
 )
 
-type RaftLog struct {
+type RfLog struct {
 	commitIndex 	int
 	lastApplied 	int
-	entries     	[]LogEntry
+	Entries     	[]LogEntry
 	sync.Mutex
 }
 
-func NewRaftLog() *RaftLog {
-	rL := &RaftLog{commitIndex: -1, lastApplied: -1}
-	rL.entries = make([]LogEntry, 0, 20)
+func NewRaftLog() *RfLog {
+	rL := &RfLog{commitIndex: -1, lastApplied: -1}
+	rL.Entries = make([]LogEntry, 0, 20)
 	return rL
 }
 
-func (rL *RaftLog) AppendEntries(es ...LogEntry) {
+func (rL *RfLog) AppendEntries(entries ...LogEntry) {
 	rL.Lock()
 	defer rL.Unlock()
-	next := len(rL.entries)
-	for _, e := range es {
-		e.Index = next
-		next++
-		rL.entries = append(rL.entries, e)
-		DPrintf(logReplicate, "%v %v", e, rL.entries)
+	nextIdx := 0
+	if next := rL.getLastEntry(Index); next != nil {
+		nextIdx = next.(int) + 1
+	}
+	for _, entry := range entries {
+		entry.Index = nextIdx
+		nextIdx++
+		rL.Entries = append(rL.Entries, entry)
+		DPrintf(logReplicate, "%v %v", entry, rL.Entries)
 	}
 }
 
-// return if prevLogIndex and lastLogTerm correspond to paras
-func (rL *RaftLog) CheckAppendEntries(prevLogIndex, lastLogTerm int) (bool, bool) {
+// CheckAppendEntries return if prevLogIndex and lastLogTerm correspond to paras
+func (rL *RfLog) CheckAppendEntries(prevLogIndex, lastLogTerm int) (bool, bool) {
 	rL.Lock()
 	defer rL.Unlock()
 	lastEntry := rL.getLastEntry(Pointer)
@@ -54,46 +57,46 @@ func (rL *RaftLog) CheckAppendEntries(prevLogIndex, lastLogTerm int) (bool, bool
 	return true, true
 }
 
-func (rL *RaftLog) ConflictingEntryTermIndex(lastLogTerm int) int {
-	entry := sort.Search(len(rL.entries), func(i int) bool { return rL.entries[i].Term >= lastLogTerm })
-	if entry < len(rL.entries) && rL.entries[entry].Term == lastLogTerm {
+func (rL *RfLog) ConflictingEntryTermIndex(lastLogTerm int) int {
+	entry := sort.Search(len(rL.Entries), func(i int) bool { return rL.Entries[i].Term >= lastLogTerm })
+	if entry < len(rL.Entries) && rL.Entries[entry].Term == lastLogTerm {
 		i := 0
-		for i = entry; i < len(rL.entries) && rL.entries[i].Term == lastLogTerm; i++ {}
+		for i = entry; i < len(rL.Entries) && rL.Entries[i].Term == lastLogTerm; i++ {}
 		return i - 1
 	}
 	return 0
 }
 
-func (rL *RaftLog) TruncateAppend(prevLogIndex int, entries []LogEntry) {
+func (rL *RfLog) TruncateAppend(prevLogIndex int, entries []LogEntry) {
 	rL.Lock()
 	defer rL.Unlock()
-	DPrintf(debugInfo|logReplicate, "%v preLgIdx:%v %v", rL.entries, prevLogIndex, entries)
+	DPrintf(debugInfo|logReplicate, "%v preLgIdx:%v %v", rL.Entries, prevLogIndex, entries)
 	if prevLogIndex < 0 {
-		rL.entries = entries
-		DPrintf(debugInfo|logReplicate, "%v", rL.entries)
+		rL.Entries = entries
+		DPrintf(debugInfo|logReplicate, "%v", rL.Entries)
 		return
 	}
 
-	// remove conflict entries
-	if entries == nil && rL.entries != nil && prevLogIndex + 1 < len(rL.entries) {
-		rL.entries = rL.entries[:prevLogIndex + 1]
+	// remove conflict Entries
+	if entries == nil && rL.Entries != nil && prevLogIndex + 1 < len(rL.Entries) {
+		rL.Entries = rL.Entries[:prevLogIndex + 1]
 	}
 	for i, j := prevLogIndex + 1, 0;
-		i < prevLogIndex + len(entries) && i < len(rL.entries);
+		i < prevLogIndex + len(entries) && i < len(rL.Entries);
 		i, j = i + 1, j + 1 {
-		if rL.entries[i].Term != entries[j].Term {
-			rL.entries = rL.entries[:i]
+		if rL.Entries[i].Term != entries[j].Term {
+			rL.Entries = rL.Entries[:i]
 			break
 		}
 	}
-	rL.entries = append(rL.entries, entries...)
-	DPrintf(debugInfo|logReplicate, "%v ", rL.entries)
+	rL.Entries = append(rL.Entries, entries...)
+	DPrintf(debugInfo|logReplicate, "%v ", rL.Entries)
 }
 
-func (rL *RaftLog) getLastEntry(typ LogEntryItem) interface{} {
+func (rL *RfLog) getLastEntry(typ LogEntryItem) interface{} {
 	entry := -1
-	for i := len(rL.entries) - 1; i >= 0; i-- {
-		if rL.entries[i].Index != -1 {
+	for i := len(rL.Entries) - 1; i >= 0; i-- {
+		if rL.Entries[i].Index != -1 {
 			entry = i
 			break
 		}
@@ -101,22 +104,22 @@ func (rL *RaftLog) getLastEntry(typ LogEntryItem) interface{} {
 	if entry == -1 {
 		return nil
 	}
-	if entry < len(rL.entries) {
+	if entry < len(rL.Entries) {
 		switch typ {
 		case Pointer:
-			return &rL.entries[entry]
+			return &rL.Entries[entry]
 		case Index:
-			return rL.entries[entry].Index
+			return rL.Entries[entry].Index
 		case Term:
-			return rL.entries[entry].Term
+			return rL.Entries[entry].Term
 		case Command:
-			return rL.entries[entry].Command
+			return rL.Entries[entry].Command
 		}
 	}
 	return nil
 }
 
-func (rL *RaftLog) GetLastEntryPointer() *LogEntry {
+func (rL *RfLog) GetLastEntryPointer() *LogEntry {
 	rL.Lock()
 	defer rL.Unlock()
 	entry := rL.getLastEntry(Pointer)
@@ -126,7 +129,7 @@ func (rL *RaftLog) GetLastEntryPointer() *LogEntry {
 	return nil
 }
 
-func (rL *RaftLog) GetLastEntryIndex() int {
+func (rL *RfLog) GetLastEntryIndex() int {
 	rL.Lock()
 	defer rL.Unlock()
 	entry := rL.getLastEntry(Index)
@@ -136,7 +139,7 @@ func (rL *RaftLog) GetLastEntryIndex() int {
 	return -1
 }
 
-func (rL *RaftLog) GetLastEntryTerm() int {
+func (rL *RfLog) GetLastEntryTerm() int {
 	rL.Lock()
 	defer rL.Unlock()
 	entry := rL.getLastEntry(Term)
@@ -146,74 +149,74 @@ func (rL *RaftLog) GetLastEntryTerm() int {
 	return -1
 }
 
-func (rL *RaftLog) GetLastEntryCommand() interface{} {
+func (rL *RfLog) GetLastEntryCommand() interface{} {
 	rL.Lock()
 	defer rL.Unlock()
 	return rL.getLastEntry(Command)
 }
 
-func (rL *RaftLog) GetCommitIndex() int {
+func (rL *RfLog) GetCommitIndex() int {
 	rL.Lock()
 	defer rL.Unlock()
 	return rL.commitIndex
 }
 
-func (rL *RaftLog) SetCommitIndex(i int) int {
+func (rL *RfLog) SetCommitIndex(i int) int {
 	rL.Lock()
 	defer rL.Unlock()
 	rL.commitIndex = i
 	return rL.commitIndex
 }
 
-func (rL *RaftLog) GetLastApplied() int {
+func (rL *RfLog) GetLastApplied() int {
 	rL.Lock()
 	defer rL.Unlock()
 	return rL.lastApplied
 }
 
-func (rL *RaftLog) SetLastApplied(i int) int {
+func (rL *RfLog) SetLastApplied(i int) int {
 	rL.Lock()
 	defer rL.Unlock()
 	rL.lastApplied = i
 	return rL.lastApplied
 }
 
-func (rL *RaftLog) Len() int {
+func (rL *RfLog) Len() int {
 	rL.Lock()
 	defer rL.Unlock()
-	return len(rL.entries)
+	return len(rL.Entries)
 }
 
-func (rL *RaftLog) GetUncommited(nextIndex int) (entries []LogEntry) {
+func (rL *RfLog) GetUncommited(nextIndex int) (entries []LogEntry) {
 	rL.Lock()
 	defer rL.Unlock()
-	if nextIndex >= len(rL.entries) || rL.entries == nil || len(rL.entries) == 0 {
+	if nextIndex >= len(rL.Entries) || rL.Entries == nil || len(rL.Entries) == 0 {
 		return nil
 	}
-	nextIndex = binarySearch(rL.entries, nextIndex)
+	nextIndex = binarySearch(rL.Entries, nextIndex)
 	if nextIndex == -1 {
 		return nil
 	}
-	entries = rL.entries[nextIndex:]
+	entries = rL.Entries[nextIndex:]
 	return entries
 }
 
-func (rL *RaftLog) getEntry(index int, typ LogEntryItem) interface{} {
-	entry := sort.Search(len(rL.entries), func(i int) bool { return rL.entries[i].Index >= index })
-	if entry < len(rL.entries) && rL.entries[entry].Index == index {
+func (rL *RfLog) getEntry(index int, typ LogEntryItem) interface{} {
+	entry := sort.Search(len(rL.Entries), func(i int) bool { return rL.Entries[i].Index >= index })
+	if entry < len(rL.Entries) && rL.Entries[entry].Index == index {
 		switch typ {
 		case Pointer:
-			return &rL.entries[entry]
+			return &rL.Entries[entry]
 		case Term:
-			return rL.entries[entry].Term
+			return rL.Entries[entry].Term
 		case Command:
-			return rL.entries[entry].Command
+			return rL.Entries[entry].Command
 		}
 	}
 	return nil
 }
 
-func (rL *RaftLog) GetEntryPointer(index int) *LogEntry {
+func (rL *RfLog) GetEntryPointer(index int) *LogEntry {
 	rL.Lock()
 	defer rL.Unlock()
 	entry := rL.getEntry(index, Pointer)
@@ -223,7 +226,7 @@ func (rL *RaftLog) GetEntryPointer(index int) *LogEntry {
 	return nil
 }
 
-func (rL *RaftLog) GetEntryTerm(index int) int {
+func (rL *RfLog) GetEntryTerm(index int) int {
 	rL.Lock()
 	defer rL.Unlock()
 	term := rL.getEntry(index, Term)
@@ -233,17 +236,17 @@ func (rL *RaftLog) GetEntryTerm(index int) int {
 	return -1
 }
 
-func (rL *RaftLog) GetEntryCommand(index int) interface{} {
+func (rL *RfLog) GetEntryCommand(index int) interface{} {
 	rL.Lock()
 	defer rL.Unlock()
 	return rL.getEntry(index, Command)
 }
 
-func (rL *RaftLog) String() string {
+func (rL *RfLog) String() string {
 	rL.Lock()
 	defer rL.Unlock()
 	return fmt.Sprintf("[RLog c:%v a:%v %v]",
-		rL.commitIndex, rL.lastApplied, rL.entries)
+		rL.commitIndex, rL.lastApplied, rL.Entries)
 }
 
 type LogEntry struct {
@@ -268,13 +271,13 @@ func binarySearch(entries []LogEntry, index int) int {
 	return -1
 }
 
-func backwardSearch(entries []LogEntry, index int) int {
-	for i := len(entries) - 1; i >= 0; i-- {
-		if entries[i].Index == index {
-			return i
-		}
-	}
-	return -1
-}
+//func backwardSearch(Entries []LogEntry, index int) int {
+//	for i := len(Entries) - 1; i >= 0; i-- {
+//		if Entries[i].Index == index {
+//			return i
+//		}
+//	}
+//	return -1
+//}
 
 
