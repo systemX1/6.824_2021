@@ -465,8 +465,9 @@ func (rf *Raft) HandleAppendEntries(args *AppendEntriesArgs, reply *AppendEntrie
 	rf.setVotedFor(-1)
 	rf.stat = Follower
 	rf.resetElectionTimeout()
-	DPrintf(heartbeat|logReplicate, "%v reset electionTimeout", rf)
+	DPrintf(heartbeat|logReplicate, "%v reset electionTimeout, %v", rf, rf.raftLog)
 	rf.raftLog.TruncateAppend(args.PrevLogIndex, args.Entries)
+	DPrintf(debugInfo|logReplicate, "%v preLgIdx:%v %v", rf.raftLog.Entries, args.PrevLogIndex, args.Entries)
 
 	if args.LeaderCommit > rf.raftLog.GetCommitIndex() {
 		lastEntryIndex := rf.raftLog.GetLastEntryIndex()

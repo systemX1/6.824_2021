@@ -43,9 +43,6 @@ func (rL *RfLog) CheckAppendEntries(prevLogIndex, prevLogTerm int) (bool, bool) 
 	if lastEntry != nil {
 		lastEntryTerm = lastEntry.(*LogEntry).Index
 	}
-	//if prevLogIndex == -1 || lastEntry == nil {
-	//	return true, true
-	//}
 	if prevLogIndex == -1 {
 		return true, true
 	}
@@ -77,7 +74,6 @@ func (rL *RfLog) ConflictingEntryTermIndex(lastLogTerm int) int {
 func (rL *RfLog) TruncateAppend(prevLogIndex int, entries []LogEntry) {
 	rL.Lock()
 	defer rL.Unlock()
-	DPrintf(debugInfo|logReplicate, "%v preLgIdx:%v %v", rL.Entries, prevLogIndex, entries)
 	if prevLogIndex < 0 {
 		rL.Entries = entries
 		DPrintf(debugInfo|logReplicate, "%v", rL.Entries)
@@ -85,8 +81,13 @@ func (rL *RfLog) TruncateAppend(prevLogIndex int, entries []LogEntry) {
 	}
 
 	// remove conflict Entries
-	if entries == nil && rL.Entries != nil && prevLogIndex + 1 < len(rL.Entries) {
-		rL.Entries = rL.Entries[:prevLogIndex + 1]
+
+	lastEntryIndex := -1
+	if lastEntry := rL.getLastEntry(Index); lastEntry != nil {
+		lastEntryIndex = lastEntry.(int)
+	}
+	if entries == nil && rL.Entries != nil && prevLogIndex + 1 <= lastEntryIndex {
+		rL.Entries = rL.Entries[:prevLogIndex + 1]	// TODO
 	}
 	for i, j := prevLogIndex + 1, 0;
 		i < prevLogIndex + len(entries) && i < len(rL.Entries);
@@ -97,7 +98,6 @@ func (rL *RfLog) TruncateAppend(prevLogIndex int, entries []LogEntry) {
 		}
 	}
 	rL.Entries = append(rL.Entries, entries...)
-	DPrintf(debugInfo|logReplicate, "%v ", rL.Entries)
 }
 
 func (rL *RfLog) getLastEntry(typ LogEntryItem) interface{} {
