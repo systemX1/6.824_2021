@@ -229,8 +229,8 @@ func (rf *Raft) startElection() {
 			DPrintf(requsetVote, "%v votes to itself, votes:%v", rf, votes)
 			continue
 		}
-		go func(idx, term, me, lastLogIndex, lastLogTerm int) {
-			votedGranted := rf.startRequestVote(idx, term, me, lastLogIndex, lastLogTerm)
+		go func(idx, term, me, lastLogIndex, lastLogTerm int, stat State) {
+			votedGranted := rf.startRequestVote(idx, term, me, lastLogIndex, lastLogTerm, stat)
 			if !votedGranted { return }
 			// tally the votes
 			rf.Lock()
@@ -246,12 +246,12 @@ func (rf *Raft) startElection() {
 			rf.setState(Leader)
 			rf.initPeerLogIndex()
 			DPrintf(client, "%v WON the election, votes:%v, peers:%v, RLogs:%v", rf, votes, len(rf.peers), rf.raftLog)
-		}(i, rf.currTerm, rf.me, lastLogIndex, lastLogTerm)
+		}(i, rf.currTerm, rf.me, lastLogIndex, lastLogTerm, rf.stat)
 	}
 }
 
 // don't hold any locks thought any RPC calls for deadlock avoidance
-func (rf *Raft) startRequestVote(serv, term, me, lastLogIndex, lastLogTerm int) bool {
+func (rf *Raft) startRequestVote(serv, term, me, lastLogIndex, lastLogTerm int, stat State) bool {
 	rf.DMutexPrintf(requsetVote, "%v is sending an RequestVote to %v", rf, serv)
 	args := RequestVoteArgs{
 		Term: term, 	CandidateID: me,
@@ -263,7 +263,13 @@ func (rf *Raft) startRequestVote(serv, term, me, lastLogIndex, lastLogTerm int) 
 		rf.DMutexPrintf(requsetVote, "%v sendRequestVote to %v failed", rf, serv)
 		return false
 	}
-	rf.DMutexPrintf(requsetVote, "%v sendRequestVote to %v succ", rf, serv)
+	// Term confusion: drop the reply and return if the term and state has changed
+	rf.Lock()
+	defer rf.Unlock()
+	if rf.currTerm != term || rf.stat != stat {
+		return false
+	}
+	DPrintf(requsetVote, "%v sendRequestVote to %v succ", rf, serv)
 	return reply.VoteGranted
 }
 
@@ -383,15 +389,15 @@ func (rf *Raft) startLogReplication()  {
 				entries = rf.raftLog.GetUncommited(rf.nextIndex[serv])
 			}
 			rf.Unlock()
-			if ok := rf.startAppendEntries(serv, currTerm, me, prevLogIndex, prevLogTerm, LeaderCommit, entries); !ok {
+			if ok := rf.startAppendEntries(serv, currTerm, me, prevLogIndex, prevLogTerm, LeaderCommit, entries, rf.stat); !ok {
 				return
 			}
 		}(i, rf.currTerm, rf.me, leaderCommit)
 	}
 }
 
-func(rf *Raft) startAppendEntries(serv, currTerm, me,
-	prevLogIndex, prevLogTerm, leaderCommit int, entries []LogEntry) bool {
+func(rf *Raft) startAppendEntries(serv, currTerm, me, prevLogIndex, prevLogTerm,
+	leaderCommit int, entries []LogEntry, stat State) bool {
 	rf.Lock()
 
 	args := &AppendEntriesArgs{
@@ -410,6 +416,10 @@ func(rf *Raft) startAppendEntries(serv, currTerm, me,
 	ok := rf.sendAppendEntries(serv, args, reply)
 	rf.Lock()
 	defer rf.Unlock()
+	// Term confusion: drop the reply and return if the term and state has changed
+	if rf.currTerm != currTerm || rf.stat != stat {
+		return false
+	}
 	defer DPrintf(persist, "%v save persist %v", rf, rf.raftLog)
 	defer rf.persist()
 	if reply.Term > rf.currTerm {

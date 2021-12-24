@@ -363,7 +363,7 @@ func TestRejoin2B(t *testing.T) {
 	defer cfg.cleanup()
 
 	cfg.begin("Test (2B): rejoin of partitioned leader")
-
+	PrintStars()
 	cfg.one(101, servers, true)
 
 	// leader network failure
@@ -838,7 +838,7 @@ func TestFigure8Unreliable2C(t *testing.T) {
 
 	nup := servers
 	//for iters := 0; iters < 1000; iters++ {
-	for iters := 0; iters < 200; iters++ {
+	for iters := 0; iters < 1000; iters++ {
 		if iters == 200 {
 			cfg.setlongreordering(true)
 		}
@@ -852,14 +852,19 @@ func TestFigure8Unreliable2C(t *testing.T) {
 
 		if (rand.Int() % 1000) < 100 {
 			ms := rand.Int63() % (int64(RaftElectionTimeout/time.Millisecond) / 2)
+			t0 := time.Now()
 			time.Sleep(time.Duration(ms) * time.Millisecond)
+			log.Printf("******************** %v sleep1 %v", iters, time.Now().Sub(t0))
 		} else {
 			ms := rand.Int63() % 13
+			t0 := time.Now()
 			time.Sleep(time.Duration(ms) * time.Millisecond)
+			log.Printf("******************** %v sleep2 %v", iters, time.Now().Sub(t0))
 		}
 
 		if leader != -1 && (rand.Int()%1000) < int(RaftElectionTimeout/time.Millisecond)/2 {
 			cfg.disconnect(leader)
+			log.Printf("@@****************** disconnect leader S%v", leader)
 			nup -= 1
 		}
 
@@ -867,6 +872,7 @@ func TestFigure8Unreliable2C(t *testing.T) {
 			s := rand.Int() % servers
 			if cfg.connected[s] == false {
 				cfg.connect(s)
+				log.Printf("@@****************** connect S%v", s)
 				nup += 1
 			}
 		}
@@ -875,6 +881,7 @@ func TestFigure8Unreliable2C(t *testing.T) {
 	for i := 0; i < servers; i++ {
 		if cfg.connected[i] == false {
 			cfg.connect(i)
+			log.Printf("@@****************** connect S%v", i)
 		}
 	}
 
