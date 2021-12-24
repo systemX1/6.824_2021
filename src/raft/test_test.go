@@ -307,7 +307,7 @@ loop:
 		}
 
 		failed := false
-		cmds := []int{}
+		var cmds []int
 		for index := range is {
 			cmd := cfg.wait(index, servers, term)
 			if ix, ok := cmd.(int); ok {
@@ -538,7 +538,7 @@ loop:
 			// leader moved on really quickly
 			continue
 		}
-		cmds := []int{}
+		var cmds []int
 		for i := 1; i < iters+2; i++ {
 			x := int(rand.Int31())
 			cmds = append(cmds, x)
@@ -737,7 +737,7 @@ func TestPersist32C(t *testing.T) {
 // iteration asks a leader, if there is one, to insert a command in the Raft
 // log.  If there is a leader, that leader will fail quickly with a high
 // probability (perhaps without committing the command), or crash after a while
-// with low probability (most likey committing the command).  If the number of
+// with low probability (most likely committing the command).  If the number of
 // alive servers isn't enough to form a majority, perhaps start a new server.
 // The leader in a new term may try to finish replicating log Entries that
 // haven't been committed yet.
@@ -837,7 +837,8 @@ func TestFigure8Unreliable2C(t *testing.T) {
 	cfg.one(rand.Int()%10000, 1, true)
 
 	nup := servers
-	for iters := 0; iters < 1000; iters++ {
+	//for iters := 0; iters < 1000; iters++ {
+	for iters := 0; iters < 20; iters++ {
 		if iters == 200 {
 			cfg.setlongreordering(true)
 		}
@@ -853,7 +854,7 @@ func TestFigure8Unreliable2C(t *testing.T) {
 			ms := rand.Int63() % (int64(RaftElectionTimeout/time.Millisecond) / 2)
 			time.Sleep(time.Duration(ms) * time.Millisecond)
 		} else {
-			ms := (rand.Int63() % 13)
+			ms := rand.Int63() % 13
 			time.Sleep(time.Duration(ms) * time.Millisecond)
 		}
 
@@ -901,7 +902,7 @@ func internalChurn(t *testing.T, unreliable bool) {
 		var ret []int
 		ret = nil
 		defer func() { ch <- ret }()
-		values := []int{}
+		var values []int
 		for atomic.LoadInt32(&stop) == 0 {
 			x := rand.Int()
 			index := -1
@@ -944,7 +945,7 @@ func internalChurn(t *testing.T, unreliable bool) {
 	}
 
 	ncli := 3
-	cha := []chan []int{}
+	var cha []chan []int
 	for i := 0; i < ncli; i++ {
 		cha = append(cha, make(chan []int))
 		go cfn(i, cha[i])
@@ -989,7 +990,7 @@ func internalChurn(t *testing.T, unreliable bool) {
 
 	atomic.StoreInt32(&stop, 1)
 
-	values := []int{}
+	var values []int
 	for i := 0; i < ncli; i++ {
 		vv := <-cha[i]
 		if vv == nil {
@@ -1077,7 +1078,7 @@ func snapcommon(t *testing.T, name string, disconnect bool, reliable bool, crash
 		}
 		if disconnect {
 			// reconnect a follower, who maybe behind and
-			// needs to rceive a snapshot to catch up.
+			// needs to receive a snapshot to catch up.
 			cfg.connect(victim)
 			cfg.one(rand.Int(), servers, true)
 			leader1 = cfg.checkOneLeader()

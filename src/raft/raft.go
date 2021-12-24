@@ -20,6 +20,9 @@ import (
 	"../labrpc"
 	"bytes"
 	"fmt"
+	"log"
+	"path"
+	"runtime"
 	"sync"
 	"sync/atomic"
 	"time"
@@ -73,6 +76,7 @@ type Raft struct {
 	votedFor	int
 	stat 		State
 	electTimer	*time.Timer
+	lastReset	time.Time
 
 	raftLog 	*RfLog
 	nextIndex	[]int
@@ -451,6 +455,7 @@ func (rf *Raft) HandleAppendEntries(args *AppendEntriesArgs, reply *AppendEntrie
 		return
 	} else if args.Term > rf.currTerm {
 		rf.setCurrTerm(args.Term)
+		rf.stat = Follower
 	}
 
 	if ok1, ok2 := rf.raftLog.CheckAppendEntries(args.PrevLogIndex, args.PrevLogTerm); !ok1 {
@@ -463,7 +468,6 @@ func (rf *Raft) HandleAppendEntries(args *AppendEntriesArgs, reply *AppendEntrie
 	}
 	reply.Success = true
 	rf.setVotedFor(-1)
-	rf.stat = Follower
 	rf.resetElectionTimeout()
 	DPrintf(heartbeat|logReplicate, "%v reset electionTimeout, %v", rf, rf.raftLog)
 	rf.raftLog.TruncateAppend(args.PrevLogIndex, args.Entries)
@@ -525,7 +529,7 @@ func (rf *Raft) Start(command interface{}) (int, int, bool) {
 func (rf *Raft) Kill() {
 	atomic.StoreInt32(&rf.dead, 1)
 	rf.Lock()
-	DPrintf(client, "%v is killed %v", rf, rf.raftLog)
+	DPrintf(client, "%v is killed %v %v", rf, rf.raftLog, time.Now().Sub(rf.lastReset))
 	rf.stat = Dead
 	rf.Unlock()
 }
@@ -551,6 +555,7 @@ func Make(peers []*labrpc.ClientEnd, me int,
 		me: me, 		votedFor: -1,
 	}
 	rf.electTimer = newTimer()
+	rf.lastReset = time.Now()
 	rf.nextIndex = make([]int, len(peers))
 	rf.matchIndex = make([]int, len(peers))
 	rf.raftLog = NewRaftLog()
@@ -631,4 +636,9 @@ func (rf *Raft) applyClient(applyCh chan<- ApplyMsg) {
 // wrap
 func (rf *Raft) resetElectionTimeout()  {
 	stopResetTimer(rf.electTimer, GetElectionTimeout())
+	rf.lastReset = time.Now()
+	funcName, file, line, _ := runtime.Caller(1)
+	file = path.Base(file)
+	funcNameStr := path.Base(runtime.FuncForPC(funcName).Name())
+	log.Printf("%v %d %s @resetElectionTimeout S%v", file, line, funcNameStr, rf.me)
 }

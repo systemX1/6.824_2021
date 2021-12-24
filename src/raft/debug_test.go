@@ -6,6 +6,7 @@ import (
 	"runtime"
 	"sort"
 	"testing"
+	"time"
 )
 
 func init() {
@@ -21,6 +22,22 @@ func TestLogDebug(t *testing.T) {
 	log.Printf("%v", intersection(0x0000, 0x0100))
 	log.Printf("%v", debugFilter(logReplicate, debugConf))
 }
+
+func TestElectionTimeout(t *testing.T) {
+	t0 := time.Now()
+	electTimer := newTimer()
+	stopResetTimer(electTimer, GetElectionTimeout())
+	for {
+		select {
+		case t1 := <-electTimer.C:
+			DPrintf(requsetVote, "ElectionTimeout %v %v %v",
+				getTimeOffset(t1), t1.Sub(t0), electTimer)
+			t0 = t1
+			stopResetTimer(electTimer, GetElectionTimeout())
+		}
+	}
+}
+
 
 func TestSliceDebug(t *testing.T) {
 	var nextIndex []int
