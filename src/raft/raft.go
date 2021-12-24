@@ -360,6 +360,7 @@ type AppendEntriesReply struct {
 	Incoist     	bool
 	TermIncoist 	bool
 	NextIndex    	int
+	AdditionLen 	int
 }
 func (reply *AppendEntriesReply) String() string {
 	return fmt.Sprintf("[rply term:%v succ:%v Incoist:%v tIncoist:%v n:%v]",
@@ -442,17 +443,11 @@ func(rf *Raft) startAppendEntries(serv, currTerm, me, prevLogIndex, prevLogTerm,
 		DPrintf(debugError|logReplicate, "%v sendAppendEntries to %v failed, %v", rf, serv, reply)
 		return false
 	}
-	rf.matchIndex[serv] = prevLogIndex + len(entries)
-	rf.nextIndex[serv] += len(entries)
+	rf.matchIndex[serv] = prevLogIndex + reply.AdditionLen
+	rf.nextIndex[serv] += reply.AdditionLen
 
 	rf.checkCommit()
-
-	if args.Entries == nil {
-		DPrintf(heartbeat, "%v sendAppendEntries to %v succ", rf, serv)
-	} else {
-		DPrintf(logReplicate, "%v sendAppendEntries to %v succ, %v %v", rf, serv, args, reply)
-	}
-
+	DPrintf(logReplicate, "%v sendAppendEntries to %v succ, %v %v", rf, serv, args, reply)
 	return true
 }
 
@@ -475,19 +470,20 @@ func (rf *Raft) HandleAppendEntries(args *AppendEntriesArgs, reply *AppendEntrie
 		rf.setState(Follower)
 	}
 
+	rf.resetElectionTimeout()
 	if ok1, ok2 := rf.raftLog.CheckAppendEntries(args.PrevLogIndex, args.PrevLogTerm); !ok1 {
 		reply.Incoist = true
 		if !ok2 {
 			reply.NextIndex = rf.raftLog.ConflictingEntryTermIndex(args.PrevLogTerm)
 			reply.TermIncoist = true
 		}
+		DPrintf(logReplicate, "ConflictingEntry %v %v %v", rf, rf.raftLog, reply)
 		return
 	}
 	reply.Success = true
 
-	rf.resetElectionTimeout()
 	DPrintf(heartbeat|logReplicate, "%v reset electionTimeout, %v", rf, rf.raftLog)
-	rf.raftLog.TruncateAppend(args.PrevLogIndex, args.Entries)
+	reply.AdditionLen = rf.raftLog.TruncateAppend(args.PrevLogIndex, args.Entries)
 	DPrintf(debugInfo|logReplicate, "S%v %v preLgIdx:%v %v", rf.me, rf.raftLog.Entries, args.PrevLogIndex, args.Entries)
 
 	if args.LeaderCommit > rf.raftLog.GetCommitIndex() {

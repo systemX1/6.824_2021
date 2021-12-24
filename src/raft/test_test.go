@@ -838,8 +838,8 @@ func TestFigure8Unreliable2C(t *testing.T) {
 
 	nup := servers
 	//for iters := 0; iters < 1000; iters++ {
-	for iters := 0; iters < 1000; iters++ {
-		if iters == 200 {
+	for iters := 0; iters < 20; iters++ {
+		if iters == 1 {
 			cfg.setlongreordering(true)
 		}
 		leader := -1

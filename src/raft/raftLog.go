@@ -74,13 +74,13 @@ func (rL *RfLog) ConflictingEntryTermIndex(lastLogTerm int) int {
 	return 0
 }
 
-func (rL *RfLog) TruncateAppend(prevLogIndex int, entries []LogEntry) {
+func (rL *RfLog) TruncateAppend(prevLogIndex int, entries []LogEntry) int {
 	rL.Lock()
 	defer rL.Unlock()
 	if prevLogIndex < 0 {
 		rL.Entries = entries
-		DPrintf(debugInfo|logReplicate, "%v", rL.Entries)
-		return
+		//DPrintf(debugInfo|logReplicate, "%v", rL.Entries)
+		return len(entries)
 	}
 
 	// binarySearch, find real index
@@ -114,6 +114,7 @@ func (rL *RfLog) TruncateAppend(prevLogIndex int, entries []LogEntry) {
 	//DPrintf(logReplicate, "i:%v j:%v %v %v", i, j, rL.Entries, entries)
 	// append
 	rL.Entries = append(rL.Entries, entries...)
+	return len(entries)
 }
 
 func (rL *RfLog) getLastEntry(typ LogEntryItem) interface{} {

@@ -122,74 +122,87 @@ func TestRaftLogCheckAppendEntries(t *testing.T) {
 
 func TestRaftLogTruncate(t *testing.T) {
 	rL := &RfLog{commitIndex: -1, lastApplied: -1}
-	rL.Entries = []LogEntry{
+	bak := []LogEntry{
 		{0, 2, 0}, {1, 2, 100},
 		{2, 3, 200}, {3, 3, 300},
-		{4, 3, 400},
+		{4, 3, 400}, {5, 3, 500},
 	}
-	bak := rL.Entries
-	// Index: 0 1 2 3 4
-	// Term:  2 2 3 3 3
+	rL.Entries = make([]LogEntry, 6)
+
+	// Index: 0 1 2 3 4 5
+	// Term:  2 2 2 2 3 3
 
 	// Index:     2 3
 	// Term:      3 3
 	e := []LogEntry{
 		{2, 2, 1000}, {3, 2, 2000},
 	}
-	rL.TruncateAppend(1, e)
-	log.Println()
+	rL.TruncateAppendTest(1, bak, e)
 
-	// Index: 0 1 2 3 4
-	// Term:  2 2 3 3 3
-	rL.Entries = bak
+	// Index: 0 1 2 3 4 5
+	// Term:  2 2 2 2 3 3
 	// Index:         4 5
 	// Term:          3 3
 	e = []LogEntry{
 		{4, 4, 4000}, {5, 4, 5000},
 	}
-	rL.TruncateAppend(3, e)
-	log.Println()
+	rL.TruncateAppendTest(3, bak, e)
 
-	// Index: 0 1 2 3 4
-	// Term:  2 2 3 3 3
-	rL.Entries = bak
+	// Index: 0 1 2 3 4 5
+	// Term:  2 2 2 2 3 3
 	// Index:           5 6
 	// Term:            3 3
 	e = []LogEntry{
 		{5, 3, 5000}, {6, 4, 6000},
 	}
-	rL.TruncateAppend(4, e)
-	log.Println()
+	rL.TruncateAppendTest(4, bak, e)
 
-	// Index: 0 1 2 3 4
-	// Term:  2 2 3 3 3
-	rL.Entries = bak
+	// Index: 0 1 2 3 4 5
+	// Term:  2 2 2 2 3 3
 	// Index: 0 1
 	// Term:  1 1
 	e = []LogEntry{
 		{0, 1, 0}, {1, 1, 1000},
 	}
-	rL.TruncateAppend(-1, e)
-	log.Println()
+	rL.TruncateAppendTest(-1, bak, e)
 
-	// Index: 0 1 2 3 4
-	// Term:  2 2 3 3 3
-	rL.Entries = bak
+	// Index: 0 1 2 3 4 5
+	// Term:  2 2 2 2 3 3
 	// Index:
 	// Term:
 	e = nil
-	rL.TruncateAppend(-1, e)
-	log.Println()
+	rL.TruncateAppendTest(-1, bak, e)
 
-	// Index: 0 1 2 3 4
-	// Term:  2 2 3 3 3
-	rL.Entries = bak
+	// Index: 0 1 2 3 4 5
+	// Term:  2 2 2 2 3 3
 	// Index:
 	// Term:
-	e = nil
-	rL.TruncateAppend(4, e)
-	log.Println()
+	e = []LogEntry{
+		{3, 2, 0}, {4, 2, 1000},
+	}
+	rL.TruncateAppendTest(2, bak, e)
+
+	// Index: 0 1 2 3 4 5
+	// Term:  2 2 2 2 3 3
+	// Index:
+	// Term:
+	e = []LogEntry{
+		{3, 2, 0}, {4, 3, 1000},
+		{5, 3, 2000},
+	}
+	rL.TruncateAppendTest(2, bak, e)
 }
+
+func (rL *RfLog) TruncateAppendTest(prevLogIndex int, bak, e []LogEntry) {
+	rL.Entries = make([]LogEntry, len(bak))
+	copy(rL.Entries, bak)
+	log.Println()
+	log.Printf("rL.Entries:%v", rL.Entries)
+	l := rL.TruncateAppend(prevLogIndex, e)
+	log.Printf("prevLogIndex:%v e:%v len:%v", prevLogIndex, e, l)
+	log.Printf("rL.Entries:%v", rL.Entries)
+}
+
 
 type TestLogEntry struct {
 	Index 			int
@@ -291,7 +304,7 @@ func TestRaftXXX(t *testing.T) {
 	rL.Entries = []LogEntry{
 		{0, 1, 101}, {-1, -1, nil}, {1, 3, 103},
 	}
-	log.Printf("majority:%v", majority([]int{1, -1, 1, -1, 1}))
+	log.Printf("majority:%v", majority([]int{11, -1, -1, 11, 11}))
 	log.Printf("next:%v", binarySearch(rL.Entries, 0))
 
 	//log.Printf("entries:%v", rL.Entries[binarySearch(rL.Entries, 0):])
