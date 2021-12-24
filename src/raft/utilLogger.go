@@ -2,7 +2,6 @@ package raft
 
 import (
 	"fmt"
-	"io"
 	"log"
 	"math"
 	"path"
@@ -13,11 +12,9 @@ var debugFilter func (a uint, b uint) bool
 func init() {
 	debugFilter = subset
 	log.SetFlags(log.Ltime | log.Lmicroseconds)
-	log.SetFlags(0)
-	log.SetOutput(io.Discard)
+	//log.SetFlags(0)
+	//log.SetOutput(io.Discard)
 	//log.Lshortfile |
-	//l, _ := os.Open("/dev/null")
-	//log.SetOutput(l)
 }
 
 const (
@@ -29,7 +26,7 @@ const (
 	client 			uint = 1 << 5
 	debugError 		uint = 1 << 6
 	debugInfo 		uint = 1 << 7
-	debugConf = 0x0
+	debugConf = all - persist
 )
 
 // return if "a" is a subset of "b"

@@ -96,10 +96,10 @@ func (rL *RfLog) TruncateAppend(prevLogIndex int, entries []LogEntry) {
 	// remove conflict Entries
 	if entries == nil && rL.Entries != nil && prevLogIndex + 1 <= lastEntryIndex {
 		rL.Entries = rL.Entries[:prevLogIndex + 1]
-		DPrintf(logReplicate, "############### %v %v", lastEntryIndex, prevLogIndex)
+		//DPrintf(logReplicate, "############### %v %v", lastEntryIndex, prevLogIndex)
 	}
-	DPrintf(logReplicate, "#############@@ lastEntryIndex:%v prevLogIndex:%v %v",
-		lastEntryIndex, prevLogIndex, entries)
+	//DPrintf(logReplicate, "#############@@ lastEntryIndex:%v prevLogIndex:%v %v",
+	//	lastEntryIndex, prevLogIndex, entries)
 	i, j := prevLogIndex + 1, 0
 	for ;
 		i < prevLogIndex + len(entries) && i <= lastEntryIndex;
@@ -111,7 +111,7 @@ func (rL *RfLog) TruncateAppend(prevLogIndex int, entries []LogEntry) {
 	// prevent overlap
 	rL.Entries = rL.Entries[:i]
 	entries = entries[j:]
-	DPrintf(logReplicate, "i:%v j:%v %v %v", i, j, rL.Entries, entries)
+	//DPrintf(logReplicate, "i:%v j:%v %v %v", i, j, rL.Entries, entries)
 	// append
 	rL.Entries = append(rL.Entries, entries...)
 }

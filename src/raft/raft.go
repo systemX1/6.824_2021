@@ -445,12 +445,7 @@ func(rf *Raft) startAppendEntries(serv, currTerm, me, prevLogIndex, prevLogTerm,
 	rf.matchIndex[serv] = prevLogIndex + len(entries)
 	rf.nextIndex[serv] += len(entries)
 
-	m := majority(rf.matchIndex)
-	if m >= 0 && m <= rf.raftLog.GetLastEntryIndex() && m > rf.raftLog.GetCommitIndex() &&
-		rf.raftLog.GetEntryTerm(m) == rf.currTerm {
-		rf.raftLog.SetCommitIndex(m)
-		DPrintf(logReplicate, "SetCommitIndex %v %v", rf, rf.raftLog)
-	}
+	rf.checkCommit()
 
 	if args.Entries == nil {
 		DPrintf(heartbeat, "%v sendAppendEntries to %v succ", rf, serv)
@@ -657,12 +652,24 @@ func (rf *Raft) applyClient(applyCh chan<- ApplyMsg) {
 	}
 }
 
+func (rf *Raft) checkCommit() {
+	m := majority(rf.matchIndex)
+	for n := rf.raftLog.GetCommitIndex() + 1; n <= m; n++ {
+		if rf.raftLog.GetEntryTerm(n) == rf.currTerm {
+			DPrintf(logReplicate, "SetCommitIndex %v %v", rf, rf.raftLog)
+			rf.raftLog.SetCommitIndex(n)
+		}
+	}
+}
+
 // wrap
 func (rf *Raft) resetElectionTimeout()  {
 	stopResetTimer(rf.electTimer, GetElectionTimeout())
 	rf.lastReset = time.Now()
-	funcName, file, line, _ := runtime.Caller(1)
-	file = path.Base(file)
+	funcName, _, line, _ := runtime.Caller(1)
 	funcNameStr := path.Base(runtime.FuncForPC(funcName).Name())
-	DPrintf(requsetVote, "%v %d %s @resetElectionTimeout S%v", file, line, funcNameStr, rf.me)
+	funcName2, _, line2, _ := runtime.Caller(2)
+	funcNameStr2 := path.Base(runtime.FuncForPC(funcName2).Name())
+	DPrintf(requsetVote, "%d %s %d %s @resetElectionTimeout S%v",
+		line, funcNameStr, line2, funcNameStr2, rf.me)
 }
