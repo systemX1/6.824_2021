@@ -134,6 +134,16 @@ func (rf *Raft) setVotedFor(serv int) {
 	rf.votedFor = serv
 }
 
+func (rf *Raft) setState(stat State) {
+	rf.stat = stat
+	switch stat {
+	case Follower:
+		rf.resetElectionTimeout()
+	case Candidate:
+		rf.resetElectionTimeout()
+	}
+}
+
 // restore previously persisted state.
 func (rf *Raft) readPersist(data []byte) {
 	if data == nil || len(data) < 1 { // bootstrap without any state?
@@ -206,12 +216,11 @@ func (rf *Raft) startElection() {
 	defer DPrintf(persist, "%v save persist %v", rf, rf.raftLog)
 	defer rf.persist()
 
-	rf.stat = Candidate
+	rf.setState(Candidate)
 	rf.setCurrTerm(rf.currTerm + 1)
 	rf.setVotedFor(rf.me)
 	lastLogIndex := rf.raftLog.GetLastEntryIndex()
 	lastLogTerm := rf.raftLog.GetLastEntryTerm()
-	rf.resetElectionTimeout()
 	DPrintf(requsetVote, "%v is starting an election", rf)
 	votes := 1
 	done := false
@@ -234,7 +243,7 @@ func (rf *Raft) startElection() {
 				DPrintf(requsetVote, "%v back to Follower", rf)
 				return
 			}
-			rf.stat = Leader
+			rf.setState(Leader)
 			rf.initPeerLogIndex()
 			DPrintf(client, "%v WON the election, votes:%v, peers:%v, RLogs:%v", rf, votes, len(rf.peers), rf.raftLog)
 		}(i, rf.currTerm, rf.me, lastLogIndex, lastLogTerm)
@@ -307,11 +316,11 @@ func (rf *Raft) HandleRequestVote(arg *RequestVoteArgs, reply *RequestVoteReply)
 		(arg.LastLogTerm == lastLogTerm && arg.LastLogIndex < lastLogIndex) ) {
 		reply.VoteGranted =	false
 		if arg.Term > rf.currTerm {
-			rf.stat = Follower
+			rf.setState(Follower)
 			rf.setCurrTerm(arg.Term)
 		}
 	} else if (rf.votedFor == -1 && rf.stat == Follower) || (arg.Term > rf.currTerm) {
-		rf.stat = Follower
+		rf.setState(Follower)
 		rf.setCurrTerm(arg.Term)
 		reply.VoteGranted = true
 		rf.setVotedFor(arg.CandidateID)
@@ -405,7 +414,7 @@ func(rf *Raft) startAppendEntries(serv, currTerm, me,
 	defer rf.persist()
 	if reply.Term > rf.currTerm {
 		rf.setCurrTerm(reply.Term)
-		rf.stat = Follower
+		rf.setState(Follower)
 		return false
 	}
 	if !ok {
@@ -456,7 +465,7 @@ func (rf *Raft) HandleAppendEntries(args *AppendEntriesArgs, reply *AppendEntrie
 		return
 	} else if args.Term > rf.currTerm {
 		rf.setCurrTerm(args.Term)
-		rf.stat = Follower
+		rf.setState(Follower)
 	}
 
 	if ok1, ok2 := rf.raftLog.CheckAppendEntries(args.PrevLogIndex, args.PrevLogTerm); !ok1 {
