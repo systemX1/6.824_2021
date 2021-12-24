@@ -286,7 +286,16 @@ func TestRaftCheckAppendEntries(t *testing.T) {
 }
 
 
+func TestRaftXXX(t *testing.T) {
+	rL := &RfLog{commitIndex: -1, lastApplied: -1}
+	rL.Entries = []LogEntry{
+		{0, 1, 101}, {-1, -1, nil}, {1, 3, 103},
+	}
+	log.Printf("majority:%v", majority([]int{1, -1, 1, -1, 1}))
+	log.Printf("next:%v", binarySearch(rL.Entries, 0))
 
+	//log.Printf("entries:%v", rL.Entries[binarySearch(rL.Entries, 0):])
+}
 
 
 

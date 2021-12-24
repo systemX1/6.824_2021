@@ -20,7 +20,6 @@ import (
 	"../labrpc"
 	"bytes"
 	"fmt"
-	"log"
 	"path"
 	"runtime"
 	"sync"
@@ -135,13 +134,16 @@ func (rf *Raft) setVotedFor(serv int) {
 }
 
 func (rf *Raft) setState(stat State) {
-	rf.stat = stat
 	switch stat {
 	case Follower:
-		rf.resetElectionTimeout()
+		if rf.stat == Leader {
+			rf.resetElectionTimeout()
+		}
 	case Candidate:
 		rf.resetElectionTimeout()
+	case Leader:
 	}
+	rf.stat = stat
 }
 
 // restore previously persisted state.
@@ -360,8 +362,8 @@ type AppendEntriesReply struct {
 	NextIndex    	int
 }
 func (reply *AppendEntriesReply) String() string {
-	return fmt.Sprintf("[rply term:%v succ:%v]",
-		reply.Term, reply.Success)
+	return fmt.Sprintf("[rply term:%v succ:%v Incoist:%v tIncoist:%v n:%v]",
+		reply.Term, reply.Success, reply.Incoist, reply.TermIncoist, reply.NextIndex)
 }
 
 func (rf *Raft) startLogReplication()  {
@@ -523,6 +525,7 @@ func (rf *Raft) initPeerLogIndex() {
 // the leader.
 func (rf *Raft) Start(command interface{}) (int, int, bool) {
 	rf.Lock()
+	//defer rf.startLogReplication()
 	defer rf.Unlock()
 	// Your code here (2B).
 	DPrintf(client, "%v: Client start to append command %v, %v", rf, command, rf.raftLog)
@@ -616,7 +619,8 @@ func (rf *Raft) run() {
 				rf.Unlock()
 				break
 			}
-			DPrintf(requsetVote, "%v ElectionTimeout %v", rf, getTimeOffset(t1))
+			DPrintf(requsetVote, "%v ElectionTimeout %v %v",
+				rf, getTimeOffset(t1), time.Now().Sub(rf.lastReset))
 			rf.Unlock()
 			rf.startElection()
 
@@ -660,5 +664,5 @@ func (rf *Raft) resetElectionTimeout()  {
 	funcName, file, line, _ := runtime.Caller(1)
 	file = path.Base(file)
 	funcNameStr := path.Base(runtime.FuncForPC(funcName).Name())
-	log.Printf("%v %d %s @resetElectionTimeout S%v", file, line, funcNameStr, rf.me)
+	DPrintf(requsetVote, "%v %d %s @resetElectionTimeout S%v", file, line, funcNameStr, rf.me)
 }

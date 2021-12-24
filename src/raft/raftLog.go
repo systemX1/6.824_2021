@@ -2,6 +2,7 @@ package raft
 
 import (
 	"fmt"
+	"log"
 	"sort"
 	"sync"
 )
@@ -27,7 +28,9 @@ func (rL *RfLog) AppendEntries(entries ...LogEntry) {
 		nextIdx = next.(int) + 1
 	}
 	for _, entry := range entries {
-		entry.Index = nextIdx
+		if entry.Index != -1 {
+			entry.Index = nextIdx
+		}
 		nextIdx++
 		rL.Entries = append(rL.Entries, entry)
 		DPrintf(logReplicate, "%v %v", entry, rL.Entries)
@@ -279,19 +282,11 @@ const (
 
 func binarySearch(entries []LogEntry, index int) int {
 	entry := sort.Search(len(entries), func(i int) bool { return entries[i].Index >= index })
+	log.Printf("entry:%v", entry)
 	if entry < len(entries) && entries[entry].Index == index {
 		return entry
 	}
 	return -1
 }
-
-//func backwardSearch(Entries []LogEntry, index int) int {
-//	for i := len(Entries) - 1; i >= 0; i-- {
-//		if Entries[i].Index == index {
-//			return i
-//		}
-//	}
-//	return -1
-//}
 
 
