@@ -92,16 +92,24 @@ func (rL *RfLog) TruncateAppend(prevLogIndex int, entries []LogEntry) {
 
 	// remove conflict Entries
 	if entries == nil && rL.Entries != nil && prevLogIndex + 1 <= lastEntryIndex {
-		rL.Entries = rL.Entries[:prevLogIndex + 1]	// TODO
+		rL.Entries = rL.Entries[:prevLogIndex + 1]
+		DPrintf(logReplicate, "############### %v %v", lastEntryIndex, prevLogIndex)
 	}
-	for i, j := prevLogIndex + 1, 0;
-		i < prevLogIndex + len(entries) && i < lastEntryIndex;
+	DPrintf(logReplicate, "#############@@ lastEntryIndex:%v prevLogIndex:%v %v",
+		lastEntryIndex, prevLogIndex, entries)
+	i, j := prevLogIndex + 1, 0
+	for ;
+		i < prevLogIndex + len(entries) && i <= lastEntryIndex;
 		i, j = i + 1, j + 1 {
 		if rL.Entries[i].Term != entries[j].Term {
-			rL.Entries = rL.Entries[:i]
 			break
 		}
 	}
+	// prevent overlap
+	rL.Entries = rL.Entries[:i]
+	entries = entries[j:]
+	DPrintf(logReplicate, "i:%v j:%v %v %v", i, j, rL.Entries, entries)
+	// append
 	rL.Entries = append(rL.Entries, entries...)
 }
 
@@ -251,8 +259,8 @@ func (rL *RfLog) GetEntryCommand(index int) interface{} {
 func (rL *RfLog) String() string {
 	rL.Lock()
 	defer rL.Unlock()
-	return fmt.Sprintf("[RLog c:%v a:%v %v]",
-		rL.commitIndex, rL.lastApplied, rL.Entries)
+	return fmt.Sprintf("[RLog c:%v a:%v len:%v %v]",
+		rL.commitIndex, rL.lastApplied, len(rL.Entries), rL.Entries)
 }
 
 type LogEntry struct {

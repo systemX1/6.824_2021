@@ -127,6 +127,7 @@ func (rf *Raft) persist() {
 
 func (rf *Raft) setCurrTerm(term int) {
 	rf.currTerm = term
+	rf.setVotedFor(-1)
 }
 
 func (rf *Raft) setVotedFor(serv int) {
@@ -467,7 +468,7 @@ func (rf *Raft) HandleAppendEntries(args *AppendEntriesArgs, reply *AppendEntrie
 		return
 	}
 	reply.Success = true
-	rf.setVotedFor(-1)
+
 	rf.resetElectionTimeout()
 	DPrintf(heartbeat|logReplicate, "%v reset electionTimeout, %v", rf, rf.raftLog)
 	rf.raftLog.TruncateAppend(args.PrevLogIndex, args.Entries)
