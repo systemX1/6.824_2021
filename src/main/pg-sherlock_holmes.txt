@@ -195,7 +195,7 @@ interested in these little problems, and since you are good
 enough to chronicle one or two of my trifling experiences, you
 may be interested in this." He threw over a sheet of thick,
 pink-tinted note-paper which had been lying open upon the table.
-"It came by the last post," said he. "Read it aloud."
+"It came by the lastEntryIdx post," said he. "Read it aloud."
 
 The note was undated, and without either signature or address.
 
@@ -1188,7 +1188,7 @@ photograph, it is always under the honourable title of the woman.
 ADVENTURE II. THE RED-HEADED LEAGUE
 
 I had called upon my friend, Mr. Sherlock Holmes, one day in the
-autumn of last year and found him in deep conversation with a
+autumn of lastEntryIdx year and found him in deep conversation with a
 very stout, florid-faced, elderly gentleman with fiery red hair.
 With an apology for my intrusion, I was about to withdraw when
 Holmes pulled me abruptly into the room and closed the door
@@ -2440,7 +2440,7 @@ Again a startled look came over the somewhat vacuous face of Miss
 Mary Sutherland. "Yes, I did bang out of the house," she said,
 "for it made me angry to see the easy way in which Mr.
 Windibank--that is, my father--took it all. He would not go to
-the police, and he would not go to you, and so at last, as he
+the police, and he would not go to you, and so at lastEntryIdx, as he
 would do nothing and kept on saying that there was no harm done,
 it made me mad, and I just on with my things and came right away
 to you."
@@ -2506,7 +2506,7 @@ was set on going, and I would go; for what right had he to
 prevent? He said the folk were not fit for us to know, when all
 father's friends were to be there. And he said that I had nothing
 fit to wear, when I had my purple plush that I had never so much
-as taken out of the drawer. At last, when nothing else would do,
+as taken out of the drawer. At lastEntryIdx, when nothing else would do,
 he went off to France upon the business of the firm, but we went,
 mother and I, with Mr. Hardy, who used to be our foreman, and it
 was there I met Mr. Hosmer Angel."
@@ -2623,7 +2623,7 @@ drove up we waited for him to step out, but he never did, and
 when the cabman got down from the box and looked there was no one
 there! The cabman said that he could not imagine what had become
 of him, for he had seen him get in with his own eyes. That was
-last Friday, Mr. Holmes, and I have never seen or heard anything
+lastEntryIdx Friday, Mr. Holmes, and I have never seen or heard anything
 since then to throw any light upon what became of him."
 
 "It seems to me that you have been very shamefully treated," said
@@ -2683,7 +2683,7 @@ vanish from your memory, as he has done from your life."
 accurate description of him and any letters of his which you can
 spare."
 
-"I advertised for him in last Saturday's Chronicle," said she.
+"I advertised for him in lastEntryIdx Saturday's Chronicle," said she.
 "Here is the slip and here are four letters from him."
 
 "Thank you. And your address?"
@@ -2722,7 +2722,7 @@ infinite languor in his face.
 her more interesting than her little problem, which, by the way,
 is rather a trite one. You will find parallel cases, if you
 consult my index, in Andover in '77, and there was something of
-the sort at The Hague last year. Old as is the idea, however,
+the sort at The Hague lastEntryIdx year. Old as is the idea, however,
 there were one or two details which were new to me. But the
 maiden herself was most instructive."
 
@@ -2797,7 +2797,7 @@ I held the little printed slip to the light.
 named Hosmer Angel. About five ft. seven in. in height;
 strongly built, sallow complexion, black hair, a little bald in
 the centre, bushy, black side-whiskers and moustache; tinted
-glasses, slight infirmity of speech. Was dressed, when last seen,
+glasses, slight infirmity of speech. Was dressed, when lastEntryIdx seen,
 in black frock-coat faced with silk, black waistcoat, gold Albert
 chain, and grey Harris tweed trousers, with brown gaiters over
 elastic-sided boots. Known to have been employed in an office in
@@ -2920,7 +2920,7 @@ really quite as much individuality as a man's handwriting. Unless
 they are quite new, no two of them write exactly alike. Some
 letters get more worn than others, and some wear only on one
 side. Now, you remark in this note of yours, Mr. Windibank, that
-in every case there is some little slurring over of the 'e,' and
+in every case there is some little slurring over of the 'new,' and
 a slight defect in the tail of the 'r.' There are fourteen other
 characteristics, but those are the more obvious."
 
@@ -2934,7 +2934,7 @@ little monograph some of these days on the typewriter and its
 relation to crime. It is a subject to which I have devoted some
 little attention. I have here four letters which purport to come
 from the missing man. They are all typewritten. In each case, not
-only are the 'e's' slurred and the 'r's' tailless, but you will
+only are the 'new's' slurred and the 'r's' tailless, but you will
 observe, if you care to use my magnifying lens, that the fourteen
 other characteristics to which I have alluded are there as well."
 
@@ -3187,7 +3187,7 @@ Turner had a considerable household, some half-dozen at the
 least. That is as much as I have been able to gather about the
 families. Now for the facts.
 
-"On June 3rd, that is, on Monday last, McCarthy left his house at
+"On June 3rd, that is, on Monday lastEntryIdx, McCarthy left his house at
 Hatherley about three in the afternoon and walked down to the
 Boscombe Pool, which is a small lake formed by the spreading out
 of the stream which runs down the Boscombe Valley. He had been
@@ -3347,7 +3347,7 @@ way:
 "Mr. James McCarthy, the only son of the deceased, was then called
 and gave evidence as follows: 'I had been away from home for
 three days at Bristol, and had only just returned upon the
-morning of last Monday, the 3rd. My father was absent from home at
+morning of lastEntryIdx Monday, the 3rd. My father was absent from home at
 the time of my arrival, and I was informed by the maid that he
 had driven over to Ross with John Cobb, the groom. Shortly after
 my return I heard the wheels of his trap in the yard, and,
@@ -3479,7 +3479,7 @@ not another word shall I say of this case until we are on the
 scene of action. We lunch at Swindon, and I see that we shall be
 there in twenty minutes."
 
-It was nearly four o'clock when we at last, after passing through
+It was nearly four o'clock when we at lastEntryIdx, after passing through
 the beautiful Stroud Valley, and over the broad gleaming Severn,
 found ourselves at the pretty little country-town of Ross. A
 lean, ferret-like man, furtive and sly-looking, was waiting for
@@ -3626,7 +3626,7 @@ where I lay upon the sofa and tried to interest myself in a
 yellow-backed novel. The puny plot of the story was so thin,
 however, when compared to the deep mystery through which we were
 groping, and I found my attention wander so continually from the
-action to the fact, that I at last flung it across the room and
+action to the fact, that I at lastEntryIdx flung it across the room and
 gave myself up entirely to a consideration of the events of the
 day. Supposing that this unhappy young man's story were
 absolutely true, then what hellish thing, what absolutely
@@ -3698,11 +3698,11 @@ imagine how maddening it must be to him to be upbraided for not
 doing what he would give his very eyes to do, but what he knows
 to be absolutely impossible. It was sheer frenzy of this sort
 which made him throw his hands up into the air when his father,
-at their last interview, was goading him on to propose to Miss
+at their lastEntryIdx interview, was goading him on to propose to Miss
 Turner. On the other hand, he had no means of supporting himself,
 and his father, who was by all accounts a very hard man, would
 have thrown him over utterly had he known the truth. It was with
-his barmaid wife that he had spent the last three days in
+his barmaid wife that he had spent the lastEntryIdx three days in
 Bristol, and his father did not know where he was. Mark that
 point. It is of importance. Good has come out of evil, however,
 for the barmaid, finding from the papers that he is in serious
@@ -3966,7 +3966,7 @@ someone who had been in Australia."
 
 Sherlock Holmes took a folded paper from his pocket and flattened
 it out on the table. "This is a map of the Colony of Victoria,"
-he said. "I wired to Bristol for it last night." He put his hand
+he said. "I wired to Bristol for it lastEntryIdx night." He put his hand
 over part of the map. "What do you read?"
 
 "ARAT," I read.
@@ -3976,7 +3976,7 @@ over part of the map. "What do you read?"
 "BALLARAT."
 
 "Quite so. That was the word the man uttered, and of which his
-son only caught the last two syllables. He was trying to utter
+son only caught the lastEntryIdx two syllables. He was trying to utter
 the name of his murderer. So and so, of Ballarat."
 
 "It is wonderful!" I exclaimed.
@@ -4098,7 +4098,7 @@ Holmes rose and sat down at the table with his pen in his hand
 and a bundle of paper before him. "Just tell us the truth," he
 said. "I shall jot down the facts. You will sign it, and Watson
 here can witness it. Then I could produce your confession at the
-last extremity to save young McCarthy. I promise you that I shall
+lastEntryIdx extremity to save young McCarthy. I promise you that I shall
 not use it unless it is absolutely needed."
 
 "It's as well," said the old man; "it's a question whether I
@@ -4160,7 +4160,7 @@ turn where I would, there was his cunning, grinning face at my
 elbow. It grew worse as Alice grew up, for he soon saw I was more
 afraid of her knowing my past than of the police. Whatever he
 wanted he must have, and whatever it was I gave him without
-question, land, money, houses, until at last he asked a thing
+question, land, money, houses, until at lastEntryIdx he asked a thing
 which I could not give. He asked for Alice.
 
 "His son, you see, had grown up, and so had my girl, and as I was
@@ -4240,7 +4240,7 @@ analytical skill, and would be, as narratives, beginnings without
 an ending, while others have been but partially cleared up, and
 have their explanations founded rather upon conjecture and
 surmise than on that absolute logical proof which was so dear to
-him. There is, however, one of these last which was so remarkable
+him. There is, however, one of these lastEntryIdx which was so remarkable
 in its details and so startling in its results that I am tempted
 to give some account of it in spite of the fact that there are
 points in connection with it which never have been, and probably
@@ -4356,7 +4356,7 @@ with some details as to your case."
 
 "It is no ordinary one."
 
-"None of those which come to me are. I am the last court of
+"None of those which come to me are. I am the lastEntryIdx court of
 appeal."
 
 "And yet I question, sir, whether, in all your experience, you
@@ -4610,7 +4610,7 @@ pressing in one house as in another.
 years and eight months have elapsed since then. During that time
 I have lived happily at Horsham, and I had begun to hope that
 this curse had passed away from the family, and that it had ended
-with the last generation. I had begun to take comfort too soon,
+with the lastEntryIdx generation. I had begun to take comfort too soon,
 however; yesterday morning the blow fell in the very shape in
 which it had come upon my father."
 
@@ -4620,7 +4620,7 @@ orange pips.
 
 "This is the envelope," he continued. "The postmark is
 London--eastern division. Within are the very words which were
-upon my father's last message: 'K. K. K.'; and then 'Put the
+upon my father's lastEntryIdx message: 'K. K. K.'; and then 'Put the
 papers on the sundial.'"
 
 "What have you done?" asked Holmes.
@@ -4765,7 +4765,7 @@ forward and his eyes bent upon the red glow of the fire. Then he
 lit his pipe, and leaning back in his chair he watched the blue
 smoke-rings as they chased each other up to the ceiling.
 
-"I think, Watson," he remarked at last, "that of all our cases we
+"I think, Watson," he remarked at lastEntryIdx, "that of all our cases we
 have had none more fantastic than this."
 
 "Save, perhaps, the Sign of Four."
@@ -4815,7 +4815,7 @@ records unique, violin-player, boxer, swordsman, lawyer, and
 self-poisoner by cocaine and tobacco. Those, I think, were the
 main points of my analysis."
 
-Holmes grinned at the last item. "Well," he said, "I say now, as
+Holmes grinned at the lastEntryIdx item. "Well," he said, "I say now, as
 I said then, that a man should keep his little brain-attic
 stocked with all the furniture that he is likely to use, and the
 rest he can put away in the lumber-room of his library, where he
@@ -4979,7 +4979,7 @@ done?" He spoke calmly, but I could see that he was deeply moved.
 "My eye caught the name of Openshaw, and the heading 'Tragedy
 Near Waterloo Bridge.' Here is the account:
 
-"Between nine and ten last night Police-Constable Cook, of the H
+"Between nine and ten lastEntryIdx night Police-Constable Cook, of the H
 Division, on duty near Waterloo Bridge, heard a cry for help and
 a splash in the water. The night, however, was extremely dark and
 stormy, so that, in spite of the help of several passers-by, it
@@ -4989,7 +4989,7 @@ eventually recovered. It proved to be that of a young gentleman
 whose name, as it appears from an envelope which was found in his
 pocket, was John Openshaw, and whose residence is near Horsham.
 It is conjectured that he may have been hurrying down to catch
-the last train from Waterloo Station, and that in his haste and
+the lastEntryIdx train from Waterloo Station, and that in his haste and
 the extreme darkness he missed his path and walked over the edge
 of one of the small landing-places for river steamboats. The body
 exhibited no traces of violence, and there can be no doubt that
@@ -5000,7 +5000,7 @@ authorities to the condition of the riverside landing-stages."
 We sat in silence for some minutes, Holmes more depressed and
 shaken than I had ever seen him.
 
-"That hurts my pride, Watson," he said at last. "It is a petty
+"That hurts my pride, Watson," he said at lastEntryIdx. "It is a petty
 feeling, no doubt, but it hurts my pride. It becomes a personal
 matter with me now, and, if God sends me health, I shall set my
 hand upon this gang. That he should come to me for help, and that
@@ -5009,7 +5009,7 @@ and paced about the room in uncontrollable agitation, with a
 flush upon his sallow cheeks and a nervous clasping and
 unclasping of his long thin hands.
 
-"They must be cunning devils," he exclaimed at last. "How could
+"They must be cunning devils," he exclaimed at lastEntryIdx. "How could
 they have decoyed him down there? The Embankment is not on the
 direct line to the station. The bridge, no doubt, was too
 crowded, even on such a night, for their purpose. Well, Watson,
@@ -5090,7 +5090,7 @@ in the port of London."
 
 "Yes?"
 
-"The 'Lone Star' had arrived here last week. I went down to the
+"The 'Lone Star' had arrived here lastEntryIdx week. I went down to the
 Albert Dock and found that she had been taken down the river by
 the early tide this morning, homeward bound to Savannah. I wired
 to Gravesend and learned that she had passed some time ago, and
@@ -5102,7 +5102,7 @@ Goodwins and not very far from the Isle of Wight."
 "Oh, I have my hand upon him. He and the two mates, are as I
 learn, the only native-born Americans in the ship. The others are
 Finns and Germans. I know, also, that they were all three away
-from the ship last night. I had it from the stevedore who has
+from the ship lastEntryIdx night. I had it from the stevedore who has
 been loading their cargo. By the time that their sailing-ship
 reaches Savannah the mail-boat will have carried this letter, and
 the cable will have informed the police of Savannah that these
@@ -5114,7 +5114,7 @@ orange pips which would show them that another, as cunning and as
 resolute as themselves, was upon their track. Very long and very
 severe were the equinoctial gales that year. We waited long for
 news of the "Lone Star" of Savannah, but none ever reached us. We
-did at last hear that somewhere far out in the Atlantic a
+did at lastEntryIdx hear that somewhere far out in the Atlantic a
 shattered stern-post of a boat was seen swinging in the trough
 of a wave, with the letters "L. S." carved upon it, and that is
 all which we shall ever know of the fate of the "Lone Star."
@@ -5478,7 +5478,7 @@ lane and, by rare good-fortune, met in Fresno Street a number of
 constables with an inspector, all on their way to their beat. The
 inspector and two men accompanied her back, and in spite of the
 continued resistance of the proprietor, they made their way to
-the room in which Mr. St. Clair had last been seen. There was no
+the room in which Mr. St. Clair had lastEntryIdx been seen. There was no
 sign of him there. In fact, in the whole of that floor there was
 no one to be found save a crippled wretch of hideous aspect, who,
 it seems, made his home there. Both he and the Lascar stoutly
@@ -5525,7 +5525,7 @@ gentleman's clothes.
 
 "So much for the Lascar manager. Now for the sinister cripple who
 lives upon the second floor of the opium den, and who was
-certainly the last human being whose eyes rested upon Neville St.
+certainly the lastEntryIdx human being whose eyes rested upon Neville St.
 Clair. His name is Hugh Boone, and his hideous face is one which
 is familiar to every man who goes much to the City. He is a
 professional beggar, though in order to avoid the police
@@ -5549,7 +5549,7 @@ the common crowd of mendicants and so, too, does his wit, for he
 is ever ready with a reply to any piece of chaff which may be
 thrown at him by the passers-by. This is the man whom we now
 learn to have been the lodger at the opium den, and to have been
-the last man to see the gentleman of whom we are in quest."
+the lastEntryIdx man to see the gentleman of whom we are in quest."
 
 "But a cripple!" said I. "What could he have done single-handed
 against a man in the prime of life?"
@@ -5639,7 +5639,7 @@ glance so simple and yet which presented such difficulties."
 
 While Sherlock Holmes had been detailing this singular series of
 events, we had been whirling through the outskirts of the great
-town until the last straggling houses had been left behind, and
+town until the lastEntryIdx straggling houses had been left behind, and
 we rattled along with a country hedge upon either side of us.
 Just as he finished, however, we drove through two scattered
 villages, where a few lights still glimmered in the windows.
@@ -5821,7 +5821,7 @@ posted to-day."
 "Oh, you must not discourage me, Mr. Holmes. I know that all is
 well with him. There is so keen a sympathy between us that I
 should know if evil came upon him. On the very day that I saw him
-last he cut himself in the bedroom, and yet I in the dining-room
+lastEntryIdx he cut himself in the bedroom, and yet I in the dining-room
 rushed upstairs instantly with the utmost certainty that
 something had happened. Do you think that I would respond to such
 a trifle and yet be ignorant of his death?"
@@ -6142,7 +6142,7 @@ ten days I had the money and had paid the debt.
 work at 2 pounds a week when I knew that I could earn as much in
 a day by smearing my face with a little paint, laying my cap on
 the ground, and sitting still. It was a long fight between my
-pride and the money, but the dollars won at last, and I threw up
+pride and the money, but the dollars won at lastEntryIdx, and I threw up
 reporting and sat day after day in the corner which I had first
 chosen, inspiring pity by my ghastly face and filling my pockets
 with coppers. Only one man knew my secret. He was the keeper of a
@@ -6265,7 +6265,7 @@ may be expected to take place, and many a little problem will be
 presented which may be striking and bizarre without being
 criminal. We have already had experience of such."
 
-"So much so," I remarked, "that of the last six cases which I
+"So much so," I remarked, "that of the lastEntryIdx six cases which I
 have added to my notes, three have been entirely free of any
 legal crime."
 
@@ -6372,7 +6372,7 @@ are a few inferences which are very distinct, and a few others
 which represent at least a strong balance of probability. That
 the man was highly intellectual is of course obvious upon the
 face of it, and also that he was fairly well-to-do within the
-last three years, although he has now fallen upon evil days. He
+lastEntryIdx three years, although he has now fallen upon evil days. He
 had foresight, but has less now than formerly, pointing to a
 moral retrogression, which, when taken with the decline of his
 fortunes, seems to indicate some evil influence, probably drink,
@@ -6385,7 +6385,7 @@ his wife has ceased to love him."
 continued, disregarding my remonstrance. "He is a man who leads a
 sedentary life, goes out little, is out of training entirely, is
 middle-aged, has grizzled hair which he has had cut within the
-last few days, and which he anoints with lime-cream. These are
+lastEntryIdx few days, and which he anoints with lime-cream. These are
 the more patent facts which are to be deduced from his hat. Also,
 by the way, that it is extremely improbable that he has gas laid
 on in his house."
@@ -6520,7 +6520,7 @@ a plumber, was accused of having abstracted it from the lady's
 jewel-case. The evidence against him was so strong that the case
 has been referred to the Assizes. I have some account of the
 matter here, I believe." He rummaged amid his newspapers,
-glancing over the dates, until at last he smoothed one out,
+glancing over the dates, until at lastEntryIdx he smoothed one out,
 doubled it over, and read the following paragraph:
 
 "Hotel Cosmopolitan Jewel Robbery. John Horner, 26, plumber, was
@@ -6541,7 +6541,7 @@ arrested the same evening; but the stone could not be found
 either upon his person or in his rooms. Catherine Cusack, maid to
 the Countess, deposed to having heard Ryder's cry of dismay on
 discovering the robbery, and to having rushed into the room,
-where she found matters as described by the last witness.
+where she found matters as described by the lastEntryIdx witness.
 Inspector Bradstreet, B division, gave evidence as to the arrest
 of Horner, who struggled frantically, and protested his innocence
 in the strongest terms. Evidence of a previous conviction for
@@ -6880,7 +6880,7 @@ read it out to me."
 Holmes turned to the page indicated. "Here you are, 'Mrs.
 Oakshott, 117, Brixton Road, egg and poultry supplier.'"
 
-"Now, then, what's the last entry?"
+"Now, then, what's the lastEntryIdx entry?"
 
 "'December 22nd. Twenty-four geese at 7s. 6d.'"
 
@@ -7209,7 +7209,7 @@ feature."
 VIII. THE ADVENTURE OF THE SPECKLED BAND
 
 On glancing over my notes of the seventy odd cases in which I
-have during the last eight years studied the methods of my friend
+have during the lastEntryIdx eight years studied the methods of my friend
 Sherlock Holmes, I find many tragic, some comic, a large number
 merely strange, but none commonplace; for, working as he did
 rather for the love of his art than for the acquirement of
@@ -7222,7 +7222,7 @@ The events in question occurred in the early days of my
 association with Holmes, when we were sharing rooms as bachelors
 in Baker Street. It is possible that I might have placed them
 upon record before, but a promise of secrecy was made at the
-time, from which I have only been freed during the last month by
+time, from which I have only been freed during the lastEntryIdx month by
 the untimely death of the lady to whom the pledge was given. It
 is perhaps as well that the facts should now come to light, for I
 have reasons to know that there are widespread rumours as to the
@@ -7346,7 +7346,7 @@ the dangers which encompass me."
 "I am all attention, madam."
 
 "My name is Helen Stoner, and I am living with my stepfather, who
-is the last survivor of one of the oldest Saxon families in
+is the lastEntryIdx survivor of one of the oldest Saxon families in
 England, the Roylotts of Stoke Moran, on the western border of
 Surrey."
 
@@ -7354,12 +7354,12 @@ Holmes nodded his head. "The name is familiar to me," said he.
 
 "The family was at one time among the richest in England, and the
 estates extended over the borders into Berkshire in the north,
-and Hampshire in the west. In the last century, however, four
+and Hampshire in the west. In the lastEntryIdx century, however, four
 successive heirs were of a dissolute and wasteful disposition,
 and the family ruin was eventually completed by a gambler in the
 days of the Regency. Nothing was left save a few acres of ground,
 and the two-hundred-year-old house, which is itself crushed under
-a heavy mortgage. The last squire dragged out his existence
+a heavy mortgage. The lastEntryIdx squire dragged out his existence
 there, living the horrible life of an aristocratic pauper; but
 his only son, my stepfather, seeing that he must adapt himself to
 the new conditions, obtained an advance from a relative, which
@@ -7396,7 +7396,7 @@ approaching to mania has been hereditary in the men of the
 family, and in my stepfather's case it had, I believe, been
 intensified by his long residence in the tropics. A series of
 disgraceful brawls took place, two of which ended in the
-police-court, until at last he became the terror of the village,
+police-court, until at lastEntryIdx he became the terror of the village,
 and the folks would fly at his approach, for he is a man of
 immense strength, and absolutely uncontrollable in his anger.
 
@@ -7470,7 +7470,7 @@ your sleep?'
 
 "'Certainly not. But why?'
 
-"'Because during the last few nights I have always, about three
+"'Because during the lastEntryIdx few nights I have always, about three
 in the morning, heard a low, clear whistle. I am a light sleeper,
 and it has awakened me. I cannot tell where it came from--perhaps
 from the next room, perhaps from the lawn. I thought that I would
@@ -7602,7 +7602,7 @@ be married in the course of the spring. Two days ago some repairs
 were started in the west wing of the building, and my bedroom
 wall has been pierced, so that I have had to move into the
 chamber in which my sister died, and to sleep in the very bed in
-which she slept. Imagine, then, my thrill of terror when last
+which she slept. Imagine, then, my thrill of terror when lastEntryIdx
 night, as I lay awake, thinking over her terrible fate, I
 suddenly heard in the silence of the night the low whistle which
 had been the herald of her own death. I sprang up and lit the
@@ -7636,7 +7636,7 @@ strength."
 There was a long silence, during which Holmes leaned his chin
 upon his hands and stared into the crackling fire.
 
-"This is a very deep business," he said at last. "There are a
+"This is a very deep business," he said at lastEntryIdx. "There are a
 thousand details which I should desire to know before I decide
 upon our course of action. Yet we have not a moment to lose. If
 we were to come to Stoke Moran to-day, would it be possible for
@@ -7942,7 +7942,7 @@ of the house. Holmes drew one of the chairs into a corner and sat
 silent, while his eyes travelled round and round and up and down,
 taking in every detail of the apartment.
 
-"Where does that bell communicate with?" he asked at last
+"Where does that bell communicate with?" he asked at lastEntryIdx
 pointing to a thick bell-rope which hung down beside the bed, the
 tassel actually lying upon the pillow.
 
@@ -8298,7 +8298,7 @@ and louder, a hoarse yell of pain and fear and anger all mingled
 in the one dreadful shriek. They say that away down in the
 village, and even in the distant parsonage, that cry raised the
 sleepers from their beds. It struck cold to our hearts, and I
-stood gazing at Holmes, and he at me, until the last echoes of it
+stood gazing at Holmes, and he at me, until the lastEntryIdx echoes of it
 had died away into the silence from which it rose.
 
 "What can it mean?" I gasped.
@@ -8634,7 +8634,7 @@ During two years I have had three consultations and one small
 job, and that is absolutely all that my profession has brought
 me. My gross takings amount to 27 pounds 10s. Every day, from
 nine in the morning until four in the afternoon, I waited in my
-little den, until at last my heart began to sink, and I came to
+little den, until at lastEntryIdx my heart began to sink, and I came to
 believe that I should never have any practice at all.
 
 "Yesterday, however, just as I was thinking of leaving the
@@ -8680,7 +8680,7 @@ depend upon my doing so.'
 "He looked very hard at me as I spoke, and it seemed to me that I
 had never seen so suspicious and questioning an eye.
 
-"'Do you promise, then?' said he at last.
+"'Do you promise, then?' said he at lastEntryIdx.
 
 "'Yes, I promise.'
 
@@ -8704,7 +8704,7 @@ Even my dread of losing a client could not restrain me from
 showing my impatience.
 
 "'I beg that you will state your business, sir,' said I; 'my time
-is of value.' Heaven forgive me for that last sentence, but the
+is of value.' Heaven forgive me for that lastEntryIdx sentence, but the
 words came to my lips.
 
 "'How would fifty guineas for a night's work suit you?' he asked.
@@ -8719,7 +8719,7 @@ that?'
 
 "'The work appears to be light and the pay munificent.'
 
-"'Precisely so. We shall want you to come to-night by the last
+"'Precisely so. We shall want you to come to-night by the lastEntryIdx
 train.'
 
 "'Where to?'
@@ -8814,7 +8814,7 @@ Eyford at 11:15.'
 
 "'I shall certainly be there.'
 
-"'And not a word to a soul.' He looked at me with a last long,
+"'And not a word to a soul.' He looked at me with a lastEntryIdx long,
 questioning gaze, and then, pressing my hand in a cold, dank
 grasp, he hurried from the room.
 
@@ -8833,7 +8833,7 @@ a hearty supper, drove to Paddington, and started off, having
 obeyed to the letter the injunction as to holding my tongue.
 
 "At Reading I had to change not only my carriage but my station.
-However, I was in time for the last train to Eyford, and I
+However, I was in time for the lastEntryIdx train to Eyford, and I
 reached the little dim-lit station after eleven o'clock. I was the
 only passenger who got out there, and there was no one upon the
 platform save a single sleepy porter with a lantern. As I passed
@@ -8873,7 +8873,7 @@ were, but they were made of frosted glass, and I could make out
 nothing save the occasional bright blur of a passing light. Now
 and then I hazarded some remark to break the monotony of the
 journey, but the colonel answered only in monosyllables, and the
-conversation soon flagged. At last, however, the bumping of the
+conversation soon flagged. At lastEntryIdx, however, the bumping of the
 road was exchanged for the crisp smoothness of a gravel-drive,
 and the carriage came to a stand. Colonel Lysander Stark sprang
 out, and, as I followed after him, pulled me swiftly into a porch
@@ -9005,7 +9005,7 @@ my two companions. Ferguson appeared to be a morose and silent
 man, but I could see from the little that he said that he was at
 least a fellow-countryman.
 
-"Colonel Lysander Stark stopped at last before a low door, which
+"Colonel Lysander Stark stopped at lastEntryIdx before a low door, which
 he unlocked. Within was a small, square room, in which the three
 of us could hardly get at one time. Ferguson remained outside,
 and the colonel ushered me in.
@@ -9086,7 +9086,7 @@ erect, when my eye caught something which brought a gush of hope
 back to my heart.
 
 "I have said that though the floor and ceiling were of iron, the
-walls were of wood. As I gave a last hurried glance around, I saw
+walls were of wood. As I gave a lastEntryIdx hurried glance around, I saw
 a thin line of yellow light between two of the boards, which
 broadened and broadened as a small panel was pushed backward. For
 an instant I could hardly believe that here was indeed a door
@@ -9134,7 +9134,7 @@ the door, pushing his way past her; but she threw her arms round
 him and tried to hold him back.
 
 "'Fritz! Fritz!' she cried in English, 'remember your promise
-after the last time. You said it should not be again. He will be
+after the lastEntryIdx time. You said it should not be again. He will be
 silent! Oh, he will be silent!'
 
 "'You are mad, Elise!' he shouted, struggling to break away from
@@ -9197,7 +9197,7 @@ appeared in all the papers about a year ago. Listen to this:
 'Lost, on the 9th inst., Mr. Jeremiah Hayling, aged
 twenty-six, a hydraulic engineer. Left his lodgings at ten
 o'clock at night, and has not been heard of since. Was
-dressed in,' etc., etc. Ha! That represents the last time that
+dressed in,' etc., etc. Ha! That represents the lastEntryIdx time that
 the colonel needed to have his machine overhauled, I fancy."
 
 "Good heavens!" cried my patient. "Then that explains what the
@@ -9334,7 +9334,7 @@ them. There can be no question that it was your oil-lamp which,
 when it was crushed in the press, set fire to the wooden walls,
 though no doubt they were too excited in the chase after you to
 observe it at the time. Now keep your eyes open in this crowd for
-your friends of last night, though I very much fear that they are
+your friends of lastEntryIdx night, though I very much fear that they are
 a good hundred miles off by now."
 
 And Holmes' fears came to be realised, for from that day to this
@@ -9349,7 +9349,7 @@ whereabouts.
 The firemen had been much perturbed at the strange arrangements
 which they had found within, and still more so by discovering a
 newly severed human thumb upon a window-sill of the second floor.
-About sunset, however, their efforts were at last successful, and
+About sunset, however, their efforts were at lastEntryIdx successful, and
 they subdued the flames, but not before the roof had fallen in,
 and the whole place been reduced to such absolute ruin that, save
 some twisted cylinders and iron piping, not a trace remained of
@@ -9402,7 +9402,7 @@ had taken a sudden turn to rain, with high autumnal winds, and
 the Jezail bullet which I had brought back in one of my limbs as
 a relic of my Afghan campaign throbbed with dull persistence.
 With my body in one easy-chair and my legs upon another, I had
-surrounded myself with a cloud of newspapers until at last,
+surrounded myself with a cloud of newspapers until at lastEntryIdx,
 saturated with the news of the day, I tossed them all aside and
 lay listless, watching the huge crest and monogram upon the
 envelope upon the table and wondering lazily who my friend's
@@ -9517,7 +9517,7 @@ call for protection in the marriage market, for the present
 free-trade principle appears to tell heavily against our home
 product. One by one the management of the noble houses of Great
 Britain is passing into the hands of our fair cousins from across
-the Atlantic. An important addition has been made during the last
+the Atlantic. An important addition has been made during the lastEntryIdx
 week to the list of the prizes which have been borne away by
 these charming invaders. Lord St. Simon, who has shown himself
 for over twenty years proof against the little god's arrows, has
@@ -9528,7 +9528,7 @@ attention at the Westbury House festivities, is an only child,
 and it is currently reported that her dowry will run to
 considerably over the six figures, with expectancies for the
 future. As it is an open secret that the Duke of Balmoral has
-been compelled to sell his pictures within the last few years,
+been compelled to sell his pictures within the lastEntryIdx few years,
 and as Lord St. Simon has no property of his own save the small
 estate of Birchmoor, it is obvious that the Californian heiress
 is not the only gainer by an alliance which will enable her to
@@ -9543,7 +9543,7 @@ would be at St. George's, Hanover Square, that only half a dozen
 intimate friends would be invited, and that the party would
 return to the furnished house at Lancaster Gate which has been
 taken by Mr. Aloysius Doran. Two days later--that is, on
-Wednesday last--there is a curt announcement that the wedding had
+Wednesday lastEntryIdx--there is a curt announcement that the wedding had
 taken place, and that the honeymoon would be passed at Lord
 Backwater's place, near Petersfield. Those are all the notices
 which appeared before the disappearance of the bride."
@@ -9610,7 +9610,7 @@ daughter had disappeared, Mr. Aloysius Doran, in conjunction with
 the bridegroom, instantly put themselves in communication with
 the police, and very energetic inquiries are being made, which
 will probably result in a speedy clearing up of this very
-singular business. Up to a late hour last night, however, nothing
+singular business. Up to a late hour lastEntryIdx night, however, nothing
 had transpired as to the whereabouts of the missing lady. There
 are rumours of foul play in the matter, and it is said that the
 police have caused the arrest of the woman who had caused the
@@ -9670,7 +9670,7 @@ society."
 
 "I beg pardon."
 
-"My last client of the sort was a king."
+"My lastEntryIdx client of the sort was a king."
 
 "Oh, really! I had no idea. And which king?"
 
@@ -9755,7 +9755,7 @@ closed the locket and handed it back to Lord St. Simon.
 "The young lady came to London, then, and you renewed your
 acquaintance?"
 
-"Yes, her father brought her over for this last London season. I
+"Yes, her father brought her over for this lastEntryIdx London season. I
 met her several times, became engaged to her, and have now
 married her."
 
@@ -10206,7 +10206,7 @@ and I met in '84, in McQuire's camp, near the Rockies, where pa
 was working a claim. We were engaged to each other, Frank and I;
 but then one day father struck a rich pocket and made a pile,
 while poor Frank here had a claim that petered out and came to
-nothing. The richer pa grew the poorer was Frank; so at last pa
+nothing. The richer pa grew the poorer was Frank; so at lastEntryIdx pa
 wouldn't hear of our engagement lasting any longer, and he took
 me away to 'Frisco. Frank wouldn't throw up his hand, though; so
 he followed me there, and he saw me without pa knowing anything
@@ -10274,7 +10274,7 @@ away we drove to some lodgings he had taken in Gordon Square, and
 that was my true wedding after all those years of waiting. Frank
 had been a prisoner among the Apaches, had escaped, came on to
 'Frisco, found that I had given him up for dead and had gone to
-England, followed me there, and had come upon me at last on the
+England, followed me there, and had come upon me at lastEntryIdx on the
 very morning of my second wedding."
 
 "I saw it in a paper," explained the American. "It gave the name
@@ -10514,7 +10514,7 @@ investments for our funds as upon our increasing our connection
 and the number of our depositors. One of our most lucrative means
 of laying out money is in the shape of loans, where the security
 is unimpeachable. We have done a good deal in this direction
-during the last few years, and there are many noble families to
+during the lastEntryIdx few years, and there are many noble families to
 whom we have advanced large sums upon the security of their
 pictures, libraries, or plate.
 
@@ -11029,7 +11029,7 @@ Miss Mary Holder. Might I ask you a question or two?"
 
 "Pray do, sir, if it may help to clear this horrible affair up."
 
-"You heard nothing yourself last night?"
+"You heard nothing yourself lastEntryIdx night?"
 
 "Nothing, until my uncle here began to speak loudly. I heard
 that, and I came down."
@@ -11044,7 +11044,7 @@ fasten all the windows?"
 "Yes."
 
 "You have a maid who has a sweetheart? I think that you remarked
-to your uncle last night that she had been out to see him?"
+to your uncle lastEntryIdx night that she had been out to see him?"
 
 "Yes, and she was the girl who waited in the drawing-room, and
 who may have heard uncle's remarks about the coronet."
@@ -11088,7 +11088,7 @@ He walked swiftly round from one to the other, pausing only at
 the large one which looked from the hall onto the stable lane.
 This he opened and made a very careful examination of the sill
 with his powerful magnifying lens. "Now we shall go upstairs,"
-said he at last.
+said he at lastEntryIdx.
 
 The banker's dressing-room was a plainly furnished little
 chamber, with a grey carpet, a large bureau, and a long mirror.
@@ -11148,7 +11148,7 @@ outside."
 
 He went alone, at his own request, for he explained that any
 unnecessary footmarks might make his task more difficult. For an
-hour or more he was at work, returning at last with his feet
+hour or more he was at work, returning at lastEntryIdx with his feet
 heavy with snow and his features as inscrutable as ever.
 
 "I think that I have seen now all that there is to see, Mr.
@@ -11165,7 +11165,7 @@ cried. "And my son? You give me hopes?"
 "My opinion is in no way altered."
 
 "Then, for God's sake, what was this dark business which was
-acted in my house last night?"
+acted in my house lastEntryIdx night?"
 
 "If you can call upon me at my Baker Street rooms to-morrow
 morning between nine and ten I shall be happy to do what I can to
@@ -11183,7 +11183,7 @@ It was obvious to me that my companion's mind was now made up
 about the case, although what his conclusions were was more than
 I could even dimly imagine. Several times during our homeward
 journey I endeavoured to sound him upon the point, but he always
-glided away to some other topic, until at last I gave it over in
+glided away to some other topic, until at lastEntryIdx I gave it over in
 despair. It was not yet three when we found ourselves in our
 rooms once more. He hurried to his chamber and was down again in
 a few minutes dressed as a common loafer. With his collar turned
@@ -11215,7 +11215,7 @@ late."
 "How are you getting on?"
 
 "Oh, so so. Nothing to complain of. I have been out to Streatham
-since I saw you last, but I did not call at the house. It is a
+since I saw you lastEntryIdx, but I did not call at the house. It is a
 very sweet little problem, and I would not have missed it for a
 good deal. However, I must not sit gossiping here, but must get
 these disreputable clothes off and return to my highly
@@ -11261,7 +11261,7 @@ Mary, has deserted me."
 
 "Yes. Her bed this morning had not been slept in, her room was
 empty, and a note for me lay upon the hall table. I had said to
-her last night, in sorrow and not in anger, that if she had
+her lastEntryIdx night, in sorrow and not in anger, that if she had
 married my boy all might have been well with him. Perhaps it was
 thoughtless of me to say so. It is to that remark that she refers
 in this note:
@@ -11354,7 +11354,7 @@ him nearly every evening."
 "I cannot, and I will not, believe it!" cried the banker with an
 ashen face.
 
-"I will tell you, then, what occurred in your house last night.
+"I will tell you, then, what occurred in your house lastEntryIdx night.
 Your niece, when you had, as she thought, gone to your room,
 slipped down and talked to her lover through the window which
 leads into the stable lane. His footmarks had pressed right
@@ -11586,7 +11586,7 @@ shapeless blurs through the heavy yellow wreaths. Our gas was lit
 and shone on the white cloth and glimmer of china and metal, for
 the table had not been cleared yet. Sherlock Holmes had been
 silent all the morning, dipping continuously into the
-advertisement columns of a succession of papers until at last,
+advertisement columns of a succession of papers until at lastEntryIdx,
 having apparently given up his search, he had emerged in no very
 sweet temper to lecture me upon my literary shortcomings.
 
@@ -11614,7 +11614,7 @@ least criminal man, has lost all enterprise and originality. As
 to my own little practice, it seems to be degenerating into an
 agency for recovering lost lead pencils and giving advice to
 young ladies from boarding-schools. I think that I have touched
-bottom at last, however. This note I had this morning marks my
+bottom at lastEntryIdx, however. This note I had this morning marks my
 zero-point, I fancy. Read it!" He tossed a crumpled letter across
 to me.
 
@@ -11667,7 +11667,7 @@ family of Colonel Spence Munro, but two months ago the colonel
 received an appointment at Halifax, in Nova Scotia, and took his
 children over to America with him, so that I found myself without
 a situation. I advertised, and I answered advertisements, but
-without success. At last the little money which I had saved began
+without success. At lastEntryIdx the little money which I had saved began
 to run short, and I was at my wit's end as to what I should do.
 
 "There is a well-known agency for governesses in the West End
@@ -11679,7 +11679,7 @@ and the ladies who are seeking employment wait in an anteroom,
 and are then shown in one by one, when she consults her ledgers
 and sees whether she has anything which would suit them.
 
-"Well, when I called last week I was shown into the little office
+"Well, when I called lastEntryIdx week I was shown into the little office
 as usual, but I found that Miss Stoper was not alone. A
 prodigiously stout man with a very smiling face and a great heavy
 chin which rolled down in fold upon fold over his throat sat at
@@ -11703,7 +11703,7 @@ him.
 
 "'And what salary do you ask?'
 
-"'I had 4 pounds a month in my last place with Colonel Spence
+"'I had 4 pounds a month in my lastEntryIdx place with Colonel Spence
 Munro.'
 
 "'Oh, tut, tut! sweating--rank sweating!' he cried, throwing his
@@ -12629,7 +12629,7 @@ her father thought it time to put a stop on it. He wanted her to
 sign a paper, so that whether she married or not, he could use
 her money. When she wouldn't do it, he kept on worrying her until
 she got brain-fever, and for six weeks was at death's door. Then
-she got better at last, all worn to a shadow, and with her
+she got better at lastEntryIdx, all worn to a shadow, and with her
 beautiful hair cut off; but that didn't make no change in her
 young man, and he stuck to her as true as man could be."
 
@@ -12860,7 +12860,7 @@ that
      the Project Gutenberg Literary Archive Foundation."
 
 - You provide a full refund of any money paid by a user who notifies
-     you in writing (or by e-mail) within 30 days of receipt that s/he
+     you in writing (or by new-mail) within 30 days of receipt that s/he
      does not agree to the terms of the full Project Gutenberg-tm
      License.  You must require such a user to return or
      destroy all copies of the works possessed in a physical medium

@@ -837,8 +837,7 @@ func TestFigure8Unreliable2C(t *testing.T) {
 	cfg.one(rand.Int()%10000, 1, true)
 
 	nup := servers
-	//for iters := 0; iters < 1000; iters++ {
-	for iters := 0; iters < 20; iters++ {
+	for iters := 0; iters < 1000; iters++ {
 		if iters == 1 {
 			cfg.setlongreordering(true)
 		}
@@ -854,12 +853,12 @@ func TestFigure8Unreliable2C(t *testing.T) {
 			ms := rand.Int63() % (int64(RaftElectionTimeout/time.Millisecond) / 2)
 			t0 := time.Now()
 			time.Sleep(time.Duration(ms) * time.Millisecond)
-			log.Printf("******************** %v sleep1 %v", iters, time.Now().Sub(t0))
+			log.Printf("******************** %v sleep %v", iters, time.Now().Sub(t0))
 		} else {
 			ms := rand.Int63() % 13
 			t0 := time.Now()
 			time.Sleep(time.Duration(ms) * time.Millisecond)
-			log.Printf("******************** %v sleep2 %v", iters, time.Now().Sub(t0))
+			log.Printf("******************** %v sleep %v", iters, time.Now().Sub(t0))
 		}
 
 		if leader != -1 && (rand.Int()%1000) < int(RaftElectionTimeout/time.Millisecond)/2 {
@@ -891,7 +890,6 @@ func TestFigure8Unreliable2C(t *testing.T) {
 }
 
 func internalChurn(t *testing.T, unreliable bool) {
-
 	servers := 5
 	cfg := make_config(t, servers, unreliable, false)
 	defer cfg.cleanup()

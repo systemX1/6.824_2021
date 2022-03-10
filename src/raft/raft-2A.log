@@ -25,11 +25,11 @@ Test (2A): initial election ...
 23:46:54.818261 raft.go 402 raft.(*Raft).HandleAppendEntries [S1 Follower t:1 vF:0 c:-1 a:-1] received AppendEntries [arg S0 term:1 preLogIdx:-1 preLogT:-1 [] LComit:-1]
 23:46:54.818626 raft.go 414 raft.(*Raft).HandleAppendEntries [S1 Follower t:1 vF:-1 c:-1 a:-1] reset electionTimeout
 23:46:54.818765 raft.go 402 raft.(*Raft).HandleAppendEntries [S2 Follower t:1 vF:0 c:-1 a:-1] received AppendEntries [arg S0 term:1 preLogIdx:-1 preLogT:-1 [] LComit:-1]
-23:46:54.818791 raftLog.go 70 raft.(*RaftLog).TruncateAppend [] preLgIdx:-1 []
+23:46:54.818791 rfLog.go 70 raft.(*RaftLog).TruncateAppend [] preLgIdx:-1 []
 23:46:54.819136 raft.go 414 raft.(*Raft).HandleAppendEntries [S2 Follower t:1 vF:-1 c:-1 a:-1] reset electionTimeout
-23:46:54.819218 raftLog.go 73 raft.(*RaftLog).TruncateAppend []
-23:46:54.819311 raftLog.go 70 raft.(*RaftLog).TruncateAppend [] preLgIdx:-1 []
-23:46:54.819413 raftLog.go 73 raft.(*RaftLog).TruncateAppend []
+23:46:54.819218 rfLog.go 73 raft.(*RaftLog).TruncateAppend []
+23:46:54.819311 rfLog.go 70 raft.(*RaftLog).TruncateAppend [] preLgIdx:-1 []
+23:46:54.819413 rfLog.go 73 raft.(*RaftLog).TruncateAppend []
 23:46:54.819452 raft.go 435 raft.(*Raft).HandleAppendEntries [S1 Follower t:1 vF:-1 c:-1 a:-1] [RLog c:-1 a:-1 []]
 23:46:54.819614 raft.go 435 raft.(*Raft).HandleAppendEntries [S2 Follower t:1 vF:-1 c:-1 a:-1] [RLog c:-1 a:-1 []]
 23:46:54.821351 raft.go 385 raft.(*Raft).startAppendEntries [S0 Leader t:1 vF:0 c:-1 a:-1 m:[-1 -1 -1] n:[0 0 0]] sendAppendEntries to 2 succ
@@ -42,10 +42,10 @@ Test (2A): initial election ...
 23:46:54.918522 raft.go 402 raft.(*Raft).HandleAppendEntries [S1 Follower t:1 vF:-1 c:-1 a:-1] received AppendEntries [arg S0 term:1 preLogIdx:-1 preLogT:-1 [] LComit:-1]
 23:46:54.918826 raft.go 414 raft.(*Raft).HandleAppendEntries [S2 Follower t:1 vF:-1 c:-1 a:-1] reset electionTimeout
 23:46:54.918945 raft.go 414 raft.(*Raft).HandleAppendEntries [S1 Follower t:1 vF:-1 c:-1 a:-1] reset electionTimeout
-23:46:54.919028 raftLog.go 70 raft.(*RaftLog).TruncateAppend [] preLgIdx:-1 []
-23:46:54.919098 raftLog.go 70 raft.(*RaftLog).TruncateAppend [] preLgIdx:-1 []
-23:46:54.919213 raftLog.go 73 raft.(*RaftLog).TruncateAppend []
-23:46:54.919219 raftLog.go 73 raft.(*RaftLog).TruncateAppend []
+23:46:54.919028 rfLog.go 70 raft.(*RaftLog).TruncateAppend [] preLgIdx:-1 []
+23:46:54.919098 rfLog.go 70 raft.(*RaftLog).TruncateAppend [] preLgIdx:-1 []
+23:46:54.919213 rfLog.go 73 raft.(*RaftLog).TruncateAppend []
+23:46:54.919219 rfLog.go 73 raft.(*RaftLog).TruncateAppend []
 23:46:54.919439 raft.go 435 raft.(*Raft).HandleAppendEntries [S1 Follower t:1 vF:-1 c:-1 a:-1] [RLog c:-1 a:-1 []]
 23:46:54.919627 raft.go 435 raft.(*Raft).HandleAppendEntries [S2 Follower t:1 vF:-1 c:-1 a:-1] [RLog c:-1 a:-1 []]
 23:46:54.921032 raft.go 385 raft.(*Raft).startAppendEntries [S0 Leader t:1 vF:0 c:-1 a:-1 m:[-1 -1 -1] n:[0 0 0]] sendAppendEntries to 1 succ
@@ -56,12 +56,12 @@ Test (2A): initial election ...
 23:46:55.013999 raft.go 350 raft.(*Raft).startAppendEntries [S0 Leader t:1 vF:0 c:-1 a:-1 m:[-1 -1 -1] n:[0 0 0]] sendAppendEntries to 1, [arg S0 term:1 preLogIdx:-1 preLogT:-1 [] LComit:-1]
 23:46:55.015038 raft.go 402 raft.(*Raft).HandleAppendEntries [S2 Follower t:1 vF:-1 c:-1 a:-1] received AppendEntries [arg S0 term:1 preLogIdx:-1 preLogT:-1 [] LComit:-1]
 23:46:55.015219 raft.go 414 raft.(*Raft).HandleAppendEntries [S2 Follower t:1 vF:-1 c:-1 a:-1] reset electionTimeout
-23:46:55.015281 raftLog.go 70 raft.(*RaftLog).TruncateAppend [] preLgIdx:-1 []
+23:46:55.015281 rfLog.go 70 raft.(*RaftLog).TruncateAppend [] preLgIdx:-1 []
 23:46:55.015318 raft.go 402 raft.(*Raft).HandleAppendEntries [S1 Follower t:1 vF:-1 c:-1 a:-1] received AppendEntries [arg S0 term:1 preLogIdx:-1 preLogT:-1 [] LComit:-1]
 23:46:55.015497 raft.go 414 raft.(*Raft).HandleAppendEntries [S1 Follower t:1 vF:-1 c:-1 a:-1] reset electionTimeout
-23:46:55.015566 raftLog.go 70 raft.(*RaftLog).TruncateAppend [] preLgIdx:-1 []
-23:46:55.015327 raftLog.go 73 raft.(*RaftLog).TruncateAppend []
-23:46:55.015615 raftLog.go 73 raft.(*RaftLog).TruncateAppend []
+23:46:55.015566 rfLog.go 70 raft.(*RaftLog).TruncateAppend [] preLgIdx:-1 []
+23:46:55.015327 rfLog.go 73 raft.(*RaftLog).TruncateAppend []
+23:46:55.015615 rfLog.go 73 raft.(*RaftLog).TruncateAppend []
 23:46:55.015770 raft.go 435 raft.(*Raft).HandleAppendEntries [S1 Follower t:1 vF:-1 c:-1 a:-1] [RLog c:-1 a:-1 []]
 23:46:55.015773 raft.go 435 raft.(*Raft).HandleAppendEntries [S2 Follower t:1 vF:-1 c:-1 a:-1] [RLog c:-1 a:-1 []]
 23:46:55.016421 raft.go 385 raft.(*Raft).startAppendEntries [S0 Leader t:1 vF:0 c:-1 a:-1 m:[-1 -1 -1] n:[0 0 0]] sendAppendEntries to 1 succ
@@ -72,13 +72,13 @@ Test (2A): initial election ...
 23:46:55.115148 raft.go 350 raft.(*Raft).startAppendEntries [S0 Leader t:1 vF:0 c:-1 a:-1 m:[-1 -1 -1] n:[0 0 0]] sendAppendEntries to 2, [arg S0 term:1 preLogIdx:-1 preLogT:-1 [] LComit:-1]
 23:46:55.117039 raft.go 402 raft.(*Raft).HandleAppendEntries [S1 Follower t:1 vF:-1 c:-1 a:-1] received AppendEntries [arg S0 term:1 preLogIdx:-1 preLogT:-1 [] LComit:-1]
 23:46:55.117353 raft.go 414 raft.(*Raft).HandleAppendEntries [S1 Follower t:1 vF:-1 c:-1 a:-1] reset electionTimeout
-23:46:55.117473 raftLog.go 70 raft.(*RaftLog).TruncateAppend [] preLgIdx:-1 []
-23:46:55.117634 raftLog.go 73 raft.(*RaftLog).TruncateAppend []
+23:46:55.117473 rfLog.go 70 raft.(*RaftLog).TruncateAppend [] preLgIdx:-1 []
+23:46:55.117634 rfLog.go 73 raft.(*RaftLog).TruncateAppend []
 23:46:55.117692 raft.go 402 raft.(*Raft).HandleAppendEntries [S2 Follower t:1 vF:-1 c:-1 a:-1] received AppendEntries [arg S0 term:1 preLogIdx:-1 preLogT:-1 [] LComit:-1]
 23:46:55.117924 raft.go 435 raft.(*Raft).HandleAppendEntries [S1 Follower t:1 vF:-1 c:-1 a:-1] [RLog c:-1 a:-1 []]
 23:46:55.118029 raft.go 414 raft.(*Raft).HandleAppendEntries [S2 Follower t:1 vF:-1 c:-1 a:-1] reset electionTimeout
-23:46:55.118162 raftLog.go 70 raft.(*RaftLog).TruncateAppend [] preLgIdx:-1 []
-23:46:55.118254 raftLog.go 73 raft.(*RaftLog).TruncateAppend []
+23:46:55.118162 rfLog.go 70 raft.(*RaftLog).TruncateAppend [] preLgIdx:-1 []
+23:46:55.118254 rfLog.go 73 raft.(*RaftLog).TruncateAppend []
 23:46:55.118460 raft.go 435 raft.(*Raft).HandleAppendEntries [S2 Follower t:1 vF:-1 c:-1 a:-1] [RLog c:-1 a:-1 []]
 23:46:55.119717 raft.go 385 raft.(*Raft).startAppendEntries [S0 Leader t:1 vF:0 c:-1 a:-1 m:[-1 -1 -1] n:[0 0 0]] sendAppendEntries to 1 succ
 23:46:55.120025 raft.go 385 raft.(*Raft).startAppendEntries [S0 Leader t:1 vF:0 c:-1 a:-1 m:[-1 -1 -1] n:[0 0 0]] sendAppendEntries to 2 succ
@@ -88,13 +88,13 @@ Test (2A): initial election ...
 23:46:55.215070 raft.go 350 raft.(*Raft).startAppendEntries [S0 Leader t:1 vF:0 c:-1 a:-1 m:[-1 -1 -1] n:[0 0 0]] sendAppendEntries to 1, [arg S0 term:1 preLogIdx:-1 preLogT:-1 [] LComit:-1]
 23:46:55.217317 raft.go 402 raft.(*Raft).HandleAppendEntries [S2 Follower t:1 vF:-1 c:-1 a:-1] received AppendEntries [arg S0 term:1 preLogIdx:-1 preLogT:-1 [] LComit:-1]
 23:46:55.217669 raft.go 414 raft.(*Raft).HandleAppendEntries [S2 Follower t:1 vF:-1 c:-1 a:-1] reset electionTimeout
-23:46:55.217812 raftLog.go 70 raft.(*RaftLog).TruncateAppend [] preLgIdx:-1 []
+23:46:55.217812 rfLog.go 70 raft.(*RaftLog).TruncateAppend [] preLgIdx:-1 []
 23:46:55.217827 raft.go 402 raft.(*Raft).HandleAppendEntries [S1 Follower t:1 vF:-1 c:-1 a:-1] received AppendEntries [arg S0 term:1 preLogIdx:-1 preLogT:-1 [] LComit:-1]
-23:46:55.217917 raftLog.go 73 raft.(*RaftLog).TruncateAppend []
+23:46:55.217917 rfLog.go 73 raft.(*RaftLog).TruncateAppend []
 23:46:55.218158 raft.go 435 raft.(*Raft).HandleAppendEntries [S2 Follower t:1 vF:-1 c:-1 a:-1] [RLog c:-1 a:-1 []]
 23:46:55.218203 raft.go 414 raft.(*Raft).HandleAppendEntries [S1 Follower t:1 vF:-1 c:-1 a:-1] reset electionTimeout
-23:46:55.218343 raftLog.go 70 raft.(*RaftLog).TruncateAppend [] preLgIdx:-1 []
-23:46:55.218448 raftLog.go 73 raft.(*RaftLog).TruncateAppend []
+23:46:55.218343 rfLog.go 70 raft.(*RaftLog).TruncateAppend [] preLgIdx:-1 []
+23:46:55.218448 rfLog.go 73 raft.(*RaftLog).TruncateAppend []
 23:46:55.218639 raft.go 435 raft.(*Raft).HandleAppendEntries [S1 Follower t:1 vF:-1 c:-1 a:-1] [RLog c:-1 a:-1 []]
 23:46:55.219508 raft.go 385 raft.(*Raft).startAppendEntries [S0 Leader t:1 vF:0 c:-1 a:-1 m:[-1 -1 -1] n:[0 0 0]] sendAppendEntries to 2 succ
 23:46:55.220002 raft.go 385 raft.(*Raft).startAppendEntries [S0 Leader t:1 vF:0 c:-1 a:-1 m:[-1 -1 -1] n:[0 0 0]] sendAppendEntries to 1 succ
@@ -104,13 +104,13 @@ Test (2A): initial election ...
 23:46:55.314191 raft.go 350 raft.(*Raft).startAppendEntries [S0 Leader t:1 vF:0 c:-1 a:-1 m:[-1 -1 -1] n:[0 0 0]] sendAppendEntries to 1, [arg S0 term:1 preLogIdx:-1 preLogT:-1 [] LComit:-1]
 23:46:55.315454 raft.go 402 raft.(*Raft).HandleAppendEntries [S2 Follower t:1 vF:-1 c:-1 a:-1] received AppendEntries [arg S0 term:1 preLogIdx:-1 preLogT:-1 [] LComit:-1]
 23:46:55.315662 raft.go 414 raft.(*Raft).HandleAppendEntries [S2 Follower t:1 vF:-1 c:-1 a:-1] reset electionTimeout
-23:46:55.315740 raftLog.go 70 raft.(*RaftLog).TruncateAppend [] preLgIdx:-1 []
+23:46:55.315740 rfLog.go 70 raft.(*RaftLog).TruncateAppend [] preLgIdx:-1 []
 23:46:55.315795 raft.go 402 raft.(*Raft).HandleAppendEntries [S1 Follower t:1 vF:-1 c:-1 a:-1] received AppendEntries [arg S0 term:1 preLogIdx:-1 preLogT:-1 [] LComit:-1]
-23:46:55.315806 raftLog.go 73 raft.(*RaftLog).TruncateAppend []
+23:46:55.315806 rfLog.go 73 raft.(*RaftLog).TruncateAppend []
 23:46:55.316015 raft.go 414 raft.(*Raft).HandleAppendEntries [S1 Follower t:1 vF:-1 c:-1 a:-1] reset electionTimeout
-23:46:55.316104 raftLog.go 70 raft.(*RaftLog).TruncateAppend [] preLgIdx:-1 []
+23:46:55.316104 rfLog.go 70 raft.(*RaftLog).TruncateAppend [] preLgIdx:-1 []
 23:46:55.316026 raft.go 435 raft.(*Raft).HandleAppendEntries [S2 Follower t:1 vF:-1 c:-1 a:-1] [RLog c:-1 a:-1 []]
-23:46:55.316164 raftLog.go 73 raft.(*RaftLog).TruncateAppend []
+23:46:55.316164 rfLog.go 73 raft.(*RaftLog).TruncateAppend []
 23:46:55.316318 raft.go 435 raft.(*Raft).HandleAppendEntries [S1 Follower t:1 vF:-1 c:-1 a:-1] [RLog c:-1 a:-1 []]
 23:46:55.317096 raft.go 385 raft.(*Raft).startAppendEntries [S0 Leader t:1 vF:0 c:-1 a:-1 m:[-1 -1 -1] n:[0 0 0]] sendAppendEntries to 2 succ
 23:46:55.317290 raft.go 385 raft.(*Raft).startAppendEntries [S0 Leader t:1 vF:0 c:-1 a:-1 m:[-1 -1 -1] n:[0 0 0]] sendAppendEntries to 1 succ
@@ -120,13 +120,13 @@ Test (2A): initial election ...
 23:46:55.414800 raft.go 350 raft.(*Raft).startAppendEntries [S0 Leader t:1 vF:0 c:-1 a:-1 m:[-1 -1 -1] n:[0 0 0]] sendAppendEntries to 2, [arg S0 term:1 preLogIdx:-1 preLogT:-1 [] LComit:-1]
 23:46:55.417138 raft.go 402 raft.(*Raft).HandleAppendEntries [S1 Follower t:1 vF:-1 c:-1 a:-1] received AppendEntries [arg S0 term:1 preLogIdx:-1 preLogT:-1 [] LComit:-1]
 23:46:55.417530 raft.go 414 raft.(*Raft).HandleAppendEntries [S1 Follower t:1 vF:-1 c:-1 a:-1] reset electionTimeout
-23:46:55.417682 raftLog.go 70 raft.(*RaftLog).TruncateAppend [] preLgIdx:-1 []
+23:46:55.417682 rfLog.go 70 raft.(*RaftLog).TruncateAppend [] preLgIdx:-1 []
 23:46:55.417725 raft.go 402 raft.(*Raft).HandleAppendEntries [S2 Follower t:1 vF:-1 c:-1 a:-1] received AppendEntries [arg S0 term:1 preLogIdx:-1 preLogT:-1 [] LComit:-1]
-23:46:55.417800 raftLog.go 73 raft.(*RaftLog).TruncateAppend []
+23:46:55.417800 rfLog.go 73 raft.(*RaftLog).TruncateAppend []
 23:46:55.418046 raft.go 435 raft.(*Raft).HandleAppendEntries [S1 Follower t:1 vF:-1 c:-1 a:-1] [RLog c:-1 a:-1 []]
 23:46:55.418120 raft.go 414 raft.(*Raft).HandleAppendEntries [S2 Follower t:1 vF:-1 c:-1 a:-1] reset electionTimeout
-23:46:55.418285 raftLog.go 70 raft.(*RaftLog).TruncateAppend [] preLgIdx:-1 []
-23:46:55.418391 raftLog.go 73 raft.(*RaftLog).TruncateAppend []
+23:46:55.418285 rfLog.go 70 raft.(*RaftLog).TruncateAppend [] preLgIdx:-1 []
+23:46:55.418391 rfLog.go 73 raft.(*RaftLog).TruncateAppend []
 23:46:55.418608 raft.go 435 raft.(*Raft).HandleAppendEntries [S2 Follower t:1 vF:-1 c:-1 a:-1] [RLog c:-1 a:-1 []]
 23:46:55.419637 raft.go 385 raft.(*Raft).startAppendEntries [S0 Leader t:1 vF:0 c:-1 a:-1 m:[-1 -1 -1] n:[0 0 0]] sendAppendEntries to 1 succ
 23:46:55.420166 raft.go 385 raft.(*Raft).startAppendEntries [S0 Leader t:1 vF:0 c:-1 a:-1 m:[-1 -1 -1] n:[0 0 0]] sendAppendEntries to 2 succ
@@ -136,13 +136,13 @@ Test (2A): initial election ...
 23:46:55.515651 raft.go 350 raft.(*Raft).startAppendEntries [S0 Leader t:1 vF:0 c:-1 a:-1 m:[-1 -1 -1] n:[0 0 0]] sendAppendEntries to 2, [arg S0 term:1 preLogIdx:-1 preLogT:-1 [] LComit:-1]
 23:46:55.517820 raft.go 402 raft.(*Raft).HandleAppendEntries [S1 Follower t:1 vF:-1 c:-1 a:-1] received AppendEntries [arg S0 term:1 preLogIdx:-1 preLogT:-1 [] LComit:-1]
 23:46:55.518185 raft.go 414 raft.(*Raft).HandleAppendEntries [S1 Follower t:1 vF:-1 c:-1 a:-1] reset electionTimeout
-23:46:55.518326 raftLog.go 70 raft.(*RaftLog).TruncateAppend [] preLgIdx:-1 []
-23:46:55.518429 raftLog.go 73 raft.(*RaftLog).TruncateAppend []
+23:46:55.518326 rfLog.go 70 raft.(*RaftLog).TruncateAppend [] preLgIdx:-1 []
+23:46:55.518429 rfLog.go 73 raft.(*RaftLog).TruncateAppend []
 23:46:55.518660 raft.go 435 raft.(*Raft).HandleAppendEntries [S1 Follower t:1 vF:-1 c:-1 a:-1] [RLog c:-1 a:-1 []]
 23:46:55.518828 raft.go 402 raft.(*Raft).HandleAppendEntries [S2 Follower t:1 vF:-1 c:-1 a:-1] received AppendEntries [arg S0 term:1 preLogIdx:-1 preLogT:-1 [] LComit:-1]
 23:46:55.519291 raft.go 414 raft.(*Raft).HandleAppendEntries [S2 Follower t:1 vF:-1 c:-1 a:-1] reset electionTimeout
-23:46:55.519448 raftLog.go 70 raft.(*RaftLog).TruncateAppend [] preLgIdx:-1 []
-23:46:55.519550 raftLog.go 73 raft.(*RaftLog).TruncateAppend []
+23:46:55.519448 rfLog.go 70 raft.(*RaftLog).TruncateAppend [] preLgIdx:-1 []
+23:46:55.519550 rfLog.go 73 raft.(*RaftLog).TruncateAppend []
 23:46:55.519790 raft.go 435 raft.(*Raft).HandleAppendEntries [S2 Follower t:1 vF:-1 c:-1 a:-1] [RLog c:-1 a:-1 []]
 23:46:55.520268 raft.go 385 raft.(*Raft).startAppendEntries [S0 Leader t:1 vF:0 c:-1 a:-1 m:[-1 -1 -1] n:[0 0 0]] sendAppendEntries to 1 succ
 23:46:55.521310 raft.go 385 raft.(*Raft).startAppendEntries [S0 Leader t:1 vF:0 c:-1 a:-1 m:[-1 -1 -1] n:[0 0 0]] sendAppendEntries to 2 succ
@@ -152,13 +152,13 @@ Test (2A): initial election ...
 23:46:55.616340 raft.go 350 raft.(*Raft).startAppendEntries [S0 Leader t:1 vF:0 c:-1 a:-1 m:[-1 -1 -1] n:[0 0 0]] sendAppendEntries to 1, [arg S0 term:1 preLogIdx:-1 preLogT:-1 [] LComit:-1]
 23:46:55.618792 raft.go 402 raft.(*Raft).HandleAppendEntries [S2 Follower t:1 vF:-1 c:-1 a:-1] received AppendEntries [arg S0 term:1 preLogIdx:-1 preLogT:-1 [] LComit:-1]
 23:46:55.619185 raft.go 414 raft.(*Raft).HandleAppendEntries [S2 Follower t:1 vF:-1 c:-1 a:-1] reset electionTimeout
-23:46:55.619339 raftLog.go 70 raft.(*RaftLog).TruncateAppend [] preLgIdx:-1 []
-23:46:55.619441 raftLog.go 73 raft.(*RaftLog).TruncateAppend []
+23:46:55.619339 rfLog.go 70 raft.(*RaftLog).TruncateAppend [] preLgIdx:-1 []
+23:46:55.619441 rfLog.go 73 raft.(*RaftLog).TruncateAppend []
 23:46:55.619552 raft.go 402 raft.(*Raft).HandleAppendEntries [S1 Follower t:1 vF:-1 c:-1 a:-1] received AppendEntries [arg S0 term:1 preLogIdx:-1 preLogT:-1 [] LComit:-1]
 23:46:55.619691 raft.go 435 raft.(*Raft).HandleAppendEntries [S2 Follower t:1 vF:-1 c:-1 a:-1] [RLog c:-1 a:-1 []]
 23:46:55.619946 raft.go 414 raft.(*Raft).HandleAppendEntries [S1 Follower t:1 vF:-1 c:-1 a:-1] reset electionTimeout
-23:46:55.620143 raftLog.go 70 raft.(*RaftLog).TruncateAppend [] preLgIdx:-1 []
-23:46:55.620283 raftLog.go 73 raft.(*RaftLog).TruncateAppend []
+23:46:55.620143 rfLog.go 70 raft.(*RaftLog).TruncateAppend [] preLgIdx:-1 []
+23:46:55.620283 rfLog.go 73 raft.(*RaftLog).TruncateAppend []
 23:46:55.620514 raft.go 435 raft.(*Raft).HandleAppendEntries [S1 Follower t:1 vF:-1 c:-1 a:-1] [RLog c:-1 a:-1 []]
 23:46:55.621277 raft.go 385 raft.(*Raft).startAppendEntries [S0 Leader t:1 vF:0 c:-1 a:-1 m:[-1 -1 -1] n:[0 0 0]] sendAppendEntries to 2 succ
 23:46:55.622026 raft.go 385 raft.(*Raft).startAppendEntries [S0 Leader t:1 vF:0 c:-1 a:-1 m:[-1 -1 -1] n:[0 0 0]] sendAppendEntries to 1 succ
@@ -168,13 +168,13 @@ Test (2A): initial election ...
 23:46:55.714234 raft.go 350 raft.(*Raft).startAppendEntries [S0 Leader t:1 vF:0 c:-1 a:-1 m:[-1 -1 -1] n:[0 0 0]] sendAppendEntries to 2, [arg S0 term:1 preLogIdx:-1 preLogT:-1 [] LComit:-1]
 23:46:55.715306 raft.go 402 raft.(*Raft).HandleAppendEntries [S1 Follower t:1 vF:-1 c:-1 a:-1] received AppendEntries [arg S0 term:1 preLogIdx:-1 preLogT:-1 [] LComit:-1]
 23:46:55.715466 raft.go 414 raft.(*Raft).HandleAppendEntries [S1 Follower t:1 vF:-1 c:-1 a:-1] reset electionTimeout
-23:46:55.715533 raftLog.go 70 raft.(*RaftLog).TruncateAppend [] preLgIdx:-1 []
-23:46:55.715578 raftLog.go 73 raft.(*RaftLog).TruncateAppend []
+23:46:55.715533 rfLog.go 70 raft.(*RaftLog).TruncateAppend [] preLgIdx:-1 []
+23:46:55.715578 rfLog.go 73 raft.(*RaftLog).TruncateAppend []
 23:46:55.715603 raft.go 402 raft.(*Raft).HandleAppendEntries [S2 Follower t:1 vF:-1 c:-1 a:-1] received AppendEntries [arg S0 term:1 preLogIdx:-1 preLogT:-1 [] LComit:-1]
 23:46:55.715668 raft.go 435 raft.(*Raft).HandleAppendEntries [S1 Follower t:1 vF:-1 c:-1 a:-1] [RLog c:-1 a:-1 []]
 23:46:55.715783 raft.go 414 raft.(*Raft).HandleAppendEntries [S2 Follower t:1 vF:-1 c:-1 a:-1] reset electionTimeout
-23:46:55.715851 raftLog.go 70 raft.(*RaftLog).TruncateAppend [] preLgIdx:-1 []
-23:46:55.715898 raftLog.go 73 raft.(*RaftLog).TruncateAppend []
+23:46:55.715851 rfLog.go 70 raft.(*RaftLog).TruncateAppend [] preLgIdx:-1 []
+23:46:55.715898 rfLog.go 73 raft.(*RaftLog).TruncateAppend []
 23:46:55.715992 raft.go 435 raft.(*Raft).HandleAppendEntries [S2 Follower t:1 vF:-1 c:-1 a:-1] [RLog c:-1 a:-1 []]
 23:46:55.716365 raft.go 385 raft.(*Raft).startAppendEntries [S0 Leader t:1 vF:0 c:-1 a:-1 m:[-1 -1 -1] n:[0 0 0]] sendAppendEntries to 1 succ
 23:46:55.716635 raft.go 385 raft.(*Raft).startAppendEntries [S0 Leader t:1 vF:0 c:-1 a:-1 m:[-1 -1 -1] n:[0 0 0]] sendAppendEntries to 2 succ
@@ -185,12 +185,12 @@ Test (2A): initial election ...
 23:46:55.818320 raft.go 402 raft.(*Raft).HandleAppendEntries [S2 Follower t:1 vF:-1 c:-1 a:-1] received AppendEntries [arg S0 term:1 preLogIdx:-1 preLogT:-1 [] LComit:-1]
 23:46:55.818940 raft.go 414 raft.(*Raft).HandleAppendEntries [S2 Follower t:1 vF:-1 c:-1 a:-1] reset electionTimeout
 23:46:55.818946 raft.go 402 raft.(*Raft).HandleAppendEntries [S1 Follower t:1 vF:-1 c:-1 a:-1] received AppendEntries [arg S0 term:1 preLogIdx:-1 preLogT:-1 [] LComit:-1]
-23:46:55.819192 raftLog.go 70 raft.(*RaftLog).TruncateAppend [] preLgIdx:-1 []
-23:46:55.819405 raftLog.go 73 raft.(*RaftLog).TruncateAppend []
+23:46:55.819192 rfLog.go 70 raft.(*RaftLog).TruncateAppend [] preLgIdx:-1 []
+23:46:55.819405 rfLog.go 73 raft.(*RaftLog).TruncateAppend []
 23:46:55.819687 raft.go 414 raft.(*Raft).HandleAppendEntries [S1 Follower t:1 vF:-1 c:-1 a:-1] reset electionTimeout
 23:46:55.819778 raft.go 435 raft.(*Raft).HandleAppendEntries [S2 Follower t:1 vF:-1 c:-1 a:-1] [RLog c:-1 a:-1 []]
-23:46:55.819918 raftLog.go 70 raft.(*RaftLog).TruncateAppend [] preLgIdx:-1 []
-23:46:55.820103 raftLog.go 73 raft.(*RaftLog).TruncateAppend []
+23:46:55.819918 rfLog.go 70 raft.(*RaftLog).TruncateAppend [] preLgIdx:-1 []
+23:46:55.820103 rfLog.go 73 raft.(*RaftLog).TruncateAppend []
 23:46:55.820427 raft.go 435 raft.(*Raft).HandleAppendEntries [S1 Follower t:1 vF:-1 c:-1 a:-1] [RLog c:-1 a:-1 []]
 23:46:55.821958 raft.go 385 raft.(*Raft).startAppendEntries [S0 Leader t:1 vF:0 c:-1 a:-1 m:[-1 -1 -1] n:[0 0 0]] sendAppendEntries to 2 succ
 23:46:55.822516 raft.go 385 raft.(*Raft).startAppendEntries [S0 Leader t:1 vF:0 c:-1 a:-1 m:[-1 -1 -1] n:[0 0 0]] sendAppendEntries to 1 succ
@@ -201,12 +201,12 @@ Test (2A): initial election ...
 23:46:55.915179 raft.go 402 raft.(*Raft).HandleAppendEntries [S2 Follower t:1 vF:-1 c:-1 a:-1] received AppendEntries [arg S0 term:1 preLogIdx:-1 preLogT:-1 [] LComit:-1]
 23:46:55.915538 raft.go 402 raft.(*Raft).HandleAppendEntries [S1 Follower t:1 vF:-1 c:-1 a:-1] received AppendEntries [arg S0 term:1 preLogIdx:-1 preLogT:-1 [] LComit:-1]
 23:46:55.915599 raft.go 414 raft.(*Raft).HandleAppendEntries [S2 Follower t:1 vF:-1 c:-1 a:-1] reset electionTimeout
-23:46:55.915712 raftLog.go 70 raft.(*RaftLog).TruncateAppend [] preLgIdx:-1 []
-23:46:55.915768 raftLog.go 73 raft.(*RaftLog).TruncateAppend []
+23:46:55.915712 rfLog.go 70 raft.(*RaftLog).TruncateAppend [] preLgIdx:-1 []
+23:46:55.915768 rfLog.go 73 raft.(*RaftLog).TruncateAppend []
 23:46:55.915812 raft.go 414 raft.(*Raft).HandleAppendEntries [S1 Follower t:1 vF:-1 c:-1 a:-1] reset electionTimeout
 23:46:55.915874 raft.go 435 raft.(*Raft).HandleAppendEntries [S2 Follower t:1 vF:-1 c:-1 a:-1] [RLog c:-1 a:-1 []]
-23:46:55.915915 raftLog.go 70 raft.(*RaftLog).TruncateAppend [] preLgIdx:-1 []
-23:46:55.915969 raftLog.go 73 raft.(*RaftLog).TruncateAppend []
+23:46:55.915915 rfLog.go 70 raft.(*RaftLog).TruncateAppend [] preLgIdx:-1 []
+23:46:55.915969 rfLog.go 73 raft.(*RaftLog).TruncateAppend []
 23:46:55.916072 raft.go 435 raft.(*Raft).HandleAppendEntries [S1 Follower t:1 vF:-1 c:-1 a:-1] [RLog c:-1 a:-1 []]
 23:46:55.916647 raft.go 385 raft.(*Raft).startAppendEntries [S0 Leader t:1 vF:0 c:-1 a:-1 m:[-1 -1 -1] n:[0 0 0]] sendAppendEntries to 2 succ
 23:46:55.916827 raft.go 385 raft.(*Raft).startAppendEntries [S0 Leader t:1 vF:0 c:-1 a:-1 m:[-1 -1 -1] n:[0 0 0]] sendAppendEntries to 1 succ
@@ -218,10 +218,10 @@ Test (2A): initial election ...
 23:46:56.015534 raft.go 402 raft.(*Raft).HandleAppendEntries [S2 Follower t:1 vF:-1 c:-1 a:-1] received AppendEntries [arg S0 term:1 preLogIdx:-1 preLogT:-1 [] LComit:-1]
 23:46:56.015635 raft.go 414 raft.(*Raft).HandleAppendEntries [S1 Follower t:1 vF:-1 c:-1 a:-1] reset electionTimeout
 23:46:56.015710 raft.go 414 raft.(*Raft).HandleAppendEntries [S2 Follower t:1 vF:-1 c:-1 a:-1] reset electionTimeout
-23:46:56.015743 raftLog.go 70 raft.(*RaftLog).TruncateAppend [] preLgIdx:-1 []
-23:46:56.015775 raftLog.go 70 raft.(*RaftLog).TruncateAppend [] preLgIdx:-1 []
-23:46:56.015825 raftLog.go 73 raft.(*RaftLog).TruncateAppend []
-23:46:56.015831 raftLog.go 73 raft.(*RaftLog).TruncateAppend []
+23:46:56.015743 rfLog.go 70 raft.(*RaftLog).TruncateAppend [] preLgIdx:-1 []
+23:46:56.015775 rfLog.go 70 raft.(*RaftLog).TruncateAppend [] preLgIdx:-1 []
+23:46:56.015825 rfLog.go 73 raft.(*RaftLog).TruncateAppend []
+23:46:56.015831 rfLog.go 73 raft.(*RaftLog).TruncateAppend []
 23:46:56.015992 raft.go 435 raft.(*Raft).HandleAppendEntries [S1 Follower t:1 vF:-1 c:-1 a:-1] [RLog c:-1 a:-1 []]
 23:46:56.015996 raft.go 435 raft.(*Raft).HandleAppendEntries [S2 Follower t:1 vF:-1 c:-1 a:-1] [RLog c:-1 a:-1 []]
 23:46:56.016968 raft.go 385 raft.(*Raft).startAppendEntries [S0 Leader t:1 vF:0 c:-1 a:-1 m:[-1 -1 -1] n:[0 0 0]] sendAppendEntries to 1 succ
@@ -232,13 +232,13 @@ Test (2A): initial election ...
 23:46:56.113751 raft.go 350 raft.(*Raft).startAppendEntries [S0 Leader t:1 vF:0 c:-1 a:-1 m:[-1 -1 -1] n:[0 0 0]] sendAppendEntries to 1, [arg S0 term:1 preLogIdx:-1 preLogT:-1 [] LComit:-1]
 23:46:56.115021 raft.go 402 raft.(*Raft).HandleAppendEntries [S2 Follower t:1 vF:-1 c:-1 a:-1] received AppendEntries [arg S0 term:1 preLogIdx:-1 preLogT:-1 [] LComit:-1]
 23:46:56.115216 raft.go 414 raft.(*Raft).HandleAppendEntries [S2 Follower t:1 vF:-1 c:-1 a:-1] reset electionTimeout
-23:46:56.115278 raftLog.go 70 raft.(*RaftLog).TruncateAppend [] preLgIdx:-1 []
-23:46:56.115322 raftLog.go 73 raft.(*RaftLog).TruncateAppend []
+23:46:56.115278 rfLog.go 70 raft.(*RaftLog).TruncateAppend [] preLgIdx:-1 []
+23:46:56.115322 rfLog.go 73 raft.(*RaftLog).TruncateAppend []
 23:46:56.115415 raft.go 435 raft.(*Raft).HandleAppendEntries [S2 Follower t:1 vF:-1 c:-1 a:-1] [RLog c:-1 a:-1 []]
 23:46:56.115492 raft.go 402 raft.(*Raft).HandleAppendEntries [S1 Follower t:1 vF:-1 c:-1 a:-1] received AppendEntries [arg S0 term:1 preLogIdx:-1 preLogT:-1 [] LComit:-1]
 23:46:56.115771 raft.go 414 raft.(*Raft).HandleAppendEntries [S1 Follower t:1 vF:-1 c:-1 a:-1] reset electionTimeout
-23:46:56.115988 raftLog.go 70 raft.(*RaftLog).TruncateAppend [] preLgIdx:-1 []
-23:46:56.116081 raftLog.go 73 raft.(*RaftLog).TruncateAppend []
+23:46:56.115988 rfLog.go 70 raft.(*RaftLog).TruncateAppend [] preLgIdx:-1 []
+23:46:56.116081 rfLog.go 73 raft.(*RaftLog).TruncateAppend []
 23:46:56.116222 raft.go 385 raft.(*Raft).startAppendEntries [S0 Leader t:1 vF:0 c:-1 a:-1 m:[-1 -1 -1] n:[0 0 0]] sendAppendEntries to 2 succ
 23:46:56.116247 raft.go 435 raft.(*Raft).HandleAppendEntries [S1 Follower t:1 vF:-1 c:-1 a:-1] [RLog c:-1 a:-1 []]
 23:46:56.117228 raft.go 385 raft.(*Raft).startAppendEntries [S0 Leader t:1 vF:0 c:-1 a:-1 m:[-1 -1 -1] n:[0 0 0]] sendAppendEntries to 1 succ
@@ -248,13 +248,13 @@ Test (2A): initial election ...
 23:46:56.214047 raft.go 350 raft.(*Raft).startAppendEntries [S0 Leader t:1 vF:0 c:-1 a:-1 m:[-1 -1 -1] n:[0 0 0]] sendAppendEntries to 2, [arg S0 term:1 preLogIdx:-1 preLogT:-1 [] LComit:-1]
 23:46:56.214958 raft.go 402 raft.(*Raft).HandleAppendEntries [S1 Follower t:1 vF:-1 c:-1 a:-1] received AppendEntries [arg S0 term:1 preLogIdx:-1 preLogT:-1 [] LComit:-1]
 23:46:56.215129 raft.go 414 raft.(*Raft).HandleAppendEntries [S1 Follower t:1 vF:-1 c:-1 a:-1] reset electionTimeout
-23:46:56.215190 raftLog.go 70 raft.(*RaftLog).TruncateAppend [] preLgIdx:-1 []
-23:46:56.215240 raftLog.go 73 raft.(*RaftLog).TruncateAppend []
+23:46:56.215190 rfLog.go 70 raft.(*RaftLog).TruncateAppend [] preLgIdx:-1 []
+23:46:56.215240 rfLog.go 73 raft.(*RaftLog).TruncateAppend []
 23:46:56.215338 raft.go 435 raft.(*Raft).HandleAppendEntries [S1 Follower t:1 vF:-1 c:-1 a:-1] [RLog c:-1 a:-1 []]
 23:46:56.215399 raft.go 402 raft.(*Raft).HandleAppendEntries [S2 Follower t:1 vF:-1 c:-1 a:-1] received AppendEntries [arg S0 term:1 preLogIdx:-1 preLogT:-1 [] LComit:-1]
 23:46:56.215571 raft.go 414 raft.(*Raft).HandleAppendEntries [S2 Follower t:1 vF:-1 c:-1 a:-1] reset electionTimeout
-23:46:56.215636 raftLog.go 70 raft.(*RaftLog).TruncateAppend [] preLgIdx:-1 []
-23:46:56.215679 raftLog.go 73 raft.(*RaftLog).TruncateAppend []
+23:46:56.215636 rfLog.go 70 raft.(*RaftLog).TruncateAppend [] preLgIdx:-1 []
+23:46:56.215679 rfLog.go 73 raft.(*RaftLog).TruncateAppend []
 23:46:56.215775 raft.go 435 raft.(*Raft).HandleAppendEntries [S2 Follower t:1 vF:-1 c:-1 a:-1] [RLog c:-1 a:-1 []]
 23:46:56.216060 raft.go 385 raft.(*Raft).startAppendEntries [S0 Leader t:1 vF:0 c:-1 a:-1 m:[-1 -1 -1] n:[0 0 0]] sendAppendEntries to 1 succ
 23:46:56.216519 raft.go 385 raft.(*Raft).startAppendEntries [S0 Leader t:1 vF:0 c:-1 a:-1 m:[-1 -1 -1] n:[0 0 0]] sendAppendEntries to 2 succ
@@ -264,13 +264,13 @@ Test (2A): initial election ...
 23:46:56.313607 raft.go 350 raft.(*Raft).startAppendEntries [S0 Leader t:1 vF:0 c:-1 a:-1 m:[-1 -1 -1] n:[0 0 0]] sendAppendEntries to 2, [arg S0 term:1 preLogIdx:-1 preLogT:-1 [] LComit:-1]
 23:46:56.314496 raft.go 402 raft.(*Raft).HandleAppendEntries [S1 Follower t:1 vF:-1 c:-1 a:-1] received AppendEntries [arg S0 term:1 preLogIdx:-1 preLogT:-1 [] LComit:-1]
 23:46:56.314648 raft.go 414 raft.(*Raft).HandleAppendEntries [S1 Follower t:1 vF:-1 c:-1 a:-1] reset electionTimeout
-23:46:56.314726 raftLog.go 70 raft.(*RaftLog).TruncateAppend [] preLgIdx:-1 []
+23:46:56.314726 rfLog.go 70 raft.(*RaftLog).TruncateAppend [] preLgIdx:-1 []
 23:46:56.314749 raft.go 402 raft.(*Raft).HandleAppendEntries [S2 Follower t:1 vF:-1 c:-1 a:-1] received AppendEntries [arg S0 term:1 preLogIdx:-1 preLogT:-1 [] LComit:-1]
-23:46:56.314775 raftLog.go 73 raft.(*RaftLog).TruncateAppend []
+23:46:56.314775 rfLog.go 73 raft.(*RaftLog).TruncateAppend []
 23:46:56.314900 raft.go 435 raft.(*Raft).HandleAppendEntries [S1 Follower t:1 vF:-1 c:-1 a:-1] [RLog c:-1 a:-1 []]
 23:46:56.314914 raft.go 414 raft.(*Raft).HandleAppendEntries [S2 Follower t:1 vF:-1 c:-1 a:-1] reset electionTimeout
-23:46:56.314997 raftLog.go 70 raft.(*RaftLog).TruncateAppend [] preLgIdx:-1 []
-23:46:56.315051 raftLog.go 73 raft.(*RaftLog).TruncateAppend []
+23:46:56.314997 rfLog.go 70 raft.(*RaftLog).TruncateAppend [] preLgIdx:-1 []
+23:46:56.315051 rfLog.go 73 raft.(*RaftLog).TruncateAppend []
 23:46:56.315153 raft.go 435 raft.(*Raft).HandleAppendEntries [S2 Follower t:1 vF:-1 c:-1 a:-1] [RLog c:-1 a:-1 []]
 23:46:56.315679 raft.go 385 raft.(*Raft).startAppendEntries [S0 Leader t:1 vF:0 c:-1 a:-1 m:[-1 -1 -1] n:[0 0 0]] sendAppendEntries to 1 succ
 23:46:56.315875 raft.go 385 raft.(*Raft).startAppendEntries [S0 Leader t:1 vF:0 c:-1 a:-1 m:[-1 -1 -1] n:[0 0 0]] sendAppendEntries to 2 succ
@@ -281,12 +281,12 @@ Test (2A): initial election ...
 23:46:56.416422 raft.go 402 raft.(*Raft).HandleAppendEntries [S1 Follower t:1 vF:-1 c:-1 a:-1] received AppendEntries [arg S0 term:1 preLogIdx:-1 preLogT:-1 [] LComit:-1]
 23:46:56.416515 raft.go 402 raft.(*Raft).HandleAppendEntries [S2 Follower t:1 vF:-1 c:-1 a:-1] received AppendEntries [arg S0 term:1 preLogIdx:-1 preLogT:-1 [] LComit:-1]
 23:46:56.416668 raft.go 414 raft.(*Raft).HandleAppendEntries [S1 Follower t:1 vF:-1 c:-1 a:-1] reset electionTimeout
-23:46:56.416742 raftLog.go 70 raft.(*RaftLog).TruncateAppend [] preLgIdx:-1 []
-23:46:56.416788 raftLog.go 73 raft.(*RaftLog).TruncateAppend []
+23:46:56.416742 rfLog.go 70 raft.(*RaftLog).TruncateAppend [] preLgIdx:-1 []
+23:46:56.416788 rfLog.go 73 raft.(*RaftLog).TruncateAppend []
 23:46:56.416815 raft.go 414 raft.(*Raft).HandleAppendEntries [S2 Follower t:1 vF:-1 c:-1 a:-1] reset electionTimeout
 23:46:56.416898 raft.go 435 raft.(*Raft).HandleAppendEntries [S1 Follower t:1 vF:-1 c:-1 a:-1] [RLog c:-1 a:-1 []]
-23:46:56.416940 raftLog.go 70 raft.(*RaftLog).TruncateAppend [] preLgIdx:-1 []
-23:46:56.417036 raftLog.go 73 raft.(*RaftLog).TruncateAppend []
+23:46:56.416940 rfLog.go 70 raft.(*RaftLog).TruncateAppend [] preLgIdx:-1 []
+23:46:56.417036 rfLog.go 73 raft.(*RaftLog).TruncateAppend []
 23:46:56.417207 raft.go 435 raft.(*Raft).HandleAppendEntries [S2 Follower t:1 vF:-1 c:-1 a:-1] [RLog c:-1 a:-1 []]
 23:46:56.417795 raft.go 385 raft.(*Raft).startAppendEntries [S0 Leader t:1 vF:0 c:-1 a:-1 m:[-1 -1 -1] n:[0 0 0]] sendAppendEntries to 1 succ
 23:46:56.418325 raft.go 385 raft.(*Raft).startAppendEntries [S0 Leader t:1 vF:0 c:-1 a:-1 m:[-1 -1 -1] n:[0 0 0]] sendAppendEntries to 2 succ
@@ -296,13 +296,13 @@ Test (2A): initial election ...
 23:46:56.516794 raft.go 350 raft.(*Raft).startAppendEntries [S0 Leader t:1 vF:0 c:-1 a:-1 m:[-1 -1 -1] n:[0 0 0]] sendAppendEntries to 2, [arg S0 term:1 preLogIdx:-1 preLogT:-1 [] LComit:-1]
 23:46:56.518696 raft.go 402 raft.(*Raft).HandleAppendEntries [S1 Follower t:1 vF:-1 c:-1 a:-1] received AppendEntries [arg S0 term:1 preLogIdx:-1 preLogT:-1 [] LComit:-1]
 23:46:56.519126 raft.go 414 raft.(*Raft).HandleAppendEntries [S1 Follower t:1 vF:-1 c:-1 a:-1] reset electionTimeout
-23:46:56.519279 raftLog.go 70 raft.(*RaftLog).TruncateAppend [] preLgIdx:-1 []
-23:46:56.519389 raftLog.go 73 raft.(*RaftLog).TruncateAppend []
+23:46:56.519279 rfLog.go 70 raft.(*RaftLog).TruncateAppend [] preLgIdx:-1 []
+23:46:56.519389 rfLog.go 73 raft.(*RaftLog).TruncateAppend []
 23:46:56.519584 raft.go 402 raft.(*Raft).HandleAppendEntries [S2 Follower t:1 vF:-1 c:-1 a:-1] received AppendEntries [arg S0 term:1 preLogIdx:-1 preLogT:-1 [] LComit:-1]
 23:46:56.519610 raft.go 435 raft.(*Raft).HandleAppendEntries [S1 Follower t:1 vF:-1 c:-1 a:-1] [RLog c:-1 a:-1 []]
 23:46:56.520019 raft.go 414 raft.(*Raft).HandleAppendEntries [S2 Follower t:1 vF:-1 c:-1 a:-1] reset electionTimeout
-23:46:56.520210 raftLog.go 70 raft.(*RaftLog).TruncateAppend [] preLgIdx:-1 []
-23:46:56.520405 raftLog.go 73 raft.(*RaftLog).TruncateAppend []
+23:46:56.520210 rfLog.go 70 raft.(*RaftLog).TruncateAppend [] preLgIdx:-1 []
+23:46:56.520405 rfLog.go 73 raft.(*RaftLog).TruncateAppend []
 23:46:56.520777 raft.go 435 raft.(*Raft).HandleAppendEntries [S2 Follower t:1 vF:-1 c:-1 a:-1] [RLog c:-1 a:-1 []]
 23:46:56.522146 raft.go 385 raft.(*Raft).startAppendEntries [S0 Leader t:1 vF:0 c:-1 a:-1 m:[-1 -1 -1] n:[0 0 0]] sendAppendEntries to 1 succ
 23:46:56.523031 raft.go 385 raft.(*Raft).startAppendEntries [S0 Leader t:1 vF:0 c:-1 a:-1 m:[-1 -1 -1] n:[0 0 0]] sendAppendEntries to 2 succ
@@ -312,13 +312,13 @@ Test (2A): initial election ...
 23:46:56.614900 raft.go 350 raft.(*Raft).startAppendEntries [S0 Leader t:1 vF:0 c:-1 a:-1 m:[-1 -1 -1] n:[0 0 0]] sendAppendEntries to 1, [arg S0 term:1 preLogIdx:-1 preLogT:-1 [] LComit:-1]
 23:46:56.617294 raft.go 402 raft.(*Raft).HandleAppendEntries [S2 Follower t:1 vF:-1 c:-1 a:-1] received AppendEntries [arg S0 term:1 preLogIdx:-1 preLogT:-1 [] LComit:-1]
 23:46:56.617736 raft.go 414 raft.(*Raft).HandleAppendEntries [S2 Follower t:1 vF:-1 c:-1 a:-1] reset electionTimeout
-23:46:56.617915 raftLog.go 70 raft.(*RaftLog).TruncateAppend [] preLgIdx:-1 []
+23:46:56.617915 rfLog.go 70 raft.(*RaftLog).TruncateAppend [] preLgIdx:-1 []
 23:46:56.617950 raft.go 402 raft.(*Raft).HandleAppendEntries [S1 Follower t:1 vF:-1 c:-1 a:-1] received AppendEntries [arg S0 term:1 preLogIdx:-1 preLogT:-1 [] LComit:-1]
-23:46:56.618055 raftLog.go 73 raft.(*RaftLog).TruncateAppend []
+23:46:56.618055 rfLog.go 73 raft.(*RaftLog).TruncateAppend []
 23:46:56.618285 raft.go 435 raft.(*Raft).HandleAppendEntries [S2 Follower t:1 vF:-1 c:-1 a:-1] [RLog c:-1 a:-1 []]
 23:46:56.618362 raft.go 414 raft.(*Raft).HandleAppendEntries [S1 Follower t:1 vF:-1 c:-1 a:-1] reset electionTimeout
-23:46:56.618528 raftLog.go 70 raft.(*RaftLog).TruncateAppend [] preLgIdx:-1 []
-23:46:56.618640 raftLog.go 73 raft.(*RaftLog).TruncateAppend []
+23:46:56.618528 rfLog.go 70 raft.(*RaftLog).TruncateAppend [] preLgIdx:-1 []
+23:46:56.618640 rfLog.go 73 raft.(*RaftLog).TruncateAppend []
 23:46:56.618922 raft.go 435 raft.(*Raft).HandleAppendEntries [S1 Follower t:1 vF:-1 c:-1 a:-1] [RLog c:-1 a:-1 []]
 23:46:56.620093 raft.go 385 raft.(*Raft).startAppendEntries [S0 Leader t:1 vF:0 c:-1 a:-1 m:[-1 -1 -1] n:[0 0 0]] sendAppendEntries to 2 succ
 23:46:56.620625 raft.go 385 raft.(*Raft).startAppendEntries [S0 Leader t:1 vF:0 c:-1 a:-1 m:[-1 -1 -1] n:[0 0 0]] sendAppendEntries to 1 succ
@@ -328,13 +328,13 @@ Test (2A): initial election ...
 23:46:56.713344 raft.go 350 raft.(*Raft).startAppendEntries [S0 Leader t:1 vF:0 c:-1 a:-1 m:[-1 -1 -1] n:[0 0 0]] sendAppendEntries to 2, [arg S0 term:1 preLogIdx:-1 preLogT:-1 [] LComit:-1]
 23:46:56.714345 raft.go 402 raft.(*Raft).HandleAppendEntries [S1 Follower t:1 vF:-1 c:-1 a:-1] received AppendEntries [arg S0 term:1 preLogIdx:-1 preLogT:-1 [] LComit:-1]
 23:46:56.714586 raft.go 414 raft.(*Raft).HandleAppendEntries [S1 Follower t:1 vF:-1 c:-1 a:-1] reset electionTimeout
-23:46:56.714686 raftLog.go 70 raft.(*RaftLog).TruncateAppend [] preLgIdx:-1 []
-23:46:56.714802 raftLog.go 73 raft.(*RaftLog).TruncateAppend []
+23:46:56.714686 rfLog.go 70 raft.(*RaftLog).TruncateAppend [] preLgIdx:-1 []
+23:46:56.714802 rfLog.go 73 raft.(*RaftLog).TruncateAppend []
 23:46:56.714871 raft.go 402 raft.(*Raft).HandleAppendEntries [S2 Follower t:1 vF:-1 c:-1 a:-1] received AppendEntries [arg S0 term:1 preLogIdx:-1 preLogT:-1 [] LComit:-1]
 23:46:56.714951 raft.go 435 raft.(*Raft).HandleAppendEntries [S1 Follower t:1 vF:-1 c:-1 a:-1] [RLog c:-1 a:-1 []]
 23:46:56.715178 raft.go 414 raft.(*Raft).HandleAppendEntries [S2 Follower t:1 vF:-1 c:-1 a:-1] reset electionTimeout
-23:46:56.715342 raftLog.go 70 raft.(*RaftLog).TruncateAppend [] preLgIdx:-1 []
-23:46:56.715441 raftLog.go 73 raft.(*RaftLog).TruncateAppend []
+23:46:56.715342 rfLog.go 70 raft.(*RaftLog).TruncateAppend [] preLgIdx:-1 []
+23:46:56.715441 rfLog.go 73 raft.(*RaftLog).TruncateAppend []
 23:46:56.715617 raft.go 435 raft.(*Raft).HandleAppendEntries [S2 Follower t:1 vF:-1 c:-1 a:-1] [RLog c:-1 a:-1 []]
 23:46:56.716650 raft.go 385 raft.(*Raft).startAppendEntries [S0 Leader t:1 vF:0 c:-1 a:-1 m:[-1 -1 -1] n:[0 0 0]] sendAppendEntries to 1 succ
 23:46:56.717171 raft.go 385 raft.(*Raft).startAppendEntries [S0 Leader t:1 vF:0 c:-1 a:-1 m:[-1 -1 -1] n:[0 0 0]] sendAppendEntries to 2 succ
@@ -345,12 +345,12 @@ Test (2A): initial election ...
 23:46:56.814888 raft.go 402 raft.(*Raft).HandleAppendEntries [S1 Follower t:1 vF:-1 c:-1 a:-1] received AppendEntries [arg S0 term:1 preLogIdx:-1 preLogT:-1 [] LComit:-1]
 23:46:56.815089 raft.go 414 raft.(*Raft).HandleAppendEntries [S1 Follower t:1 vF:-1 c:-1 a:-1] reset electionTimeout
 23:46:56.815103 raft.go 402 raft.(*Raft).HandleAppendEntries [S2 Follower t:1 vF:-1 c:-1 a:-1] received AppendEntries [arg S0 term:1 preLogIdx:-1 preLogT:-1 [] LComit:-1]
-23:46:56.815155 raftLog.go 70 raft.(*RaftLog).TruncateAppend [] preLgIdx:-1 []
-23:46:56.815210 raftLog.go 73 raft.(*RaftLog).TruncateAppend []
+23:46:56.815155 rfLog.go 70 raft.(*RaftLog).TruncateAppend [] preLgIdx:-1 []
+23:46:56.815210 rfLog.go 73 raft.(*RaftLog).TruncateAppend []
 23:46:56.815290 raft.go 414 raft.(*Raft).HandleAppendEntries [S2 Follower t:1 vF:-1 c:-1 a:-1] reset electionTimeout
 23:46:56.815324 raft.go 435 raft.(*Raft).HandleAppendEntries [S1 Follower t:1 vF:-1 c:-1 a:-1] [RLog c:-1 a:-1 []]
-23:46:56.815354 raftLog.go 70 raft.(*RaftLog).TruncateAppend [] preLgIdx:-1 []
-23:46:56.815407 raftLog.go 73 raft.(*RaftLog).TruncateAppend []
+23:46:56.815354 rfLog.go 70 raft.(*RaftLog).TruncateAppend [] preLgIdx:-1 []
+23:46:56.815407 rfLog.go 73 raft.(*RaftLog).TruncateAppend []
 23:46:56.815497 raft.go 435 raft.(*Raft).HandleAppendEntries [S2 Follower t:1 vF:-1 c:-1 a:-1] [RLog c:-1 a:-1 []]
 23:46:56.816086 raft.go 385 raft.(*Raft).startAppendEntries [S0 Leader t:1 vF:0 c:-1 a:-1 m:[-1 -1 -1] n:[0 0 0]] sendAppendEntries to 1 succ
 23:46:56.816249 raft.go 385 raft.(*Raft).startAppendEntries [S0 Leader t:1 vF:0 c:-1 a:-1 m:[-1 -1 -1] n:[0 0 0]] sendAppendEntries to 2 succ
@@ -360,13 +360,13 @@ Test (2A): initial election ...
 23:46:56.915229 raft.go 350 raft.(*Raft).startAppendEntries [S0 Leader t:1 vF:0 c:-1 a:-1 m:[-1 -1 -1] n:[0 0 0]] sendAppendEntries to 1, [arg S0 term:1 preLogIdx:-1 preLogT:-1 [] LComit:-1]
 23:46:56.917106 raft.go 402 raft.(*Raft).HandleAppendEntries [S2 Follower t:1 vF:-1 c:-1 a:-1] received AppendEntries [arg S0 term:1 preLogIdx:-1 preLogT:-1 [] LComit:-1]
 23:46:56.917521 raft.go 414 raft.(*Raft).HandleAppendEntries [S2 Follower t:1 vF:-1 c:-1 a:-1] reset electionTimeout
-23:46:56.917667 raftLog.go 70 raft.(*RaftLog).TruncateAppend [] preLgIdx:-1 []
-23:46:56.917771 raftLog.go 73 raft.(*RaftLog).TruncateAppend []
+23:46:56.917667 rfLog.go 70 raft.(*RaftLog).TruncateAppend [] preLgIdx:-1 []
+23:46:56.917771 rfLog.go 73 raft.(*RaftLog).TruncateAppend []
 23:46:56.917917 raft.go 402 raft.(*Raft).HandleAppendEntries [S1 Follower t:1 vF:-1 c:-1 a:-1] received AppendEntries [arg S0 term:1 preLogIdx:-1 preLogT:-1 [] LComit:-1]
 23:46:56.918022 raft.go 435 raft.(*Raft).HandleAppendEntries [S2 Follower t:1 vF:-1 c:-1 a:-1] [RLog c:-1 a:-1 []]
 23:46:56.918325 raft.go 414 raft.(*Raft).HandleAppendEntries [S1 Follower t:1 vF:-1 c:-1 a:-1] reset electionTimeout
-23:46:56.918499 raftLog.go 70 raft.(*RaftLog).TruncateAppend [] preLgIdx:-1 []
-23:46:56.918617 raftLog.go 73 raft.(*RaftLog).TruncateAppend []
+23:46:56.918499 rfLog.go 70 raft.(*RaftLog).TruncateAppend [] preLgIdx:-1 []
+23:46:56.918617 rfLog.go 73 raft.(*RaftLog).TruncateAppend []
 23:46:56.918871 raft.go 435 raft.(*Raft).HandleAppendEntries [S1 Follower t:1 vF:-1 c:-1 a:-1] [RLog c:-1 a:-1 []]
 23:46:56.919721 raft.go 385 raft.(*Raft).startAppendEntries [S0 Leader t:1 vF:0 c:-1 a:-1 m:[-1 -1 -1] n:[0 0 0]] sendAppendEntries to 2 succ
 23:46:56.921068 raft.go 385 raft.(*Raft).startAppendEntries [S0 Leader t:1 vF:0 c:-1 a:-1 m:[-1 -1 -1] n:[0 0 0]] sendAppendEntries to 1 succ
@@ -378,10 +378,10 @@ Test (2A): initial election ...
 23:46:57.017002 raft.go 402 raft.(*Raft).HandleAppendEntries [S1 Follower t:1 vF:-1 c:-1 a:-1] received AppendEntries [arg S0 term:1 preLogIdx:-1 preLogT:-1 [] LComit:-1]
 23:46:57.017269 raft.go 414 raft.(*Raft).HandleAppendEntries [S2 Follower t:1 vF:-1 c:-1 a:-1] reset electionTimeout
 23:46:57.017338 raft.go 414 raft.(*Raft).HandleAppendEntries [S1 Follower t:1 vF:-1 c:-1 a:-1] reset electionTimeout
-23:46:57.017377 raftLog.go 70 raft.(*RaftLog).TruncateAppend [] preLgIdx:-1 []
-23:46:57.017446 raftLog.go 70 raft.(*RaftLog).TruncateAppend [] preLgIdx:-1 []
-23:46:57.017473 raftLog.go 73 raft.(*RaftLog).TruncateAppend []
-23:46:57.017531 raftLog.go 73 raft.(*RaftLog).TruncateAppend []
+23:46:57.017377 rfLog.go 70 raft.(*RaftLog).TruncateAppend [] preLgIdx:-1 []
+23:46:57.017446 rfLog.go 70 raft.(*RaftLog).TruncateAppend [] preLgIdx:-1 []
+23:46:57.017473 rfLog.go 73 raft.(*RaftLog).TruncateAppend []
+23:46:57.017531 rfLog.go 73 raft.(*RaftLog).TruncateAppend []
 23:46:57.017631 raft.go 435 raft.(*Raft).HandleAppendEntries [S2 Follower t:1 vF:-1 c:-1 a:-1] [RLog c:-1 a:-1 []]
 23:46:57.017705 raft.go 435 raft.(*Raft).HandleAppendEntries [S1 Follower t:1 vF:-1 c:-1 a:-1] [RLog c:-1 a:-1 []]
 23:46:57.018840 raft.go 385 raft.(*Raft).startAppendEntries [S0 Leader t:1 vF:0 c:-1 a:-1 m:[-1 -1 -1] n:[0 0 0]] sendAppendEntries to 2 succ
@@ -392,13 +392,13 @@ Test (2A): initial election ...
 23:46:57.114104 raft.go 350 raft.(*Raft).startAppendEntries [S0 Leader t:1 vF:0 c:-1 a:-1 m:[-1 -1 -1] n:[0 0 0]] sendAppendEntries to 1, [arg S0 term:1 preLogIdx:-1 preLogT:-1 [] LComit:-1]
 23:46:57.114887 raft.go 402 raft.(*Raft).HandleAppendEntries [S2 Follower t:1 vF:-1 c:-1 a:-1] received AppendEntries [arg S0 term:1 preLogIdx:-1 preLogT:-1 [] LComit:-1]
 23:46:57.115064 raft.go 414 raft.(*Raft).HandleAppendEntries [S2 Follower t:1 vF:-1 c:-1 a:-1] reset electionTimeout
-23:46:57.115124 raftLog.go 70 raft.(*RaftLog).TruncateAppend [] preLgIdx:-1 []
-23:46:57.115173 raftLog.go 73 raft.(*RaftLog).TruncateAppend []
+23:46:57.115124 rfLog.go 70 raft.(*RaftLog).TruncateAppend [] preLgIdx:-1 []
+23:46:57.115173 rfLog.go 73 raft.(*RaftLog).TruncateAppend []
 23:46:57.115268 raft.go 435 raft.(*Raft).HandleAppendEntries [S2 Follower t:1 vF:-1 c:-1 a:-1] [RLog c:-1 a:-1 []]
 23:46:57.115356 raft.go 402 raft.(*Raft).HandleAppendEntries [S1 Follower t:1 vF:-1 c:-1 a:-1] received AppendEntries [arg S0 term:1 preLogIdx:-1 preLogT:-1 [] LComit:-1]
 23:46:57.115522 raft.go 414 raft.(*Raft).HandleAppendEntries [S1 Follower t:1 vF:-1 c:-1 a:-1] reset electionTimeout
-23:46:57.115587 raftLog.go 70 raft.(*RaftLog).TruncateAppend [] preLgIdx:-1 []
-23:46:57.115630 raftLog.go 73 raft.(*RaftLog).TruncateAppend []
+23:46:57.115587 rfLog.go 70 raft.(*RaftLog).TruncateAppend [] preLgIdx:-1 []
+23:46:57.115630 rfLog.go 73 raft.(*RaftLog).TruncateAppend []
 23:46:57.115709 raft.go 435 raft.(*Raft).HandleAppendEntries [S1 Follower t:1 vF:-1 c:-1 a:-1] [RLog c:-1 a:-1 []]
 23:46:57.116315 raft.go 385 raft.(*Raft).startAppendEntries [S0 Leader t:1 vF:0 c:-1 a:-1 m:[-1 -1 -1] n:[0 0 0]] sendAppendEntries to 2 succ
 23:46:57.116564 raft.go 385 raft.(*Raft).startAppendEntries [S0 Leader t:1 vF:0 c:-1 a:-1 m:[-1 -1 -1] n:[0 0 0]] sendAppendEntries to 1 succ
@@ -408,13 +408,13 @@ Test (2A): initial election ...
 23:46:57.215095 raft.go 350 raft.(*Raft).startAppendEntries [S0 Leader t:1 vF:0 c:-1 a:-1 m:[-1 -1 -1] n:[0 0 0]] sendAppendEntries to 2, [arg S0 term:1 preLogIdx:-1 preLogT:-1 [] LComit:-1]
 23:46:57.216986 raft.go 402 raft.(*Raft).HandleAppendEntries [S1 Follower t:1 vF:-1 c:-1 a:-1] received AppendEntries [arg S0 term:1 preLogIdx:-1 preLogT:-1 [] LComit:-1]
 23:46:57.217385 raft.go 414 raft.(*Raft).HandleAppendEntries [S1 Follower t:1 vF:-1 c:-1 a:-1] reset electionTimeout
-23:46:57.217528 raftLog.go 70 raft.(*RaftLog).TruncateAppend [] preLgIdx:-1 []
-23:46:57.217647 raftLog.go 73 raft.(*RaftLog).TruncateAppend []
+23:46:57.217528 rfLog.go 70 raft.(*RaftLog).TruncateAppend [] preLgIdx:-1 []
+23:46:57.217647 rfLog.go 73 raft.(*RaftLog).TruncateAppend []
 23:46:57.217683 raft.go 402 raft.(*Raft).HandleAppendEntries [S2 Follower t:1 vF:-1 c:-1 a:-1] received AppendEntries [arg S0 term:1 preLogIdx:-1 preLogT:-1 [] LComit:-1]
 23:46:57.217856 raft.go 435 raft.(*Raft).HandleAppendEntries [S1 Follower t:1 vF:-1 c:-1 a:-1] [RLog c:-1 a:-1 []]
 23:46:57.218060 raft.go 414 raft.(*Raft).HandleAppendEntries [S2 Follower t:1 vF:-1 c:-1 a:-1] reset electionTimeout
-23:46:57.218211 raftLog.go 70 raft.(*RaftLog).TruncateAppend [] preLgIdx:-1 []
-23:46:57.218332 raftLog.go 73 raft.(*RaftLog).TruncateAppend []
+23:46:57.218211 rfLog.go 70 raft.(*RaftLog).TruncateAppend [] preLgIdx:-1 []
+23:46:57.218332 rfLog.go 73 raft.(*RaftLog).TruncateAppend []
 23:46:57.218562 raft.go 435 raft.(*Raft).HandleAppendEntries [S2 Follower t:1 vF:-1 c:-1 a:-1] [RLog c:-1 a:-1 []]
 23:46:57.219690 raft.go 385 raft.(*Raft).startAppendEntries [S0 Leader t:1 vF:0 c:-1 a:-1 m:[-1 -1 -1] n:[0 0 0]] sendAppendEntries to 1 succ
 23:46:57.220288 raft.go 385 raft.(*Raft).startAppendEntries [S0 Leader t:1 vF:0 c:-1 a:-1 m:[-1 -1 -1] n:[0 0 0]] sendAppendEntries to 2 succ
@@ -424,13 +424,13 @@ Test (2A): initial election ...
 23:46:57.315827 raft.go 350 raft.(*Raft).startAppendEntries [S0 Leader t:1 vF:0 c:-1 a:-1 m:[-1 -1 -1] n:[0 0 0]] sendAppendEntries to 2, [arg S0 term:1 preLogIdx:-1 preLogT:-1 [] LComit:-1]
 23:46:57.318332 raft.go 402 raft.(*Raft).HandleAppendEntries [S1 Follower t:1 vF:-1 c:-1 a:-1] received AppendEntries [arg S0 term:1 preLogIdx:-1 preLogT:-1 [] LComit:-1]
 23:46:57.318806 raft.go 414 raft.(*Raft).HandleAppendEntries [S1 Follower t:1 vF:-1 c:-1 a:-1] reset electionTimeout
-23:46:57.318982 raftLog.go 70 raft.(*RaftLog).TruncateAppend [] preLgIdx:-1 []
-23:46:57.319133 raftLog.go 73 raft.(*RaftLog).TruncateAppend []
+23:46:57.318982 rfLog.go 70 raft.(*RaftLog).TruncateAppend [] preLgIdx:-1 []
+23:46:57.319133 rfLog.go 73 raft.(*RaftLog).TruncateAppend []
 23:46:57.319142 raft.go 402 raft.(*Raft).HandleAppendEntries [S2 Follower t:1 vF:-1 c:-1 a:-1] received AppendEntries [arg S0 term:1 preLogIdx:-1 preLogT:-1 [] LComit:-1]
 23:46:57.319390 raft.go 435 raft.(*Raft).HandleAppendEntries [S1 Follower t:1 vF:-1 c:-1 a:-1] [RLog c:-1 a:-1 []]
 23:46:57.319677 raft.go 414 raft.(*Raft).HandleAppendEntries [S2 Follower t:1 vF:-1 c:-1 a:-1] reset electionTimeout
-23:46:57.319883 raftLog.go 70 raft.(*RaftLog).TruncateAppend [] preLgIdx:-1 []
-23:46:57.320040 raftLog.go 73 raft.(*RaftLog).TruncateAppend []
+23:46:57.319883 rfLog.go 70 raft.(*RaftLog).TruncateAppend [] preLgIdx:-1 []
+23:46:57.320040 rfLog.go 73 raft.(*RaftLog).TruncateAppend []
 23:46:57.320304 raft.go 435 raft.(*Raft).HandleAppendEntries [S2 Follower t:1 vF:-1 c:-1 a:-1] [RLog c:-1 a:-1 []]
 23:46:57.321291 raft.go 385 raft.(*Raft).startAppendEntries [S0 Leader t:1 vF:0 c:-1 a:-1 m:[-1 -1 -1] n:[0 0 0]] sendAppendEntries to 1 succ
 23:46:57.322214 raft.go 385 raft.(*Raft).startAppendEntries [S0 Leader t:1 vF:0 c:-1 a:-1 m:[-1 -1 -1] n:[0 0 0]] sendAppendEntries to 2 succ
@@ -440,13 +440,13 @@ Test (2A): initial election ...
 23:46:57.415787 raft.go 350 raft.(*Raft).startAppendEntries [S0 Leader t:1 vF:0 c:-1 a:-1 m:[-1 -1 -1] n:[0 0 0]] sendAppendEntries to 1, [arg S0 term:1 preLogIdx:-1 preLogT:-1 [] LComit:-1]
 23:46:57.418265 raft.go 402 raft.(*Raft).HandleAppendEntries [S2 Follower t:1 vF:-1 c:-1 a:-1] received AppendEntries [arg S0 term:1 preLogIdx:-1 preLogT:-1 [] LComit:-1]
 23:46:57.418676 raft.go 414 raft.(*Raft).HandleAppendEntries [S2 Follower t:1 vF:-1 c:-1 a:-1] reset electionTimeout
-23:46:57.418893 raftLog.go 70 raft.(*RaftLog).TruncateAppend [] preLgIdx:-1 []
+23:46:57.418893 rfLog.go 70 raft.(*RaftLog).TruncateAppend [] preLgIdx:-1 []
 23:46:57.418946 raft.go 402 raft.(*Raft).HandleAppendEntries [S1 Follower t:1 vF:-1 c:-1 a:-1] received AppendEntries [arg S0 term:1 preLogIdx:-1 preLogT:-1 [] LComit:-1]
-23:46:57.419005 raftLog.go 73 raft.(*RaftLog).TruncateAppend []
+23:46:57.419005 rfLog.go 73 raft.(*RaftLog).TruncateAppend []
 23:46:57.419314 raft.go 435 raft.(*Raft).HandleAppendEntries [S2 Follower t:1 vF:-1 c:-1 a:-1] [RLog c:-1 a:-1 []]
 23:46:57.419372 raft.go 414 raft.(*Raft).HandleAppendEntries [S1 Follower t:1 vF:-1 c:-1 a:-1] reset electionTimeout
-23:46:57.419561 raftLog.go 70 raft.(*RaftLog).TruncateAppend [] preLgIdx:-1 []
-23:46:57.419687 raftLog.go 73 raft.(*RaftLog).TruncateAppend []
+23:46:57.419561 rfLog.go 70 raft.(*RaftLog).TruncateAppend [] preLgIdx:-1 []
+23:46:57.419687 rfLog.go 73 raft.(*RaftLog).TruncateAppend []
 23:46:57.419974 raft.go 435 raft.(*Raft).HandleAppendEntries [S1 Follower t:1 vF:-1 c:-1 a:-1] [RLog c:-1 a:-1 []]
 23:46:57.421693 raft.go 385 raft.(*Raft).startAppendEntries [S0 Leader t:1 vF:0 c:-1 a:-1 m:[-1 -1 -1] n:[0 0 0]] sendAppendEntries to 2 succ
 23:46:57.422418 raft.go 385 raft.(*Raft).startAppendEntries [S0 Leader t:1 vF:0 c:-1 a:-1 m:[-1 -1 -1] n:[0 0 0]] sendAppendEntries to 1 succ
@@ -456,13 +456,13 @@ Test (2A): initial election ...
 23:46:57.514370 raft.go 350 raft.(*Raft).startAppendEntries [S0 Leader t:1 vF:0 c:-1 a:-1 m:[-1 -1 -1] n:[0 0 0]] sendAppendEntries to 1, [arg S0 term:1 preLogIdx:-1 preLogT:-1 [] LComit:-1]
 23:46:57.515590 raft.go 402 raft.(*Raft).HandleAppendEntries [S2 Follower t:1 vF:-1 c:-1 a:-1] received AppendEntries [arg S0 term:1 preLogIdx:-1 preLogT:-1 [] LComit:-1]
 23:46:57.515781 raft.go 414 raft.(*Raft).HandleAppendEntries [S2 Follower t:1 vF:-1 c:-1 a:-1] reset electionTimeout
-23:46:57.515852 raftLog.go 70 raft.(*RaftLog).TruncateAppend [] preLgIdx:-1 []
-23:46:57.515913 raftLog.go 73 raft.(*RaftLog).TruncateAppend []
+23:46:57.515852 rfLog.go 70 raft.(*RaftLog).TruncateAppend [] preLgIdx:-1 []
+23:46:57.515913 rfLog.go 73 raft.(*RaftLog).TruncateAppend []
 23:46:57.516026 raft.go 435 raft.(*Raft).HandleAppendEntries [S2 Follower t:1 vF:-1 c:-1 a:-1] [RLog c:-1 a:-1 []]
 23:46:57.516222 raft.go 402 raft.(*Raft).HandleAppendEntries [S1 Follower t:1 vF:-1 c:-1 a:-1] received AppendEntries [arg S0 term:1 preLogIdx:-1 preLogT:-1 [] LComit:-1]
 23:46:57.516493 raft.go 414 raft.(*Raft).HandleAppendEntries [S1 Follower t:1 vF:-1 c:-1 a:-1] reset electionTimeout
-23:46:57.516601 raftLog.go 70 raft.(*RaftLog).TruncateAppend [] preLgIdx:-1 []
-23:46:57.516677 raftLog.go 73 raft.(*RaftLog).TruncateAppend []
+23:46:57.516601 rfLog.go 70 raft.(*RaftLog).TruncateAppend [] preLgIdx:-1 []
+23:46:57.516677 rfLog.go 73 raft.(*RaftLog).TruncateAppend []
 23:46:57.516820 raft.go 385 raft.(*Raft).startAppendEntries [S0 Leader t:1 vF:0 c:-1 a:-1 m:[-1 -1 -1] n:[0 0 0]] sendAppendEntries to 2 succ
 23:46:57.516827 raft.go 435 raft.(*Raft).HandleAppendEntries [S1 Follower t:1 vF:-1 c:-1 a:-1] [RLog c:-1 a:-1 []]
 23:46:57.518100 raft.go 385 raft.(*Raft).startAppendEntries [S0 Leader t:1 vF:0 c:-1 a:-1 m:[-1 -1 -1] n:[0 0 0]] sendAppendEntries to 1 succ
@@ -508,13 +508,13 @@ Test (2A): election after network failure ...
 23:46:57.861303 raft.go 350 raft.(*Raft).startAppendEntries [S0 Leader t:1 vF:0 c:-1 a:-1 m:[-1 -1 -1] n:[0 0 0]] sendAppendEntries to 2, [arg S0 term:1 preLogIdx:-1 preLogT:-1 [] LComit:-1]
 23:46:57.863594 raft.go 402 raft.(*Raft).HandleAppendEntries [S1 Follower t:1 vF:0 c:-1 a:-1] received AppendEntries [arg S0 term:1 preLogIdx:-1 preLogT:-1 [] LComit:-1]
 23:46:57.864009 raft.go 414 raft.(*Raft).HandleAppendEntries [S1 Follower t:1 vF:-1 c:-1 a:-1] reset electionTimeout
-23:46:57.864174 raftLog.go 70 raft.(*RaftLog).TruncateAppend [] preLgIdx:-1 []
+23:46:57.864174 rfLog.go 70 raft.(*RaftLog).TruncateAppend [] preLgIdx:-1 []
 23:46:57.864269 raft.go 402 raft.(*Raft).HandleAppendEntries [S2 Follower t:1 vF:0 c:-1 a:-1] received AppendEntries [arg S0 term:1 preLogIdx:-1 preLogT:-1 [] LComit:-1]
-23:46:57.864289 raftLog.go 73 raft.(*RaftLog).TruncateAppend []
+23:46:57.864289 rfLog.go 73 raft.(*RaftLog).TruncateAppend []
 23:46:57.864698 raft.go 435 raft.(*Raft).HandleAppendEntries [S1 Follower t:1 vF:-1 c:-1 a:-1] [RLog c:-1 a:-1 []]
 23:46:57.864724 raft.go 414 raft.(*Raft).HandleAppendEntries [S2 Follower t:1 vF:-1 c:-1 a:-1] reset electionTimeout
-23:46:57.864928 raftLog.go 70 raft.(*RaftLog).TruncateAppend [] preLgIdx:-1 []
-23:46:57.865051 raftLog.go 73 raft.(*RaftLog).TruncateAppend []
+23:46:57.864928 rfLog.go 70 raft.(*RaftLog).TruncateAppend [] preLgIdx:-1 []
+23:46:57.865051 rfLog.go 73 raft.(*RaftLog).TruncateAppend []
 23:46:57.865389 raft.go 435 raft.(*Raft).HandleAppendEntries [S2 Follower t:1 vF:-1 c:-1 a:-1] [RLog c:-1 a:-1 []]
 23:46:57.867176 raft.go 385 raft.(*Raft).startAppendEntries [S0 Leader t:1 vF:0 c:-1 a:-1 m:[-1 -1 -1] n:[0 0 0]] sendAppendEntries to 1 succ
 23:46:57.867746 raft.go 385 raft.(*Raft).startAppendEntries [S0 Leader t:1 vF:0 c:-1 a:-1 m:[-1 -1 -1] n:[0 0 0]] sendAppendEntries to 2 succ
@@ -525,12 +525,12 @@ Test (2A): election after network failure ...
 23:46:57.963497 raft.go 402 raft.(*Raft).HandleAppendEntries [S2 Follower t:1 vF:-1 c:-1 a:-1] received AppendEntries [arg S0 term:1 preLogIdx:-1 preLogT:-1 [] LComit:-1]
 23:46:57.963995 raft.go 414 raft.(*Raft).HandleAppendEntries [S2 Follower t:1 vF:-1 c:-1 a:-1] reset electionTimeout
 23:46:57.964001 raft.go 402 raft.(*Raft).HandleAppendEntries [S1 Follower t:1 vF:-1 c:-1 a:-1] received AppendEntries [arg S0 term:1 preLogIdx:-1 preLogT:-1 [] LComit:-1]
-23:46:57.964203 raftLog.go 70 raft.(*RaftLog).TruncateAppend [] preLgIdx:-1 []
-23:46:57.964416 raftLog.go 73 raft.(*RaftLog).TruncateAppend []
+23:46:57.964203 rfLog.go 70 raft.(*RaftLog).TruncateAppend [] preLgIdx:-1 []
+23:46:57.964416 rfLog.go 73 raft.(*RaftLog).TruncateAppend []
 23:46:57.964581 raft.go 414 raft.(*Raft).HandleAppendEntries [S1 Follower t:1 vF:-1 c:-1 a:-1] reset electionTimeout
 23:46:57.964712 raft.go 435 raft.(*Raft).HandleAppendEntries [S2 Follower t:1 vF:-1 c:-1 a:-1] [RLog c:-1 a:-1 []]
-23:46:57.964801 raftLog.go 70 raft.(*RaftLog).TruncateAppend [] preLgIdx:-1 []
-23:46:57.964964 raftLog.go 73 raft.(*RaftLog).TruncateAppend []
+23:46:57.964801 rfLog.go 70 raft.(*RaftLog).TruncateAppend [] preLgIdx:-1 []
+23:46:57.964964 rfLog.go 73 raft.(*RaftLog).TruncateAppend []
 23:46:57.965285 raft.go 435 raft.(*Raft).HandleAppendEntries [S1 Follower t:1 vF:-1 c:-1 a:-1] [RLog c:-1 a:-1 []]
 23:46:57.966645 raft.go 385 raft.(*Raft).startAppendEntries [S0 Leader t:1 vF:0 c:-1 a:-1 m:[-1 -1 -1] n:[0 0 0]] sendAppendEntries to 2 succ
 23:46:57.967033 raft.go 385 raft.(*Raft).startAppendEntries [S0 Leader t:1 vF:0 c:-1 a:-1 m:[-1 -1 -1] n:[0 0 0]] sendAppendEntries to 1 succ
@@ -565,8 +565,8 @@ Test (2A): election after network failure ...
 23:46:58.262649 raft.go 350 raft.(*Raft).startAppendEntries [S2 Leader t:2 vF:2 c:-1 a:-1 m:[-1 -1 -1] n:[0 0 0]] sendAppendEntries to 1, [arg S2 term:2 preLogIdx:-1 preLogT:-1 [] LComit:-1]
 23:46:58.263925 raft.go 402 raft.(*Raft).HandleAppendEntries [S1 Follower t:2 vF:2 c:-1 a:-1] received AppendEntries [arg S2 term:2 preLogIdx:-1 preLogT:-1 [] LComit:-1]
 23:46:58.264082 raft.go 414 raft.(*Raft).HandleAppendEntries [S1 Follower t:2 vF:-1 c:-1 a:-1] reset electionTimeout
-23:46:58.264142 raftLog.go 70 raft.(*RaftLog).TruncateAppend [] preLgIdx:-1 []
-23:46:58.264206 raftLog.go 73 raft.(*RaftLog).TruncateAppend []
+23:46:58.264142 rfLog.go 70 raft.(*RaftLog).TruncateAppend [] preLgIdx:-1 []
+23:46:58.264206 rfLog.go 73 raft.(*RaftLog).TruncateAppend []
 23:46:58.264300 raft.go 435 raft.(*Raft).HandleAppendEntries [S1 Follower t:2 vF:-1 c:-1 a:-1] [RLog c:-1 a:-1 []]
 23:46:58.264952 raft.go 385 raft.(*Raft).startAppendEntries [S2 Leader t:2 vF:2 c:-1 a:-1 m:[-1 -1 -1] n:[0 0 0]] sendAppendEntries to 1 succ
 23:46:58.359244 raft.go 540 raft.(*Raft).run [S0 Leader t:1 vF:0 c:-1 a:-1 m:[-1 -1 -1] n:[0 0 0]] sending heartbeat msg
@@ -579,8 +579,8 @@ Test (2A): election after network failure ...
 23:46:58.364006 raft.go 350 raft.(*Raft).startAppendEntries [S2 Leader t:2 vF:2 c:-1 a:-1 m:[-1 -1 -1] n:[0 0 0]] sendAppendEntries to 1, [arg S2 term:2 preLogIdx:-1 preLogT:-1 [] LComit:-1]
 23:46:58.367174 raft.go 402 raft.(*Raft).HandleAppendEntries [S1 Follower t:2 vF:-1 c:-1 a:-1] received AppendEntries [arg S2 term:2 preLogIdx:-1 preLogT:-1 [] LComit:-1]
 23:46:58.367559 raft.go 414 raft.(*Raft).HandleAppendEntries [S1 Follower t:2 vF:-1 c:-1 a:-1] reset electionTimeout
-23:46:58.367704 raftLog.go 70 raft.(*RaftLog).TruncateAppend [] preLgIdx:-1 []
-23:46:58.367813 raftLog.go 73 raft.(*RaftLog).TruncateAppend []
+23:46:58.367704 rfLog.go 70 raft.(*RaftLog).TruncateAppend [] preLgIdx:-1 []
+23:46:58.367813 rfLog.go 73 raft.(*RaftLog).TruncateAppend []
 23:46:58.368015 raft.go 435 raft.(*Raft).HandleAppendEntries [S1 Follower t:2 vF:-1 c:-1 a:-1] [RLog c:-1 a:-1 []]
 23:46:58.369657 raft.go 385 raft.(*Raft).startAppendEntries [S2 Leader t:2 vF:2 c:-1 a:-1 m:[-1 -1 -1] n:[0 0 0]] sendAppendEntries to 1 succ
 23:46:58.459063 raft.go 540 raft.(*Raft).run [S0 Leader t:1 vF:0 c:-1 a:-1 m:[-1 -1 -1] n:[0 0 0]] sending heartbeat msg
@@ -593,8 +593,8 @@ Test (2A): election after network failure ...
 23:46:58.464852 raft.go 350 raft.(*Raft).startAppendEntries [S2 Leader t:2 vF:2 c:-1 a:-1 m:[-1 -1 -1] n:[0 0 0]] sendAppendEntries to 1, [arg S2 term:2 preLogIdx:-1 preLogT:-1 [] LComit:-1]
 23:46:58.468117 raft.go 402 raft.(*Raft).HandleAppendEntries [S1 Follower t:2 vF:-1 c:-1 a:-1] received AppendEntries [arg S2 term:2 preLogIdx:-1 preLogT:-1 [] LComit:-1]
 23:46:58.468551 raft.go 414 raft.(*Raft).HandleAppendEntries [S1 Follower t:2 vF:-1 c:-1 a:-1] reset electionTimeout
-23:46:58.468707 raftLog.go 70 raft.(*RaftLog).TruncateAppend [] preLgIdx:-1 []
-23:46:58.468857 raftLog.go 73 raft.(*RaftLog).TruncateAppend []
+23:46:58.468707 rfLog.go 70 raft.(*RaftLog).TruncateAppend [] preLgIdx:-1 []
+23:46:58.468857 rfLog.go 73 raft.(*RaftLog).TruncateAppend []
 23:46:58.469088 raft.go 435 raft.(*Raft).HandleAppendEntries [S1 Follower t:2 vF:-1 c:-1 a:-1] [RLog c:-1 a:-1 []]
 23:46:58.470823 raft.go 385 raft.(*Raft).startAppendEntries [S2 Leader t:2 vF:2 c:-1 a:-1 m:[-1 -1 -1] n:[0 0 0]] sendAppendEntries to 1 succ
 23:46:58.531698 ********************************************************
@@ -611,14 +611,14 @@ Test (2A): election after network failure ...
 23:46:58.564984 raft.go 402 raft.(*Raft).HandleAppendEntries [S2 Leader t:2 vF:2 c:-1 a:-1 m:[-1 -1 -1] n:[0 0 0]] received AppendEntries [arg S0 term:1 preLogIdx:-1 preLogT:-1 [] LComit:-1]
 23:46:58.566425 raft.go 402 raft.(*Raft).HandleAppendEntries [S1 Follower t:2 vF:-1 c:-1 a:-1] received AppendEntries [arg S2 term:2 preLogIdx:-1 preLogT:-1 [] LComit:-1]
 23:46:58.566840 raft.go 414 raft.(*Raft).HandleAppendEntries [S1 Follower t:2 vF:-1 c:-1 a:-1] reset electionTimeout
-23:46:58.567012 raftLog.go 70 raft.(*RaftLog).TruncateAppend [] preLgIdx:-1 []
-23:46:58.567135 raftLog.go 73 raft.(*RaftLog).TruncateAppend []
+23:46:58.567012 rfLog.go 70 raft.(*RaftLog).TruncateAppend [] preLgIdx:-1 []
+23:46:58.567135 rfLog.go 73 raft.(*RaftLog).TruncateAppend []
 23:46:58.567342 raft.go 435 raft.(*Raft).HandleAppendEntries [S1 Follower t:2 vF:-1 c:-1 a:-1] [RLog c:-1 a:-1 []]
 23:46:58.567558 raft.go 371 raft.(*Raft).startAppendEntries [S0 Follower t:2 vF:0 c:-1 a:-1] sendAppendEntries to 2 failed, [rply term:2 succ:false]
 23:46:58.568562 raft.go 402 raft.(*Raft).HandleAppendEntries [S0 Follower t:2 vF:0 c:-1 a:-1] received AppendEntries [arg S2 term:2 preLogIdx:-1 preLogT:-1 [] LComit:-1]
 23:46:58.569170 raft.go 414 raft.(*Raft).HandleAppendEntries [S0 Follower t:2 vF:-1 c:-1 a:-1] reset electionTimeout
-23:46:58.569419 raftLog.go 70 raft.(*RaftLog).TruncateAppend [] preLgIdx:-1 []
-23:46:58.569608 raftLog.go 73 raft.(*RaftLog).TruncateAppend []
+23:46:58.569419 rfLog.go 70 raft.(*RaftLog).TruncateAppend [] preLgIdx:-1 []
+23:46:58.569608 rfLog.go 73 raft.(*RaftLog).TruncateAppend []
 23:46:58.569731 raft.go 385 raft.(*Raft).startAppendEntries [S2 Leader t:2 vF:2 c:-1 a:-1 m:[-1 -1 -1] n:[0 0 0]] sendAppendEntries to 1 succ
 23:46:58.569989 raft.go 435 raft.(*Raft).HandleAppendEntries [S0 Follower t:2 vF:-1 c:-1 a:-1] [RLog c:-1 a:-1 []]
 23:46:58.571665 raft.go 385 raft.(*Raft).startAppendEntries [S2 Leader t:2 vF:2 c:-1 a:-1 m:[-1 -1 -1] n:[0 0 0]] sendAppendEntries to 0 succ
@@ -630,12 +630,12 @@ Test (2A): election after network failure ...
 23:46:58.664069 raft.go 402 raft.(*Raft).HandleAppendEntries [S0 Follower t:2 vF:-1 c:-1 a:-1] received AppendEntries [arg S2 term:2 preLogIdx:-1 preLogT:-1 [] LComit:-1]
 23:46:58.664226 raft.go 414 raft.(*Raft).HandleAppendEntries [S0 Follower t:2 vF:-1 c:-1 a:-1] reset electionTimeout
 23:46:58.664285 raft.go 402 raft.(*Raft).HandleAppendEntries [S1 Follower t:2 vF:-1 c:-1 a:-1] received AppendEntries [arg S2 term:2 preLogIdx:-1 preLogT:-1 [] LComit:-1]
-23:46:58.664286 raftLog.go 70 raft.(*RaftLog).TruncateAppend [] preLgIdx:-1 []
-23:46:58.664419 raftLog.go 73 raft.(*RaftLog).TruncateAppend []
+23:46:58.664286 rfLog.go 70 raft.(*RaftLog).TruncateAppend [] preLgIdx:-1 []
+23:46:58.664419 rfLog.go 73 raft.(*RaftLog).TruncateAppend []
 23:46:58.664465 raft.go 414 raft.(*Raft).HandleAppendEntries [S1 Follower t:2 vF:-1 c:-1 a:-1] reset electionTimeout
 23:46:58.664520 raft.go 435 raft.(*Raft).HandleAppendEntries [S0 Follower t:2 vF:-1 c:-1 a:-1] [RLog c:-1 a:-1 []]
-23:46:58.664542 raftLog.go 70 raft.(*RaftLog).TruncateAppend [] preLgIdx:-1 []
-23:46:58.664608 raftLog.go 73 raft.(*RaftLog).TruncateAppend []
+23:46:58.664542 rfLog.go 70 raft.(*RaftLog).TruncateAppend [] preLgIdx:-1 []
+23:46:58.664608 rfLog.go 73 raft.(*RaftLog).TruncateAppend []
 23:46:58.664708 raft.go 435 raft.(*Raft).HandleAppendEntries [S1 Follower t:2 vF:-1 c:-1 a:-1] [RLog c:-1 a:-1 []]
 23:46:58.665283 raft.go 385 raft.(*Raft).startAppendEntries [S2 Leader t:2 vF:2 c:-1 a:-1 m:[-1 -1 -1] n:[0 0 0]] sendAppendEntries to 0 succ
 23:46:58.665441 raft.go 385 raft.(*Raft).startAppendEntries [S2 Leader t:2 vF:2 c:-1 a:-1 m:[-1 -1 -1] n:[0 0 0]] sendAppendEntries to 1 succ
@@ -645,13 +645,13 @@ Test (2A): election after network failure ...
 23:46:58.764597 raft.go 350 raft.(*Raft).startAppendEntries [S2 Leader t:2 vF:2 c:-1 a:-1 m:[-1 -1 -1] n:[0 0 0]] sendAppendEntries to 1, [arg S2 term:2 preLogIdx:-1 preLogT:-1 [] LComit:-1]
 23:46:58.766554 raft.go 402 raft.(*Raft).HandleAppendEntries [S0 Follower t:2 vF:-1 c:-1 a:-1] received AppendEntries [arg S2 term:2 preLogIdx:-1 preLogT:-1 [] LComit:-1]
 23:46:58.767022 raft.go 414 raft.(*Raft).HandleAppendEntries [S0 Follower t:2 vF:-1 c:-1 a:-1] reset electionTimeout
-23:46:58.767203 raftLog.go 70 raft.(*RaftLog).TruncateAppend [] preLgIdx:-1 []
-23:46:58.767315 raftLog.go 73 raft.(*RaftLog).TruncateAppend []
+23:46:58.767203 rfLog.go 70 raft.(*RaftLog).TruncateAppend [] preLgIdx:-1 []
+23:46:58.767315 rfLog.go 73 raft.(*RaftLog).TruncateAppend []
 23:46:58.767372 raft.go 402 raft.(*Raft).HandleAppendEntries [S1 Follower t:2 vF:-1 c:-1 a:-1] received AppendEntries [arg S2 term:2 preLogIdx:-1 preLogT:-1 [] LComit:-1]
 23:46:58.767575 raft.go 435 raft.(*Raft).HandleAppendEntries [S0 Follower t:2 vF:-1 c:-1 a:-1] [RLog c:-1 a:-1 []]
 23:46:58.767769 raft.go 414 raft.(*Raft).HandleAppendEntries [S1 Follower t:2 vF:-1 c:-1 a:-1] reset electionTimeout
-23:46:58.767930 raftLog.go 70 raft.(*RaftLog).TruncateAppend [] preLgIdx:-1 []
-23:46:58.768063 raftLog.go 73 raft.(*RaftLog).TruncateAppend []
+23:46:58.767930 rfLog.go 70 raft.(*RaftLog).TruncateAppend [] preLgIdx:-1 []
+23:46:58.768063 rfLog.go 73 raft.(*RaftLog).TruncateAppend []
 23:46:58.768294 raft.go 435 raft.(*Raft).HandleAppendEntries [S1 Follower t:2 vF:-1 c:-1 a:-1] [RLog c:-1 a:-1 []]
 23:46:58.769551 raft.go 385 raft.(*Raft).startAppendEntries [S2 Leader t:2 vF:2 c:-1 a:-1 m:[-1 -1 -1] n:[0 0 0]] sendAppendEntries to 0 succ
 23:46:58.770181 raft.go 385 raft.(*Raft).startAppendEntries [S2 Leader t:2 vF:2 c:-1 a:-1 m:[-1 -1 -1] n:[0 0 0]] sendAppendEntries to 1 succ
@@ -662,12 +662,12 @@ Test (2A): election after network failure ...
 23:46:58.867560 raft.go 402 raft.(*Raft).HandleAppendEntries [S1 Follower t:2 vF:-1 c:-1 a:-1] received AppendEntries [arg S2 term:2 preLogIdx:-1 preLogT:-1 [] LComit:-1]
 23:46:58.868073 raft.go 414 raft.(*Raft).HandleAppendEntries [S1 Follower t:2 vF:-1 c:-1 a:-1] reset electionTimeout
 23:46:58.868173 raft.go 402 raft.(*Raft).HandleAppendEntries [S0 Follower t:2 vF:-1 c:-1 a:-1] received AppendEntries [arg S2 term:2 preLogIdx:-1 preLogT:-1 [] LComit:-1]
-23:46:58.868256 raftLog.go 70 raft.(*RaftLog).TruncateAppend [] preLgIdx:-1 []
-23:46:58.868434 raftLog.go 73 raft.(*RaftLog).TruncateAppend []
+23:46:58.868256 rfLog.go 70 raft.(*RaftLog).TruncateAppend [] preLgIdx:-1 []
+23:46:58.868434 rfLog.go 73 raft.(*RaftLog).TruncateAppend []
 23:46:58.868646 raft.go 414 raft.(*Raft).HandleAppendEntries [S0 Follower t:2 vF:-1 c:-1 a:-1] reset electionTimeout
 23:46:58.868706 raft.go 435 raft.(*Raft).HandleAppendEntries [S1 Follower t:2 vF:-1 c:-1 a:-1] [RLog c:-1 a:-1 []]
-23:46:58.868831 raftLog.go 70 raft.(*RaftLog).TruncateAppend [] preLgIdx:-1 []
-23:46:58.868971 raftLog.go 73 raft.(*RaftLog).TruncateAppend []
+23:46:58.868831 rfLog.go 70 raft.(*RaftLog).TruncateAppend [] preLgIdx:-1 []
+23:46:58.868971 rfLog.go 73 raft.(*RaftLog).TruncateAppend []
 23:46:58.869214 raft.go 435 raft.(*Raft).HandleAppendEntries [S0 Follower t:2 vF:-1 c:-1 a:-1] [RLog c:-1 a:-1 []]
 23:46:58.870645 raft.go 385 raft.(*Raft).startAppendEntries [S2 Leader t:2 vF:2 c:-1 a:-1 m:[-1 -1 -1] n:[0 0 0]] sendAppendEntries to 1 succ
 23:46:58.871360 raft.go 385 raft.(*Raft).startAppendEntries [S2 Leader t:2 vF:2 c:-1 a:-1 m:[-1 -1 -1] n:[0 0 0]] sendAppendEntries to 0 succ
@@ -678,12 +678,12 @@ Test (2A): election after network failure ...
 23:46:58.966578 raft.go 402 raft.(*Raft).HandleAppendEntries [S0 Follower t:2 vF:-1 c:-1 a:-1] received AppendEntries [arg S2 term:2 preLogIdx:-1 preLogT:-1 [] LComit:-1]
 23:46:58.967008 raft.go 414 raft.(*Raft).HandleAppendEntries [S0 Follower t:2 vF:-1 c:-1 a:-1] reset electionTimeout
 23:46:58.967167 raft.go 402 raft.(*Raft).HandleAppendEntries [S1 Follower t:2 vF:-1 c:-1 a:-1] received AppendEntries [arg S2 term:2 preLogIdx:-1 preLogT:-1 [] LComit:-1]
-23:46:58.967185 raftLog.go 70 raft.(*RaftLog).TruncateAppend [] preLgIdx:-1 []
-23:46:58.967490 raftLog.go 73 raft.(*RaftLog).TruncateAppend []
+23:46:58.967185 rfLog.go 70 raft.(*RaftLog).TruncateAppend [] preLgIdx:-1 []
+23:46:58.967490 rfLog.go 73 raft.(*RaftLog).TruncateAppend []
 23:46:58.967558 raft.go 414 raft.(*Raft).HandleAppendEntries [S1 Follower t:2 vF:-1 c:-1 a:-1] reset electionTimeout
 23:46:58.967716 raft.go 435 raft.(*Raft).HandleAppendEntries [S0 Follower t:2 vF:-1 c:-1 a:-1] [RLog c:-1 a:-1 []]
-23:46:58.967739 raftLog.go 70 raft.(*RaftLog).TruncateAppend [] preLgIdx:-1 []
-23:46:58.968111 raftLog.go 73 raft.(*RaftLog).TruncateAppend []
+23:46:58.967739 rfLog.go 70 raft.(*RaftLog).TruncateAppend [] preLgIdx:-1 []
+23:46:58.968111 rfLog.go 73 raft.(*RaftLog).TruncateAppend []
 23:46:58.968380 raft.go 435 raft.(*Raft).HandleAppendEntries [S1 Follower t:2 vF:-1 c:-1 a:-1] [RLog c:-1 a:-1 []]
 23:46:58.969988 raft.go 385 raft.(*Raft).startAppendEntries [S2 Leader t:2 vF:2 c:-1 a:-1 m:[-1 -1 -1] n:[0 0 0]] sendAppendEntries to 0 succ
 23:46:58.970530 raft.go 385 raft.(*Raft).startAppendEntries [S2 Leader t:2 vF:2 c:-1 a:-1 m:[-1 -1 -1] n:[0 0 0]] sendAppendEntries to 1 succ
@@ -849,8 +849,8 @@ Test (2A): election after network failure ...
 23:47:01.164046 raft.go 350 raft.(*Raft).startAppendEntries [S2 Leader t:2 vF:2 c:-1 a:-1 m:[-1 -1 -1] n:[0 0 0]] sendAppendEntries to 0, [arg S2 term:2 preLogIdx:-1 preLogT:-1 [] LComit:-1]
 23:47:01.164437 raft.go 402 raft.(*Raft).HandleAppendEntries [S1 Follower t:8 vF:0 c:-1 a:-1] received AppendEntries [arg S0 term:8 preLogIdx:-1 preLogT:-1 [] LComit:-1]
 23:47:01.164873 raft.go 414 raft.(*Raft).HandleAppendEntries [S1 Follower t:8 vF:-1 c:-1 a:-1] reset electionTimeout
-23:47:01.165033 raftLog.go 70 raft.(*RaftLog).TruncateAppend [] preLgIdx:-1 []
-23:47:01.165150 raftLog.go 73 raft.(*RaftLog).TruncateAppend []
+23:47:01.165033 rfLog.go 70 raft.(*RaftLog).TruncateAppend [] preLgIdx:-1 []
+23:47:01.165150 rfLog.go 73 raft.(*RaftLog).TruncateAppend []
 23:47:01.165376 raft.go 435 raft.(*Raft).HandleAppendEntries [S1 Follower t:8 vF:-1 c:-1 a:-1] [RLog c:-1 a:-1 []]
 23:47:01.166974 raft.go 385 raft.(*Raft).startAppendEntries [S0 Leader t:8 vF:0 c:-1 a:-1 m:[-1 -1 -1] n:[0 0 0]] sendAppendEntries to 1 succ
 23:47:01.259154 raft.go 540 raft.(*Raft).run [S0 Leader t:8 vF:0 c:-1 a:-1 m:[-1 -1 -1] n:[0 0 0]] sending heartbeat msg
@@ -860,8 +860,8 @@ Test (2A): election after network failure ...
 23:47:01.261121 raft.go 402 raft.(*Raft).HandleAppendEntries [S1 Follower t:8 vF:-1 c:-1 a:-1] received AppendEntries [arg S0 term:8 preLogIdx:-1 preLogT:-1 [] LComit:-1]
 23:47:01.261345 raft.go 540 raft.(*Raft).run [S2 Leader t:2 vF:2 c:-1 a:-1 m:[-1 -1 -1] n:[0 0 0]] sending heartbeat msg
 23:47:01.261383 raft.go 414 raft.(*Raft).HandleAppendEntries [S1 Follower t:8 vF:-1 c:-1 a:-1] reset electionTimeout
-23:47:01.261507 raftLog.go 70 raft.(*RaftLog).TruncateAppend [] preLgIdx:-1 []
-23:47:01.261588 raftLog.go 73 raft.(*RaftLog).TruncateAppend []
+23:47:01.261507 rfLog.go 70 raft.(*RaftLog).TruncateAppend [] preLgIdx:-1 []
+23:47:01.261588 rfLog.go 73 raft.(*RaftLog).TruncateAppend []
 23:47:01.261517 raft.go 311 raft.(*Raft).startLogReplication [S2 Leader t:2 vF:2 c:-1 a:-1 m:[-1 -1 -1] n:[0 0 0]] startLogReplication
 23:47:01.261744 raft.go 435 raft.(*Raft).HandleAppendEntries [S1 Follower t:8 vF:-1 c:-1 a:-1] [RLog c:-1 a:-1 []]
 23:47:01.262339 raft.go 350 raft.(*Raft).startAppendEntries [S2 Leader t:2 vF:2 c:-1 a:-1 m:[-1 -1 -1] n:[0 0 0]] sendAppendEntries to 0, [arg S2 term:2 preLogIdx:-1 preLogT:-1 [] LComit:-1]
@@ -876,8 +876,8 @@ Test (2A): election after network failure ...
 23:47:01.363709 raft.go 402 raft.(*Raft).HandleAppendEntries [S1 Follower t:8 vF:-1 c:-1 a:-1] received AppendEntries [arg S0 term:8 preLogIdx:-1 preLogT:-1 [] LComit:-1]
 23:47:01.363907 raft.go 350 raft.(*Raft).startAppendEntries [S2 Leader t:2 vF:2 c:-1 a:-1 m:[-1 -1 -1] n:[0 0 0]] sendAppendEntries to 0, [arg S2 term:2 preLogIdx:-1 preLogT:-1 [] LComit:-1]
 23:47:01.364128 raft.go 414 raft.(*Raft).HandleAppendEntries [S1 Follower t:8 vF:-1 c:-1 a:-1] reset electionTimeout
-23:47:01.364296 raftLog.go 70 raft.(*RaftLog).TruncateAppend [] preLgIdx:-1 []
-23:47:01.364396 raftLog.go 73 raft.(*RaftLog).TruncateAppend []
+23:47:01.364296 rfLog.go 70 raft.(*RaftLog).TruncateAppend [] preLgIdx:-1 []
+23:47:01.364396 rfLog.go 73 raft.(*RaftLog).TruncateAppend []
 23:47:01.364582 raft.go 350 raft.(*Raft).startAppendEntries [S2 Leader t:2 vF:2 c:-1 a:-1 m:[-1 -1 -1] n:[0 0 0]] sendAppendEntries to 1, [arg S2 term:2 preLogIdx:-1 preLogT:-1 [] LComit:-1]
 23:47:01.364624 raft.go 435 raft.(*Raft).HandleAppendEntries [S1 Follower t:8 vF:-1 c:-1 a:-1] [RLog c:-1 a:-1 []]
 23:47:01.366542 raft.go 385 raft.(*Raft).startAppendEntries [S0 Leader t:8 vF:0 c:-1 a:-1 m:[-1 -1 -1] n:[0 0 0]] sendAppendEntries to 1 succ
@@ -891,13 +891,13 @@ Test (2A): election after network failure ...
 23:47:01.463632 raft.go 350 raft.(*Raft).startAppendEntries [S2 Leader t:2 vF:2 c:-1 a:-1 m:[-1 -1 -1] n:[0 0 0]] sendAppendEntries to 0, [arg S2 term:2 preLogIdx:-1 preLogT:-1 [] LComit:-1]
 23:47:01.464738 raft.go 402 raft.(*Raft).HandleAppendEntries [S1 Follower t:8 vF:-1 c:-1 a:-1] received AppendEntries [arg S0 term:8 preLogIdx:-1 preLogT:-1 [] LComit:-1]
 23:47:01.465161 raft.go 414 raft.(*Raft).HandleAppendEntries [S1 Follower t:8 vF:-1 c:-1 a:-1] reset electionTimeout
-23:47:01.465312 raftLog.go 70 raft.(*RaftLog).TruncateAppend [] preLgIdx:-1 []
-23:47:01.465423 raftLog.go 73 raft.(*RaftLog).TruncateAppend []
+23:47:01.465312 rfLog.go 70 raft.(*RaftLog).TruncateAppend [] preLgIdx:-1 []
+23:47:01.465423 rfLog.go 73 raft.(*RaftLog).TruncateAppend []
 23:47:01.468496 raft.go 435 raft.(*Raft).HandleAppendEntries [S1 Follower t:8 vF:-1 c:-1 a:-1] [RLog c:-1 a:-1 []]
 23:47:01.475746 raft.go 385 raft.(*Raft).startAppendEntries [S0 Leader t:8 vF:0 c:-1 a:-1 m:[-1 -1 -1] n:[0 0 0]] sendAppendEntries to 1 succ
 23:47:01.489552 raft.go 211 raft.(*Raft).startRequestVote [S1 Follower t:8 vF:-1 c:-1 a:-1] sendRequestVote to 2 failed
 23:47:01.538533 ********************************************************
-23:47:01.538663 re-join of last node shouldn't prevent leader from existing.
+23:47:01.538663 re-join of lastEntryIdx node shouldn't prevent leader from existing.
 23:47:01.559660 raft.go 540 raft.(*Raft).run [S0 Leader t:8 vF:0 c:-1 a:-1 m:[-1 -1 -1] n:[0 0 0]] sending heartbeat msg
 23:47:01.560025 raft.go 311 raft.(*Raft).startLogReplication [S0 Leader t:8 vF:0 c:-1 a:-1 m:[-1 -1 -1] n:[0 0 0]] startLogReplication
 23:47:01.561041 raft.go 350 raft.(*Raft).startAppendEntries [S0 Leader t:8 vF:0 c:-1 a:-1 m:[-1 -1 -1] n:[0 0 0]] sendAppendEntries to 2, [arg S0 term:8 preLogIdx:-1 preLogT:-1 [] LComit:-1]
@@ -908,13 +908,13 @@ Test (2A): election after network failure ...
 23:47:01.564771 raft.go 350 raft.(*Raft).startAppendEntries [S2 Leader t:2 vF:2 c:-1 a:-1 m:[-1 -1 -1] n:[0 0 0]] sendAppendEntries to 1, [arg S2 term:2 preLogIdx:-1 preLogT:-1 [] LComit:-1]
 23:47:01.565461 raft.go 402 raft.(*Raft).HandleAppendEntries [S2 Leader t:2 vF:2 c:-1 a:-1 m:[-1 -1 -1] n:[0 0 0]] received AppendEntries [arg S0 term:8 preLogIdx:-1 preLogT:-1 [] LComit:-1]
 23:47:01.566179 raft.go 414 raft.(*Raft).HandleAppendEntries [S2 Follower t:8 vF:-1 c:-1 a:-1] reset electionTimeout
-23:47:01.566405 raftLog.go 70 raft.(*RaftLog).TruncateAppend [] preLgIdx:-1 []
-23:47:01.566603 raftLog.go 73 raft.(*RaftLog).TruncateAppend []
+23:47:01.566405 rfLog.go 70 raft.(*RaftLog).TruncateAppend [] preLgIdx:-1 []
+23:47:01.566603 rfLog.go 73 raft.(*RaftLog).TruncateAppend []
 23:47:01.566652 raft.go 402 raft.(*Raft).HandleAppendEntries [S1 Follower t:8 vF:-1 c:-1 a:-1] received AppendEntries [arg S0 term:8 preLogIdx:-1 preLogT:-1 [] LComit:-1]
 23:47:01.566997 raft.go 435 raft.(*Raft).HandleAppendEntries [S2 Follower t:8 vF:-1 c:-1 a:-1] [RLog c:-1 a:-1 []]
 23:47:01.567307 raft.go 414 raft.(*Raft).HandleAppendEntries [S1 Follower t:8 vF:-1 c:-1 a:-1] reset electionTimeout
-23:47:01.567570 raftLog.go 70 raft.(*RaftLog).TruncateAppend [] preLgIdx:-1 []
-23:47:01.567750 raftLog.go 73 raft.(*RaftLog).TruncateAppend []
+23:47:01.567570 rfLog.go 70 raft.(*RaftLog).TruncateAppend [] preLgIdx:-1 []
+23:47:01.567750 rfLog.go 73 raft.(*RaftLog).TruncateAppend []
 23:47:01.568075 raft.go 435 raft.(*Raft).HandleAppendEntries [S1 Follower t:8 vF:-1 c:-1 a:-1] [RLog c:-1 a:-1 []]
 23:47:01.568139 raft.go 402 raft.(*Raft).HandleAppendEntries [S0 Leader t:8 vF:0 c:-1 a:-1 m:[-1 -1 -1] n:[0 0 0]] received AppendEntries [arg S2 term:2 preLogIdx:-1 preLogT:-1 [] LComit:-1]
 23:47:01.568667 raft.go 402 raft.(*Raft).HandleAppendEntries [S1 Follower t:8 vF:-1 c:-1 a:-1] received AppendEntries [arg S2 term:2 preLogIdx:-1 preLogT:-1 [] LComit:-1]
@@ -929,13 +929,13 @@ Test (2A): election after network failure ...
 23:47:01.661334 raft.go 350 raft.(*Raft).startAppendEntries [S0 Leader t:8 vF:0 c:-1 a:-1 m:[-1 -1 -1] n:[0 0 0]] sendAppendEntries to 1, [arg S0 term:8 preLogIdx:-1 preLogT:-1 [] LComit:-1]
 23:47:01.663241 raft.go 402 raft.(*Raft).HandleAppendEntries [S2 Follower t:8 vF:-1 c:-1 a:-1] received AppendEntries [arg S0 term:8 preLogIdx:-1 preLogT:-1 [] LComit:-1]
 23:47:01.663557 raft.go 414 raft.(*Raft).HandleAppendEntries [S2 Follower t:8 vF:-1 c:-1 a:-1] reset electionTimeout
-23:47:01.663681 raftLog.go 70 raft.(*RaftLog).TruncateAppend [] preLgIdx:-1 []
+23:47:01.663681 rfLog.go 70 raft.(*RaftLog).TruncateAppend [] preLgIdx:-1 []
 23:47:01.663749 raft.go 402 raft.(*Raft).HandleAppendEntries [S1 Follower t:8 vF:-1 c:-1 a:-1] received AppendEntries [arg S0 term:8 preLogIdx:-1 preLogT:-1 [] LComit:-1]
-23:47:01.663775 raftLog.go 73 raft.(*RaftLog).TruncateAppend []
+23:47:01.663775 rfLog.go 73 raft.(*RaftLog).TruncateAppend []
 23:47:01.664110 raft.go 414 raft.(*Raft).HandleAppendEntries [S1 Follower t:8 vF:-1 c:-1 a:-1] reset electionTimeout
 23:47:01.664229 raft.go 435 raft.(*Raft).HandleAppendEntries [S2 Follower t:8 vF:-1 c:-1 a:-1] [RLog c:-1 a:-1 []]
-23:47:01.664266 raftLog.go 70 raft.(*RaftLog).TruncateAppend [] preLgIdx:-1 []
-23:47:01.664419 raftLog.go 73 raft.(*RaftLog).TruncateAppend []
+23:47:01.664266 rfLog.go 70 raft.(*RaftLog).TruncateAppend [] preLgIdx:-1 []
+23:47:01.664419 rfLog.go 73 raft.(*RaftLog).TruncateAppend []
 23:47:01.664621 raft.go 435 raft.(*Raft).HandleAppendEntries [S1 Follower t:8 vF:-1 c:-1 a:-1] [RLog c:-1 a:-1 []]
 23:47:01.665666 raft.go 385 raft.(*Raft).startAppendEntries [S0 Leader t:8 vF:0 c:-1 a:-1 m:[-1 -1 -1] n:[0 0 0]] sendAppendEntries to 2 succ
 23:47:01.666190 raft.go 385 raft.(*Raft).startAppendEntries [S0 Leader t:8 vF:0 c:-1 a:-1 m:[-1 -1 -1] n:[0 0 0]] sendAppendEntries to 1 succ
@@ -946,13 +946,13 @@ Test (2A): election after network failure ...
 23:47:01.761665 raft.go 350 raft.(*Raft).startAppendEntries [S0 Leader t:8 vF:0 c:-1 a:-1 m:[-1 -1 -1] n:[0 0 0]] sendAppendEntries to 2, [arg S0 term:8 preLogIdx:-1 preLogT:-1 [] LComit:-1]
 23:47:01.764505 raft.go 402 raft.(*Raft).HandleAppendEntries [S1 Follower t:8 vF:-1 c:-1 a:-1] received AppendEntries [arg S0 term:8 preLogIdx:-1 preLogT:-1 [] LComit:-1]
 23:47:01.765073 raft.go 414 raft.(*Raft).HandleAppendEntries [S1 Follower t:8 vF:-1 c:-1 a:-1] reset electionTimeout
-23:47:01.765284 raftLog.go 70 raft.(*RaftLog).TruncateAppend [] preLgIdx:-1 []
-23:47:01.765438 raftLog.go 73 raft.(*RaftLog).TruncateAppend []
+23:47:01.765284 rfLog.go 70 raft.(*RaftLog).TruncateAppend [] preLgIdx:-1 []
+23:47:01.765438 rfLog.go 73 raft.(*RaftLog).TruncateAppend []
 23:47:01.765516 raft.go 402 raft.(*Raft).HandleAppendEntries [S2 Follower t:8 vF:-1 c:-1 a:-1] received AppendEntries [arg S0 term:8 preLogIdx:-1 preLogT:-1 [] LComit:-1]
 23:47:01.765737 raft.go 435 raft.(*Raft).HandleAppendEntries [S1 Follower t:8 vF:-1 c:-1 a:-1] [RLog c:-1 a:-1 []]
 23:47:01.766109 raft.go 414 raft.(*Raft).HandleAppendEntries [S2 Follower t:8 vF:-1 c:-1 a:-1] reset electionTimeout
-23:47:01.766329 raftLog.go 70 raft.(*RaftLog).TruncateAppend [] preLgIdx:-1 []
-23:47:01.766472 raftLog.go 73 raft.(*RaftLog).TruncateAppend []
+23:47:01.766329 rfLog.go 70 raft.(*RaftLog).TruncateAppend [] preLgIdx:-1 []
+23:47:01.766472 rfLog.go 73 raft.(*RaftLog).TruncateAppend []
 23:47:01.766665 raft.go 435 raft.(*Raft).HandleAppendEntries [S2 Follower t:8 vF:-1 c:-1 a:-1] [RLog c:-1 a:-1 []]
 23:47:01.767640 raft.go 385 raft.(*Raft).startAppendEntries [S0 Leader t:8 vF:0 c:-1 a:-1 m:[-1 -1 -1] n:[0 0 0]] sendAppendEntries to 1 succ
 23:47:01.768397 raft.go 385 raft.(*Raft).startAppendEntries [S0 Leader t:8 vF:0 c:-1 a:-1 m:[-1 -1 -1] n:[0 0 0]] sendAppendEntries to 2 succ
@@ -963,13 +963,13 @@ Test (2A): election after network failure ...
 23:47:01.861114 raft.go 350 raft.(*Raft).startAppendEntries [S0 Leader t:8 vF:0 c:-1 a:-1 m:[-1 -1 -1] n:[0 0 0]] sendAppendEntries to 2, [arg S0 term:8 preLogIdx:-1 preLogT:-1 [] LComit:-1]
 23:47:01.863140 raft.go 402 raft.(*Raft).HandleAppendEntries [S1 Follower t:8 vF:-1 c:-1 a:-1] received AppendEntries [arg S0 term:8 preLogIdx:-1 preLogT:-1 [] LComit:-1]
 23:47:01.863509 raft.go 414 raft.(*Raft).HandleAppendEntries [S1 Follower t:8 vF:-1 c:-1 a:-1] reset electionTimeout
-23:47:01.863665 raftLog.go 70 raft.(*RaftLog).TruncateAppend [] preLgIdx:-1 []
-23:47:01.863791 raftLog.go 73 raft.(*RaftLog).TruncateAppend []
+23:47:01.863665 rfLog.go 70 raft.(*RaftLog).TruncateAppend [] preLgIdx:-1 []
+23:47:01.863791 rfLog.go 73 raft.(*RaftLog).TruncateAppend []
 23:47:01.863981 raft.go 435 raft.(*Raft).HandleAppendEntries [S1 Follower t:8 vF:-1 c:-1 a:-1] [RLog c:-1 a:-1 []]
 23:47:01.864004 raft.go 402 raft.(*Raft).HandleAppendEntries [S2 Follower t:8 vF:-1 c:-1 a:-1] received AppendEntries [arg S0 term:8 preLogIdx:-1 preLogT:-1 [] LComit:-1]
 23:47:01.864401 raft.go 414 raft.(*Raft).HandleAppendEntries [S2 Follower t:8 vF:-1 c:-1 a:-1] reset electionTimeout
-23:47:01.864576 raftLog.go 70 raft.(*RaftLog).TruncateAppend [] preLgIdx:-1 []
-23:47:01.864670 raftLog.go 73 raft.(*RaftLog).TruncateAppend []
+23:47:01.864576 rfLog.go 70 raft.(*RaftLog).TruncateAppend [] preLgIdx:-1 []
+23:47:01.864670 rfLog.go 73 raft.(*RaftLog).TruncateAppend []
 23:47:01.864863 raft.go 435 raft.(*Raft).HandleAppendEntries [S2 Follower t:8 vF:-1 c:-1 a:-1] [RLog c:-1 a:-1 []]
 23:47:01.865533 raft.go 385 raft.(*Raft).startAppendEntries [S0 Leader t:8 vF:0 c:-1 a:-1 m:[-1 -1 -1] n:[0 0 0]] sendAppendEntries to 1 succ
 23:47:01.866261 raft.go 385 raft.(*Raft).startAppendEntries [S0 Leader t:8 vF:0 c:-1 a:-1 m:[-1 -1 -1] n:[0 0 0]] sendAppendEntries to 2 succ
@@ -979,13 +979,13 @@ Test (2A): election after network failure ...
 23:47:01.960498 raft.go 350 raft.(*Raft).startAppendEntries [S0 Leader t:8 vF:0 c:-1 a:-1 m:[-1 -1 -1] n:[0 0 0]] sendAppendEntries to 2, [arg S0 term:8 preLogIdx:-1 preLogT:-1 [] LComit:-1]
 23:47:01.961971 raft.go 402 raft.(*Raft).HandleAppendEntries [S1 Follower t:8 vF:-1 c:-1 a:-1] received AppendEntries [arg S0 term:8 preLogIdx:-1 preLogT:-1 [] LComit:-1]
 23:47:01.962172 raft.go 414 raft.(*Raft).HandleAppendEntries [S1 Follower t:8 vF:-1 c:-1 a:-1] reset electionTimeout
-23:47:01.962242 raftLog.go 70 raft.(*RaftLog).TruncateAppend [] preLgIdx:-1 []
-23:47:01.962291 raftLog.go 73 raft.(*RaftLog).TruncateAppend []
+23:47:01.962242 rfLog.go 70 raft.(*RaftLog).TruncateAppend [] preLgIdx:-1 []
+23:47:01.962291 rfLog.go 73 raft.(*RaftLog).TruncateAppend []
 23:47:01.962384 raft.go 435 raft.(*Raft).HandleAppendEntries [S1 Follower t:8 vF:-1 c:-1 a:-1] [RLog c:-1 a:-1 []]
 23:47:01.962513 raft.go 402 raft.(*Raft).HandleAppendEntries [S2 Follower t:8 vF:-1 c:-1 a:-1] received AppendEntries [arg S0 term:8 preLogIdx:-1 preLogT:-1 [] LComit:-1]
 23:47:01.962834 raft.go 414 raft.(*Raft).HandleAppendEntries [S2 Follower t:8 vF:-1 c:-1 a:-1] reset electionTimeout
-23:47:01.962950 raftLog.go 70 raft.(*RaftLog).TruncateAppend [] preLgIdx:-1 []
-23:47:01.963044 raftLog.go 73 raft.(*RaftLog).TruncateAppend []
+23:47:01.962950 rfLog.go 70 raft.(*RaftLog).TruncateAppend [] preLgIdx:-1 []
+23:47:01.963044 rfLog.go 73 raft.(*RaftLog).TruncateAppend []
 23:47:01.963215 raft.go 385 raft.(*Raft).startAppendEntries [S0 Leader t:8 vF:0 c:-1 a:-1 m:[-1 -1 -1] n:[0 0 0]] sendAppendEntries to 1 succ
 23:47:01.963218 raft.go 435 raft.(*Raft).HandleAppendEntries [S2 Follower t:8 vF:-1 c:-1 a:-1] [RLog c:-1 a:-1 []]
 23:47:01.964619 raft.go 385 raft.(*Raft).startAppendEntries [S0 Leader t:8 vF:0 c:-1 a:-1 m:[-1 -1 -1] n:[0 0 0]] sendAppendEntries to 2 succ
@@ -995,13 +995,13 @@ Test (2A): election after network failure ...
 23:47:02.059558 raft.go 350 raft.(*Raft).startAppendEntries [S0 Leader t:8 vF:0 c:-1 a:-1 m:[-1 -1 -1] n:[0 0 0]] sendAppendEntries to 2, [arg S0 term:8 preLogIdx:-1 preLogT:-1 [] LComit:-1]
 23:47:02.060452 raft.go 402 raft.(*Raft).HandleAppendEntries [S1 Follower t:8 vF:-1 c:-1 a:-1] received AppendEntries [arg S0 term:8 preLogIdx:-1 preLogT:-1 [] LComit:-1]
 23:47:02.060615 raft.go 414 raft.(*Raft).HandleAppendEntries [S1 Follower t:8 vF:-1 c:-1 a:-1] reset electionTimeout
-23:47:02.060677 raftLog.go 70 raft.(*RaftLog).TruncateAppend [] preLgIdx:-1 []
-23:47:02.060727 raftLog.go 73 raft.(*RaftLog).TruncateAppend []
+23:47:02.060677 rfLog.go 70 raft.(*RaftLog).TruncateAppend [] preLgIdx:-1 []
+23:47:02.060727 rfLog.go 73 raft.(*RaftLog).TruncateAppend []
 23:47:02.060825 raft.go 435 raft.(*Raft).HandleAppendEntries [S1 Follower t:8 vF:-1 c:-1 a:-1] [RLog c:-1 a:-1 []]
 23:47:02.061136 raft.go 402 raft.(*Raft).HandleAppendEntries [S2 Follower t:8 vF:-1 c:-1 a:-1] received AppendEntries [arg S0 term:8 preLogIdx:-1 preLogT:-1 [] LComit:-1]
 23:47:02.061396 raft.go 414 raft.(*Raft).HandleAppendEntries [S2 Follower t:8 vF:-1 c:-1 a:-1] reset electionTimeout
-23:47:02.061510 raftLog.go 70 raft.(*RaftLog).TruncateAppend [] preLgIdx:-1 []
-23:47:02.061599 raftLog.go 73 raft.(*RaftLog).TruncateAppend []
+23:47:02.061510 rfLog.go 70 raft.(*RaftLog).TruncateAppend [] preLgIdx:-1 []
+23:47:02.061599 rfLog.go 73 raft.(*RaftLog).TruncateAppend []
 23:47:02.061625 raft.go 385 raft.(*Raft).startAppendEntries [S0 Leader t:8 vF:0 c:-1 a:-1 m:[-1 -1 -1] n:[0 0 0]] sendAppendEntries to 1 succ
 23:47:02.061769 raft.go 435 raft.(*Raft).HandleAppendEntries [S2 Follower t:8 vF:-1 c:-1 a:-1] [RLog c:-1 a:-1 []]
 23:47:02.062617 raft.go 385 raft.(*Raft).startAppendEntries [S0 Leader t:8 vF:0 c:-1 a:-1 m:[-1 -1 -1] n:[0 0 0]] sendAppendEntries to 2 succ

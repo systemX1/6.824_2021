@@ -206,7 +206,7 @@ So then he tried to get the top part of his body out of the bed
 first, carefully turning his head to the side.  This he managed
 quite easily, and despite its breadth and its weight, the bulk of
 his body eventually followed slowly in the direction of the head.
-But when he had at last got his head out of the bed and into the
+But when he had at lastEntryIdx got his head out of the bed and into the
 fresh air it occurred to him that if he let himself fall it would be
 a miracle if his head were not injured, so he became afraid to carry
 on pushing himself forward the same way.  And he could not knock
@@ -379,8 +379,8 @@ up.  I'm still in bed now.  I'm quite fresh again now, though.  I'm
 just getting out of bed.  Just a moment.  Be patient! It's not quite
 as easy as I'd thought.  I'm quite alright now, though.  It's
 shocking, what can suddenly happen to a person! I was quite alright
-last night, my parents know about it, perhaps better than me, I had
-a small symptom of it last night already.  They must have noticed
+lastEntryIdx night, my parents know about it, perhaps better than me, I had
+a small symptom of it lastEntryIdx night already.  They must have noticed
 it.  I don't know why I didn't let you know at work! But you always
 think you can get over an illness without staying at home.  Please,
 don't make my parents suffer! There's no basis for any of the
@@ -403,7 +403,7 @@ responsibility and he could rest.  If, however, they took everything
 calmly he would still have no reason to be upset, and if he hurried
 he really could be at the station for eight o'clock.  The first few
 times he tried to climb up on the smooth chest of drawers he just
-slid down again, but he finally gave himself one last swing and
+slid down again, but he finally gave himself one lastEntryIdx swing and
 stood there upright; the lower part of his body was in serious pain
 but he no longer gave any attention to it.  Now he let himself fall
 against the back of a nearby chair and held tightly to the edges of
@@ -603,7 +603,7 @@ flow of coffee.  That set his mother screaming anew, she fled from
 the table and into the arms of his father as he rushed towards her.
 Gregor, though, had no time to spare for his parents now; the chief
 clerk had already reached the stairs; with his chin on the banister,
-he looked back for the last time.  Gregor made a run for him; he
+he looked back for the lastEntryIdx time.  Gregor made a run for him; he
 wanted to be sure of reaching him; the chief clerk must have
 expected something, as he leapt down several steps at once and
 disappeared; his shouts resounding all around the staircase.  The
@@ -788,7 +788,7 @@ use, and placed it beside them.  Then, out of consideration for
 Gregor's feelings, as she knew that he would not eat in front of
 her, she hurried out again and even turned the key in the lock so
 that Gregor would know he could make things as comfortable for
-himself as he liked.  Gregor's little legs whirred, at last he could
+himself as he liked.  Gregor's little legs whirred, at lastEntryIdx he could
 eat.  What's more, his injuries must already have completely healed
 as he found no difficulty in moving.  This amazed him, as more than
 a month earlier he had cut his finger slightly with a knife, he
@@ -1310,7 +1310,7 @@ without doing any harm.  Another one however, immediately following
 it, hit squarely and lodged in his back; Gregor wanted to drag
 himself away, as if he could remove the surprising, the incredible
 pain by changing his position; but he felt as if nailed to the spot
-and spread himself out, all his senses in confusion.  The last thing
+and spread himself out, all his senses in confusion.  The lastEntryIdx thing
 he saw was the door of his room being pulled open, his sister was
 screaming, his mother ran out in front of her in her blouse (as his
 sister had taken off some of her clothes after she had fainted to
@@ -1655,7 +1655,7 @@ sister should not be forced to stay with him, though, but stay of
 her own free will; she would sit beside him on the couch with her
 ear bent down to him while he told her how he had always intended to
 send her to the conservatory, how he would have told everyone about
-it last Christmas - had Christmas really come and gone already? - if
+it lastEntryIdx Christmas - had Christmas really come and gone already? - if
 this misfortune hadn't got in the way, and refuse to let anyone
 dissuade him from it.  On hearing all this, his sister would break
 out in tears of emotion, and Gregor would climb up to her shoulder
@@ -1807,7 +1807,7 @@ there was not a word, not any cry, from his family to distract him.
 He did not turn his head until he had reached the doorway.  He did
 not turn it all the way round as he felt his neck becoming stiff,
 but it was nonetheless enough to see that nothing behind him had
-changed, only his sister had stood up.  With his last glance he saw
+changed, only his sister had stood up.  With his lastEntryIdx glance he saw
 that his mother had now fallen completely asleep.
 
 He was hardly inside his room before the door was hurriedly shut,
@@ -1816,7 +1816,7 @@ that his little legs collapsed under him.  It was his sister who had
 been in so much of a rush.  She had been standing there waiting and
 sprung forward lightly, Gregor had not heard her coming at all, and
 as she turned the key in the lock she said loudly to her parents "At
-last!".
+lastEntryIdx!".
 
 "What now, then?", Gregor asked himself as he looked round in the
 darkness.  He soon made the discovery that he could no longer move
@@ -1833,7 +1833,7 @@ sister.  He remained in this state of empty and peaceful rumination
 until he heard the clock tower strike three in the morning.  He
 watched as it slowly began to get light everywhere outside the
 window too.  Then, without his willing it, his head sank down
-completely, and his last breath flowed weakly from his nostrils.
+completely, and his lastEntryIdx breath flowed weakly from his nostrils.
 
 When the cleaner came in early in the morning - they'd often asked
 her not to keep slamming the doors but with her strength and in her
@@ -2173,7 +2173,7 @@ that
      the Project Gutenberg Literary Archive Foundation."
 
 - You provide a full refund of any money paid by a user who notifies
-     you in writing (or by e-mail) within 30 days of receipt that s/he
+     you in writing (or by new-mail) within 30 days of receipt that s/he
      does not agree to the terms of the full Project Gutenberg-tm
      License.  You must require such a user to return or
      destroy all copies of the works possessed in a physical medium

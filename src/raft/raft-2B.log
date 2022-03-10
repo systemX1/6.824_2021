@@ -45,10 +45,10 @@ Test (2B): rejoin of partitioned leader ...
 18:43:44.122816 raft.go 340 raft.(*Raft).HandleRequestVote [S2 Follower t:1 vF:1 c:-1 a:-1] save persist [RLog c:-1 a:-1 len:0 []]
 18:43:44.123137 raft.go 276 raft.(*Raft).startRequestVote [S1 Candidate t:1 vF:1 c:-1 a:-1] sendRequestVote to 0 succ
 18:43:44.123261 raft.go 243 raft.(*Raft).startElection.func1 [S1 Candidate t:1 vF:1 c:-1 a:-1] got vote from 0, votes:2
-18:43:44.123340 raftLog.go 35 raft.(*RfLog).AppendEntries {-1 -1 <nil>} [{-1 -1 <nil>}]
+18:43:44.123340 rfLog.go 35 raft.(*RfLog).AppendEntries {-1 -1 <nil>} [{-1 -1 <nil>}]
 18:43:44.123491 raft.go 252 raft.(*Raft).startElection.func1 [S1 Leader t:1 vF:1 c:-1 a:-1 m:[-1 -1 -1] n:[0 0 0]] WON the election, votes:2, peers:3, RLogs:[RLog c:-1 a:-1 len:1 [{-1 -1 <nil>}]]
 18:43:44.149119 raft.go 532 raft.(*Raft).Start [S1 Leader t:1 vF:1 c:-1 a:-1 m:[-1 -1 -1] n:[0 0 0]]: Client start to append command 101, [RLog c:-1 a:-1 len:1 [{-1 -1 <nil>}]]
-18:43:44.149347 raftLog.go 35 raft.(*RfLog).AppendEntries {0 1 101} [{-1 -1 <nil>} {0 1 101}]
+18:43:44.149347 rfLog.go 35 raft.(*RfLog).AppendEntries {0 1 101} [{-1 -1 <nil>} {0 1 101}]
 18:43:44.149927 raft.go 541 raft.(*Raft).Start [S1 Leader t:1 vF:1 c:-1 a:-1 m:[-1 0 -1] n:[0 1 0]] save persist [RLog c:-1 a:-1 len:2 [{-1 -1 <nil>} {0 1 101}]]
 18:43:44.190826 raft.go 613 raft.(*Raft).run [S1 Leader t:1 vF:1 c:-1 a:-1 m:[-1 0 -1] n:[0 1 0]] sending heartbeat msg
 18:43:44.191038 raft.go 376 raft.(*Raft).startLogReplication [S1 Leader t:1 vF:1 c:-1 a:-1 m:[-1 0 -1] n:[0 1 0]] startLogReplication
@@ -60,14 +60,14 @@ Test (2B): rejoin of partitioned leader ...
 18:43:44.194684 raft.go 477 raft.(*Raft).HandleAppendEntries [S0 Follower t:1 vF:1 c:-1 a:-1] received AppendEntries [arg S1 term:1 preLogIdx:-1 preLogT:-1 [{0 1 101}] LComit:-1]
 18:43:44.194818 raft.go 495 raft.(*Raft).HandleAppendEntries @resetElectionTimeout S0
 18:43:44.194920 raft.go 496 raft.(*Raft).HandleAppendEntries [S0 Follower t:1 vF:1 c:-1 a:-1] reset electionTimeout, [RLog c:-1 a:-1 len:0 []]
-18:43:44.194991 raftLog.go 81 raft.(*RfLog).TruncateAppend [{0 1 101}]
+18:43:44.194991 rfLog.go 81 raft.(*RfLog).TruncateAppend [{0 1 101}]
 18:43:44.195066 raft.go 498 raft.(*Raft).HandleAppendEntries S0 [{0 1 101}] preLgIdx:-1 [{0 1 101}]
 18:43:44.195196 raft.go 505 raft.(*Raft).HandleAppendEntries [S0 Follower t:1 vF:1 c:-1 a:-1] [RLog c:-1 a:-1 len:1 [{0 1 101}]]
 18:43:44.195296 raft.go 477 raft.(*Raft).HandleAppendEntries [S2 Follower t:1 vF:1 c:-1 a:-1] received AppendEntries [arg S1 term:1 preLogIdx:-1 preLogT:-1 [{0 1 101}] LComit:-1]
 18:43:44.195414 raft.go 495 raft.(*Raft).HandleAppendEntries @resetElectionTimeout S2
 18:43:44.195521 raft.go 506 raft.(*Raft).HandleAppendEntries [S0 Follower t:1 vF:1 c:-1 a:-1] save persist [RLog c:-1 a:-1 len:1 [{0 1 101}]]
 18:43:44.195529 raft.go 496 raft.(*Raft).HandleAppendEntries [S2 Follower t:1 vF:1 c:-1 a:-1] reset electionTimeout, [RLog c:-1 a:-1 len:0 []]
-18:43:44.195658 raftLog.go 81 raft.(*RfLog).TruncateAppend [{0 1 101}]
+18:43:44.195658 rfLog.go 81 raft.(*RfLog).TruncateAppend [{0 1 101}]
 18:43:44.195788 raft.go 498 raft.(*Raft).HandleAppendEntries S2 [{0 1 101}] preLgIdx:-1 [{0 1 101}]
 18:43:44.195928 raft.go 505 raft.(*Raft).HandleAppendEntries [S2 Follower t:1 vF:1 c:-1 a:-1] [RLog c:-1 a:-1 len:1 [{0 1 101}]]
 18:43:44.196309 raft.go 506 raft.(*Raft).HandleAppendEntries [S2 Follower t:1 vF:1 c:-1 a:-1] save persist [RLog c:-1 a:-1 len:1 [{0 1 101}]]
@@ -88,15 +88,15 @@ Test (2B): rejoin of partitioned leader ...
 18:43:44.294172 raft.go 477 raft.(*Raft).HandleAppendEntries [S0 Follower t:1 vF:1 c:-1 a:-1] received AppendEntries [arg S1 term:1 preLogIdx:0 preLogT:1 [] LComit:0]
 18:43:44.294301 raft.go 495 raft.(*Raft).HandleAppendEntries @resetElectionTimeout S0
 18:43:44.294433 raft.go 496 raft.(*Raft).HandleAppendEntries [S0 Follower t:1 vF:1 c:-1 a:-1] reset electionTimeout, [RLog c:-1 a:-1 len:1 [{0 1 101}]]
-18:43:44.294492 raftLog.go 100 raft.(*RfLog).TruncateAppend #############@@ lastEntryIndex:0 prevLogIndex:0 []
-18:43:44.294608 raftLog.go 113 raft.(*RfLog).TruncateAppend i:1 j:0 [{0 1 101}] []
+18:43:44.294492 rfLog.go 100 raft.(*RfLog).TruncateAppend #############@@ lastEntryIndex:0 prevLogIndex:0 []
+18:43:44.294608 rfLog.go 113 raft.(*RfLog).TruncateAppend i:1 j:0 [{0 1 101}] []
 18:43:44.294719 raft.go 498 raft.(*Raft).HandleAppendEntries S0 [{0 1 101}] preLgIdx:0 []
 18:43:44.294733 raft.go 477 raft.(*Raft).HandleAppendEntries [S2 Follower t:1 vF:1 c:-1 a:-1] received AppendEntries [arg S1 term:1 preLogIdx:0 preLogT:1 [] LComit:0]
 18:43:44.294908 raft.go 495 raft.(*Raft).HandleAppendEntries @resetElectionTimeout S2
 18:43:44.294917 raft.go 505 raft.(*Raft).HandleAppendEntries [S0 Follower t:1 vF:1 c:0 a:-1] [RLog c:0 a:-1 len:1 [{0 1 101}]]
 18:43:44.295038 raft.go 496 raft.(*Raft).HandleAppendEntries [S2 Follower t:1 vF:1 c:-1 a:-1] reset electionTimeout, [RLog c:-1 a:-1 len:1 [{0 1 101}]]
-18:43:44.295116 raftLog.go 100 raft.(*RfLog).TruncateAppend #############@@ lastEntryIndex:0 prevLogIndex:0 []
-18:43:44.295185 raftLog.go 113 raft.(*RfLog).TruncateAppend i:1 j:0 [{0 1 101}] []
+18:43:44.295116 rfLog.go 100 raft.(*RfLog).TruncateAppend #############@@ lastEntryIndex:0 prevLogIndex:0 []
+18:43:44.295185 rfLog.go 113 raft.(*RfLog).TruncateAppend i:1 j:0 [{0 1 101}] []
 18:43:44.295257 raft.go 498 raft.(*Raft).HandleAppendEntries S2 [{0 1 101}] preLgIdx:0 []
 18:43:44.295295 raft.go 506 raft.(*Raft).HandleAppendEntries [S0 Follower t:1 vF:1 c:0 a:-1] save persist [RLog c:0 a:-1 len:1 [{0 1 101}]]
 18:43:44.295366 raft.go 505 raft.(*Raft).HandleAppendEntries [S2 Follower t:1 vF:1 c:0 a:-1] [RLog c:0 a:-1 len:1 [{0 1 101}]]
@@ -121,16 +121,16 @@ Test (2B): rejoin of partitioned leader ...
 18:43:44.393252 raft.go 477 raft.(*Raft).HandleAppendEntries [S0 Follower t:1 vF:1 c:0 a:0] received AppendEntries [arg S1 term:1 preLogIdx:0 preLogT:1 [] LComit:0]
 18:43:44.393371 raft.go 495 raft.(*Raft).HandleAppendEntries @resetElectionTimeout S0
 18:43:44.393488 raft.go 496 raft.(*Raft).HandleAppendEntries [S0 Follower t:1 vF:1 c:0 a:0] reset electionTimeout, [RLog c:0 a:0 len:1 [{0 1 101}]]
-18:43:44.393564 raftLog.go 100 raft.(*RfLog).TruncateAppend #############@@ lastEntryIndex:0 prevLogIndex:0 []
-18:43:44.393638 raftLog.go 113 raft.(*RfLog).TruncateAppend i:1 j:0 [{0 1 101}] []
+18:43:44.393564 rfLog.go 100 raft.(*RfLog).TruncateAppend #############@@ lastEntryIndex:0 prevLogIndex:0 []
+18:43:44.393638 rfLog.go 113 raft.(*RfLog).TruncateAppend i:1 j:0 [{0 1 101}] []
 18:43:44.393705 raft.go 498 raft.(*Raft).HandleAppendEntries S0 [{0 1 101}] preLgIdx:0 []
 18:43:44.393792 raft.go 477 raft.(*Raft).HandleAppendEntries [S2 Follower t:1 vF:1 c:0 a:0] received AppendEntries [arg S1 term:1 preLogIdx:0 preLogT:1 [] LComit:0]
 18:43:44.393817 raft.go 505 raft.(*Raft).HandleAppendEntries [S0 Follower t:1 vF:1 c:0 a:0] [RLog c:0 a:0 len:1 [{0 1 101}]]
 18:43:44.393915 raft.go 495 raft.(*Raft).HandleAppendEntries @resetElectionTimeout S2
 18:43:44.394051 raft.go 496 raft.(*Raft).HandleAppendEntries [S2 Follower t:1 vF:1 c:0 a:0] reset electionTimeout, [RLog c:0 a:0 len:1 [{0 1 101}]]
-18:43:44.394126 raftLog.go 100 raft.(*RfLog).TruncateAppend #############@@ lastEntryIndex:0 prevLogIndex:0 []
+18:43:44.394126 rfLog.go 100 raft.(*RfLog).TruncateAppend #############@@ lastEntryIndex:0 prevLogIndex:0 []
 18:43:44.394150 raft.go 506 raft.(*Raft).HandleAppendEntries [S0 Follower t:1 vF:1 c:0 a:0] save persist [RLog c:0 a:0 len:1 [{0 1 101}]]
-18:43:44.394200 raftLog.go 113 raft.(*RfLog).TruncateAppend i:1 j:0 [{0 1 101}] []
+18:43:44.394200 rfLog.go 113 raft.(*RfLog).TruncateAppend i:1 j:0 [{0 1 101}] []
 18:43:44.394274 raft.go 498 raft.(*Raft).HandleAppendEntries S2 [{0 1 101}] preLgIdx:0 []
 18:43:44.394379 raft.go 505 raft.(*Raft).HandleAppendEntries [S2 Follower t:1 vF:1 c:0 a:0] [RLog c:0 a:0 len:1 [{0 1 101}]]
 18:43:44.394743 raft.go 506 raft.(*Raft).HandleAppendEntries [S2 Follower t:1 vF:1 c:0 a:0] save persist [RLog c:0 a:0 len:1 [{0 1 101}]]
@@ -148,16 +148,16 @@ Test (2B): rejoin of partitioned leader ...
 18:43:44.493645 raft.go 477 raft.(*Raft).HandleAppendEntries [S0 Follower t:1 vF:1 c:0 a:0] received AppendEntries [arg S1 term:1 preLogIdx:0 preLogT:1 [] LComit:0]
 18:43:44.493764 raft.go 495 raft.(*Raft).HandleAppendEntries @resetElectionTimeout S0
 18:43:44.493888 raft.go 496 raft.(*Raft).HandleAppendEntries [S0 Follower t:1 vF:1 c:0 a:0] reset electionTimeout, [RLog c:0 a:0 len:1 [{0 1 101}]]
-18:43:44.493954 raftLog.go 100 raft.(*RfLog).TruncateAppend #############@@ lastEntryIndex:0 prevLogIndex:0 []
-18:43:44.494025 raftLog.go 113 raft.(*RfLog).TruncateAppend i:1 j:0 [{0 1 101}] []
+18:43:44.493954 rfLog.go 100 raft.(*RfLog).TruncateAppend #############@@ lastEntryIndex:0 prevLogIndex:0 []
+18:43:44.494025 rfLog.go 113 raft.(*RfLog).TruncateAppend i:1 j:0 [{0 1 101}] []
 18:43:44.494092 raft.go 498 raft.(*Raft).HandleAppendEntries S0 [{0 1 101}] preLgIdx:0 []
 18:43:44.494194 raft.go 505 raft.(*Raft).HandleAppendEntries [S0 Follower t:1 vF:1 c:0 a:0] [RLog c:0 a:0 len:1 [{0 1 101}]]
 18:43:44.494463 raft.go 477 raft.(*Raft).HandleAppendEntries [S2 Follower t:1 vF:1 c:0 a:0] received AppendEntries [arg S1 term:1 preLogIdx:0 preLogT:1 [] LComit:0]
 18:43:44.494527 raft.go 506 raft.(*Raft).HandleAppendEntries [S0 Follower t:1 vF:1 c:0 a:0] save persist [RLog c:0 a:0 len:1 [{0 1 101}]]
 18:43:44.494651 raft.go 495 raft.(*Raft).HandleAppendEntries @resetElectionTimeout S2
 18:43:44.494859 raft.go 496 raft.(*Raft).HandleAppendEntries [S2 Follower t:1 vF:1 c:0 a:0] reset electionTimeout, [RLog c:0 a:0 len:1 [{0 1 101}]]
-18:43:44.494957 raftLog.go 100 raft.(*RfLog).TruncateAppend #############@@ lastEntryIndex:0 prevLogIndex:0 []
-18:43:44.495066 raftLog.go 113 raft.(*RfLog).TruncateAppend i:1 j:0 [{0 1 101}] []
+18:43:44.494957 rfLog.go 100 raft.(*RfLog).TruncateAppend #############@@ lastEntryIndex:0 prevLogIndex:0 []
+18:43:44.495066 rfLog.go 113 raft.(*RfLog).TruncateAppend i:1 j:0 [{0 1 101}] []
 18:43:44.495210 raft.go 498 raft.(*Raft).HandleAppendEntries S2 [{0 1 101}] preLgIdx:0 []
 18:43:44.495277 raft.go 458 raft.(*Raft).startAppendEntries [S1 Leader t:1 vF:1 c:0 a:0 m:[0 0 0] n:[1 1 1]] sendAppendEntries to 0 succ
 18:43:44.495363 raft.go 505 raft.(*Raft).HandleAppendEntries [S2 Follower t:1 vF:1 c:0 a:0] [RLog c:0 a:0 len:1 [{0 1 101}]]
@@ -175,15 +175,15 @@ Test (2B): rejoin of partitioned leader ...
 18:43:44.597094 raft.go 477 raft.(*Raft).HandleAppendEntries [S0 Follower t:1 vF:1 c:0 a:0] received AppendEntries [arg S1 term:1 preLogIdx:0 preLogT:1 [] LComit:0]
 18:43:44.597485 raft.go 495 raft.(*Raft).HandleAppendEntries @resetElectionTimeout S0
 18:43:44.597861 raft.go 496 raft.(*Raft).HandleAppendEntries [S0 Follower t:1 vF:1 c:0 a:0] reset electionTimeout, [RLog c:0 a:0 len:1 [{0 1 101}]]
-18:43:44.598052 raftLog.go 100 raft.(*RfLog).TruncateAppend #############@@ lastEntryIndex:0 prevLogIndex:0 []
-18:43:44.598290 raftLog.go 113 raft.(*RfLog).TruncateAppend i:1 j:0 [{0 1 101}] []
+18:43:44.598052 rfLog.go 100 raft.(*RfLog).TruncateAppend #############@@ lastEntryIndex:0 prevLogIndex:0 []
+18:43:44.598290 rfLog.go 113 raft.(*RfLog).TruncateAppend i:1 j:0 [{0 1 101}] []
 18:43:44.598341 raft.go 477 raft.(*Raft).HandleAppendEntries [S2 Follower t:1 vF:1 c:0 a:0] received AppendEntries [arg S1 term:1 preLogIdx:0 preLogT:1 [] LComit:0]
 18:43:44.598537 raft.go 498 raft.(*Raft).HandleAppendEntries S0 [{0 1 101}] preLgIdx:0 []
 18:43:44.598631 raft.go 495 raft.(*Raft).HandleAppendEntries @resetElectionTimeout S2
 18:43:44.598912 raft.go 505 raft.(*Raft).HandleAppendEntries [S0 Follower t:1 vF:1 c:0 a:0] [RLog c:0 a:0 len:1 [{0 1 101}]]
 18:43:44.598952 raft.go 496 raft.(*Raft).HandleAppendEntries [S2 Follower t:1 vF:1 c:0 a:0] reset electionTimeout, [RLog c:0 a:0 len:1 [{0 1 101}]]
-18:43:44.599317 raftLog.go 100 raft.(*RfLog).TruncateAppend #############@@ lastEntryIndex:0 prevLogIndex:0 []
-18:43:44.599588 raftLog.go 113 raft.(*RfLog).TruncateAppend i:1 j:0 [{0 1 101}] []
+18:43:44.599317 rfLog.go 100 raft.(*RfLog).TruncateAppend #############@@ lastEntryIndex:0 prevLogIndex:0 []
+18:43:44.599588 rfLog.go 113 raft.(*RfLog).TruncateAppend i:1 j:0 [{0 1 101}] []
 18:43:44.599840 raft.go 498 raft.(*Raft).HandleAppendEntries S2 [{0 1 101}] preLgIdx:0 []
 18:43:44.599970 raft.go 506 raft.(*Raft).HandleAppendEntries [S0 Follower t:1 vF:1 c:0 a:0] save persist [RLog c:0 a:0 len:1 [{0 1 101}]]
 18:43:44.600061 raft.go 505 raft.(*Raft).HandleAppendEntries [S2 Follower t:1 vF:1 c:0 a:0] [RLog c:0 a:0 len:1 [{0 1 101}]]
@@ -202,16 +202,16 @@ Test (2B): rejoin of partitioned leader ...
 18:43:44.697255 raft.go 477 raft.(*Raft).HandleAppendEntries [S0 Follower t:1 vF:1 c:0 a:0] received AppendEntries [arg S1 term:1 preLogIdx:0 preLogT:1 [] LComit:0]
 18:43:44.697500 raft.go 495 raft.(*Raft).HandleAppendEntries @resetElectionTimeout S0
 18:43:44.697782 raft.go 496 raft.(*Raft).HandleAppendEntries [S0 Follower t:1 vF:1 c:0 a:0] reset electionTimeout, [RLog c:0 a:0 len:1 [{0 1 101}]]
-18:43:44.697910 raftLog.go 100 raft.(*RfLog).TruncateAppend #############@@ lastEntryIndex:0 prevLogIndex:0 []
-18:43:44.698050 raftLog.go 113 raft.(*RfLog).TruncateAppend i:1 j:0 [{0 1 101}] []
+18:43:44.697910 rfLog.go 100 raft.(*RfLog).TruncateAppend #############@@ lastEntryIndex:0 prevLogIndex:0 []
+18:43:44.698050 rfLog.go 113 raft.(*RfLog).TruncateAppend i:1 j:0 [{0 1 101}] []
 18:43:44.698192 raft.go 498 raft.(*Raft).HandleAppendEntries S0 [{0 1 101}] preLgIdx:0 []
 18:43:44.698403 raft.go 505 raft.(*Raft).HandleAppendEntries [S0 Follower t:1 vF:1 c:0 a:0] [RLog c:0 a:0 len:1 [{0 1 101}]]
 18:43:44.698644 raft.go 477 raft.(*Raft).HandleAppendEntries [S2 Follower t:1 vF:1 c:0 a:0] received AppendEntries [arg S1 term:1 preLogIdx:0 preLogT:1 [] LComit:0]
 18:43:44.698903 raft.go 495 raft.(*Raft).HandleAppendEntries @resetElectionTimeout S2
 18:43:44.699043 raft.go 506 raft.(*Raft).HandleAppendEntries [S0 Follower t:1 vF:1 c:0 a:0] save persist [RLog c:0 a:0 len:1 [{0 1 101}]]
 18:43:44.699151 raft.go 496 raft.(*Raft).HandleAppendEntries [S2 Follower t:1 vF:1 c:0 a:0] reset electionTimeout, [RLog c:0 a:0 len:1 [{0 1 101}]]
-18:43:44.699339 raftLog.go 100 raft.(*RfLog).TruncateAppend #############@@ lastEntryIndex:0 prevLogIndex:0 []
-18:43:44.699555 raftLog.go 113 raft.(*RfLog).TruncateAppend i:1 j:0 [{0 1 101}] []
+18:43:44.699339 rfLog.go 100 raft.(*RfLog).TruncateAppend #############@@ lastEntryIndex:0 prevLogIndex:0 []
+18:43:44.699555 rfLog.go 113 raft.(*RfLog).TruncateAppend i:1 j:0 [{0 1 101}] []
 18:43:44.699717 raft.go 498 raft.(*Raft).HandleAppendEntries S2 [{0 1 101}] preLgIdx:0 []
 18:43:44.700023 raft.go 505 raft.(*Raft).HandleAppendEntries [S2 Follower t:1 vF:1 c:0 a:0] [RLog c:0 a:0 len:1 [{0 1 101}]]
 18:43:44.700454 raft.go 458 raft.(*Raft).startAppendEntries [S1 Leader t:1 vF:1 c:0 a:0 m:[0 0 0] n:[1 1 1]] sendAppendEntries to 0 succ
@@ -229,16 +229,16 @@ Test (2B): rejoin of partitioned leader ...
 18:43:44.795934 raft.go 477 raft.(*Raft).HandleAppendEntries [S0 Follower t:1 vF:1 c:0 a:0] received AppendEntries [arg S1 term:1 preLogIdx:0 preLogT:1 [] LComit:0]
 18:43:44.796331 raft.go 495 raft.(*Raft).HandleAppendEntries @resetElectionTimeout S0
 18:43:44.796629 raft.go 496 raft.(*Raft).HandleAppendEntries [S0 Follower t:1 vF:1 c:0 a:0] reset electionTimeout, [RLog c:0 a:0 len:1 [{0 1 101}]]
-18:43:44.796754 raftLog.go 100 raft.(*RfLog).TruncateAppend #############@@ lastEntryIndex:0 prevLogIndex:0 []
-18:43:44.796918 raftLog.go 113 raft.(*RfLog).TruncateAppend i:1 j:0 [{0 1 101}] []
+18:43:44.796754 rfLog.go 100 raft.(*RfLog).TruncateAppend #############@@ lastEntryIndex:0 prevLogIndex:0 []
+18:43:44.796918 rfLog.go 113 raft.(*RfLog).TruncateAppend i:1 j:0 [{0 1 101}] []
 18:43:44.797063 raft.go 498 raft.(*Raft).HandleAppendEntries S0 [{0 1 101}] preLgIdx:0 []
 18:43:44.797277 raft.go 505 raft.(*Raft).HandleAppendEntries [S0 Follower t:1 vF:1 c:0 a:0] [RLog c:0 a:0 len:1 [{0 1 101}]]
 18:43:44.797578 raft.go 477 raft.(*Raft).HandleAppendEntries [S2 Follower t:1 vF:1 c:0 a:0] received AppendEntries [arg S1 term:1 preLogIdx:0 preLogT:1 [] LComit:0]
 18:43:44.797834 raft.go 495 raft.(*Raft).HandleAppendEntries @resetElectionTimeout S2
 18:43:44.797920 raft.go 506 raft.(*Raft).HandleAppendEntries [S0 Follower t:1 vF:1 c:0 a:0] save persist [RLog c:0 a:0 len:1 [{0 1 101}]]
 18:43:44.798105 raft.go 496 raft.(*Raft).HandleAppendEntries [S2 Follower t:1 vF:1 c:0 a:0] reset electionTimeout, [RLog c:0 a:0 len:1 [{0 1 101}]]
-18:43:44.798245 raftLog.go 100 raft.(*RfLog).TruncateAppend #############@@ lastEntryIndex:0 prevLogIndex:0 []
-18:43:44.798429 raftLog.go 113 raft.(*RfLog).TruncateAppend i:1 j:0 [{0 1 101}] []
+18:43:44.798245 rfLog.go 100 raft.(*RfLog).TruncateAppend #############@@ lastEntryIndex:0 prevLogIndex:0 []
+18:43:44.798429 rfLog.go 113 raft.(*RfLog).TruncateAppend i:1 j:0 [{0 1 101}] []
 18:43:44.798576 raft.go 498 raft.(*Raft).HandleAppendEntries S2 [{0 1 101}] preLgIdx:0 []
 18:43:44.798853 raft.go 505 raft.(*Raft).HandleAppendEntries [S2 Follower t:1 vF:1 c:0 a:0] [RLog c:0 a:0 len:1 [{0 1 101}]]
 18:43:44.799419 raft.go 458 raft.(*Raft).startAppendEntries [S1 Leader t:1 vF:1 c:0 a:0 m:[0 0 0] n:[1 1 1]] sendAppendEntries to 0 succ
@@ -249,13 +249,13 @@ Test (2B): rejoin of partitioned leader ...
 18:43:44.888069 ********************************************************
 18:43:44.888143 make old leader try to agree on some Entries.
 18:43:44.888338 raft.go 532 raft.(*Raft).Start [S1 Leader t:1 vF:1 c:0 a:0 m:[0 0 0] n:[1 1 1]]: Client start to append command 102, [RLog c:0 a:0 len:2 [{-1 -1 <nil>} {0 1 101}]]
-18:43:44.888433 raftLog.go 35 raft.(*RfLog).AppendEntries {1 1 102} [{-1 -1 <nil>} {0 1 101} {1 1 102}]
+18:43:44.888433 rfLog.go 35 raft.(*RfLog).AppendEntries {1 1 102} [{-1 -1 <nil>} {0 1 101} {1 1 102}]
 18:43:44.888827 raft.go 541 raft.(*Raft).Start [S1 Leader t:1 vF:1 c:0 a:0 m:[0 1 0] n:[1 2 1]] save persist [RLog c:0 a:0 len:3 [{-1 -1 <nil>} {0 1 101} {1 1 102}]]
 18:43:44.888975 raft.go 532 raft.(*Raft).Start [S1 Leader t:1 vF:1 c:0 a:0 m:[0 1 0] n:[1 2 1]]: Client start to append command 103, [RLog c:0 a:0 len:3 [{-1 -1 <nil>} {0 1 101} {1 1 102}]]
-18:43:44.889081 raftLog.go 35 raft.(*RfLog).AppendEntries {2 1 103} [{-1 -1 <nil>} {0 1 101} {1 1 102} {2 1 103}]
+18:43:44.889081 rfLog.go 35 raft.(*RfLog).AppendEntries {2 1 103} [{-1 -1 <nil>} {0 1 101} {1 1 102} {2 1 103}]
 18:43:44.889440 raft.go 541 raft.(*Raft).Start [S1 Leader t:1 vF:1 c:0 a:0 m:[0 2 0] n:[1 3 1]] save persist [RLog c:0 a:0 len:4 [{-1 -1 <nil>} {0 1 101} {1 1 102} {2 1 103}]]
 18:43:44.889590 raft.go 532 raft.(*Raft).Start [S1 Leader t:1 vF:1 c:0 a:0 m:[0 2 0] n:[1 3 1]]: Client start to append command 104, [RLog c:0 a:0 len:4 [{-1 -1 <nil>} {0 1 101} {1 1 102} {2 1 103}]]
-18:43:44.889718 raftLog.go 35 raft.(*RfLog).AppendEntries {3 1 104} [{-1 -1 <nil>} {0 1 101} {1 1 102} {2 1 103} {3 1 104}]
+18:43:44.889718 rfLog.go 35 raft.(*RfLog).AppendEntries {3 1 104} [{-1 -1 <nil>} {0 1 101} {1 1 102} {2 1 103} {3 1 104}]
 18:43:44.890110 raft.go 541 raft.(*Raft).Start [S1 Leader t:1 vF:1 c:0 a:0 m:[0 3 0] n:[1 4 1]] save persist [RLog c:0 a:0 len:5 [{-1 -1 <nil>} {0 1 101} {1 1 102} {2 1 103} {3 1 104}]]
 18:43:44.890139 ********************************************************
 18:43:44.890156 new leader commits, also for index=2.
@@ -368,10 +368,10 @@ Test (2B): rejoin of partitioned leader ...
 18:43:45.499473 raft.go 340 raft.(*Raft).HandleRequestVote [S0 Follower t:3 vF:2 c:0 a:0] save persist [RLog c:0 a:0 len:1 [{0 1 101}]]
 18:43:45.500959 raft.go 276 raft.(*Raft).startRequestVote [S2 Candidate t:3 vF:2 c:0 a:0] sendRequestVote to 0 succ
 18:43:45.501232 raft.go 243 raft.(*Raft).startElection.func1 [S2 Candidate t:3 vF:2 c:0 a:0] got vote from 0, votes:2
-18:43:45.501444 raftLog.go 35 raft.(*RfLog).AppendEntries {-1 -1 <nil>} [{0 1 101} {-1 -1 <nil>}]
+18:43:45.501444 rfLog.go 35 raft.(*RfLog).AppendEntries {-1 -1 <nil>} [{0 1 101} {-1 -1 <nil>}]
 18:43:45.501815 raft.go 252 raft.(*Raft).startElection.func1 [S2 Leader t:3 vF:2 c:0 a:0 m:[-1 -1 0] n:[1 1 1]] WON the election, votes:2, peers:3, RLogs:[RLog c:0 a:0 len:2 [{0 1 101} {-1 -1 <nil>}]]
 18:43:45.504268 raft.go 532 raft.(*Raft).Start [S2 Leader t:3 vF:2 c:0 a:0 m:[-1 -1 0] n:[1 1 1]]: Client start to append command 103, [RLog c:0 a:0 len:2 [{0 1 101} {-1 -1 <nil>}]]
-18:43:45.504564 raftLog.go 35 raft.(*RfLog).AppendEntries {1 3 103} [{0 1 101} {-1 -1 <nil>} {1 3 103}]
+18:43:45.504564 rfLog.go 35 raft.(*RfLog).AppendEntries {1 3 103} [{0 1 101} {-1 -1 <nil>} {1 3 103}]
 18:43:45.505444 raft.go 541 raft.(*Raft).Start [S2 Leader t:3 vF:2 c:0 a:0 m:[-1 -1 1] n:[1 1 2]] save persist [RLog c:0 a:0 len:3 [{0 1 101} {-1 -1 <nil>} {1 3 103}]]
 18:43:45.590898 raft.go 613 raft.(*Raft).run [S1 Leader t:1 vF:1 c:0 a:0 m:[0 3 0] n:[1 4 1]] sending heartbeat msg
 18:43:45.591213 raft.go 376 raft.(*Raft).startLogReplication [S1 Leader t:1 vF:1 c:0 a:0 m:[0 3 0] n:[1 4 1]] startLogReplication
@@ -408,7 +408,7 @@ Test (2B): rejoin of partitioned leader ...
 18:43:45.698944 raft.go 477 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] received AppendEntries [arg S2 term:3 preLogIdx:-1 preLogT:-1 [] LComit:0]
 18:43:45.699200 raft.go 495 raft.(*Raft).HandleAppendEntries @resetElectionTimeout S0
 18:43:45.699470 raft.go 496 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] reset electionTimeout, [RLog c:0 a:0 len:1 [{0 1 101}]]
-18:43:45.699594 raftLog.go 81 raft.(*RfLog).TruncateAppend []
+18:43:45.699594 rfLog.go 81 raft.(*RfLog).TruncateAppend []
 18:43:45.699717 raft.go 498 raft.(*Raft).HandleAppendEntries S0 [] preLgIdx:-1 []
 18:43:45.699907 raft.go 505 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] [RLog c:0 a:0 len:0 []]
 18:43:45.700467 raft.go 506 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] save persist [RLog c:0 a:0 len:0 []]
@@ -431,7 +431,7 @@ Test (2B): rejoin of partitioned leader ...
 18:43:45.797898 raft.go 477 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] received AppendEntries [arg S2 term:3 preLogIdx:-1 preLogT:-1 [] LComit:0]
 18:43:45.798221 raft.go 495 raft.(*Raft).HandleAppendEntries @resetElectionTimeout S0
 18:43:45.798509 raft.go 496 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] reset electionTimeout, [RLog c:0 a:0 len:0 []]
-18:43:45.798669 raftLog.go 81 raft.(*RfLog).TruncateAppend []
+18:43:45.798669 rfLog.go 81 raft.(*RfLog).TruncateAppend []
 18:43:45.798817 raft.go 498 raft.(*Raft).HandleAppendEntries S0 [] preLgIdx:-1 []
 18:43:45.799069 raft.go 505 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] [RLog c:0 a:0 len:0 []]
 18:43:45.799717 raft.go 506 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] save persist [RLog c:0 a:0 len:0 []]
@@ -454,7 +454,7 @@ Test (2B): rejoin of partitioned leader ...
 18:43:45.899374 raft.go 477 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] received AppendEntries [arg S2 term:3 preLogIdx:-1 preLogT:-1 [] LComit:0]
 18:43:45.899676 raft.go 495 raft.(*Raft).HandleAppendEntries @resetElectionTimeout S0
 18:43:45.899938 raft.go 496 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] reset electionTimeout, [RLog c:0 a:0 len:0 []]
-18:43:45.900075 raftLog.go 81 raft.(*RfLog).TruncateAppend []
+18:43:45.900075 rfLog.go 81 raft.(*RfLog).TruncateAppend []
 18:43:45.900251 raft.go 498 raft.(*Raft).HandleAppendEntries S0 [] preLgIdx:-1 []
 18:43:45.900485 raft.go 505 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] [RLog c:0 a:0 len:0 []]
 18:43:45.901163 raft.go 506 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] save persist [RLog c:0 a:0 len:0 []]
@@ -477,7 +477,7 @@ Test (2B): rejoin of partitioned leader ...
 18:43:45.997298 raft.go 477 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] received AppendEntries [arg S2 term:3 preLogIdx:-1 preLogT:-1 [] LComit:0]
 18:43:45.997563 raft.go 495 raft.(*Raft).HandleAppendEntries @resetElectionTimeout S0
 18:43:45.997782 raft.go 496 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] reset electionTimeout, [RLog c:0 a:0 len:0 []]
-18:43:45.997866 raftLog.go 81 raft.(*RfLog).TruncateAppend []
+18:43:45.997866 rfLog.go 81 raft.(*RfLog).TruncateAppend []
 18:43:45.997942 raft.go 498 raft.(*Raft).HandleAppendEntries S0 [] preLgIdx:-1 []
 18:43:45.998060 raft.go 505 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] [RLog c:0 a:0 len:0 []]
 18:43:45.998461 raft.go 506 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] save persist [RLog c:0 a:0 len:0 []]
@@ -501,7 +501,7 @@ Test (2B): rejoin of partitioned leader ...
 18:43:46.097226 raft.go 477 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] received AppendEntries [arg S2 term:3 preLogIdx:-1 preLogT:-1 [] LComit:0]
 18:43:46.097535 raft.go 495 raft.(*Raft).HandleAppendEntries @resetElectionTimeout S0
 18:43:46.097771 raft.go 496 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] reset electionTimeout, [RLog c:0 a:0 len:0 []]
-18:43:46.097873 raftLog.go 81 raft.(*RfLog).TruncateAppend []
+18:43:46.097873 rfLog.go 81 raft.(*RfLog).TruncateAppend []
 18:43:46.098021 raft.go 498 raft.(*Raft).HandleAppendEntries S0 [] preLgIdx:-1 []
 18:43:46.098239 raft.go 505 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] [RLog c:0 a:0 len:0 []]
 18:43:46.098838 raft.go 506 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] save persist [RLog c:0 a:0 len:0 []]
@@ -525,7 +525,7 @@ Test (2B): rejoin of partitioned leader ...
 18:43:46.197851 raft.go 477 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] received AppendEntries [arg S2 term:3 preLogIdx:-1 preLogT:-1 [] LComit:0]
 18:43:46.198174 raft.go 495 raft.(*Raft).HandleAppendEntries @resetElectionTimeout S0
 18:43:46.198469 raft.go 496 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] reset electionTimeout, [RLog c:0 a:0 len:0 []]
-18:43:46.198590 raftLog.go 81 raft.(*RfLog).TruncateAppend []
+18:43:46.198590 rfLog.go 81 raft.(*RfLog).TruncateAppend []
 18:43:46.198736 raft.go 498 raft.(*Raft).HandleAppendEntries S0 [] preLgIdx:-1 []
 18:43:46.198943 raft.go 505 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] [RLog c:0 a:0 len:0 []]
 18:43:46.199567 raft.go 506 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] save persist [RLog c:0 a:0 len:0 []]
@@ -549,7 +549,7 @@ Test (2B): rejoin of partitioned leader ...
 18:43:46.297902 raft.go 417 raft.(*Raft).startAppendEntries [S1 Leader t:1 vF:1 c:0 a:0 m:[0 3 0] n:[1 4 1]] save persist [RLog c:0 a:0 len:5 [{-1 -1 <nil>} {0 1 101} {1 1 102} {2 1 103} {3 1 104}]]
 18:43:46.298167 raft.go 495 raft.(*Raft).HandleAppendEntries @resetElectionTimeout S0
 18:43:46.298449 raft.go 496 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] reset electionTimeout, [RLog c:0 a:0 len:0 []]
-18:43:46.298604 raftLog.go 81 raft.(*RfLog).TruncateAppend []
+18:43:46.298604 rfLog.go 81 raft.(*RfLog).TruncateAppend []
 18:43:46.298769 raft.go 498 raft.(*Raft).HandleAppendEntries S0 [] preLgIdx:-1 []
 18:43:46.298996 raft.go 505 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] [RLog c:0 a:0 len:0 []]
 18:43:46.299631 raft.go 506 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] save persist [RLog c:0 a:0 len:0 []]
@@ -572,7 +572,7 @@ Test (2B): rejoin of partitioned leader ...
 18:43:46.394135 raft.go 477 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] received AppendEntries [arg S2 term:3 preLogIdx:-1 preLogT:-1 [] LComit:0]
 18:43:46.394258 raft.go 495 raft.(*Raft).HandleAppendEntries @resetElectionTimeout S0
 18:43:46.394370 raft.go 496 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] reset electionTimeout, [RLog c:0 a:0 len:0 []]
-18:43:46.394419 raftLog.go 81 raft.(*RfLog).TruncateAppend []
+18:43:46.394419 rfLog.go 81 raft.(*RfLog).TruncateAppend []
 18:43:46.394474 raft.go 498 raft.(*Raft).HandleAppendEntries S0 [] preLgIdx:-1 []
 18:43:46.394567 raft.go 505 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] [RLog c:0 a:0 len:0 []]
 18:43:46.394839 raft.go 506 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] save persist [RLog c:0 a:0 len:0 []]
@@ -596,7 +596,7 @@ Test (2B): rejoin of partitioned leader ...
 18:43:46.498046 raft.go 477 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] received AppendEntries [arg S2 term:3 preLogIdx:-1 preLogT:-1 [] LComit:0]
 18:43:46.498369 raft.go 495 raft.(*Raft).HandleAppendEntries @resetElectionTimeout S0
 18:43:46.498626 raft.go 496 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] reset electionTimeout, [RLog c:0 a:0 len:0 []]
-18:43:46.498738 raftLog.go 81 raft.(*RfLog).TruncateAppend []
+18:43:46.498738 rfLog.go 81 raft.(*RfLog).TruncateAppend []
 18:43:46.498855 raft.go 498 raft.(*Raft).HandleAppendEntries S0 [] preLgIdx:-1 []
 18:43:46.499042 raft.go 505 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] [RLog c:0 a:0 len:0 []]
 18:43:46.499599 raft.go 506 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] save persist [RLog c:0 a:0 len:0 []]
@@ -619,7 +619,7 @@ Test (2B): rejoin of partitioned leader ...
 18:43:46.597535 raft.go 477 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] received AppendEntries [arg S2 term:3 preLogIdx:-1 preLogT:-1 [] LComit:0]
 18:43:46.597826 raft.go 495 raft.(*Raft).HandleAppendEntries @resetElectionTimeout S0
 18:43:46.598071 raft.go 496 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] reset electionTimeout, [RLog c:0 a:0 len:0 []]
-18:43:46.598197 raftLog.go 81 raft.(*RfLog).TruncateAppend []
+18:43:46.598197 rfLog.go 81 raft.(*RfLog).TruncateAppend []
 18:43:46.598316 raft.go 498 raft.(*Raft).HandleAppendEntries S0 [] preLgIdx:-1 []
 18:43:46.598553 raft.go 505 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] [RLog c:0 a:0 len:0 []]
 18:43:46.599151 raft.go 506 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] save persist [RLog c:0 a:0 len:0 []]
@@ -643,7 +643,7 @@ Test (2B): rejoin of partitioned leader ...
 18:43:46.698062 raft.go 477 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] received AppendEntries [arg S2 term:3 preLogIdx:-1 preLogT:-1 [] LComit:0]
 18:43:46.698405 raft.go 495 raft.(*Raft).HandleAppendEntries @resetElectionTimeout S0
 18:43:46.698671 raft.go 496 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] reset electionTimeout, [RLog c:0 a:0 len:0 []]
-18:43:46.698788 raftLog.go 81 raft.(*RfLog).TruncateAppend []
+18:43:46.698788 rfLog.go 81 raft.(*RfLog).TruncateAppend []
 18:43:46.698955 raft.go 498 raft.(*Raft).HandleAppendEntries S0 [] preLgIdx:-1 []
 18:43:46.699190 raft.go 505 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] [RLog c:0 a:0 len:0 []]
 18:43:46.699831 raft.go 506 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] save persist [RLog c:0 a:0 len:0 []]
@@ -666,7 +666,7 @@ Test (2B): rejoin of partitioned leader ...
 18:43:46.794026 raft.go 477 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] received AppendEntries [arg S2 term:3 preLogIdx:-1 preLogT:-1 [] LComit:0]
 18:43:46.794162 raft.go 495 raft.(*Raft).HandleAppendEntries @resetElectionTimeout S0
 18:43:46.794272 raft.go 496 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] reset electionTimeout, [RLog c:0 a:0 len:0 []]
-18:43:46.794320 raftLog.go 81 raft.(*RfLog).TruncateAppend []
+18:43:46.794320 rfLog.go 81 raft.(*RfLog).TruncateAppend []
 18:43:46.794376 raft.go 498 raft.(*Raft).HandleAppendEntries S0 [] preLgIdx:-1 []
 18:43:46.794475 raft.go 505 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] [RLog c:0 a:0 len:0 []]
 18:43:46.794746 raft.go 506 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] save persist [RLog c:0 a:0 len:0 []]
@@ -689,7 +689,7 @@ Test (2B): rejoin of partitioned leader ...
 18:43:46.897506 raft.go 477 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] received AppendEntries [arg S2 term:3 preLogIdx:-1 preLogT:-1 [] LComit:0]
 18:43:46.897779 raft.go 495 raft.(*Raft).HandleAppendEntries @resetElectionTimeout S0
 18:43:46.898038 raft.go 496 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] reset electionTimeout, [RLog c:0 a:0 len:0 []]
-18:43:46.898143 raftLog.go 81 raft.(*RfLog).TruncateAppend []
+18:43:46.898143 rfLog.go 81 raft.(*RfLog).TruncateAppend []
 18:43:46.898271 raft.go 498 raft.(*Raft).HandleAppendEntries S0 [] preLgIdx:-1 []
 18:43:46.898468 raft.go 505 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] [RLog c:0 a:0 len:0 []]
 18:43:46.898999 raft.go 506 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] save persist [RLog c:0 a:0 len:0 []]
@@ -712,7 +712,7 @@ Test (2B): rejoin of partitioned leader ...
 18:43:46.999177 raft.go 477 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] received AppendEntries [arg S2 term:3 preLogIdx:-1 preLogT:-1 [] LComit:0]
 18:43:46.999364 raft.go 495 raft.(*Raft).HandleAppendEntries @resetElectionTimeout S0
 18:43:46.999505 raft.go 496 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] reset electionTimeout, [RLog c:0 a:0 len:0 []]
-18:43:46.999571 raftLog.go 81 raft.(*RfLog).TruncateAppend []
+18:43:46.999571 rfLog.go 81 raft.(*RfLog).TruncateAppend []
 18:43:46.999641 raft.go 498 raft.(*Raft).HandleAppendEntries S0 [] preLgIdx:-1 []
 18:43:46.999789 raft.go 505 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] [RLog c:0 a:0 len:0 []]
 18:43:47.000225 raft.go 506 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] save persist [RLog c:0 a:0 len:0 []]
@@ -736,7 +736,7 @@ Test (2B): rejoin of partitioned leader ...
 18:43:47.097089 raft.go 477 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] received AppendEntries [arg S2 term:3 preLogIdx:-1 preLogT:-1 [] LComit:0]
 18:43:47.097340 raft.go 495 raft.(*Raft).HandleAppendEntries @resetElectionTimeout S0
 18:43:47.097610 raft.go 496 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] reset electionTimeout, [RLog c:0 a:0 len:0 []]
-18:43:47.097763 raftLog.go 81 raft.(*RfLog).TruncateAppend []
+18:43:47.097763 rfLog.go 81 raft.(*RfLog).TruncateAppend []
 18:43:47.097880 raft.go 498 raft.(*Raft).HandleAppendEntries S0 [] preLgIdx:-1 []
 18:43:47.098066 raft.go 505 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] [RLog c:0 a:0 len:0 []]
 18:43:47.098648 raft.go 506 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] save persist [RLog c:0 a:0 len:0 []]
@@ -762,7 +762,7 @@ Test (2B): rejoin of partitioned leader ...
 18:43:47.198465 raft.go 477 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] received AppendEntries [arg S2 term:3 preLogIdx:-1 preLogT:-1 [] LComit:0]
 18:43:47.198718 raft.go 495 raft.(*Raft).HandleAppendEntries @resetElectionTimeout S0
 18:43:47.198953 raft.go 496 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] reset electionTimeout, [RLog c:0 a:0 len:0 []]
-18:43:47.199058 raftLog.go 81 raft.(*RfLog).TruncateAppend []
+18:43:47.199058 rfLog.go 81 raft.(*RfLog).TruncateAppend []
 18:43:47.199168 raft.go 498 raft.(*Raft).HandleAppendEntries S0 [] preLgIdx:-1 []
 18:43:47.199400 raft.go 505 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] [RLog c:0 a:0 len:0 []]
 18:43:47.199925 raft.go 506 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] save persist [RLog c:0 a:0 len:0 []]
@@ -788,7 +788,7 @@ Test (2B): rejoin of partitioned leader ...
 18:43:47.296655 raft.go 477 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] received AppendEntries [arg S2 term:3 preLogIdx:-1 preLogT:-1 [] LComit:0]
 18:43:47.296918 raft.go 495 raft.(*Raft).HandleAppendEntries @resetElectionTimeout S0
 18:43:47.297160 raft.go 496 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] reset electionTimeout, [RLog c:0 a:0 len:0 []]
-18:43:47.297284 raftLog.go 81 raft.(*RfLog).TruncateAppend []
+18:43:47.297284 rfLog.go 81 raft.(*RfLog).TruncateAppend []
 18:43:47.297397 raft.go 498 raft.(*Raft).HandleAppendEntries S0 [] preLgIdx:-1 []
 18:43:47.297626 raft.go 505 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] [RLog c:0 a:0 len:0 []]
 18:43:47.298737 raft.go 506 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] save persist [RLog c:0 a:0 len:0 []]
@@ -812,7 +812,7 @@ Test (2B): rejoin of partitioned leader ...
 18:43:47.399225 raft.go 477 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] received AppendEntries [arg S2 term:3 preLogIdx:-1 preLogT:-1 [] LComit:0]
 18:43:47.399497 raft.go 495 raft.(*Raft).HandleAppendEntries @resetElectionTimeout S0
 18:43:47.399722 raft.go 496 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] reset electionTimeout, [RLog c:0 a:0 len:0 []]
-18:43:47.399847 raftLog.go 81 raft.(*RfLog).TruncateAppend []
+18:43:47.399847 rfLog.go 81 raft.(*RfLog).TruncateAppend []
 18:43:47.399955 raft.go 498 raft.(*Raft).HandleAppendEntries S0 [] preLgIdx:-1 []
 18:43:47.400140 raft.go 505 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] [RLog c:0 a:0 len:0 []]
 18:43:47.400726 raft.go 506 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] save persist [RLog c:0 a:0 len:0 []]
@@ -835,7 +835,7 @@ Test (2B): rejoin of partitioned leader ...
 18:43:47.496314 raft.go 495 raft.(*Raft).HandleAppendEntries @resetElectionTimeout S0
 18:43:47.496316 raft.go 417 raft.(*Raft).startAppendEntries [S1 Leader t:1 vF:1 c:0 a:0 m:[0 3 0] n:[1 4 1]] save persist [RLog c:0 a:0 len:5 [{-1 -1 <nil>} {0 1 101} {1 1 102} {2 1 103} {3 1 104}]]
 18:43:47.496519 raft.go 496 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] reset electionTimeout, [RLog c:0 a:0 len:0 []]
-18:43:47.496658 raftLog.go 81 raft.(*RfLog).TruncateAppend []
+18:43:47.496658 rfLog.go 81 raft.(*RfLog).TruncateAppend []
 18:43:47.496795 raft.go 498 raft.(*Raft).HandleAppendEntries S0 [] preLgIdx:-1 []
 18:43:47.496970 raft.go 505 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] [RLog c:0 a:0 len:0 []]
 18:43:47.497275 raft.go 506 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] save persist [RLog c:0 a:0 len:0 []]
@@ -843,7 +843,7 @@ Test (2B): rejoin of partitioned leader ...
 18:43:47.498432 raft.go 463 raft.(*Raft).startAppendEntries [S2 Leader t:3 vF:2 c:0 a:0 m:[-1 -1 1] n:[0 1 2]] save persist [RLog c:0 a:0 len:3 [{0 1 101} {-1 -1 <nil>} {1 3 103}]]
 18:43:47.506527 raft.go 532 raft.(*Raft).Start [S0 Follower t:3 vF:2 c:0 a:0]: Client start to append command 103, [RLog c:0 a:0 len:0 []]
 18:43:47.506729 raft.go 532 raft.(*Raft).Start [S2 Leader t:3 vF:2 c:0 a:0 m:[-1 -1 1] n:[0 1 2]]: Client start to append command 103, [RLog c:0 a:0 len:3 [{0 1 101} {-1 -1 <nil>} {1 3 103}]]
-18:43:47.506844 raftLog.go 35 raft.(*RfLog).AppendEntries {2 3 103} [{0 1 101} {-1 -1 <nil>} {1 3 103} {2 3 103}]
+18:43:47.506844 rfLog.go 35 raft.(*RfLog).AppendEntries {2 3 103} [{0 1 101} {-1 -1 <nil>} {1 3 103} {2 3 103}]
 18:43:47.507252 raft.go 541 raft.(*Raft).Start [S2 Leader t:3 vF:2 c:0 a:0 m:[-1 -1 2] n:[0 1 3]] save persist [RLog c:0 a:0 len:4 [{0 1 101} {-1 -1 <nil>} {1 3 103} {2 3 103}]]
 18:43:47.513250 raft.go 435 raft.(*Raft).startAppendEntries [S2 Leader t:3 vF:2 c:0 a:0 m:[-1 -1 2] n:[0 1 3]] save persist [RLog c:0 a:0 len:4 [{0 1 101} {-1 -1 <nil>} {1 3 103} {2 3 103}]]
 18:43:47.590533 raft.go 613 raft.(*Raft).run [S1 Leader t:1 vF:1 c:0 a:0 m:[0 3 0] n:[1 4 1]] sending heartbeat msg
@@ -864,7 +864,7 @@ Test (2B): rejoin of partitioned leader ...
 18:43:47.596488 raft.go 477 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] received AppendEntries [arg S2 term:3 preLogIdx:-1 preLogT:-1 [] LComit:0]
 18:43:47.596759 raft.go 495 raft.(*Raft).HandleAppendEntries @resetElectionTimeout S0
 18:43:47.596984 raft.go 496 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] reset electionTimeout, [RLog c:0 a:0 len:0 []]
-18:43:47.597094 raftLog.go 81 raft.(*RfLog).TruncateAppend []
+18:43:47.597094 rfLog.go 81 raft.(*RfLog).TruncateAppend []
 18:43:47.597203 raft.go 498 raft.(*Raft).HandleAppendEntries S0 [] preLgIdx:-1 []
 18:43:47.597401 raft.go 505 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] [RLog c:0 a:0 len:0 []]
 18:43:47.597952 raft.go 506 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] save persist [RLog c:0 a:0 len:0 []]
@@ -887,7 +887,7 @@ Test (2B): rejoin of partitioned leader ...
 18:43:47.697469 raft.go 477 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] received AppendEntries [arg S2 term:3 preLogIdx:-1 preLogT:-1 [] LComit:0]
 18:43:47.697751 raft.go 495 raft.(*Raft).HandleAppendEntries @resetElectionTimeout S0
 18:43:47.697989 raft.go 496 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] reset electionTimeout, [RLog c:0 a:0 len:0 []]
-18:43:47.698093 raftLog.go 81 raft.(*RfLog).TruncateAppend []
+18:43:47.698093 rfLog.go 81 raft.(*RfLog).TruncateAppend []
 18:43:47.698211 raft.go 498 raft.(*Raft).HandleAppendEntries S0 [] preLgIdx:-1 []
 18:43:47.698411 raft.go 505 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] [RLog c:0 a:0 len:0 []]
 18:43:47.698982 raft.go 506 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] save persist [RLog c:0 a:0 len:0 []]
@@ -910,7 +910,7 @@ Test (2B): rejoin of partitioned leader ...
 18:43:47.797316 raft.go 477 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] received AppendEntries [arg S2 term:3 preLogIdx:-1 preLogT:-1 [] LComit:0]
 18:43:47.797604 raft.go 495 raft.(*Raft).HandleAppendEntries @resetElectionTimeout S0
 18:43:47.797827 raft.go 496 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] reset electionTimeout, [RLog c:0 a:0 len:0 []]
-18:43:47.797939 raftLog.go 81 raft.(*RfLog).TruncateAppend []
+18:43:47.797939 rfLog.go 81 raft.(*RfLog).TruncateAppend []
 18:43:47.798056 raft.go 498 raft.(*Raft).HandleAppendEntries S0 [] preLgIdx:-1 []
 18:43:47.798252 raft.go 505 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] [RLog c:0 a:0 len:0 []]
 18:43:47.798830 raft.go 506 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] save persist [RLog c:0 a:0 len:0 []]
@@ -933,7 +933,7 @@ Test (2B): rejoin of partitioned leader ...
 18:43:47.894592 raft.go 477 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] received AppendEntries [arg S2 term:3 preLogIdx:-1 preLogT:-1 [] LComit:0]
 18:43:47.894797 raft.go 495 raft.(*Raft).HandleAppendEntries @resetElectionTimeout S0
 18:43:47.894943 raft.go 496 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] reset electionTimeout, [RLog c:0 a:0 len:0 []]
-18:43:47.895003 raftLog.go 81 raft.(*RfLog).TruncateAppend []
+18:43:47.895003 rfLog.go 81 raft.(*RfLog).TruncateAppend []
 18:43:47.895086 raft.go 498 raft.(*Raft).HandleAppendEntries S0 [] preLgIdx:-1 []
 18:43:47.895212 raft.go 505 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] [RLog c:0 a:0 len:0 []]
 18:43:47.895559 raft.go 506 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] save persist [RLog c:0 a:0 len:0 []]
@@ -959,7 +959,7 @@ Test (2B): rejoin of partitioned leader ...
 18:43:47.998186 raft.go 477 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] received AppendEntries [arg S2 term:3 preLogIdx:-1 preLogT:-1 [] LComit:0]
 18:43:47.998479 raft.go 495 raft.(*Raft).HandleAppendEntries @resetElectionTimeout S0
 18:43:47.998707 raft.go 496 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] reset electionTimeout, [RLog c:0 a:0 len:0 []]
-18:43:47.998811 raftLog.go 81 raft.(*RfLog).TruncateAppend []
+18:43:47.998811 rfLog.go 81 raft.(*RfLog).TruncateAppend []
 18:43:47.998929 raft.go 498 raft.(*Raft).HandleAppendEntries S0 [] preLgIdx:-1 []
 18:43:47.999114 raft.go 505 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] [RLog c:0 a:0 len:0 []]
 18:43:47.999706 raft.go 506 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] save persist [RLog c:0 a:0 len:0 []]
@@ -983,7 +983,7 @@ Test (2B): rejoin of partitioned leader ...
 18:43:48.097191 raft.go 477 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] received AppendEntries [arg S2 term:3 preLogIdx:-1 preLogT:-1 [] LComit:0]
 18:43:48.097454 raft.go 495 raft.(*Raft).HandleAppendEntries @resetElectionTimeout S0
 18:43:48.097680 raft.go 496 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] reset electionTimeout, [RLog c:0 a:0 len:0 []]
-18:43:48.097806 raftLog.go 81 raft.(*RfLog).TruncateAppend []
+18:43:48.097806 rfLog.go 81 raft.(*RfLog).TruncateAppend []
 18:43:48.097925 raft.go 498 raft.(*Raft).HandleAppendEntries S0 [] preLgIdx:-1 []
 18:43:48.098113 raft.go 505 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] [RLog c:0 a:0 len:0 []]
 18:43:48.098619 raft.go 506 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] save persist [RLog c:0 a:0 len:0 []]
@@ -1007,7 +1007,7 @@ Test (2B): rejoin of partitioned leader ...
 18:43:48.197994 raft.go 477 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] received AppendEntries [arg S2 term:3 preLogIdx:-1 preLogT:-1 [] LComit:0]
 18:43:48.198249 raft.go 495 raft.(*Raft).HandleAppendEntries @resetElectionTimeout S0
 18:43:48.198482 raft.go 496 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] reset electionTimeout, [RLog c:0 a:0 len:0 []]
-18:43:48.198583 raftLog.go 81 raft.(*RfLog).TruncateAppend []
+18:43:48.198583 rfLog.go 81 raft.(*RfLog).TruncateAppend []
 18:43:48.198703 raft.go 498 raft.(*Raft).HandleAppendEntries S0 [] preLgIdx:-1 []
 18:43:48.198889 raft.go 505 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] [RLog c:0 a:0 len:0 []]
 18:43:48.199407 raft.go 506 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] save persist [RLog c:0 a:0 len:0 []]
@@ -1032,7 +1032,7 @@ Test (2B): rejoin of partitioned leader ...
 18:43:48.294007 raft.go 477 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] received AppendEntries [arg S2 term:3 preLogIdx:-1 preLogT:-1 [] LComit:0]
 18:43:48.294137 raft.go 495 raft.(*Raft).HandleAppendEntries @resetElectionTimeout S0
 18:43:48.294245 raft.go 496 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] reset electionTimeout, [RLog c:0 a:0 len:0 []]
-18:43:48.294298 raftLog.go 81 raft.(*RfLog).TruncateAppend []
+18:43:48.294298 rfLog.go 81 raft.(*RfLog).TruncateAppend []
 18:43:48.294352 raft.go 498 raft.(*Raft).HandleAppendEntries S0 [] preLgIdx:-1 []
 18:43:48.294440 raft.go 505 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] [RLog c:0 a:0 len:0 []]
 18:43:48.294693 raft.go 506 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] save persist [RLog c:0 a:0 len:0 []]
@@ -1057,7 +1057,7 @@ Test (2B): rejoin of partitioned leader ...
 18:43:48.395385 raft.go 477 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] received AppendEntries [arg S2 term:3 preLogIdx:-1 preLogT:-1 [] LComit:0]
 18:43:48.395516 raft.go 495 raft.(*Raft).HandleAppendEntries @resetElectionTimeout S0
 18:43:48.395631 raft.go 496 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] reset electionTimeout, [RLog c:0 a:0 len:0 []]
-18:43:48.395680 raftLog.go 81 raft.(*RfLog).TruncateAppend []
+18:43:48.395680 rfLog.go 81 raft.(*RfLog).TruncateAppend []
 18:43:48.395732 raft.go 498 raft.(*Raft).HandleAppendEntries S0 [] preLgIdx:-1 []
 18:43:48.395824 raft.go 505 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] [RLog c:0 a:0 len:0 []]
 18:43:48.396103 raft.go 506 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] save persist [RLog c:0 a:0 len:0 []]
@@ -1084,7 +1084,7 @@ Test (2B): rejoin of partitioned leader ...
 18:43:48.496720 raft.go 477 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] received AppendEntries [arg S2 term:3 preLogIdx:-1 preLogT:-1 [] LComit:0]
 18:43:48.496978 raft.go 495 raft.(*Raft).HandleAppendEntries @resetElectionTimeout S0
 18:43:48.497192 raft.go 496 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] reset electionTimeout, [RLog c:0 a:0 len:0 []]
-18:43:48.497313 raftLog.go 81 raft.(*RfLog).TruncateAppend []
+18:43:48.497313 rfLog.go 81 raft.(*RfLog).TruncateAppend []
 18:43:48.497436 raft.go 498 raft.(*Raft).HandleAppendEntries S0 [] preLgIdx:-1 []
 18:43:48.497627 raft.go 505 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] [RLog c:0 a:0 len:0 []]
 18:43:48.498196 raft.go 506 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] save persist [RLog c:0 a:0 len:0 []]
@@ -1107,7 +1107,7 @@ Test (2B): rejoin of partitioned leader ...
 18:43:48.593937 raft.go 477 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] received AppendEntries [arg S2 term:3 preLogIdx:-1 preLogT:-1 [] LComit:0]
 18:43:48.594067 raft.go 495 raft.(*Raft).HandleAppendEntries @resetElectionTimeout S0
 18:43:48.594178 raft.go 496 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] reset electionTimeout, [RLog c:0 a:0 len:0 []]
-18:43:48.594226 raftLog.go 81 raft.(*RfLog).TruncateAppend []
+18:43:48.594226 rfLog.go 81 raft.(*RfLog).TruncateAppend []
 18:43:48.594281 raft.go 498 raft.(*Raft).HandleAppendEntries S0 [] preLgIdx:-1 []
 18:43:48.594369 raft.go 505 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] [RLog c:0 a:0 len:0 []]
 18:43:48.594642 raft.go 506 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] save persist [RLog c:0 a:0 len:0 []]
@@ -1130,7 +1130,7 @@ Test (2B): rejoin of partitioned leader ...
 18:43:48.698194 raft.go 477 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] received AppendEntries [arg S2 term:3 preLogIdx:-1 preLogT:-1 [] LComit:0]
 18:43:48.698456 raft.go 495 raft.(*Raft).HandleAppendEntries @resetElectionTimeout S0
 18:43:48.698666 raft.go 496 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] reset electionTimeout, [RLog c:0 a:0 len:0 []]
-18:43:48.698781 raftLog.go 81 raft.(*RfLog).TruncateAppend []
+18:43:48.698781 rfLog.go 81 raft.(*RfLog).TruncateAppend []
 18:43:48.698929 raft.go 498 raft.(*Raft).HandleAppendEntries S0 [] preLgIdx:-1 []
 18:43:48.699129 raft.go 505 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] [RLog c:0 a:0 len:0 []]
 18:43:48.699676 raft.go 506 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] save persist [RLog c:0 a:0 len:0 []]
@@ -1153,7 +1153,7 @@ Test (2B): rejoin of partitioned leader ...
 18:43:48.799193 raft.go 477 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] received AppendEntries [arg S2 term:3 preLogIdx:-1 preLogT:-1 [] LComit:0]
 18:43:48.799506 raft.go 495 raft.(*Raft).HandleAppendEntries @resetElectionTimeout S0
 18:43:48.799791 raft.go 496 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] reset electionTimeout, [RLog c:0 a:0 len:0 []]
-18:43:48.799908 raftLog.go 81 raft.(*RfLog).TruncateAppend []
+18:43:48.799908 rfLog.go 81 raft.(*RfLog).TruncateAppend []
 18:43:48.800021 raft.go 498 raft.(*Raft).HandleAppendEntries S0 [] preLgIdx:-1 []
 18:43:48.800262 raft.go 505 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] [RLog c:0 a:0 len:0 []]
 18:43:48.800867 raft.go 506 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] save persist [RLog c:0 a:0 len:0 []]
@@ -1178,7 +1178,7 @@ Test (2B): rejoin of partitioned leader ...
 18:43:48.898059 raft.go 477 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] received AppendEntries [arg S2 term:3 preLogIdx:-1 preLogT:-1 [] LComit:0]
 18:43:48.898317 raft.go 495 raft.(*Raft).HandleAppendEntries @resetElectionTimeout S0
 18:43:48.898544 raft.go 496 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] reset electionTimeout, [RLog c:0 a:0 len:0 []]
-18:43:48.898642 raftLog.go 81 raft.(*RfLog).TruncateAppend []
+18:43:48.898642 rfLog.go 81 raft.(*RfLog).TruncateAppend []
 18:43:48.898749 raft.go 498 raft.(*Raft).HandleAppendEntries S0 [] preLgIdx:-1 []
 18:43:48.898959 raft.go 505 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] [RLog c:0 a:0 len:0 []]
 18:43:48.899833 raft.go 506 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] save persist [RLog c:0 a:0 len:0 []]
@@ -1203,7 +1203,7 @@ Test (2B): rejoin of partitioned leader ...
 18:43:48.995322 raft.go 477 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] received AppendEntries [arg S2 term:3 preLogIdx:-1 preLogT:-1 [] LComit:0]
 18:43:48.995490 raft.go 495 raft.(*Raft).HandleAppendEntries @resetElectionTimeout S0
 18:43:48.995642 raft.go 496 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] reset electionTimeout, [RLog c:0 a:0 len:0 []]
-18:43:48.995719 raftLog.go 81 raft.(*RfLog).TruncateAppend []
+18:43:48.995719 rfLog.go 81 raft.(*RfLog).TruncateAppend []
 18:43:48.995836 raft.go 498 raft.(*Raft).HandleAppendEntries S0 [] preLgIdx:-1 []
 18:43:48.995992 raft.go 505 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] [RLog c:0 a:0 len:0 []]
 18:43:48.996408 raft.go 506 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] save persist [RLog c:0 a:0 len:0 []]
@@ -1226,7 +1226,7 @@ Test (2B): rejoin of partitioned leader ...
 18:43:49.098676 raft.go 477 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] received AppendEntries [arg S2 term:3 preLogIdx:-1 preLogT:-1 [] LComit:0]
 18:43:49.098935 raft.go 495 raft.(*Raft).HandleAppendEntries @resetElectionTimeout S0
 18:43:49.099153 raft.go 496 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] reset electionTimeout, [RLog c:0 a:0 len:0 []]
-18:43:49.099252 raftLog.go 81 raft.(*RfLog).TruncateAppend []
+18:43:49.099252 rfLog.go 81 raft.(*RfLog).TruncateAppend []
 18:43:49.099362 raft.go 498 raft.(*Raft).HandleAppendEntries S0 [] preLgIdx:-1 []
 18:43:49.099575 raft.go 505 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] [RLog c:0 a:0 len:0 []]
 18:43:49.100125 raft.go 506 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] save persist [RLog c:0 a:0 len:0 []]
@@ -1250,7 +1250,7 @@ Test (2B): rejoin of partitioned leader ...
 18:43:49.197064 raft.go 417 raft.(*Raft).startAppendEntries [S1 Leader t:1 vF:1 c:0 a:0 m:[0 3 0] n:[1 4 1]] save persist [RLog c:0 a:0 len:5 [{-1 -1 <nil>} {0 1 101} {1 1 102} {2 1 103} {3 1 104}]]
 18:43:49.197244 raft.go 495 raft.(*Raft).HandleAppendEntries @resetElectionTimeout S0
 18:43:49.197478 raft.go 496 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] reset electionTimeout, [RLog c:0 a:0 len:0 []]
-18:43:49.197595 raftLog.go 81 raft.(*RfLog).TruncateAppend []
+18:43:49.197595 rfLog.go 81 raft.(*RfLog).TruncateAppend []
 18:43:49.197718 raft.go 498 raft.(*Raft).HandleAppendEntries S0 [] preLgIdx:-1 []
 18:43:49.197906 raft.go 505 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] [RLog c:0 a:0 len:0 []]
 18:43:49.198521 raft.go 506 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] save persist [RLog c:0 a:0 len:0 []]
@@ -1279,7 +1279,7 @@ Test (2B): rejoin of partitioned leader ...
 18:43:49.297174 raft.go 477 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] received AppendEntries [arg S2 term:3 preLogIdx:-1 preLogT:-1 [] LComit:0]
 18:43:49.297435 raft.go 495 raft.(*Raft).HandleAppendEntries @resetElectionTimeout S0
 18:43:49.297640 raft.go 496 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] reset electionTimeout, [RLog c:0 a:0 len:0 []]
-18:43:49.297737 raftLog.go 81 raft.(*RfLog).TruncateAppend []
+18:43:49.297737 rfLog.go 81 raft.(*RfLog).TruncateAppend []
 18:43:49.297842 raft.go 498 raft.(*Raft).HandleAppendEntries S0 [] preLgIdx:-1 []
 18:43:49.298046 raft.go 505 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] [RLog c:0 a:0 len:0 []]
 18:43:49.298574 raft.go 506 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] save persist [RLog c:0 a:0 len:0 []]
@@ -1303,7 +1303,7 @@ Test (2B): rejoin of partitioned leader ...
 18:43:49.393962 raft.go 477 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] received AppendEntries [arg S2 term:3 preLogIdx:-1 preLogT:-1 [] LComit:0]
 18:43:49.394095 raft.go 495 raft.(*Raft).HandleAppendEntries @resetElectionTimeout S0
 18:43:49.394207 raft.go 496 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] reset electionTimeout, [RLog c:0 a:0 len:0 []]
-18:43:49.394258 raftLog.go 81 raft.(*RfLog).TruncateAppend []
+18:43:49.394258 rfLog.go 81 raft.(*RfLog).TruncateAppend []
 18:43:49.394316 raft.go 498 raft.(*Raft).HandleAppendEntries S0 [] preLgIdx:-1 []
 18:43:49.394417 raft.go 505 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] [RLog c:0 a:0 len:0 []]
 18:43:49.394709 raft.go 506 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] save persist [RLog c:0 a:0 len:0 []]
@@ -1327,7 +1327,7 @@ Test (2B): rejoin of partitioned leader ...
 18:43:49.497551 raft.go 477 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] received AppendEntries [arg S2 term:3 preLogIdx:-1 preLogT:-1 [] LComit:0]
 18:43:49.497826 raft.go 495 raft.(*Raft).HandleAppendEntries @resetElectionTimeout S0
 18:43:49.498052 raft.go 496 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] reset electionTimeout, [RLog c:0 a:0 len:0 []]
-18:43:49.498154 raftLog.go 81 raft.(*RfLog).TruncateAppend []
+18:43:49.498154 rfLog.go 81 raft.(*RfLog).TruncateAppend []
 18:43:49.498287 raft.go 498 raft.(*Raft).HandleAppendEntries S0 [] preLgIdx:-1 []
 18:43:49.498472 raft.go 505 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] [RLog c:0 a:0 len:0 []]
 18:43:49.499331 raft.go 506 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] save persist [RLog c:0 a:0 len:0 []]
@@ -1337,7 +1337,7 @@ Test (2B): rejoin of partitioned leader ...
 18:43:49.514979 raft.go 435 raft.(*Raft).startAppendEntries [S1 Leader t:1 vF:1 c:0 a:0 m:[0 3 0] n:[1 4 1]] save persist [RLog c:0 a:0 len:5 [{-1 -1 <nil>} {0 1 101} {1 1 102} {2 1 103} {3 1 104}]]
 18:43:49.515274 raft.go 532 raft.(*Raft).Start [S0 Follower t:3 vF:2 c:0 a:0]: Client start to append command 103, [RLog c:0 a:0 len:0 []]
 18:43:49.515712 raft.go 532 raft.(*Raft).Start [S2 Leader t:3 vF:2 c:0 a:0 m:[-1 -1 2] n:[0 1 3]]: Client start to append command 103, [RLog c:0 a:0 len:4 [{0 1 101} {-1 -1 <nil>} {1 3 103} {2 3 103}]]
-18:43:49.515969 raftLog.go 35 raft.(*RfLog).AppendEntries {3 3 103} [{0 1 101} {-1 -1 <nil>} {1 3 103} {2 3 103} {3 3 103}]
+18:43:49.515969 rfLog.go 35 raft.(*RfLog).AppendEntries {3 3 103} [{0 1 101} {-1 -1 <nil>} {1 3 103} {2 3 103} {3 3 103}]
 18:43:49.516832 raft.go 541 raft.(*Raft).Start [S2 Leader t:3 vF:2 c:0 a:0 m:[-1 -1 3] n:[0 1 4]] save persist [RLog c:0 a:0 len:5 [{0 1 101} {-1 -1 <nil>} {1 3 103} {2 3 103} {3 3 103}]]
 18:43:49.526046 raft.go 435 raft.(*Raft).startAppendEntries [S1 Leader t:1 vF:1 c:0 a:0 m:[0 3 0] n:[1 4 1]] save persist [RLog c:0 a:0 len:5 [{-1 -1 <nil>} {0 1 101} {1 1 102} {2 1 103} {3 1 104}]]
 18:43:49.590897 raft.go 613 raft.(*Raft).run [S1 Leader t:1 vF:1 c:0 a:0 m:[0 3 0] n:[1 4 1]] sending heartbeat msg
@@ -1357,7 +1357,7 @@ Test (2B): rejoin of partitioned leader ...
 18:43:49.594276 raft.go 477 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] received AppendEntries [arg S2 term:3 preLogIdx:-1 preLogT:-1 [] LComit:0]
 18:43:49.594406 raft.go 495 raft.(*Raft).HandleAppendEntries @resetElectionTimeout S0
 18:43:49.594523 raft.go 496 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] reset electionTimeout, [RLog c:0 a:0 len:0 []]
-18:43:49.594579 raftLog.go 81 raft.(*RfLog).TruncateAppend []
+18:43:49.594579 rfLog.go 81 raft.(*RfLog).TruncateAppend []
 18:43:49.594633 raft.go 498 raft.(*Raft).HandleAppendEntries S0 [] preLgIdx:-1 []
 18:43:49.594734 raft.go 505 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] [RLog c:0 a:0 len:0 []]
 18:43:49.595015 raft.go 506 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] save persist [RLog c:0 a:0 len:0 []]
@@ -1382,7 +1382,7 @@ Test (2B): rejoin of partitioned leader ...
 18:43:49.701602 raft.go 477 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] received AppendEntries [arg S2 term:3 preLogIdx:-1 preLogT:-1 [] LComit:0]
 18:43:49.702028 raft.go 495 raft.(*Raft).HandleAppendEntries @resetElectionTimeout S0
 18:43:49.702392 raft.go 496 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] reset electionTimeout, [RLog c:0 a:0 len:0 []]
-18:43:49.702550 raftLog.go 81 raft.(*RfLog).TruncateAppend []
+18:43:49.702550 rfLog.go 81 raft.(*RfLog).TruncateAppend []
 18:43:49.702688 raft.go 498 raft.(*Raft).HandleAppendEntries S0 [] preLgIdx:-1 []
 18:43:49.702881 raft.go 505 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] [RLog c:0 a:0 len:0 []]
 18:43:49.703427 raft.go 506 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] save persist [RLog c:0 a:0 len:0 []]
@@ -1408,7 +1408,7 @@ Test (2B): rejoin of partitioned leader ...
 18:43:49.796314 raft.go 477 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] received AppendEntries [arg S2 term:3 preLogIdx:-1 preLogT:-1 [] LComit:0]
 18:43:49.796551 raft.go 495 raft.(*Raft).HandleAppendEntries @resetElectionTimeout S0
 18:43:49.796752 raft.go 496 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] reset electionTimeout, [RLog c:0 a:0 len:0 []]
-18:43:49.796846 raftLog.go 81 raft.(*RfLog).TruncateAppend []
+18:43:49.796846 rfLog.go 81 raft.(*RfLog).TruncateAppend []
 18:43:49.796945 raft.go 498 raft.(*Raft).HandleAppendEntries S0 [] preLgIdx:-1 []
 18:43:49.797118 raft.go 505 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] [RLog c:0 a:0 len:0 []]
 18:43:49.797585 raft.go 506 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] save persist [RLog c:0 a:0 len:0 []]
@@ -1433,7 +1433,7 @@ Test (2B): rejoin of partitioned leader ...
 18:43:49.897185 raft.go 477 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] received AppendEntries [arg S2 term:3 preLogIdx:-1 preLogT:-1 [] LComit:0]
 18:43:49.897470 raft.go 495 raft.(*Raft).HandleAppendEntries @resetElectionTimeout S0
 18:43:49.897709 raft.go 496 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] reset electionTimeout, [RLog c:0 a:0 len:0 []]
-18:43:49.897844 raftLog.go 81 raft.(*RfLog).TruncateAppend []
+18:43:49.897844 rfLog.go 81 raft.(*RfLog).TruncateAppend []
 18:43:49.897956 raft.go 498 raft.(*Raft).HandleAppendEntries S0 [] preLgIdx:-1 []
 18:43:49.898146 raft.go 505 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] [RLog c:0 a:0 len:0 []]
 18:43:49.898681 raft.go 506 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] save persist [RLog c:0 a:0 len:0 []]
@@ -1458,7 +1458,7 @@ Test (2B): rejoin of partitioned leader ...
 18:43:49.997717 raft.go 477 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] received AppendEntries [arg S2 term:3 preLogIdx:-1 preLogT:-1 [] LComit:0]
 18:43:49.997978 raft.go 495 raft.(*Raft).HandleAppendEntries @resetElectionTimeout S0
 18:43:49.998205 raft.go 496 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] reset electionTimeout, [RLog c:0 a:0 len:0 []]
-18:43:49.998308 raftLog.go 81 raft.(*RfLog).TruncateAppend []
+18:43:49.998308 rfLog.go 81 raft.(*RfLog).TruncateAppend []
 18:43:49.998417 raft.go 498 raft.(*Raft).HandleAppendEntries S0 [] preLgIdx:-1 []
 18:43:49.998618 raft.go 505 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] [RLog c:0 a:0 len:0 []]
 18:43:49.999167 raft.go 506 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] save persist [RLog c:0 a:0 len:0 []]
@@ -1482,7 +1482,7 @@ Test (2B): rejoin of partitioned leader ...
 18:43:50.094013 raft.go 477 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] received AppendEntries [arg S2 term:3 preLogIdx:-1 preLogT:-1 [] LComit:0]
 18:43:50.094148 raft.go 495 raft.(*Raft).HandleAppendEntries @resetElectionTimeout S0
 18:43:50.094277 raft.go 496 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] reset electionTimeout, [RLog c:0 a:0 len:0 []]
-18:43:50.094329 raftLog.go 81 raft.(*RfLog).TruncateAppend []
+18:43:50.094329 rfLog.go 81 raft.(*RfLog).TruncateAppend []
 18:43:50.094384 raft.go 498 raft.(*Raft).HandleAppendEntries S0 [] preLgIdx:-1 []
 18:43:50.094480 raft.go 505 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] [RLog c:0 a:0 len:0 []]
 18:43:50.094746 raft.go 506 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] save persist [RLog c:0 a:0 len:0 []]
@@ -1506,7 +1506,7 @@ Test (2B): rejoin of partitioned leader ...
 18:43:50.197041 raft.go 477 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] received AppendEntries [arg S2 term:3 preLogIdx:-1 preLogT:-1 [] LComit:0]
 18:43:50.197329 raft.go 495 raft.(*Raft).HandleAppendEntries @resetElectionTimeout S0
 18:43:50.197586 raft.go 496 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] reset electionTimeout, [RLog c:0 a:0 len:0 []]
-18:43:50.197706 raftLog.go 81 raft.(*RfLog).TruncateAppend []
+18:43:50.197706 rfLog.go 81 raft.(*RfLog).TruncateAppend []
 18:43:50.197831 raft.go 498 raft.(*Raft).HandleAppendEntries S0 [] preLgIdx:-1 []
 18:43:50.198035 raft.go 505 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] [RLog c:0 a:0 len:0 []]
 18:43:50.198574 raft.go 506 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] save persist [RLog c:0 a:0 len:0 []]
@@ -1531,7 +1531,7 @@ Test (2B): rejoin of partitioned leader ...
 18:43:50.331720 raft.go 477 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] received AppendEntries [arg S2 term:3 preLogIdx:-1 preLogT:-1 [] LComit:0]
 18:43:50.331993 raft.go 495 raft.(*Raft).HandleAppendEntries @resetElectionTimeout S0
 18:43:50.332245 raft.go 496 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] reset electionTimeout, [RLog c:0 a:0 len:0 []]
-18:43:50.332361 raftLog.go 81 raft.(*RfLog).TruncateAppend []
+18:43:50.332361 rfLog.go 81 raft.(*RfLog).TruncateAppend []
 18:43:50.332491 raft.go 498 raft.(*Raft).HandleAppendEntries S0 [] preLgIdx:-1 []
 18:43:50.332703 raft.go 505 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] [RLog c:0 a:0 len:0 []]
 18:43:50.333246 raft.go 506 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] save persist [RLog c:0 a:0 len:0 []]
@@ -1555,7 +1555,7 @@ Test (2B): rejoin of partitioned leader ...
 18:43:50.398222 raft.go 477 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] received AppendEntries [arg S2 term:3 preLogIdx:-1 preLogT:-1 [] LComit:0]
 18:43:50.398498 raft.go 495 raft.(*Raft).HandleAppendEntries @resetElectionTimeout S0
 18:43:50.398725 raft.go 496 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] reset electionTimeout, [RLog c:0 a:0 len:0 []]
-18:43:50.398837 raftLog.go 81 raft.(*RfLog).TruncateAppend []
+18:43:50.398837 rfLog.go 81 raft.(*RfLog).TruncateAppend []
 18:43:50.398953 raft.go 498 raft.(*Raft).HandleAppendEntries S0 [] preLgIdx:-1 []
 18:43:50.399133 raft.go 505 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] [RLog c:0 a:0 len:0 []]
 18:43:50.399669 raft.go 506 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] save persist [RLog c:0 a:0 len:0 []]
@@ -1582,7 +1582,7 @@ Test (2B): rejoin of partitioned leader ...
 18:43:50.494230 raft.go 477 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] received AppendEntries [arg S2 term:3 preLogIdx:-1 preLogT:-1 [] LComit:0]
 18:43:50.494395 raft.go 495 raft.(*Raft).HandleAppendEntries @resetElectionTimeout S0
 18:43:50.494568 raft.go 496 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] reset electionTimeout, [RLog c:0 a:0 len:0 []]
-18:43:50.494630 raftLog.go 81 raft.(*RfLog).TruncateAppend []
+18:43:50.494630 rfLog.go 81 raft.(*RfLog).TruncateAppend []
 18:43:50.494691 raft.go 498 raft.(*Raft).HandleAppendEntries S0 [] preLgIdx:-1 []
 18:43:50.494791 raft.go 505 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] [RLog c:0 a:0 len:0 []]
 18:43:50.495249 raft.go 506 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] save persist [RLog c:0 a:0 len:0 []]
@@ -1606,7 +1606,7 @@ Test (2B): rejoin of partitioned leader ...
 18:43:50.596289 raft.go 477 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] received AppendEntries [arg S2 term:3 preLogIdx:-1 preLogT:-1 [] LComit:0]
 18:43:50.596431 raft.go 495 raft.(*Raft).HandleAppendEntries @resetElectionTimeout S0
 18:43:50.596551 raft.go 496 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] reset electionTimeout, [RLog c:0 a:0 len:0 []]
-18:43:50.596600 raftLog.go 81 raft.(*RfLog).TruncateAppend []
+18:43:50.596600 rfLog.go 81 raft.(*RfLog).TruncateAppend []
 18:43:50.596662 raft.go 498 raft.(*Raft).HandleAppendEntries S0 [] preLgIdx:-1 []
 18:43:50.596751 raft.go 505 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] [RLog c:0 a:0 len:0 []]
 18:43:50.597017 raft.go 506 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] save persist [RLog c:0 a:0 len:0 []]
@@ -1630,7 +1630,7 @@ Test (2B): rejoin of partitioned leader ...
 18:43:50.697046 raft.go 477 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] received AppendEntries [arg S2 term:3 preLogIdx:-1 preLogT:-1 [] LComit:0]
 18:43:50.697324 raft.go 495 raft.(*Raft).HandleAppendEntries @resetElectionTimeout S0
 18:43:50.697548 raft.go 496 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] reset electionTimeout, [RLog c:0 a:0 len:0 []]
-18:43:50.697646 raftLog.go 81 raft.(*RfLog).TruncateAppend []
+18:43:50.697646 rfLog.go 81 raft.(*RfLog).TruncateAppend []
 18:43:50.697768 raft.go 498 raft.(*Raft).HandleAppendEntries S0 [] preLgIdx:-1 []
 18:43:50.697955 raft.go 505 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] [RLog c:0 a:0 len:0 []]
 18:43:50.698461 raft.go 506 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] save persist [RLog c:0 a:0 len:0 []]
@@ -1654,7 +1654,7 @@ Test (2B): rejoin of partitioned leader ...
 18:43:50.797088 raft.go 477 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] received AppendEntries [arg S2 term:3 preLogIdx:-1 preLogT:-1 [] LComit:0]
 18:43:50.797384 raft.go 495 raft.(*Raft).HandleAppendEntries @resetElectionTimeout S0
 18:43:50.797620 raft.go 496 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] reset electionTimeout, [RLog c:0 a:0 len:0 []]
-18:43:50.797729 raftLog.go 81 raft.(*RfLog).TruncateAppend []
+18:43:50.797729 rfLog.go 81 raft.(*RfLog).TruncateAppend []
 18:43:50.797847 raft.go 498 raft.(*Raft).HandleAppendEntries S0 [] preLgIdx:-1 []
 18:43:50.798049 raft.go 505 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] [RLog c:0 a:0 len:0 []]
 18:43:50.798577 raft.go 506 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] save persist [RLog c:0 a:0 len:0 []]
@@ -1681,7 +1681,7 @@ Test (2B): rejoin of partitioned leader ...
 18:43:50.894622 raft.go 477 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] received AppendEntries [arg S2 term:3 preLogIdx:-1 preLogT:-1 [] LComit:0]
 18:43:50.894798 raft.go 495 raft.(*Raft).HandleAppendEntries @resetElectionTimeout S0
 18:43:50.894910 raft.go 496 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] reset electionTimeout, [RLog c:0 a:0 len:0 []]
-18:43:50.894972 raftLog.go 81 raft.(*RfLog).TruncateAppend []
+18:43:50.894972 rfLog.go 81 raft.(*RfLog).TruncateAppend []
 18:43:50.895036 raft.go 498 raft.(*Raft).HandleAppendEntries S0 [] preLgIdx:-1 []
 18:43:50.895130 raft.go 505 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] [RLog c:0 a:0 len:0 []]
 18:43:50.895390 raft.go 506 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] save persist [RLog c:0 a:0 len:0 []]
@@ -1707,7 +1707,7 @@ Test (2B): rejoin of partitioned leader ...
 18:43:50.997221 raft.go 477 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] received AppendEntries [arg S2 term:3 preLogIdx:-1 preLogT:-1 [] LComit:0]
 18:43:50.997679 raft.go 495 raft.(*Raft).HandleAppendEntries @resetElectionTimeout S0
 18:43:50.997922 raft.go 496 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] reset electionTimeout, [RLog c:0 a:0 len:0 []]
-18:43:50.998021 raftLog.go 81 raft.(*RfLog).TruncateAppend []
+18:43:50.998021 rfLog.go 81 raft.(*RfLog).TruncateAppend []
 18:43:50.998130 raft.go 498 raft.(*Raft).HandleAppendEntries S0 [] preLgIdx:-1 []
 18:43:50.998334 raft.go 505 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] [RLog c:0 a:0 len:0 []]
 18:43:50.998881 raft.go 506 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] save persist [RLog c:0 a:0 len:0 []]
@@ -1732,7 +1732,7 @@ Test (2B): rejoin of partitioned leader ...
 18:43:51.098847 raft.go 477 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] received AppendEntries [arg S2 term:3 preLogIdx:-1 preLogT:-1 [] LComit:0]
 18:43:51.099124 raft.go 495 raft.(*Raft).HandleAppendEntries @resetElectionTimeout S0
 18:43:51.099377 raft.go 496 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] reset electionTimeout, [RLog c:0 a:0 len:0 []]
-18:43:51.099493 raftLog.go 81 raft.(*RfLog).TruncateAppend []
+18:43:51.099493 rfLog.go 81 raft.(*RfLog).TruncateAppend []
 18:43:51.099603 raft.go 498 raft.(*Raft).HandleAppendEntries S0 [] preLgIdx:-1 []
 18:43:51.099798 raft.go 505 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] [RLog c:0 a:0 len:0 []]
 18:43:51.100401 raft.go 506 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] save persist [RLog c:0 a:0 len:0 []]
@@ -1758,7 +1758,7 @@ Test (2B): rejoin of partitioned leader ...
 18:43:51.197837 raft.go 477 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] received AppendEntries [arg S2 term:3 preLogIdx:-1 preLogT:-1 [] LComit:0]
 18:43:51.198101 raft.go 495 raft.(*Raft).HandleAppendEntries @resetElectionTimeout S0
 18:43:51.198324 raft.go 496 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] reset electionTimeout, [RLog c:0 a:0 len:0 []]
-18:43:51.198424 raftLog.go 81 raft.(*RfLog).TruncateAppend []
+18:43:51.198424 rfLog.go 81 raft.(*RfLog).TruncateAppend []
 18:43:51.198537 raft.go 498 raft.(*Raft).HandleAppendEntries S0 [] preLgIdx:-1 []
 18:43:51.198723 raft.go 505 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] [RLog c:0 a:0 len:0 []]
 18:43:51.199303 raft.go 506 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] save persist [RLog c:0 a:0 len:0 []]
@@ -1785,7 +1785,7 @@ Test (2B): rejoin of partitioned leader ...
 18:43:51.297141 raft.go 477 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] received AppendEntries [arg S2 term:3 preLogIdx:-1 preLogT:-1 [] LComit:0]
 18:43:51.297689 raft.go 495 raft.(*Raft).HandleAppendEntries @resetElectionTimeout S0
 18:43:51.297941 raft.go 496 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] reset electionTimeout, [RLog c:0 a:0 len:0 []]
-18:43:51.298047 raftLog.go 81 raft.(*RfLog).TruncateAppend []
+18:43:51.298047 rfLog.go 81 raft.(*RfLog).TruncateAppend []
 18:43:51.298157 raft.go 498 raft.(*Raft).HandleAppendEntries S0 [] preLgIdx:-1 []
 18:43:51.298361 raft.go 505 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] [RLog c:0 a:0 len:0 []]
 18:43:51.298917 raft.go 506 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] save persist [RLog c:0 a:0 len:0 []]
@@ -1809,7 +1809,7 @@ Test (2B): rejoin of partitioned leader ...
 18:43:51.396770 raft.go 477 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] received AppendEntries [arg S2 term:3 preLogIdx:-1 preLogT:-1 [] LComit:0]
 18:43:51.397039 raft.go 495 raft.(*Raft).HandleAppendEntries @resetElectionTimeout S0
 18:43:51.397279 raft.go 496 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] reset electionTimeout, [RLog c:0 a:0 len:0 []]
-18:43:51.397390 raftLog.go 81 raft.(*RfLog).TruncateAppend []
+18:43:51.397390 rfLog.go 81 raft.(*RfLog).TruncateAppend []
 18:43:51.397503 raft.go 498 raft.(*Raft).HandleAppendEntries S0 [] preLgIdx:-1 []
 18:43:51.397688 raft.go 505 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] [RLog c:0 a:0 len:0 []]
 18:43:51.398221 raft.go 506 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] save persist [RLog c:0 a:0 len:0 []]
@@ -1834,7 +1834,7 @@ Test (2B): rejoin of partitioned leader ...
 18:43:51.496485 raft.go 477 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] received AppendEntries [arg S2 term:3 preLogIdx:-1 preLogT:-1 [] LComit:0]
 18:43:51.496630 raft.go 495 raft.(*Raft).HandleAppendEntries @resetElectionTimeout S0
 18:43:51.496783 raft.go 496 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] reset electionTimeout, [RLog c:0 a:0 len:0 []]
-18:43:51.496844 raftLog.go 81 raft.(*RfLog).TruncateAppend []
+18:43:51.496844 rfLog.go 81 raft.(*RfLog).TruncateAppend []
 18:43:51.496915 raft.go 498 raft.(*Raft).HandleAppendEntries S0 [] preLgIdx:-1 []
 18:43:51.497027 raft.go 505 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] [RLog c:0 a:0 len:0 []]
 18:43:51.497353 raft.go 506 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] save persist [RLog c:0 a:0 len:0 []]
@@ -1843,7 +1843,7 @@ Test (2B): rejoin of partitioned leader ...
 18:43:51.505757 raft.go 435 raft.(*Raft).startAppendEntries [S2 Leader t:3 vF:2 c:0 a:0 m:[-1 -1 3] n:[0 1 4]] save persist [RLog c:0 a:0 len:5 [{0 1 101} {-1 -1 <nil>} {1 3 103} {2 3 103} {3 3 103}]]
 18:43:51.529901 raft.go 532 raft.(*Raft).Start [S0 Follower t:3 vF:2 c:0 a:0]: Client start to append command 103, [RLog c:0 a:0 len:0 []]
 18:43:51.530406 raft.go 532 raft.(*Raft).Start [S2 Leader t:3 vF:2 c:0 a:0 m:[-1 -1 3] n:[0 1 4]]: Client start to append command 103, [RLog c:0 a:0 len:5 [{0 1 101} {-1 -1 <nil>} {1 3 103} {2 3 103} {3 3 103}]]
-18:43:51.530674 raftLog.go 35 raft.(*RfLog).AppendEntries {4 3 103} [{0 1 101} {-1 -1 <nil>} {1 3 103} {2 3 103} {3 3 103} {4 3 103}]
+18:43:51.530674 rfLog.go 35 raft.(*RfLog).AppendEntries {4 3 103} [{0 1 101} {-1 -1 <nil>} {1 3 103} {2 3 103} {3 3 103} {4 3 103}]
 18:43:51.531552 raft.go 541 raft.(*Raft).Start [S2 Leader t:3 vF:2 c:0 a:0 m:[-1 -1 4] n:[0 1 5]] save persist [RLog c:0 a:0 len:6 [{0 1 101} {-1 -1 <nil>} {1 3 103} {2 3 103} {3 3 103} {4 3 103}]]
 18:43:51.564578 raft.go 435 raft.(*Raft).startAppendEntries [S2 Leader t:3 vF:2 c:0 a:0 m:[-1 -1 4] n:[0 1 5]] save persist [RLog c:0 a:0 len:6 [{0 1 101} {-1 -1 <nil>} {1 3 103} {2 3 103} {3 3 103} {4 3 103}]]
 18:43:51.590268 raft.go 613 raft.(*Raft).run [S1 Leader t:1 vF:1 c:0 a:0 m:[0 3 0] n:[1 4 1]] sending heartbeat msg
@@ -1863,7 +1863,7 @@ Test (2B): rejoin of partitioned leader ...
 18:43:51.594043 raft.go 477 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] received AppendEntries [arg S2 term:3 preLogIdx:-1 preLogT:-1 [] LComit:0]
 18:43:51.594208 raft.go 495 raft.(*Raft).HandleAppendEntries @resetElectionTimeout S0
 18:43:51.594364 raft.go 496 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] reset electionTimeout, [RLog c:0 a:0 len:0 []]
-18:43:51.594431 raftLog.go 81 raft.(*RfLog).TruncateAppend []
+18:43:51.594431 rfLog.go 81 raft.(*RfLog).TruncateAppend []
 18:43:51.594491 raft.go 498 raft.(*Raft).HandleAppendEntries S0 [] preLgIdx:-1 []
 18:43:51.594626 raft.go 505 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] [RLog c:0 a:0 len:0 []]
 18:43:51.594998 raft.go 506 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] save persist [RLog c:0 a:0 len:0 []]
@@ -1891,7 +1891,7 @@ Test (2B): rejoin of partitioned leader ...
 18:43:51.698575 raft.go 495 raft.(*Raft).HandleAppendEntries @resetElectionTimeout S0
 18:43:51.698800 raft.go 496 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] reset electionTimeout, [RLog c:0 a:0 len:0 []]
 18:43:51.698836 raft.go 435 raft.(*Raft).startAppendEntries [S1 Leader t:1 vF:1 c:0 a:0 m:[0 3 0] n:[1 4 1]] save persist [RLog c:0 a:0 len:5 [{-1 -1 <nil>} {0 1 101} {1 1 102} {2 1 103} {3 1 104}]]
-18:43:51.698910 raftLog.go 81 raft.(*RfLog).TruncateAppend []
+18:43:51.698910 rfLog.go 81 raft.(*RfLog).TruncateAppend []
 18:43:51.699175 raft.go 498 raft.(*Raft).HandleAppendEntries S0 [] preLgIdx:-1 []
 18:43:51.699372 raft.go 505 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] [RLog c:0 a:0 len:0 []]
 18:43:51.699905 raft.go 506 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] save persist [RLog c:0 a:0 len:0 []]
@@ -1916,7 +1916,7 @@ Test (2B): rejoin of partitioned leader ...
 18:43:51.799024 raft.go 477 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] received AppendEntries [arg S2 term:3 preLogIdx:-1 preLogT:-1 [] LComit:0]
 18:43:51.799343 raft.go 495 raft.(*Raft).HandleAppendEntries @resetElectionTimeout S0
 18:43:51.799567 raft.go 496 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] reset electionTimeout, [RLog c:0 a:0 len:0 []]
-18:43:51.799675 raftLog.go 81 raft.(*RfLog).TruncateAppend []
+18:43:51.799675 rfLog.go 81 raft.(*RfLog).TruncateAppend []
 18:43:51.799795 raft.go 498 raft.(*Raft).HandleAppendEntries S0 [] preLgIdx:-1 []
 18:43:51.800002 raft.go 505 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] [RLog c:0 a:0 len:0 []]
 18:43:51.800572 raft.go 506 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] save persist [RLog c:0 a:0 len:0 []]
@@ -1942,7 +1942,7 @@ Test (2B): rejoin of partitioned leader ...
 18:43:51.897037 raft.go 477 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] received AppendEntries [arg S2 term:3 preLogIdx:-1 preLogT:-1 [] LComit:0]
 18:43:51.897337 raft.go 495 raft.(*Raft).HandleAppendEntries @resetElectionTimeout S0
 18:43:51.897582 raft.go 496 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] reset electionTimeout, [RLog c:0 a:0 len:0 []]
-18:43:51.897699 raftLog.go 81 raft.(*RfLog).TruncateAppend []
+18:43:51.897699 rfLog.go 81 raft.(*RfLog).TruncateAppend []
 18:43:51.897816 raft.go 498 raft.(*Raft).HandleAppendEntries S0 [] preLgIdx:-1 []
 18:43:51.898014 raft.go 505 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] [RLog c:0 a:0 len:0 []]
 18:43:51.898545 raft.go 506 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] save persist [RLog c:0 a:0 len:0 []]
@@ -1969,7 +1969,7 @@ Test (2B): rejoin of partitioned leader ...
 18:43:51.994541 raft.go 477 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] received AppendEntries [arg S2 term:3 preLogIdx:-1 preLogT:-1 [] LComit:0]
 18:43:51.994690 raft.go 495 raft.(*Raft).HandleAppendEntries @resetElectionTimeout S0
 18:43:51.994806 raft.go 496 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] reset electionTimeout, [RLog c:0 a:0 len:0 []]
-18:43:51.994856 raftLog.go 81 raft.(*RfLog).TruncateAppend []
+18:43:51.994856 rfLog.go 81 raft.(*RfLog).TruncateAppend []
 18:43:51.994908 raft.go 498 raft.(*Raft).HandleAppendEntries S0 [] preLgIdx:-1 []
 18:43:51.994999 raft.go 505 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] [RLog c:0 a:0 len:0 []]
 18:43:51.995267 raft.go 506 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] save persist [RLog c:0 a:0 len:0 []]
@@ -1996,7 +1996,7 @@ Test (2B): rejoin of partitioned leader ...
 18:43:52.096905 raft.go 477 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] received AppendEntries [arg S2 term:3 preLogIdx:-1 preLogT:-1 [] LComit:0]
 18:43:52.097162 raft.go 495 raft.(*Raft).HandleAppendEntries @resetElectionTimeout S0
 18:43:52.097438 raft.go 496 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] reset electionTimeout, [RLog c:0 a:0 len:0 []]
-18:43:52.097543 raftLog.go 81 raft.(*RfLog).TruncateAppend []
+18:43:52.097543 rfLog.go 81 raft.(*RfLog).TruncateAppend []
 18:43:52.097681 raft.go 498 raft.(*Raft).HandleAppendEntries S0 [] preLgIdx:-1 []
 18:43:52.097880 raft.go 505 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] [RLog c:0 a:0 len:0 []]
 18:43:52.098408 raft.go 506 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] save persist [RLog c:0 a:0 len:0 []]
@@ -2021,7 +2021,7 @@ Test (2B): rejoin of partitioned leader ...
 18:43:52.197810 raft.go 477 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] received AppendEntries [arg S2 term:3 preLogIdx:-1 preLogT:-1 [] LComit:0]
 18:43:52.198084 raft.go 495 raft.(*Raft).HandleAppendEntries @resetElectionTimeout S0
 18:43:52.198327 raft.go 496 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] reset electionTimeout, [RLog c:0 a:0 len:0 []]
-18:43:52.198432 raftLog.go 81 raft.(*RfLog).TruncateAppend []
+18:43:52.198432 rfLog.go 81 raft.(*RfLog).TruncateAppend []
 18:43:52.198553 raft.go 498 raft.(*Raft).HandleAppendEntries S0 [] preLgIdx:-1 []
 18:43:52.198735 raft.go 505 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] [RLog c:0 a:0 len:0 []]
 18:43:52.199270 raft.go 506 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] save persist [RLog c:0 a:0 len:0 []]
@@ -2049,7 +2049,7 @@ Test (2B): rejoin of partitioned leader ...
 18:43:52.297212 raft.go 477 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] received AppendEntries [arg S2 term:3 preLogIdx:-1 preLogT:-1 [] LComit:0]
 18:43:52.297486 raft.go 495 raft.(*Raft).HandleAppendEntries @resetElectionTimeout S0
 18:43:52.297711 raft.go 496 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] reset electionTimeout, [RLog c:0 a:0 len:0 []]
-18:43:52.297814 raftLog.go 81 raft.(*RfLog).TruncateAppend []
+18:43:52.297814 rfLog.go 81 raft.(*RfLog).TruncateAppend []
 18:43:52.297816 raft.go 417 raft.(*Raft).startAppendEntries [S2 Leader t:3 vF:2 c:0 a:0 m:[-1 -1 4] n:[0 1 5]] save persist [RLog c:0 a:0 len:6 [{0 1 101} {-1 -1 <nil>} {1 3 103} {2 3 103} {3 3 103} {4 3 103}]]
 18:43:52.297955 raft.go 498 raft.(*Raft).HandleAppendEntries S0 [] preLgIdx:-1 []
 18:43:52.298213 raft.go 505 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] [RLog c:0 a:0 len:0 []]
@@ -2075,7 +2075,7 @@ Test (2B): rejoin of partitioned leader ...
 18:43:52.397234 raft.go 477 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] received AppendEntries [arg S2 term:3 preLogIdx:-1 preLogT:-1 [] LComit:0]
 18:43:52.397501 raft.go 495 raft.(*Raft).HandleAppendEntries @resetElectionTimeout S0
 18:43:52.397822 raft.go 496 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] reset electionTimeout, [RLog c:0 a:0 len:0 []]
-18:43:52.397928 raftLog.go 81 raft.(*RfLog).TruncateAppend []
+18:43:52.397928 rfLog.go 81 raft.(*RfLog).TruncateAppend []
 18:43:52.398034 raft.go 498 raft.(*Raft).HandleAppendEntries S0 [] preLgIdx:-1 []
 18:43:52.398239 raft.go 505 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] [RLog c:0 a:0 len:0 []]
 18:43:52.398781 raft.go 506 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] save persist [RLog c:0 a:0 len:0 []]
@@ -2100,7 +2100,7 @@ Test (2B): rejoin of partitioned leader ...
 18:43:52.497642 raft.go 477 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] received AppendEntries [arg S2 term:3 preLogIdx:-1 preLogT:-1 [] LComit:0]
 18:43:52.497937 raft.go 495 raft.(*Raft).HandleAppendEntries @resetElectionTimeout S0
 18:43:52.498167 raft.go 496 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] reset electionTimeout, [RLog c:0 a:0 len:0 []]
-18:43:52.498267 raftLog.go 81 raft.(*RfLog).TruncateAppend []
+18:43:52.498267 rfLog.go 81 raft.(*RfLog).TruncateAppend []
 18:43:52.498377 raft.go 498 raft.(*Raft).HandleAppendEntries S0 [] preLgIdx:-1 []
 18:43:52.498561 raft.go 505 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] [RLog c:0 a:0 len:0 []]
 18:43:52.499102 raft.go 506 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] save persist [RLog c:0 a:0 len:0 []]
@@ -2128,7 +2128,7 @@ Test (2B): rejoin of partitioned leader ...
 18:43:52.596940 raft.go 477 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] received AppendEntries [arg S2 term:3 preLogIdx:-1 preLogT:-1 [] LComit:0]
 18:43:52.597552 raft.go 495 raft.(*Raft).HandleAppendEntries @resetElectionTimeout S0
 18:43:52.597914 raft.go 496 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] reset electionTimeout, [RLog c:0 a:0 len:0 []]
-18:43:52.598067 raftLog.go 81 raft.(*RfLog).TruncateAppend []
+18:43:52.598067 rfLog.go 81 raft.(*RfLog).TruncateAppend []
 18:43:52.598256 raft.go 498 raft.(*Raft).HandleAppendEntries S0 [] preLgIdx:-1 []
 18:43:52.598505 raft.go 505 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] [RLog c:0 a:0 len:0 []]
 18:43:52.599063 raft.go 506 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] save persist [RLog c:0 a:0 len:0 []]
@@ -2153,7 +2153,7 @@ Test (2B): rejoin of partitioned leader ...
 18:43:52.698212 raft.go 477 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] received AppendEntries [arg S2 term:3 preLogIdx:-1 preLogT:-1 [] LComit:0]
 18:43:52.698391 raft.go 495 raft.(*Raft).HandleAppendEntries @resetElectionTimeout S0
 18:43:52.698553 raft.go 496 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] reset electionTimeout, [RLog c:0 a:0 len:0 []]
-18:43:52.698620 raftLog.go 81 raft.(*RfLog).TruncateAppend []
+18:43:52.698620 rfLog.go 81 raft.(*RfLog).TruncateAppend []
 18:43:52.698703 raft.go 498 raft.(*Raft).HandleAppendEntries S0 [] preLgIdx:-1 []
 18:43:52.698845 raft.go 505 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] [RLog c:0 a:0 len:0 []]
 18:43:52.699135 raft.go 435 raft.(*Raft).startAppendEntries [S2 Leader t:3 vF:2 c:0 a:0 m:[-1 -1 4] n:[0 1 5]] save persist [RLog c:0 a:0 len:6 [{0 1 101} {-1 -1 <nil>} {1 3 103} {2 3 103} {3 3 103} {4 3 103}]]
@@ -2179,7 +2179,7 @@ Test (2B): rejoin of partitioned leader ...
 18:43:52.796808 raft.go 477 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] received AppendEntries [arg S2 term:3 preLogIdx:-1 preLogT:-1 [] LComit:0]
 18:43:52.797079 raft.go 495 raft.(*Raft).HandleAppendEntries @resetElectionTimeout S0
 18:43:52.797300 raft.go 496 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] reset electionTimeout, [RLog c:0 a:0 len:0 []]
-18:43:52.797438 raftLog.go 81 raft.(*RfLog).TruncateAppend []
+18:43:52.797438 rfLog.go 81 raft.(*RfLog).TruncateAppend []
 18:43:52.797563 raft.go 498 raft.(*Raft).HandleAppendEntries S0 [] preLgIdx:-1 []
 18:43:52.797748 raft.go 505 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] [RLog c:0 a:0 len:0 []]
 18:43:52.798307 raft.go 506 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] save persist [RLog c:0 a:0 len:0 []]
@@ -2203,7 +2203,7 @@ Test (2B): rejoin of partitioned leader ...
 18:43:52.897252 raft.go 477 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] received AppendEntries [arg S2 term:3 preLogIdx:-1 preLogT:-1 [] LComit:0]
 18:43:52.897604 raft.go 495 raft.(*Raft).HandleAppendEntries @resetElectionTimeout S0
 18:43:52.897836 raft.go 496 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] reset electionTimeout, [RLog c:0 a:0 len:0 []]
-18:43:52.897937 raftLog.go 81 raft.(*RfLog).TruncateAppend []
+18:43:52.897937 rfLog.go 81 raft.(*RfLog).TruncateAppend []
 18:43:52.898061 raft.go 498 raft.(*Raft).HandleAppendEntries S0 [] preLgIdx:-1 []
 18:43:52.898233 raft.go 505 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] [RLog c:0 a:0 len:0 []]
 18:43:52.898323 raft.go 417 raft.(*Raft).startAppendEntries [S1 Leader t:1 vF:1 c:0 a:0 m:[0 3 0] n:[1 4 1]] save persist [RLog c:0 a:0 len:5 [{-1 -1 <nil>} {0 1 101} {1 1 102} {2 1 103} {3 1 104}]]
@@ -2234,7 +2234,7 @@ Test (2B): rejoin of partitioned leader ...
 18:43:52.996170 raft.go 477 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] received AppendEntries [arg S2 term:3 preLogIdx:-1 preLogT:-1 [] LComit:0]
 18:43:52.996324 raft.go 495 raft.(*Raft).HandleAppendEntries @resetElectionTimeout S0
 18:43:52.996429 raft.go 496 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] reset electionTimeout, [RLog c:0 a:0 len:0 []]
-18:43:52.996486 raftLog.go 81 raft.(*RfLog).TruncateAppend []
+18:43:52.996486 rfLog.go 81 raft.(*RfLog).TruncateAppend []
 18:43:52.996542 raft.go 498 raft.(*Raft).HandleAppendEntries S0 [] preLgIdx:-1 []
 18:43:52.996635 raft.go 505 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] [RLog c:0 a:0 len:0 []]
 18:43:52.996898 raft.go 506 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] save persist [RLog c:0 a:0 len:0 []]
@@ -2257,7 +2257,7 @@ Test (2B): rejoin of partitioned leader ...
 18:43:53.094023 raft.go 477 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] received AppendEntries [arg S2 term:3 preLogIdx:-1 preLogT:-1 [] LComit:0]
 18:43:53.094148 raft.go 495 raft.(*Raft).HandleAppendEntries @resetElectionTimeout S0
 18:43:53.094260 raft.go 496 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] reset electionTimeout, [RLog c:0 a:0 len:0 []]
-18:43:53.094314 raftLog.go 81 raft.(*RfLog).TruncateAppend []
+18:43:53.094314 rfLog.go 81 raft.(*RfLog).TruncateAppend []
 18:43:53.094373 raft.go 498 raft.(*Raft).HandleAppendEntries S0 [] preLgIdx:-1 []
 18:43:53.094462 raft.go 505 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] [RLog c:0 a:0 len:0 []]
 18:43:53.094739 raft.go 506 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] save persist [RLog c:0 a:0 len:0 []]
@@ -2286,7 +2286,7 @@ Test (2B): rejoin of partitioned leader ...
 18:43:53.193822 raft.go 477 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] received AppendEntries [arg S2 term:3 preLogIdx:-1 preLogT:-1 [] LComit:0]
 18:43:53.193956 raft.go 495 raft.(*Raft).HandleAppendEntries @resetElectionTimeout S0
 18:43:53.194078 raft.go 496 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] reset electionTimeout, [RLog c:0 a:0 len:0 []]
-18:43:53.194128 raftLog.go 81 raft.(*RfLog).TruncateAppend []
+18:43:53.194128 rfLog.go 81 raft.(*RfLog).TruncateAppend []
 18:43:53.194188 raft.go 498 raft.(*Raft).HandleAppendEntries S0 [] preLgIdx:-1 []
 18:43:53.194280 raft.go 505 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] [RLog c:0 a:0 len:0 []]
 18:43:53.194539 raft.go 506 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] save persist [RLog c:0 a:0 len:0 []]
@@ -2313,7 +2313,7 @@ Test (2B): rejoin of partitioned leader ...
 18:43:53.299787 raft.go 495 raft.(*Raft).HandleAppendEntries @resetElectionTimeout S0
 18:43:53.299876 raft.go 417 raft.(*Raft).startAppendEntries [S2 Leader t:3 vF:2 c:0 a:0 m:[-1 -1 4] n:[0 1 5]] save persist [RLog c:0 a:0 len:6 [{0 1 101} {-1 -1 <nil>} {1 3 103} {2 3 103} {3 3 103} {4 3 103}]]
 18:43:53.300022 raft.go 496 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] reset electionTimeout, [RLog c:0 a:0 len:0 []]
-18:43:53.300149 raftLog.go 81 raft.(*RfLog).TruncateAppend []
+18:43:53.300149 rfLog.go 81 raft.(*RfLog).TruncateAppend []
 18:43:53.300314 raft.go 498 raft.(*Raft).HandleAppendEntries S0 [] preLgIdx:-1 []
 18:43:53.300513 raft.go 505 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] [RLog c:0 a:0 len:0 []]
 18:43:53.301053 raft.go 506 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] save persist [RLog c:0 a:0 len:0 []]
@@ -2337,7 +2337,7 @@ Test (2B): rejoin of partitioned leader ...
 18:43:53.395671 raft.go 477 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] received AppendEntries [arg S2 term:3 preLogIdx:-1 preLogT:-1 [] LComit:0]
 18:43:53.395843 raft.go 495 raft.(*Raft).HandleAppendEntries @resetElectionTimeout S0
 18:43:53.395967 raft.go 496 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] reset electionTimeout, [RLog c:0 a:0 len:0 []]
-18:43:53.396017 raftLog.go 81 raft.(*RfLog).TruncateAppend []
+18:43:53.396017 rfLog.go 81 raft.(*RfLog).TruncateAppend []
 18:43:53.396069 raft.go 498 raft.(*Raft).HandleAppendEntries S0 [] preLgIdx:-1 []
 18:43:53.396167 raft.go 505 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] [RLog c:0 a:0 len:0 []]
 18:43:53.396458 raft.go 506 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] save persist [RLog c:0 a:0 len:0 []]
@@ -2361,7 +2361,7 @@ Test (2B): rejoin of partitioned leader ...
 18:43:53.499026 raft.go 477 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] received AppendEntries [arg S2 term:3 preLogIdx:-1 preLogT:-1 [] LComit:0]
 18:43:53.499294 raft.go 495 raft.(*Raft).HandleAppendEntries @resetElectionTimeout S0
 18:43:53.499522 raft.go 496 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] reset electionTimeout, [RLog c:0 a:0 len:0 []]
-18:43:53.499622 raftLog.go 81 raft.(*RfLog).TruncateAppend []
+18:43:53.499622 rfLog.go 81 raft.(*RfLog).TruncateAppend []
 18:43:53.499729 raft.go 498 raft.(*Raft).HandleAppendEntries S0 [] preLgIdx:-1 []
 18:43:53.499924 raft.go 505 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] [RLog c:0 a:0 len:0 []]
 18:43:53.500498 raft.go 506 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] save persist [RLog c:0 a:0 len:0 []]
@@ -2369,7 +2369,7 @@ Test (2B): rejoin of partitioned leader ...
 18:43:53.502806 raft.go 463 raft.(*Raft).startAppendEntries [S2 Leader t:3 vF:2 c:0 a:0 m:[-1 -1 4] n:[0 1 5]] save persist [RLog c:0 a:0 len:6 [{0 1 101} {-1 -1 <nil>} {1 3 103} {2 3 103} {3 3 103} {4 3 103}]]
 18:43:53.540454 raft.go 532 raft.(*Raft).Start [S0 Follower t:3 vF:2 c:0 a:0]: Client start to append command 103, [RLog c:0 a:0 len:0 []]
 18:43:53.540957 raft.go 532 raft.(*Raft).Start [S2 Leader t:3 vF:2 c:0 a:0 m:[-1 -1 4] n:[0 1 5]]: Client start to append command 103, [RLog c:0 a:0 len:6 [{0 1 101} {-1 -1 <nil>} {1 3 103} {2 3 103} {3 3 103} {4 3 103}]]
-18:43:53.541225 raftLog.go 35 raft.(*RfLog).AppendEntries {5 3 103} [{0 1 101} {-1 -1 <nil>} {1 3 103} {2 3 103} {3 3 103} {4 3 103} {5 3 103}]
+18:43:53.541225 rfLog.go 35 raft.(*RfLog).AppendEntries {5 3 103} [{0 1 101} {-1 -1 <nil>} {1 3 103} {2 3 103} {3 3 103} {4 3 103} {5 3 103}]
 18:43:53.542261 raft.go 541 raft.(*Raft).Start [S2 Leader t:3 vF:2 c:0 a:0 m:[-1 -1 5] n:[0 1 6]] save persist [RLog c:0 a:0 len:7 [{0 1 101} {-1 -1 <nil>} {1 3 103} {2 3 103} {3 3 103} {4 3 103} {5 3 103}]]
 18:43:53.542696 raft.go 435 raft.(*Raft).startAppendEntries [S1 Leader t:1 vF:1 c:0 a:0 m:[0 3 0] n:[1 4 1]] save persist [RLog c:0 a:0 len:5 [{-1 -1 <nil>} {0 1 101} {1 1 102} {2 1 103} {3 1 104}]]
 18:43:53.546431 raft.go 435 raft.(*Raft).startAppendEntries [S2 Leader t:3 vF:2 c:0 a:0 m:[-1 -1 5] n:[0 1 6]] save persist [RLog c:0 a:0 len:7 [{0 1 101} {-1 -1 <nil>} {1 3 103} {2 3 103} {3 3 103} {4 3 103} {5 3 103}]]
@@ -2395,7 +2395,7 @@ Test (2B): rejoin of partitioned leader ...
 18:43:53.599655 raft.go 477 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] received AppendEntries [arg S2 term:3 preLogIdx:-1 preLogT:-1 [] LComit:0]
 18:43:53.599933 raft.go 495 raft.(*Raft).HandleAppendEntries @resetElectionTimeout S0
 18:43:53.600208 raft.go 496 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] reset electionTimeout, [RLog c:0 a:0 len:0 []]
-18:43:53.600334 raftLog.go 81 raft.(*RfLog).TruncateAppend []
+18:43:53.600334 rfLog.go 81 raft.(*RfLog).TruncateAppend []
 18:43:53.600446 raft.go 498 raft.(*Raft).HandleAppendEntries S0 [] preLgIdx:-1 []
 18:43:53.600634 raft.go 505 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] [RLog c:0 a:0 len:0 []]
 18:43:53.601174 raft.go 506 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] save persist [RLog c:0 a:0 len:0 []]
@@ -2423,7 +2423,7 @@ Test (2B): rejoin of partitioned leader ...
 18:43:53.699377 raft.go 477 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] received AppendEntries [arg S2 term:3 preLogIdx:-1 preLogT:-1 [] LComit:0]
 18:43:53.699676 raft.go 495 raft.(*Raft).HandleAppendEntries @resetElectionTimeout S0
 18:43:53.699976 raft.go 496 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] reset electionTimeout, [RLog c:0 a:0 len:0 []]
-18:43:53.700134 raftLog.go 81 raft.(*RfLog).TruncateAppend []
+18:43:53.700134 rfLog.go 81 raft.(*RfLog).TruncateAppend []
 18:43:53.700321 raft.go 498 raft.(*Raft).HandleAppendEntries S0 [] preLgIdx:-1 []
 18:43:53.700534 raft.go 505 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] [RLog c:0 a:0 len:0 []]
 18:43:53.701089 raft.go 506 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] save persist [RLog c:0 a:0 len:0 []]
@@ -2452,7 +2452,7 @@ Test (2B): rejoin of partitioned leader ...
 18:43:53.795820 raft.go 477 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] received AppendEntries [arg S2 term:3 preLogIdx:-1 preLogT:-1 [] LComit:0]
 18:43:53.795957 raft.go 495 raft.(*Raft).HandleAppendEntries @resetElectionTimeout S0
 18:43:53.796068 raft.go 496 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] reset electionTimeout, [RLog c:0 a:0 len:0 []]
-18:43:53.796116 raftLog.go 81 raft.(*RfLog).TruncateAppend []
+18:43:53.796116 rfLog.go 81 raft.(*RfLog).TruncateAppend []
 18:43:53.796204 raft.go 498 raft.(*Raft).HandleAppendEntries S0 [] preLgIdx:-1 []
 18:43:53.796310 raft.go 505 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] [RLog c:0 a:0 len:0 []]
 18:43:53.796580 raft.go 506 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] save persist [RLog c:0 a:0 len:0 []]
@@ -2478,7 +2478,7 @@ Test (2B): rejoin of partitioned leader ...
 18:43:53.897407 raft.go 495 raft.(*Raft).HandleAppendEntries @resetElectionTimeout S0
 18:43:53.897581 raft.go 417 raft.(*Raft).startAppendEntries [S2 Leader t:3 vF:2 c:0 a:0 m:[-1 -1 5] n:[0 1 6]] save persist [RLog c:0 a:0 len:7 [{0 1 101} {-1 -1 <nil>} {1 3 103} {2 3 103} {3 3 103} {4 3 103} {5 3 103}]]
 18:43:53.897669 raft.go 496 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] reset electionTimeout, [RLog c:0 a:0 len:0 []]
-18:43:53.897800 raftLog.go 81 raft.(*RfLog).TruncateAppend []
+18:43:53.897800 rfLog.go 81 raft.(*RfLog).TruncateAppend []
 18:43:53.897935 raft.go 498 raft.(*Raft).HandleAppendEntries S0 [] preLgIdx:-1 []
 18:43:53.898137 raft.go 505 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] [RLog c:0 a:0 len:0 []]
 18:43:53.898742 raft.go 506 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] save persist [RLog c:0 a:0 len:0 []]
@@ -2503,7 +2503,7 @@ Test (2B): rejoin of partitioned leader ...
 18:43:53.999367 raft.go 417 raft.(*Raft).startAppendEntries [S1 Leader t:1 vF:1 c:0 a:0 m:[0 3 0] n:[1 4 1]] save persist [RLog c:0 a:0 len:5 [{-1 -1 <nil>} {0 1 101} {1 1 102} {2 1 103} {3 1 104}]]
 18:43:53.999840 raft.go 495 raft.(*Raft).HandleAppendEntries @resetElectionTimeout S0
 18:43:54.000307 raft.go 496 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] reset electionTimeout, [RLog c:0 a:0 len:0 []]
-18:43:54.000485 raftLog.go 81 raft.(*RfLog).TruncateAppend []
+18:43:54.000485 rfLog.go 81 raft.(*RfLog).TruncateAppend []
 18:43:54.000682 raft.go 498 raft.(*Raft).HandleAppendEntries S0 [] preLgIdx:-1 []
 18:43:54.000924 raft.go 505 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] [RLog c:0 a:0 len:0 []]
 18:43:54.001600 raft.go 506 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] save persist [RLog c:0 a:0 len:0 []]
@@ -2528,7 +2528,7 @@ Test (2B): rejoin of partitioned leader ...
 18:43:54.098838 raft.go 477 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] received AppendEntries [arg S2 term:3 preLogIdx:-1 preLogT:-1 [] LComit:0]
 18:43:54.099112 raft.go 495 raft.(*Raft).HandleAppendEntries @resetElectionTimeout S0
 18:43:54.099351 raft.go 496 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] reset electionTimeout, [RLog c:0 a:0 len:0 []]
-18:43:54.099455 raftLog.go 81 raft.(*RfLog).TruncateAppend []
+18:43:54.099455 rfLog.go 81 raft.(*RfLog).TruncateAppend []
 18:43:54.099563 raft.go 498 raft.(*Raft).HandleAppendEntries S0 [] preLgIdx:-1 []
 18:43:54.099775 raft.go 505 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] [RLog c:0 a:0 len:0 []]
 18:43:54.100342 raft.go 506 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] save persist [RLog c:0 a:0 len:0 []]
@@ -2552,7 +2552,7 @@ Test (2B): rejoin of partitioned leader ...
 18:43:54.196037 raft.go 477 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] received AppendEntries [arg S2 term:3 preLogIdx:-1 preLogT:-1 [] LComit:0]
 18:43:54.196243 raft.go 495 raft.(*Raft).HandleAppendEntries @resetElectionTimeout S0
 18:43:54.196366 raft.go 496 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] reset electionTimeout, [RLog c:0 a:0 len:0 []]
-18:43:54.196419 raftLog.go 81 raft.(*RfLog).TruncateAppend []
+18:43:54.196419 rfLog.go 81 raft.(*RfLog).TruncateAppend []
 18:43:54.196473 raft.go 498 raft.(*Raft).HandleAppendEntries S0 [] preLgIdx:-1 []
 18:43:54.196573 raft.go 505 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] [RLog c:0 a:0 len:0 []]
 18:43:54.196854 raft.go 506 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] save persist [RLog c:0 a:0 len:0 []]
@@ -2578,7 +2578,7 @@ Test (2B): rejoin of partitioned leader ...
 18:43:54.299501 raft.go 477 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] received AppendEntries [arg S2 term:3 preLogIdx:-1 preLogT:-1 [] LComit:0]
 18:43:54.299783 raft.go 495 raft.(*Raft).HandleAppendEntries @resetElectionTimeout S0
 18:43:54.300012 raft.go 496 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] reset electionTimeout, [RLog c:0 a:0 len:0 []]
-18:43:54.300117 raftLog.go 81 raft.(*RfLog).TruncateAppend []
+18:43:54.300117 rfLog.go 81 raft.(*RfLog).TruncateAppend []
 18:43:54.300271 raft.go 498 raft.(*Raft).HandleAppendEntries S0 [] preLgIdx:-1 []
 18:43:54.300470 raft.go 505 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] [RLog c:0 a:0 len:0 []]
 18:43:54.301002 raft.go 506 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] save persist [RLog c:0 a:0 len:0 []]
@@ -2603,7 +2603,7 @@ Test (2B): rejoin of partitioned leader ...
 18:43:54.397471 raft.go 477 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] received AppendEntries [arg S2 term:3 preLogIdx:-1 preLogT:-1 [] LComit:0]
 18:43:54.397751 raft.go 495 raft.(*Raft).HandleAppendEntries @resetElectionTimeout S0
 18:43:54.397973 raft.go 496 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] reset electionTimeout, [RLog c:0 a:0 len:0 []]
-18:43:54.398081 raftLog.go 81 raft.(*RfLog).TruncateAppend []
+18:43:54.398081 rfLog.go 81 raft.(*RfLog).TruncateAppend []
 18:43:54.398211 raft.go 498 raft.(*Raft).HandleAppendEntries S0 [] preLgIdx:-1 []
 18:43:54.398404 raft.go 505 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] [RLog c:0 a:0 len:0 []]
 18:43:54.398941 raft.go 506 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] save persist [RLog c:0 a:0 len:0 []]
@@ -2630,7 +2630,7 @@ Test (2B): rejoin of partitioned leader ...
 18:43:54.497177 raft.go 477 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] received AppendEntries [arg S2 term:3 preLogIdx:-1 preLogT:-1 [] LComit:0]
 18:43:54.497442 raft.go 495 raft.(*Raft).HandleAppendEntries @resetElectionTimeout S0
 18:43:54.497664 raft.go 496 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] reset electionTimeout, [RLog c:0 a:0 len:0 []]
-18:43:54.497775 raftLog.go 81 raft.(*RfLog).TruncateAppend []
+18:43:54.497775 rfLog.go 81 raft.(*RfLog).TruncateAppend []
 18:43:54.497898 raft.go 498 raft.(*Raft).HandleAppendEntries S0 [] preLgIdx:-1 []
 18:43:54.498086 raft.go 505 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] [RLog c:0 a:0 len:0 []]
 18:43:54.498610 raft.go 506 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] save persist [RLog c:0 a:0 len:0 []]
@@ -2654,7 +2654,7 @@ Test (2B): rejoin of partitioned leader ...
 18:43:54.595913 raft.go 477 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] received AppendEntries [arg S2 term:3 preLogIdx:-1 preLogT:-1 [] LComit:0]
 18:43:54.596119 raft.go 495 raft.(*Raft).HandleAppendEntries @resetElectionTimeout S0
 18:43:54.596335 raft.go 496 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] reset electionTimeout, [RLog c:0 a:0 len:0 []]
-18:43:54.596430 raftLog.go 81 raft.(*RfLog).TruncateAppend []
+18:43:54.596430 rfLog.go 81 raft.(*RfLog).TruncateAppend []
 18:43:54.596528 raft.go 498 raft.(*Raft).HandleAppendEntries S0 [] preLgIdx:-1 []
 18:43:54.596692 raft.go 505 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] [RLog c:0 a:0 len:0 []]
 18:43:54.597130 raft.go 506 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] save persist [RLog c:0 a:0 len:0 []]
@@ -2678,7 +2678,7 @@ Test (2B): rejoin of partitioned leader ...
 18:43:54.696939 raft.go 477 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] received AppendEntries [arg S2 term:3 preLogIdx:-1 preLogT:-1 [] LComit:0]
 18:43:54.697213 raft.go 495 raft.(*Raft).HandleAppendEntries @resetElectionTimeout S0
 18:43:54.697439 raft.go 496 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] reset electionTimeout, [RLog c:0 a:0 len:0 []]
-18:43:54.697545 raftLog.go 81 raft.(*RfLog).TruncateAppend []
+18:43:54.697545 rfLog.go 81 raft.(*RfLog).TruncateAppend []
 18:43:54.697667 raft.go 498 raft.(*Raft).HandleAppendEntries S0 [] preLgIdx:-1 []
 18:43:54.697855 raft.go 505 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] [RLog c:0 a:0 len:0 []]
 18:43:54.698392 raft.go 506 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] save persist [RLog c:0 a:0 len:0 []]
@@ -2705,7 +2705,7 @@ Test (2B): rejoin of partitioned leader ...
 18:43:54.797030 raft.go 477 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] received AppendEntries [arg S2 term:3 preLogIdx:-1 preLogT:-1 [] LComit:0]
 18:43:54.797314 raft.go 495 raft.(*Raft).HandleAppendEntries @resetElectionTimeout S0
 18:43:54.797554 raft.go 496 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] reset electionTimeout, [RLog c:0 a:0 len:0 []]
-18:43:54.797656 raftLog.go 81 raft.(*RfLog).TruncateAppend []
+18:43:54.797656 rfLog.go 81 raft.(*RfLog).TruncateAppend []
 18:43:54.797779 raft.go 498 raft.(*Raft).HandleAppendEntries S0 [] preLgIdx:-1 []
 18:43:54.797980 raft.go 505 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] [RLog c:0 a:0 len:0 []]
 18:43:54.798516 raft.go 506 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] save persist [RLog c:0 a:0 len:0 []]
@@ -2733,7 +2733,7 @@ Test (2B): rejoin of partitioned leader ...
 18:43:54.896471 raft.go 417 raft.(*Raft).startAppendEntries [S2 Leader t:3 vF:2 c:0 a:0 m:[-1 -1 5] n:[0 1 6]] save persist [RLog c:0 a:0 len:7 [{0 1 101} {-1 -1 <nil>} {1 3 103} {2 3 103} {3 3 103} {4 3 103} {5 3 103}]]
 18:43:54.896713 raft.go 495 raft.(*Raft).HandleAppendEntries @resetElectionTimeout S0
 18:43:54.897001 raft.go 496 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] reset electionTimeout, [RLog c:0 a:0 len:0 []]
-18:43:54.897095 raftLog.go 81 raft.(*RfLog).TruncateAppend []
+18:43:54.897095 rfLog.go 81 raft.(*RfLog).TruncateAppend []
 18:43:54.897230 raft.go 498 raft.(*Raft).HandleAppendEntries S0 [] preLgIdx:-1 []
 18:43:54.897400 raft.go 505 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] [RLog c:0 a:0 len:0 []]
 18:43:54.897915 raft.go 506 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] save persist [RLog c:0 a:0 len:0 []]
@@ -2757,7 +2757,7 @@ Test (2B): rejoin of partitioned leader ...
 18:43:54.996749 raft.go 477 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] received AppendEntries [arg S2 term:3 preLogIdx:-1 preLogT:-1 [] LComit:0]
 18:43:54.997107 raft.go 495 raft.(*Raft).HandleAppendEntries @resetElectionTimeout S0
 18:43:54.997339 raft.go 496 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] reset electionTimeout, [RLog c:0 a:0 len:0 []]
-18:43:54.997520 raftLog.go 81 raft.(*RfLog).TruncateAppend []
+18:43:54.997520 rfLog.go 81 raft.(*RfLog).TruncateAppend []
 18:43:54.997636 raft.go 498 raft.(*Raft).HandleAppendEntries S0 [] preLgIdx:-1 []
 18:43:54.997830 raft.go 505 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] [RLog c:0 a:0 len:0 []]
 18:43:54.998138 raft.go 435 raft.(*Raft).startAppendEntries [S1 Leader t:1 vF:1 c:0 a:0 m:[0 3 0] n:[1 4 1]] save persist [RLog c:0 a:0 len:5 [{-1 -1 <nil>} {0 1 101} {1 1 102} {2 1 103} {3 1 104}]]
@@ -2781,7 +2781,7 @@ Test (2B): rejoin of partitioned leader ...
 18:43:55.097618 raft.go 477 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] received AppendEntries [arg S2 term:3 preLogIdx:-1 preLogT:-1 [] LComit:0]
 18:43:55.097883 raft.go 495 raft.(*Raft).HandleAppendEntries @resetElectionTimeout S0
 18:43:55.098120 raft.go 496 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] reset electionTimeout, [RLog c:0 a:0 len:0 []]
-18:43:55.098231 raftLog.go 81 raft.(*RfLog).TruncateAppend []
+18:43:55.098231 rfLog.go 81 raft.(*RfLog).TruncateAppend []
 18:43:55.098353 raft.go 498 raft.(*Raft).HandleAppendEntries S0 [] preLgIdx:-1 []
 18:43:55.098538 raft.go 505 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] [RLog c:0 a:0 len:0 []]
 18:43:55.099070 raft.go 506 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] save persist [RLog c:0 a:0 len:0 []]
@@ -2808,7 +2808,7 @@ Test (2B): rejoin of partitioned leader ...
 18:43:55.197260 raft.go 477 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] received AppendEntries [arg S2 term:3 preLogIdx:-1 preLogT:-1 [] LComit:0]
 18:43:55.197553 raft.go 495 raft.(*Raft).HandleAppendEntries @resetElectionTimeout S0
 18:43:55.197811 raft.go 496 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] reset electionTimeout, [RLog c:0 a:0 len:0 []]
-18:43:55.197920 raftLog.go 81 raft.(*RfLog).TruncateAppend []
+18:43:55.197920 rfLog.go 81 raft.(*RfLog).TruncateAppend []
 18:43:55.198085 raft.go 498 raft.(*Raft).HandleAppendEntries S0 [] preLgIdx:-1 []
 18:43:55.198286 raft.go 505 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] [RLog c:0 a:0 len:0 []]
 18:43:55.198830 raft.go 506 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] save persist [RLog c:0 a:0 len:0 []]
@@ -2831,7 +2831,7 @@ Test (2B): rejoin of partitioned leader ...
 18:43:55.325139 raft.go 477 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] received AppendEntries [arg S2 term:3 preLogIdx:-1 preLogT:-1 [] LComit:0]
 18:43:55.325280 raft.go 495 raft.(*Raft).HandleAppendEntries @resetElectionTimeout S0
 18:43:55.325385 raft.go 496 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] reset electionTimeout, [RLog c:0 a:0 len:0 []]
-18:43:55.325433 raftLog.go 81 raft.(*RfLog).TruncateAppend []
+18:43:55.325433 rfLog.go 81 raft.(*RfLog).TruncateAppend []
 18:43:55.325493 raft.go 498 raft.(*Raft).HandleAppendEntries S0 [] preLgIdx:-1 []
 18:43:55.325589 raft.go 505 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] [RLog c:0 a:0 len:0 []]
 18:43:55.325844 raft.go 506 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] save persist [RLog c:0 a:0 len:0 []]
@@ -2856,7 +2856,7 @@ Test (2B): rejoin of partitioned leader ...
 18:43:55.399199 raft.go 477 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] received AppendEntries [arg S2 term:3 preLogIdx:-1 preLogT:-1 [] LComit:0]
 18:43:55.399488 raft.go 495 raft.(*Raft).HandleAppendEntries @resetElectionTimeout S0
 18:43:55.399714 raft.go 496 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] reset electionTimeout, [RLog c:0 a:0 len:0 []]
-18:43:55.399815 raftLog.go 81 raft.(*RfLog).TruncateAppend []
+18:43:55.399815 rfLog.go 81 raft.(*RfLog).TruncateAppend []
 18:43:55.399934 raft.go 498 raft.(*Raft).HandleAppendEntries S0 [] preLgIdx:-1 []
 18:43:55.400140 raft.go 505 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] [RLog c:0 a:0 len:0 []]
 18:43:55.400729 raft.go 506 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] save persist [RLog c:0 a:0 len:0 []]
@@ -2886,7 +2886,7 @@ Test (2B): rejoin of partitioned leader ...
 18:43:55.497630 raft.go 477 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] received AppendEntries [arg S2 term:3 preLogIdx:-1 preLogT:-1 [] LComit:0]
 18:43:55.497899 raft.go 495 raft.(*Raft).HandleAppendEntries @resetElectionTimeout S0
 18:43:55.498138 raft.go 496 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] reset electionTimeout, [RLog c:0 a:0 len:0 []]
-18:43:55.498252 raftLog.go 81 raft.(*RfLog).TruncateAppend []
+18:43:55.498252 rfLog.go 81 raft.(*RfLog).TruncateAppend []
 18:43:55.498363 raft.go 498 raft.(*Raft).HandleAppendEntries S0 [] preLgIdx:-1 []
 18:43:55.498568 raft.go 505 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] [RLog c:0 a:0 len:0 []]
 18:43:55.499147 raft.go 506 raft.(*Raft).HandleAppendEntries [S0 Follower t:3 vF:2 c:0 a:0] save persist [RLog c:0 a:0 len:0 []]

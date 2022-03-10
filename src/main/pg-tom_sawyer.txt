@@ -805,7 +805,7 @@ The boy only struggled to free himself. He was crying--mainly from rage.
 
 "Holler 'nuff!"--and the pounding went on.
 
-At last the stranger got out a smothered "'Nuff!" and Tom let him up and
+At lastEntryIdx the stranger got out a smothered "'Nuff!" and Tom let him up and
 said:
 
 "Now that'll learn you. Better look out who you're fooling with next
@@ -820,7 +820,7 @@ and hit him between the shoulders and then turned tail and ran like
 an antelope. Tom chased the traitor home, and thus found out where he
 lived. He then held a position at the gate for some time, daring the
 enemy to come outside, but the enemy only made faces at him through the
-window and declined. At last the enemy's mother appeared, and called Tom
+window and declined. At lastEntryIdx the enemy's mother appeared, and called Tom
 a bad, vicious, vulgar child, and ordered him away. So he went away; but
 he said he "'lowed" to "lay" for that boy.
 
@@ -897,7 +897,7 @@ was flying down the street with his pail and a tingling rear, Tom was
 whitewashing with vigor, and Aunt Polly was retiring from the field with
 a slipper in her hand and triumph in her eye.
 
-But Tom's energy did not last. He began to think of the fun he had
+But Tom's energy did not lastEntryIdx. He began to think of the fun he had
 planned for this day, and his sorrows multiplied. Soon the free boys
 would come tripping along on all sorts of delicious expeditions, and
 they would make a world of fun of him for having to work--the very
@@ -946,7 +946,7 @@ gauge-cocks).
 Tom went on whitewashing--paid no attention to the steamboat. Ben stared
 a moment and then said: "_Hi-Yi! You're_ up a stump, ain't you!"
 
-No answer. Tom surveyed his last touch with the eye of an artist, then
+No answer. Tom surveyed his lastEntryIdx touch with the eye of an artist, then
 he gave his brush another gentle sweep and surveyed the result, as
 before. Ben ranged up alongside of him. Tom's mouth watered for the
 apple, but he stuck to his work. Ben said:
@@ -1236,7 +1236,7 @@ cry, and wish that she had a right to put her arms around his neck and
 comfort him? Or would she turn coldly away like all the hollow world?
 This picture brought such an agony of pleasurable suffering that he
 worked it over and over again in his mind and set it up in new and
-varied lights, till he wore it threadbare. At last he rose up sighing
+varied lights, till he wore it threadbare. At lastEntryIdx he rose up sighing
 and departed in the darkness.
 
 About half-past nine or ten o'clock he came along the deserted street to
@@ -1659,7 +1659,7 @@ new notable from a distance; next the belle of the village, followed by
 a troop of lawn-clad and ribbon-decked young heart-breakers; then all
 the young clerks in town in a body--for they had stood in the vestibule
 sucking their cane-heads, a circling wall of oiled and simpering
-admirers, till the last girl had run their gantlet; and last of all came
+admirers, till the lastEntryIdx girl had run their gantlet; and lastEntryIdx of all came
 the Model Boy, Willie Mufferson, taking as heedful care of his mother as
 if she were cut glass. He always brought his mother to church, and was
 the pride of all the matrons. The boys all hated him, he was so
@@ -1769,7 +1769,7 @@ it; smelt at it from a safe distance; walked around it again; grew
 bolder, and took a closer smell; then lifted his lip and made a gingerly
 snatch at it, just missing it; made another, and another; began to enjoy
 the diversion; subsided to his stomach with the beetle between his paws,
-and continued his experiments; grew weary at last, and then indifferent
+and continued his experiments; grew weary at lastEntryIdx, and then indifferent
 and absent-minded. His head nodded, and little by little his chin
 descended and touched the enemy, who seized it. There was a sharp yelp,
 a flirt of the poodle's head, and the beetle fell a couple of yards
@@ -1790,7 +1790,7 @@ did the dog; he crossed the house in front of the altar; he flew
 down the other aisle; he crossed before the doors; he clamored up the
 home-stretch; his anguish grew with his progress, till presently he was
 but a woolly comet moving in its orbit with the gleam and the speed of
-light. At last the frantic sufferer sheered from its course, and sprang
+light. At lastEntryIdx the frantic sufferer sheered from its course, and sprang
 into its master's lap; he flung it out of the window, and the voice of
 distress quickly thinned away and died in the distance.
 
@@ -1976,7 +1976,7 @@ school or to church, or call any being master or obey anybody; he could
 go fishing or swimming when and where he chose, and stay as long as it
 suited him; nobody forbade him to fight; he could sit up as late as he
 pleased; he was always the first boy that went barefoot in the spring
-and the last to resume leather in the fall; he never had to wash, nor
+and the lastEntryIdx to resume leather in the fall; he never had to wash, nor
 put on clean clothes; he could swear wonderfully. In a word, everything
 that goes to make life precious that boy had. So thought every harassed,
 hampered, respectable boy in St. Petersburg.
@@ -2159,7 +2159,7 @@ pretty early tick, I reckon. It's the first one I've seen this year."
 "Less see it."
 
 Tom got out a bit of paper and carefully unrolled it. Huckleberry viewed
-it wistfully. The temptation was very strong. At last he said:
+it wistfully. The temptation was very strong. At lastEntryIdx he said:
 
 "Is it genuwyne?"
 
@@ -2233,7 +2233,7 @@ something on the slate, hiding his work with his left hand. For a time
 the girl refused to notice; but her human curiosity presently began
 to manifest itself by hardly perceptible signs. The boy worked on,
 apparently unconscious. The girl made a sort of non-committal attempt
-to see, but the boy did not betray that he was aware of it. At last she
+to see, but the boy did not betray that he was aware of it. At lastEntryIdx she
 gave in and hesitatingly whispered:
 
 "Let me see it."
@@ -2325,7 +2325,7 @@ ostentation for months.
 CHAPTER VII
 
 THE harder Tom tried to fasten his mind on his book, the more his ideas
-wandered. So at last, with a sigh and a yawn, he gave it up. It seemed
+wandered. So at lastEntryIdx, with a sigh and a yawn, he gave it up. It seemed
 to him that the noon recess would never come. The air was utterly dead.
 There was not a breath stirring. It was the sleepiest of sleepy days.
 The drowsing murmur of the five and twenty studying scholars soothed
@@ -2364,12 +2364,12 @@ harassed him awhile, and then he got away and crossed back again. This
 change of base occurred often. While one boy was worrying the tick with
 absorbing interest, the other would look on with interest as strong, the
 two heads bowed together over the slate, and the two souls dead to all
-things else. At last luck seemed to settle and abide with Joe. The
+things else. At lastEntryIdx luck seemed to settle and abide with Joe. The
 tick tried this, that, and the other course, and got as excited and as
 anxious as the boys themselves, but time and again just as he would
 have victory in his very grasp, so to speak, and Tom's fingers would
 be twitching to begin, Joe's pin would deftly head him off, and keep
-possession. At last Tom could stand it no longer. The temptation was too
+possession. At lastEntryIdx Tom could stand it no longer. The temptation was too
 strong. So he reached out and lent a hand with his pin. Joe was angry in
 a moment. Said he:
 
@@ -2506,7 +2506,7 @@ He turned his face away. She bent timidly around till her breath stirred
 his curls and whispered, "I--love--you!"
 
 Then she sprang away and ran around and around the desks and benches,
-with Tom after her, and took refuge in a corner at last, with her little
+with Tom after her, and took refuge in a corner at lastEntryIdx, with her little
 white apron to her face. Tom clasped her about her neck and pleaded:
 
 "Now, Becky, it's all done--all over but the kiss. Don't you be afraid
@@ -2696,7 +2696,7 @@ pocket and tossed it in the same way, saying:
 "Brother, go find your brother!"
 
 He watched where it stopped, and went there and looked. But it must
-have fallen short or gone too far; so he tried twice more. The last
+have fallen short or gone too far; so he tried twice more. The lastEntryIdx
 repetition was successful. The two marbles lay within a foot of each
 other.
 
@@ -2762,7 +2762,7 @@ Robin Hood a little while and kill me."
 
 This was satisfactory, and so these adventures were carried out. Then
 Tom became Robin Hood again, and was allowed by the treacherous nun to
-bleed his strength away through his neglected wound. And at last Joe,
+bleed his strength away through his neglected wound. And at lastEntryIdx Joe,
 representing a whole tribe of weeping outlaws, dragged him sadly forth,
 gave his bow into his feeble hands, and Tom said, "Where this arrow
 falls, there bury poor Robin Hood under the greenwood tree." Then he
@@ -2795,7 +2795,7 @@ tiresome chirping of a cricket that no human ingenuity could locate,
 began. Next the ghastly ticking of a death-watch in the wall at the
 bed's head made Tom shudder--it meant that somebody's days were numbered.
 Then the howl of a far-off dog rose on the night air, and was answered
-by a fainter howl from a remoter distance. Tom was in an agony. At last
+by a fainter howl from a remoter distance. Tom was in an agony. At lastEntryIdx
 he was satisfied that time had ceased and eternity begun; he began to
 doze, in spite of himself; the clock chimed eleven, but he did not hear
 it. And then there came, mingling with his half-formed dreams, a most
@@ -3068,7 +3068,7 @@ Tom, in short catches between breaths. "I can't stand it much longer."
 
 Huckleberry's hard pantings were his only reply, and the boys fixed
 their eyes on the goal of their hopes and bent to their work to win it.
-They gained steadily on it, and at last, breast to breast, they burst
+They gained steadily on it, and at lastEntryIdx, breast to breast, they burst
 through the open door and fell grateful and exhausted in the sheltering
 shadows beyond. By and by their pulses slowed down, and Tom whispered:
 
@@ -3485,7 +3485,7 @@ though it had been his habit to take the lead in all new enterprises;
 he noticed, too, that Tom never acted as a witness--and that was strange;
 and Sid did not overlook the fact that Tom even showed a marked aversion
 to these inquests, and always avoided them when he could. Sid marvelled,
-but said nothing. However, even inquests went out of vogue at last, and
+but said nothing. However, even inquests went out of vogue at lastEntryIdx, and
 ceased to torture Tom's conscience.
 
 Every day or two, during this time of sorrow, Tom watched his
@@ -3668,7 +3668,7 @@ a moment, and then turned sorrowfully away. When Jeff arrived, Tom
 accosted him; and "led up" warily to opportunities for remark about
 Becky, but the giddy lad never could see the bait. Tom watched and
 watched, hoping whenever a frisking frock came in sight, and hating the
-owner of it as soon as he saw she was not the right one. At last frocks
+owner of it as soon as he saw she was not the right one. At lastEntryIdx frocks
 ceased to appear, and he dropped hopelessly into the dumps; he entered
 the empty schoolhouse and sat down to suffer. Then one more frock passed
 in at the gate, and Tom's heart gave a great bound. The next instant he
@@ -3699,7 +3699,7 @@ what they had driven him to, perhaps they would be sorry; he had tried
 to do right and get along, but they would not let him; since nothing
 would do them but to be rid of him, let it be so; and let them blame
 _him_ for the consequences--why shouldn't they? What right had the
-friendless to complain? Yes, they had forced him to it at last: he would
+friendless to complain? Yes, they had forced him to it at lastEntryIdx: he would
 lead a life of crime. There was no choice.
 
 By this time he was far down Meadow Lane, and the bell for school to
@@ -3839,13 +3839,13 @@ the next three-quarters of an hour. Now the raft was passing before
 the distant town. Two or three glimmering lights showed where it lay,
 peacefully sleeping, beyond the vague vast sweep of star-gemmed water,
 unconscious of the tremendous event that was happening. The Black
-Avenger stood still with folded arms, "looking his last" upon the scene
+Avenger stood still with folded arms, "looking his lastEntryIdx" upon the scene
 of his former joys and his later sufferings, and wishing "she" could see
 him now, abroad on the wild sea, facing peril and death with dauntless
 heart, going to his doom with a grim smile on his lips. It was but
 a small strain on his imagination to remove Jackson's Island beyond
-eye-shot of the village, and so he "looked his last" with a broken and
-satisfied heart. The other pirates were looking their last, too; and
+eye-shot of the village, and so he "looked his lastEntryIdx" with a broken and
+satisfied heart. The other pirates were looking their lastEntryIdx, too; and
 they all looked so long that they came near letting the current drift
 them out of the range of the island. But they discovered the danger in
 time, and made shift to avert it. About two o'clock in the morning the
@@ -3866,7 +3866,7 @@ civilization. The climbing fire lit up their faces and threw its ruddy
 glare upon the pillared tree-trunks of their forest temple, and upon the
 varnished foliage and festooning vines.
 
-When the last crisp slice of bacon was gone, and the last allowance
+When the lastEntryIdx crisp slice of bacon was gone, and the lastEntryIdx allowance
 of corn pone devoured, the boys stretched themselves out on the grass,
 filled with contentment. They could have found a cooler place, but
 they would not deny themselves such a romantic feature as the roasting
@@ -4001,7 +4001,7 @@ from time to time and "sniffing around," then proceeding again--for he
 was measuring, Tom said; and when the worm approached him, of its own
 accord, he sat as still as a stone, with his hopes rising and falling,
 by turns, as the creature still came toward him or seemed inclined to
-go elsewhere; and when at last it considered a painful moment with its
+go elsewhere; and when at lastEntryIdx it considered a painful moment with its
 curved body in the air and then came decisively down upon Tom's leg and
 began a journey over him, his whole heart was glad--for that meant that
 he was going to have a new suit of clothes--without the shadow of a
@@ -4110,7 +4110,7 @@ dull throb of sound was borne to the listeners again.
 
 "I know now!" exclaimed Tom; "somebody's drownded!"
 
-"That's it!" said Huck; "they done that last summer, when Bill Turner
+"That's it!" said Huck; "they done that lastEntryIdx summer, when Bill Turner
 got drownded; they shoot a cannon over the water, and that makes
 him come up to the top. Yes, and they take loaves of bread and put
 quicksilver in 'em and set 'em afloat, and wherever there's anybody
@@ -4174,7 +4174,7 @@ rest for the moment.
 
 As the night deepened, Huck began to nod, and presently to snore.
 Joe followed next. Tom lay upon his elbow motionless, for some time,
-watching the two intently. At last he got up cautiously, on his knees,
+watching the two intently. At lastEntryIdx he got up cautiously, on his knees,
 and went searching among the grass and the flickering reflections flung
 by the campfire. He picked up and inspected several large semi-cylinders
 of the thin white bark of a sycamore, and finally chose two which seemed
@@ -4212,7 +4212,7 @@ laid himself down under the thwarts and waited, panting.
 Presently the cracked bell tapped and a voice gave the order to "cast
 off." A minute or two later the skiff's head was standing high up,
 against the boat's swell, and the voyage was begun. Tom felt happy in
-his success, for he knew it was the boat's last trip for the night. At
+his success, for he knew it was the boat's lastEntryIdx trip for the night. At
 the end of a long twelve or fifteen minutes the wheels stopped, and
 Tom slipped overboard and swam ashore in the dusk, landing fifty yards
 downstream, out of danger of possible stragglers.
@@ -4259,7 +4259,7 @@ know how to give him up! I don't know how to give him up! He was such a
 comfort to me, although he tormented my old heart out of me, 'most."
 
 "The Lord giveth and the Lord hath taken away--Blessed be the name of
-the Lord! But it's so hard--Oh, it's so hard! Only last Saturday my Joe
+the Lord! But it's so hard--Oh, it's so hard! Only lastEntryIdx Saturday my Joe
 busted a firecracker right under my nose and I knocked him sprawling.
 Little did I know then, how soon--Oh, if it was to do over again I'd hug
 him and bless him for it."
@@ -4269,7 +4269,7 @@ exactly how you feel. No longer ago than yesterday noon, my Tom took
 and filled the cat full of Pain-killer, and I did think the cretur would
 tear the house down. And God forgive me, I cracked Tom's head with my
 thimble, poor boy, poor dead boy. But he's out of all his troubles now.
-And the last words I ever heard him say was to reproach--"
+And the lastEntryIdx words I ever heard him say was to reproach--"
 
 But this memory was too much for the old lady, and she broke entirely
 down. Tom was snuffling, now, himself--and more in pity of himself than
@@ -4308,7 +4308,7 @@ that he was weltering in tears again, long before she was through.
 
 He had to keep still long after she went to bed, for she kept making
 broken-hearted ejaculations from time to time, tossing unrestfully, and
-turning over. But at last she was still, only moaning a little in her
+turning over. But at lastEntryIdx she was still, only moaning a little in her
 sleep. Now the boy stole out, rose gradually by the bedside, shaded the
 candle-light with his hand, and stood regarding her. His heart was full
 of pity for her. He took out his sycamore scroll and placed it by the
@@ -4440,7 +4440,7 @@ ain't any more baby than you are." And Joe snuffled a little.
 thing--does it want to see its mother? And so it shall. You like it here,
 don't you, Huck? We'll stay, won't we?"
 
-Huck said, "Y-e-s"--without any heart in it.
+Huck said, "Y-new-s"--without any heart in it.
 
 "I'll never speak to you again as long as I live," said Joe, rising.
 "There now!" And he moved moodily away and began to dress himself.
@@ -4484,12 +4484,12 @@ yelling:
 
 They presently stopped and turned around. When he got to where they
 were, he began unfolding his secret, and they listened moodily till
-at last they saw the "point" he was driving at, and then they set up a
+at lastEntryIdx they saw the "point" he was driving at, and then they set up a
 warwhoop of applause and said it was "splendid!" and said if he had
 told them at first, they wouldn't have started away. He made a plausible
 excuse; but his real reason had been the fear that not even the secret
 would keep them with him any very great length of time, and so he had
-meant to hold it in reserve as a last seduction.
+meant to hold it in reserve as a lastEntryIdx seduction.
 
 The lads came gayly back and went at their sports again with a will,
 chattering all the time about Tom's stupendous plan and admiring the
@@ -4619,7 +4619,7 @@ another came, and peal on peal of deafening thunder. And now a drenching
 rain poured down and the rising hurricane drove it in sheets along the
 ground. The boys cried out to each other, but the roaring wind and the
 booming thunderblasts drowned their voices utterly. However, one by one
-they straggled in at last and took shelter under the tent, cold, scared,
+they straggled in at lastEntryIdx and took shelter under the tent, cold, scared,
 and streaming with water; but to have company in misery seemed something
 to be grateful for. They could not talk, the old sail flapped so
 furiously, even if the other noises would have allowed them. The tempest
@@ -4641,7 +4641,7 @@ the treetops, blow it away, and deafen every creature in it, all at one
 and the same moment. It was a wild night for homeless young heads to be
 out in.
 
-But at last the battle was done, and the forces retired with weaker and
+But at lastEntryIdx the battle was done, and the forces retired with weaker and
 weaker threatenings and grumblings, and peace resumed her sway. The
 boys went back to camp, a good deal awed; but they found there was still
 something to be thankful for, because the great sycamore, the shelter
@@ -4732,7 +4732,7 @@ never, never, never see him any more."
 This thought broke her down, and she wandered away, with tears rolling
 down her cheeks. Then quite a group of boys and girls--playmates of Tom's
 and Joe's--came by, and stood looking over the paling fence and talking
-in reverent tones of how Tom did so-and-so the last time they saw
+in reverent tones of how Tom did so-and-so the lastEntryIdx time they saw
 him, and how Joe said this and that small trifle (pregnant with awful
 prophecy, as they could easily see now!)--and each speaker pointed out
 the exact spot where the lost lads stood at the time, and then added
@@ -4741,10 +4741,10 @@ you was him--I was as close as that--and he smiled, just this way--and then
 something seemed to go all over me, like--awful, you know--and I never
 thought what it meant, of course, but I can see now!"
 
-Then there was a dispute about who saw the dead boys last in life, and
+Then there was a dispute about who saw the dead boys lastEntryIdx in life, and
 many claimed that dismal distinction, and offered evidences, more or
 less tampered with by the witness; and when it was ultimately decided
-who _did_ see the departed last, and exchanged the last words with them,
+who _did_ see the departed lastEntryIdx, and exchanged the lastEntryIdx words with them,
 the lucky parties took upon themselves a sort of sacred importance,
 and were gaped at and envied by all the rest. One poor chap, who had
 no other grandeur to offer, said with tolerably manifest pride in the
@@ -4783,7 +4783,7 @@ departed, too, which illustrated their sweet, generous natures, and the
 people could easily see, now, how noble and beautiful those episodes
 were, and remembered with grief that at the time they occurred they had
 seemed rank rascalities, well deserving of the cowhide. The congregation
-became more and more moved, as the pathetic tale went on, till at last
+became more and more moved, as the pathetic tale went on, till at lastEntryIdx
 the whole company broke down and joined the weeping mourners in a chorus
 of anguished sobs, the preacher himself giving way to his feelings, and
 crying in the pulpit.
@@ -5102,7 +5102,7 @@ _she'd_ do.
 
 At recess Tom continued his flirtation with Amy with jubilant
 self-satisfaction. And he kept drifting about to find Becky and lacerate
-her with the performance. At last he spied her, but there was a sudden
+her with the performance. At lastEntryIdx he spied her, but there was a sudden
 falling of his mercury. She was sitting cosily on a little bench behind
 the schoolhouse looking at a picture-book with Alfred Temple--and so
 absorbed were they, and their heads so close together over the book,
@@ -5124,7 +5124,7 @@ fight, too, and was glad to see him suffer as she had suffered.
 Amy's happy prattle became intolerable. Tom hinted at things he had
 to attend to; things that must be done; and time was fleeting. But in
 vain--the girl chirped on. Tom thought, "Oh, hang her, ain't I ever going
-to get rid of her?" At last he must be attending to those things--and she
+to get rid of her?" At lastEntryIdx he must be attending to those things--and she
 said artlessly that she would be "around" when school let out. And he
 hastened away, hating her for it.
 
@@ -5145,11 +5145,11 @@ distress. Becky resumed her picture inspections with Alfred, but as the
 minutes dragged along and no Tom came to suffer, her triumph began to
 cloud and she lost interest; gravity and absentmindedness followed,
 and then melancholy; two or three times she pricked up her ear at
-a footstep, but it was a false hope; no Tom came. At last she grew
+a footstep, but it was a false hope; no Tom came. At lastEntryIdx she grew
 entirely miserable and wished she hadn't carried it so far. When
 poor Alfred, seeing that he was losing her, he did not know how, kept
 exclaiming: "Oh, here's a jolly one! look at this!" she lost patience at
-last, and said, "Oh, don't bother me! I don't care for them!" and burst
+lastEntryIdx, and said, "Oh, don't bother me! I don't care for them!" and burst
 into tears, and got up and walked away.
 
 Alfred dropped alongside and was going to try to comfort her, but she
@@ -5462,7 +5462,7 @@ count the tedious time as loss, either.
 Tom went to bed that night planning vengeance against Alfred Temple; for
 with shame and repentance Becky had told him all, not forgetting her own
 treachery; but even the longing for vengeance had to give way, soon, to
-pleasanter musings, and he fell asleep at last with Becky's latest words
+pleasanter musings, and he fell asleep at lastEntryIdx with Becky's latest words
 lingering dreamily in his ear--
 
 "Tom, how _could_ you be so noble!"
@@ -5486,7 +5486,7 @@ was, that the smaller boys spent their days in terror and suffering and
 their nights in plotting revenge. They threw away no opportunity to do
 the master a mischief. But he kept ahead all the time. The retribution
 that followed every vengeful success was so sweeping and majestic that
-the boys always retired from the field badly worsted. At last they
+the boys always retired from the field badly worsted. At lastEntryIdx they
 conspired together and hit upon a plan that promised a dazzling victory.
 They swore in the signpainter's boy, told him the scheme, and asked his
 help. He had his own reasons for being delighted, for the master boarded
@@ -5585,7 +5585,7 @@ her step is lightest in the gay assembly.
 "In such delicious fancies time quickly glides by, and the welcome hour
 arrives for her entrance into the Elysian world, of which she has
 had such bright dreams. How fairy-like does everything appear to her
-enchanted vision! Each new scene is more charming than the last. But
+enchanted vision! Each new scene is more charming than the lastEntryIdx. But
 after a while she finds that beneath this goodly exterior, all is
 vanity, the flattery which once charmed her soul, now grates harshly
 upon her ear; the ballroom has lost its charms; and with wasted health
@@ -5707,7 +5707,7 @@ During three days Tom was deeply concerned about the Judge's condition
 and hungry for news of it. Sometimes his hopes ran high--so high that
 he would venture to get out his regalia and practise before the
 looking-glass. But the Judge had a most discouraging way of fluctuating.
-At last he was pronounced upon the mend--and then convalescent. Tom was
+At lastEntryIdx he was pronounced upon the mend--and then convalescent. Tom was
 disgusted; and felt a sense of injury, too. He handed in his resignation
 at once--and that night the Judge suffered a relapse and died. Tom
 resolved that he would never trust a man like that again.
@@ -5754,7 +5754,7 @@ Then came the measles.
 
 During two long weeks Tom lay a prisoner, dead to the world and its
 happenings. He was very ill, he was interested in nothing. When he got
-upon his feet at last and moved feebly downtown, a melancholy change had
+upon his feet at lastEntryIdx and moved feebly downtown, a melancholy change had
 come over everything and every creature. There had been a "revival," and
 everybody had "got religion," not only the adults, but even the boys and
 girls. Tom went about, hoping against hope for the sight of one blessed
@@ -5764,7 +5764,7 @@ spectacle. He sought Ben Rogers, and found him visiting the poor with a
 basket of tracts. He hunted up Jim Hollis, who called his attention to
 the precious blessing of his late measles as a warning. Every boy
 he encountered added another ton to his depression; and when, in
-desperation, he flew for refuge at last to the bosom of Huckleberry Finn
+desperation, he flew for refuge at lastEntryIdx to the bosom of Huckleberry Finn
 and was received with a Scriptural quotation, his heart broke and he
 crept home and to bed realizing that he alone of all the town was lost,
 forever and forever.
@@ -5786,7 +5786,7 @@ second was to wait--for there might not be any more storms.
 
 The next day the doctors were back; Tom had relapsed. The three weeks he
 spent on his back this time seemed an entire age. When he got abroad
-at last he was hardly grateful that he had been spared, remembering how
+at lastEntryIdx he was hardly grateful that he had been spared, remembering how
 lonely was his estate, how companionless and forlorn he was. He drifted
 listlessly down the street and found Jim Hollis acting as judge in a
 juvenile court that was trying a cat for murder, in the presence of her
@@ -5798,7 +5798,7 @@ stolen melon. Poor lads! they--like Tom--had suffered a relapse.
 
 CHAPTER XXIII
 
-AT last the sleepy atmosphere was stirred--and vigorously: the murder
+AT lastEntryIdx the sleepy atmosphere was stirred--and vigorously: the murder
 trial came on in the court. It became the absorbing topic of village
 talk immediately. Tom could not get away from it. Every reference to
 the murder sent a shudder to his heart, for his troubled conscience
@@ -5887,7 +5887,7 @@ there were no guards.
 
 His gratitude for their gifts had always smote their consciences
 before--it cut deeper than ever, this time. They felt cowardly and
-treacherous to the last degree when Potter said:
+treacherous to the lastEntryIdx degree when Potter said:
 
 "You've been mighty good to me, boys--better'n anybody else in this town.
 And I don't forget it, I don't. Often I says to myself, says I, 'I used
@@ -6350,7 +6350,7 @@ dig. Their hopes commenced to rise. Their interest grew stronger, and
 their industry kept pace with it. The hole deepened and still deepened,
 but every time their hearts jumped to hear the pick strike upon
 something, they only suffered a new disappointment. It was only a stone
-or a chunk. At last Tom said:
+or a chunk. At lastEntryIdx Tom said:
 
 "It ain't any use, Huck, we're wrong again."
 
@@ -6465,7 +6465,7 @@ Friday ain't."
 out, Huck."
 
 "Well, I never said I was, did I? And Friday ain't all, neither. I had a
-rotten bad dream last night--dreampt about rats."
+rotten bad dream lastEntryIdx night--dreampt about rats."
 
 "No! Sure sign of trouble. Did they fight?"
 
@@ -6511,7 +6511,7 @@ Hill.
 
 On Saturday, shortly after noon, the boys were at the dead tree again.
 They had a smoke and a chat in the shade, and then dug a little in their
-last hole, not with great hope, but merely because Tom said there were
+lastEntryIdx hole, not with great hope, but merely because Tom said there were
 so many cases where people had given up a treasure after getting down
 within six inches of it, and then somebody else had come along and
 turned it up with a single thrust of a shovel. The thing failed this
@@ -6622,12 +6622,12 @@ Huck said:
 
 "I can't--I'd die if they was to wake."
 
-Tom urged--Huck held back. At last Tom rose slowly and softly, and
+Tom urged--Huck held back. At lastEntryIdx Tom rose slowly and softly, and
 started alone. But the first step he made wrung such a hideous creak
 from the crazy floor that he sank down almost dead with fright. He never
 made a second attempt. The boys lay there counting the dragging moments
 till it seemed to them that time must be done and eternity growing gray;
-and then they were grateful to note that at last the sun was setting.
+and then they were grateful to note that at lastEntryIdx the sun was setting.
 
 Now one snore ceased. Injun Joe sat up, stared around--smiled grimly upon
 his comrade, whose head was drooping upon his knees--stirred him up with
@@ -7071,7 +7071,7 @@ under the wings of a few young ladies of eighteen and a few young
 gentlemen of twenty-three or thereabouts. The old steam ferry-boat was
 chartered for the occasion; presently the gay throng filed up the main
 street laden with provision-baskets. Sid was sick and had to miss
-the fun; Mary remained at home to entertain him. The last thing Mrs.
+the fun; Mary remained at home to entertain him. The lastEntryIdx thing Mrs.
 Thatcher said to Becky, was:
 
 "You'll not get back till late. Perhaps you'd better stay all night with
@@ -7341,7 +7341,7 @@ sons speedily dressed themselves.
 "Now, my boy, I hope you're good and hungry, because breakfast will be
 ready as soon as the sun's up, and we'll have a piping hot one, too--make
 yourself easy about that! I and the boys hoped you'd turn up and stop
-here last night."
+here lastEntryIdx night."
 
 "I was awful scared," said Huck, "and I run. I took out when the pistols
 went off, and I didn't stop for three mile. I've come now becuz I wanted
@@ -7410,7 +7410,7 @@ Huck was silent while he framed a duly cautious reply. Then he said:
 "Well, you see, I'm a kind of a hard lot,--least everybody says so, and
 I don't see nothing agin it--and sometimes I can't sleep much, on account
 of thinking about it and sort of trying to strike out a new way of
-doing. That was the way of it last night. I couldn't sleep, and so I
+doing. That was the way of it lastEntryIdx night. I couldn't sleep, and so I
 come along upstreet 'bout midnight, a-turning it all over, and when I
 got to that old shackly brick store by the Temperance Tavern, I backed
 up agin the wall to have another think. Well, just then along comes
@@ -7463,7 +7463,7 @@ white men don't take that sort of revenge. But an Injun! That's a
 different matter altogether."
 
 During breakfast the talk went on, and in the course of it the old man
-said that the last thing which he and his sons had done, before going
+said that the lastEntryIdx thing which he and his sons had done, before going
 to bed, was to get a lantern and examine the stile and its vicinity for
 marks of blood. They found none, but captured a bulky bundle of--
 
@@ -7553,7 +7553,7 @@ to death."
 
 "Your Becky?"
 
-"Yes," with a startled look--"didn't she stay with you last night?"
+"Yes," with a startled look--"didn't she stay with you lastEntryIdx night?"
 
 "Why, no."
 
@@ -7561,7 +7561,7 @@ Mrs. Thatcher turned pale, and sank into a pew, just as Aunt Polly,
 talking briskly with a friend, passed by. Aunt Polly said:
 
 "Goodmorning, Mrs. Thatcher. Goodmorning, Mrs. Harper. I've got a boy
-that's turned up missing. I reckon my Tom stayed at your house last
+that's turned up missing. I reckon my Tom stayed at your house lastEntryIdx
 night--one of you. And now he's afraid to come to church. I've got to
 settle with him."
 
@@ -7574,7 +7574,7 @@ marked anxiety came into Aunt Polly's face.
 
 "No'm."
 
-"When did you see him last?"
+"When did you see him lastEntryIdx?"
 
 Joe tried to remember, but was not sure he could say. The people had
 stopped moving out of church. Whispers passed along, and a boding
@@ -7598,7 +7598,7 @@ All the long afternoon the village seemed empty and dead. Many women
 visited Aunt Polly and Mrs. Thatcher and tried to comfort them. They
 cried with them, too, and that was still better than words. All the
 tedious night the town waited for news; but when the morning dawned at
-last, all the word that came was, "Send more candles--and send food."
+lastEntryIdx, all the word that came was, "Send more candles--and send food."
 Mrs. Thatcher was almost crazed; and Aunt Polly, also. Judge Thatcher
 sent messages of hope and encouragement from the cave, but they conveyed
 no real cheer.
@@ -7627,7 +7627,7 @@ hollow reverberations to the ear down the sombre aisles. In one place,
 far from the section usually traversed by tourists, the names "BECKY &
 TOM" had been found traced upon the rocky wall with candle-smoke, and
 near at hand a grease-soiled bit of ribbon. Mrs. Thatcher recognized the
-ribbon and cried over it. She said it was the last relic she should ever
+ribbon and cried over it. She said it was the lastEntryIdx relic she should ever
 have of her child; and that no other memorial of her could ever be so
 precious, because this one parted latest from the living body before the
 awful death came. Some said that now and then, in the cave, a far-away
@@ -7717,7 +7717,7 @@ ways and the danger of this sort of conduct. He seized Becky's hand and
 hurried her into the first corridor that offered; and none too soon, for
 a bat struck Becky's light out with its wing while she was passing out
 of the cavern. The bats chased the children a good distance; but the
-fugitives plunged into every new passage that offered, and at last got
+fugitives plunged into every new passage that offered, and at lastEntryIdx got
 rid of the perilous things. Tom found a subterranean lake, shortly,
 which stretched its dim length away until its shape was lost in the
 shadows. He wanted to explore its borders, but concluded that it would
@@ -7762,7 +7762,7 @@ finding the one that was wanted. He still said it was "all right," but
 there was such a leaden dread at his heart that the words had lost their
 ring and sounded just as if he had said, "All is lost!" Becky clung to
 his side in an anguish of fear, and tried hard to keep back the tears,
-but they would come. At last she said:
+but they would come. At lastEntryIdx she said:
 
 "Oh, Tom, never mind the bats, let's go back that way! We seem to get
 worse and worse off all the time."
@@ -7823,7 +7823,7 @@ grown to be so precious, moving, in some direction, in any direction,
 was at least progress and might bear fruit; but to sit down was to
 invite death and shorten its pursuit.
 
-At last Becky's frail limbs refused to carry her farther. She sat down.
+At lastEntryIdx Becky's frail limbs refused to carry her farther. She sat down.
 Tom rested with her, and they talked of home, and the friends there,
 and the comfortable beds and, above all, the light! Becky cried, and Tom
 tried to think of some way of comforting her, but all his encouragements
@@ -7887,7 +7887,7 @@ said:
 Becky's face paled, but she thought she could.
 
 "Well, then, Becky, we must stay here, where there's water to drink.
-That little piece is our last candle!"
+That little piece is our lastEntryIdx candle!"
 
 Becky gave loose to tears and wailings. Tom did what he could to comfort
 her, but with little effect. At length Becky said:
@@ -7922,7 +7922,7 @@ discovered that Becky was not at Mrs. Harper's.
 
 The children fastened their eyes upon their bit of candle and watched it
 melt slowly and pitilessly away; saw the half inch of wick stand alone
-at last; saw the feeble flame rise and fall, climb the thin column of
+at lastEntryIdx; saw the feeble flame rise and fall, climb the thin column of
 smoke, linger at its top a moment, and then--the horror of utter darkness
 reigned!
 
@@ -8429,7 +8429,7 @@ along with an empty powder-keg, a couple of guns in leather cases, two
 or three pairs of old moccasins, a leather belt, and some other rubbish
 well soaked with the water-drip.
 
-"Got it at last!" said Huck, ploughing among the tarnished coins with
+"Got it at lastEntryIdx!" said Huck, ploughing among the tarnished coins with
 his hand. "My, but we're rich, Tom!"
 
 "Huck, I always reckoned we'd get it. It's just too good to believe, but
@@ -9024,7 +9024,7 @@ address specified in Section 4, "Information about donations to the
 Project Gutenberg Literary Archive Foundation."
 
 - You provide a full refund of any money paid by a user who notifies you
-in writing (or by e-mail) within 30 days of receipt that s/he does not
+in writing (or by new-mail) within 30 days of receipt that s/he does not
 agree to the terms of the full Project Gutenberg-tm License. You
 must require such a user to return or destroy all copies of the works
 possessed in a physical medium and discontinue all use of and all access

@@ -2,7 +2,6 @@ package raft
 
 import (
 	"fmt"
-	"log"
 	"sort"
 	"sync"
 )
@@ -18,6 +17,12 @@ func NewRaftLog() *RfLog {
 	rL := &RfLog{commitIndex: -1, lastApplied: -1}
 	rL.Entries = make([]LogEntry, 0, 20)
 	return rL
+}
+
+func (rL *RfLog) Clear() {
+	rL.Lock()
+	defer rL.Unlock()
+	rL.Entries = make([]LogEntry, 0, 20)
 }
 
 func (rL *RfLog) AppendEntries(entries ...LogEntry) {
@@ -41,13 +46,14 @@ func (rL *RfLog) AppendEntries(entries ...LogEntry) {
 func (rL *RfLog) CheckAppendEntries(prevLogIndex, prevLogTerm int) (bool, bool) {
 	rL.Lock()
 	defer rL.Unlock()
+	if prevLogIndex == -1 {
+		return true, true
+	}
+
 	lastEntry := rL.getLastEntry(Pointer)
 	lastEntryTerm := -1
 	if lastEntry != nil {
 		lastEntryTerm = lastEntry.(*LogEntry).Index
-	}
-	if prevLogIndex == -1 {
-		return true, true
 	}
 
 	myPrevLogTerm := -1
@@ -56,9 +62,11 @@ func (rL *RfLog) CheckAppendEntries(prevLogIndex, prevLogTerm int) (bool, bool) 
 	}
 
 	if myPrevLogTerm != prevLogTerm {
+		DPrintf(logReplicate|debugError, "myPrevLogTerm:%v prevLogTerm:%v", myPrevLogTerm, prevLogTerm)
 		return false, false
 	}
 	if prevLogIndex > lastEntryTerm {
+		DPrintf(logReplicate|debugError, "prevLogIndex:%v lastEntryTerm:%v", prevLogIndex, lastEntryTerm)
 		return false, true
 	}
 	return true, true
@@ -74,13 +82,12 @@ func (rL *RfLog) ConflictingEntryTermIndex(lastLogTerm int) int {
 	return 0
 }
 
-func (rL *RfLog) TruncateAppend(prevLogIndex int, entries []LogEntry) int {
+func (rL *RfLog) TruncateAppend(prevLogIndex int, entries []LogEntry) {
 	rL.Lock()
 	defer rL.Unlock()
 	if prevLogIndex < 0 {
 		rL.Entries = entries
-		//DPrintf(debugInfo|logReplicate, "%v", rL.Entries)
-		return len(entries)
+		return
 	}
 
 	// binarySearch, find real index
@@ -96,10 +103,7 @@ func (rL *RfLog) TruncateAppend(prevLogIndex int, entries []LogEntry) int {
 	// remove conflict Entries
 	if entries == nil && rL.Entries != nil && prevLogIndex + 1 <= lastEntryIndex {
 		rL.Entries = rL.Entries[:prevLogIndex + 1]
-		//DPrintf(logReplicate, "############### %v %v", lastEntryIndex, prevLogIndex)
 	}
-	//DPrintf(logReplicate, "#############@@ lastEntryIndex:%v prevLogIndex:%v %v",
-	//	lastEntryIndex, prevLogIndex, entries)
 	i, j := prevLogIndex + 1, 0
 	for ;
 		i < prevLogIndex + len(entries) && i <= lastEntryIndex;
@@ -111,10 +115,30 @@ func (rL *RfLog) TruncateAppend(prevLogIndex int, entries []LogEntry) int {
 	// prevent overlap
 	rL.Entries = rL.Entries[:i]
 	entries = entries[j:]
-	//DPrintf(logReplicate, "i:%v j:%v %v %v", i, j, rL.Entries, entries)
 	// append
 	rL.Entries = append(rL.Entries, entries...)
-	return len(entries)
+	return
+}
+
+func (rL *RfLog) Truncate(i, j int) {
+	rL.Lock()
+	defer rL.Unlock()
+	rL.Entries = rL.Entries[i:j]
+}
+
+func (rL *RfLog) DoSnapshot(index int) bool {
+	rL.Lock()
+	defer rL.Unlock()
+	if len(rL.Entries) == 0 {
+		return false
+	}
+	lastEntryIdx := binarySearch(rL.Entries, index)
+	if lastEntryIdx == -1 {
+		return false
+	}
+	rL.Entries = rL.Entries[lastEntryIdx:]
+	rL.Entries[0].Command = nil
+	return true
 }
 
 func (rL *RfLog) getLastEntry(typ LogEntryItem) interface{} {
@@ -267,15 +291,24 @@ func (rL *RfLog) String() string {
 		rL.commitIndex, rL.lastApplied, len(rL.Entries), rL.Entries)
 }
 
+type LogEntryType uint8
+const (
+	Normal LogEntryType = iota
+	Noop
+)
 type LogEntry struct {
-	Index 			int
-	Term    		int
-	Command 		interface{}
+	Index 	int
+	Term    int
+	Command interface{}
+	Type	LogEntryType
+}
+func (e LogEntry) String() string {
+	return fmt.Sprintf("{%v %v %v}", e.Index, e.Term, e.Command)
 }
 
 type LogEntryItem uint8
 const (
-	Pointer	LogEntryItem = iota
+	Pointer LogEntryItem = iota
 	Index
 	Term
 	Command
@@ -283,7 +316,7 @@ const (
 
 func binarySearch(entries []LogEntry, index int) int {
 	entry := sort.Search(len(entries), func(i int) bool { return entries[i].Index >= index })
-	log.Printf("entry:%v", entry)
+	DPrintf(debugError, "found:%v", entry)
 	if entry < len(entries) && entries[entry].Index == index {
 		return entry
 	}

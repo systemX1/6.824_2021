@@ -86,7 +86,7 @@ laborious voyage with the joy a child feels when he embarks in a little
 boat, with his holiday mates, on an expedition of discovery up his
 native river. But supposing all these conjectures to be false, you
 cannot contest the inestimable benefit which I shall confer on all
-mankind, to the last generation, by discovering a passage near the pole
+mankind, to the lastEntryIdx generation, by discovering a passage near the pole
 to those countries, to reach which at present so many months are
 requisite; or by ascertaining the secret of the magnet, which, if at
 all possible, can only be effected by an undertaking such as mine.
@@ -657,7 +657,7 @@ support life.
 Several months passed in this manner.  Her father grew worse; her time
 was more entirely occupied in attending him; her means of subsistence
 decreased; and in the tenth month her father died in her arms, leaving
-her an orphan and a beggar.  This last blow overcame her, and she knelt
+her an orphan and a beggar.  This lastEntryIdx blow overcame her, and she knelt
 by Beaufort's coffin weeping bitterly, when my father entered the
 chamber.  He came like a protecting spirit to the poor girl, who
 committed herself to his care; and after the interment of his friend he
@@ -961,7 +961,7 @@ being built upon secure foundations, and so worthy of my consideration.
 Thus strangely are our souls constructed, and by such slight ligaments
 are we bound to prosperity or ruin.  When I look back, it seems to me
 as if this almost miraculous change of inclination and will was the
-immediate suggestion of the guardian angel of my life--the last effort
+immediate suggestion of the guardian angel of my life--the lastEntryIdx effort
 made by the spirit of preservation to avert the storm that was even
 then hanging in the stars and ready to envelop me.  Her victory was
 announced by an unusual tranquillity and gladness of soul which
@@ -1041,7 +1041,7 @@ her uncle and cousins.  Never was she so enchanting as at this time,
 when she recalled the sunshine of her smiles and spent them upon us.
 She forgot even her own regret in her endeavours to make us forget.
 
-The day of my departure at length arrived.  Clerval spent the last
+The day of my departure at length arrived.  Clerval spent the lastEntryIdx
 evening with us.  He had endeavoured to persuade his father to permit
 him to accompany me and to become my fellow student, but in vain.  His
 father was a narrow-minded trader and saw idleness and ruin in the
@@ -1057,7 +1057,7 @@ retired under the pretence of seeking repose, each fancying that the
 other was deceived; but when at morning's dawn I descended to the
 carriage which was to convey me away, they were all there--my father
 again to bless me, Clerval to press my hand once more, my Elizabeth to
-renew her entreaties that I would write often and to bestow the last
+renew her entreaties that I would write often and to bestow the lastEntryIdx
 feminine attentions on her playmate and friend.
 
 I threw myself into the chaise that was to convey me away and indulged
@@ -1353,7 +1353,7 @@ doubt of my ability to give life to an animal as complex and wonderful
 as man.  The materials at present within my command hardly appeared
 adequate to so arduous an undertaking, but I doubted not that I should
 ultimately succeed.  I prepared myself for a multitude of reverses; my
-operations might be incessantly baffled, and at last my work be
+operations might be incessantly baffled, and at lastEntryIdx my work be
 imperfect, yet when I considered the improvement which every day takes
 place in science and mechanics, I was encouraged to hope my present
 attempts would at least lay the foundations of future success.  Nor
@@ -1576,7 +1576,7 @@ friends and his own good fortune in being permitted to come to
 Ingolstadt.  "You may easily believe," said he, "how great was the
 difficulty to persuade my father that all necessary knowledge was not
 comprised in the noble art of book-keeping; and, indeed, I believe I
-left him incredulous to the last, for his constant answer to my
+left him incredulous to the lastEntryIdx, for his constant answer to my
 unwearied entreaties was the same as that of the Dutch schoolmaster in
 The Vicar of Wakefield:  'I have ten thousand florins a year without
 Greek, I eat heartily without Greek.'  But his affection for me at
@@ -1793,7 +1793,7 @@ but much oftener accused her of having caused the deaths of her
 brothers and sister.  Perpetual fretting at length threw Madame Moritz
 into a decline, which at first increased her irritability, but she is
 now at peace for ever.  She died on the first approach of cold weather,
-at the beginning of this last winter.  Justine has just returned to us;
+at the beginning of this lastEntryIdx winter.  Justine has just returned to us;
 and I assure you I love her tenderly.  She is very clever and gentle,
 and extremely pretty; as I mentioned before, her mien and her
 expression continually remind me of my dear aunt.
@@ -1809,7 +1809,7 @@ is his favourite, a pretty little girl of five years of age.
 gossip concerning the good people of Geneva.  The pretty Miss Mansfield
 has already received the congratulatory visits on her approaching
 marriage with a young Englishman, John Melbourne, Esq.  Her ugly
-sister, Manon, married M. Duvillard, the rich banker, last autumn. Your
+sister, Manon, married M. Duvillard, the rich banker, lastEntryIdx autumn. Your
 favourite schoolfellow, Louis Manoir, has suffered several misfortunes
 since the departure of Clerval from Geneva.  But he has already
 recovered his spirits, and is reported to be on the point of marrying a
@@ -2202,7 +2202,7 @@ told the servants not to disturb the family, and went into the library
 to attend their usual hour of rising.
 
 Six years had elapsed, passed in a dream but for one indelible trace,
-and I stood in the same place where I had last embraced my father
+and I stood in the same place where I had lastEntryIdx embraced my father
 before my departure for Ingolstadt.  Beloved and venerable parent!  He
 still remained to me.  I gazed on the picture of my mother, which stood
 over the mantel-piece.  It was an historical subject, painted at my
@@ -2233,7 +2233,7 @@ very wretched.  But since the murderer has been discovered--"
 "The murderer discovered!  Good God! how can that be? who could attempt
 to pursue him?  It is impossible; one might as well try to overtake the
 winds, or confine a mountain-stream with a straw.  I saw him too; he
-was free last night!"
+was free lastEntryIdx night!"
 
 "I do not know what you mean," replied my brother, in accents of
 wonder, "but to us the discovery we have made completes our misery.  No
@@ -2293,7 +2293,7 @@ creator, who would believe, unless his senses convinced him, in the
 existence of the living monument of presumption and rash ignorance
 which I had let loose upon the world?
 
-We were soon joined by Elizabeth.  Time had altered her since I last
+We were soon joined by Elizabeth.  Time had altered her since I lastEntryIdx
 beheld her; it had endowed her with loveliness surpassing the beauty of
 her childish years.  There was the same candour, the same vivacity, but
 it was allied to an expression more full of sensibility and intellect.
@@ -2424,7 +2424,7 @@ innocence."
 Several witnesses were called who had known her for many years, and
 they spoke well of her; but fear and hatred of the crime of which they
 supposed her guilty rendered them timorous and unwilling to come
-forward.  Elizabeth saw even this last resource, her excellent
+forward.  Elizabeth saw even this lastEntryIdx resource, her excellent
 dispositions and irreproachable conduct, about to fail the accused,
 when, although violently agitated, she desired permission to address
 the court.
@@ -2439,7 +2439,7 @@ know of her character.  I am well acquainted with the accused.  I have
 lived in the same house with her, at one time for five and at another
 for nearly two years.  During all that period she appeared to me the
 most amiable and benevolent of human creatures.  She nursed Madame
-Frankenstein, my aunt, in her last illness, with the greatest affection
+Frankenstein, my aunt, in her lastEntryIdx illness, with the greatest affection
 and care and afterwards attended her own mother during a tedious
 illness, in a manner that excited the admiration of all who knew her,
 after which she again lived in my uncle's house, where she was beloved
@@ -2509,7 +2509,7 @@ manacled, and her head rested on her knees.  She rose on seeing us
 enter, and when we were left alone with her, she threw herself at the
 feet of Elizabeth, weeping bitterly.  My cousin wept also.
 
-"Oh, Justine!" said she.  "Why did you rob me of my last consolation?
+"Oh, Justine!" said she.  "Why did you rob me of my lastEntryIdx consolation?
 I relied on your innocence, and although I was then very wretched, I
 was not so miserable as I am now."
 
@@ -2529,7 +2529,7 @@ obtain absolution; but now that falsehood lies heavier at my heart than
 all my other sins.  The God of heaven forgive me!  Ever since I was
 condemned, my confessor has besieged me; he threatened and menaced,
 until I almost began to think that I was the monster that he said I
-was.  He threatened excommunication and hell fire in my last moments if
+was.  He threatened excommunication and hell fire in my lastEntryIdx moments if
 I continued obdurate.  Dear lady, I had none to support me; all looked
 on me as a wretch doomed to ignominy and perdition.  What could I do?
 In an evil hour I subscribed to a lie; and now only am I truly
@@ -2570,7 +2570,7 @@ I could not answer.  "No, Justine," said Elizabeth; "he is more
 convinced of your innocence than I was, for even when he heard that you
 had confessed, he did not credit it."
 
-"I truly thank him.  In these last moments I feel the sincerest
+"I truly thank him.  In these lastEntryIdx moments I feel the sincerest
 gratitude towards those who think of me with kindness.  How sweet is
 the affection of others to such a wretch as I am!  It removes more than
 half my misfortune, and I feel as if I could die in peace now that my
@@ -2592,7 +2592,7 @@ Justine assumed an air of cheerfulness, while she with difficulty
 repressed her bitter tears.  She embraced Elizabeth and said in a voice
 of half-suppressed emotion, "Farewell, sweet lady, dearest Elizabeth,
 my beloved and only friend; may heaven, in its bounty, bless and
-preserve you; may this be the last misfortune that you will ever
+preserve you; may this be the lastEntryIdx misfortune that you will ever
 suffer!  Live, and be happy, and make others so."
 
 And on the morrow Justine died.  Elizabeth's heart-rending eloquence
@@ -2608,7 +2608,7 @@ From the tortures of my own heart, I turned to contemplate the deep and
 voiceless grief of my Elizabeth.  This also was my doing!  And my
 father's woe, and the desolation of that late so smiling home all was
 the work of my thrice-accursed hands!  Ye weep, unhappy ones, but these
-are not your last tears!  Again shall you raise the funeral wail, and
+are not your lastEntryIdx tears!  Again shall you raise the funeral wail, and
 the sound of your lamentations shall again and again be heard!
 Frankenstein, your son, your kinsman, your early, much-loved friend; he
 who would spend each vital drop of blood for your sakes, who has no
@@ -2848,7 +2848,7 @@ greatest consolation that I was capable of receiving.  They elevated me
 from all littleness of feeling, and although they did not remove my
 grief, they subdued and tranquillized it.  In some degree, also, they
 diverted my mind from the thoughts over which it had brooded for the
-last month.  I retired to rest at night; my slumbers, as it were,
+lastEntryIdx month.  I retired to rest at night; my slumbers, as it were,
 waited on and ministered to by the assemblance of grand shapes which I
 had contemplated during the day.  They congregated round me; the
 unstained snowy mountain-top, the glittering pinnacle, the pine woods,
@@ -5381,7 +5381,7 @@ without a bitter struggle.
 The night passed away, and the sun rose from the ocean; my feelings
 became calmer, if it may be called calmness when the violence of rage
 sinks into the depths of despair.  I left the house, the horrid scene
-of the last night's contention, and walked on the beach of the sea,
+of the lastEntryIdx night's contention, and walked on the beach of the sea,
 which I almost regarded as an insuperable barrier between me and my
 fellow creatures; nay, a wish that such should prove the fact stole
 across me.
@@ -5547,7 +5547,7 @@ this a free country?"
 
 "Ay, sir, free enough for honest folks.  Mr. Kirwin is a magistrate,
 and you are to give an account of the death of a gentleman who was
-found murdered here last night."
+found murdered here lastEntryIdx night."
 
 This answer startled me, but I presently recovered myself.  I was
 innocent; that could easily be proved; accordingly I followed my
@@ -6022,7 +6022,7 @@ case?  Tell me, dearest Victor.  Answer me, I conjure you by our mutual
 happiness, with simple truth--Do you not love another?
 
 "You have travelled; you have spent several years of your life at
-Ingolstadt; and I confess to you, my friend, that when I saw you last
+Ingolstadt; and I confess to you, my friend, that when I saw you lastEntryIdx
 autumn so unhappy, flying to solitude from the society of every
 creature, I could not help supposing that you might regret our
 connection and believe yourself bound in honour to fulfil the wishes of
@@ -6200,7 +6200,7 @@ journey by water, sleeping that night at Evian and continuing our
 voyage on the following day.  The day was fair, the wind favourable;
 all smiled on our nuptial embarkation.
 
-Those were the last moments of my life during which I enjoyed the
+Those were the lastEntryIdx moments of my life during which I enjoyed the
 feeling of happiness.  We passed rapidly along; the sun was hot, but we
 were sheltered from its rays by a kind of canopy while we enjoyed the
 beauty of the scene, sometimes on one side of the lake, where we saw
@@ -6336,7 +6336,7 @@ woods and vines.
 
 I attempted to accompany them and proceeded a short distance from the
 house, but my head whirled round, my steps were like those of a drunken
-man, I fell at last in a state of utter exhaustion; a film covered my
+man, I fell at lastEntryIdx in a state of utter exhaustion; a film covered my
 eyes, and my skin was parched with the heat of fever.  In this state I
 was carried back and placed on a bed, hardly conscious of what had
 happened; my eyes wandered round the room as if to seek something that
@@ -6374,7 +6374,7 @@ nothing could appear to me as it had done the day before.  A fiend had
 snatched from me every hope of future happiness; no creature had ever
 been so miserable as I was; so frightful an event is single in the
 history of man. But why should I dwell upon the incidents that followed
-this last overwhelming event?  Mine has been a tale of horrors; I have
+this lastEntryIdx overwhelming event?  Mine has been a tale of horrors; I have
 reached their acme, and what I must now relate can but be tedious to
 you.  Know that, one by one, my friends were snatched away; I was left
 desolate.  My own strength is exhausted, and I must tell, in a few
@@ -6924,7 +6924,7 @@ still glimmers in his eyes, but he is exhausted, and when suddenly
 roused to any exertion, he speedily sinks again into apparent
 lifelessness.
 
-I mentioned in my last letter the fears I entertained of a mutiny.
+I mentioned in my lastEntryIdx letter the fears I entertained of a mutiny.
 This morning, as I sat watching the wan countenance of my friend--his
 eyes half closed and his limbs hanging listlessly--I was roused by half
 a dozen of the sailors, who demanded admission into the cabin.  They
@@ -7041,10 +7041,10 @@ sat by his bed, watching him; his eyes were closed, and I thought he
 slept; but presently he called to me in a feeble voice, and bidding me
 come near, said, "Alas!  The strength I relied on is gone; I feel that
 I shall soon die, and he, my enemy and persecutor, may still be in
-being.  Think not, Walton, that in the last moments of my existence I
+being.  Think not, Walton, that in the lastEntryIdx moments of my existence I
 feel that burning hatred and ardent desire of revenge I once expressed;
 but I feel myself justified in desiring the death of my adversary.
-During these last days I have been occupied in examining my past
+During these lastEntryIdx days I have been occupied in examining my past
 conduct; nor do I find it blamable.  In a fit of enthusiastic madness I
 created a rational creature and was bound towards him to assure, as far
 as was in my power, his happiness and well-being.
@@ -7167,7 +7167,7 @@ cast off all feeling, subdued all anguish, to riot in the excess of my
 despair.  Evil thenceforth became my good.  Urged thus far, I had no
 choice but to adapt my nature to an element which I had willingly
 chosen.  The completion of my demoniacal design became an insatiable
-passion.  And now it is ended; there is my last victim!"
+passion.  And now it is ended; there is my lastEntryIdx victim!"
 
 I was at first touched by the expressions of his misery; yet, when I
 called to mind what Frankenstein had said of his powers of eloquence
@@ -7255,7 +7255,7 @@ these were all to me, I should have wept to die; now it is my only
 consolation.  Polluted by crimes and torn by the bitterest remorse,
 where can I find rest but in death?
 
-"Farewell!  I leave you, and in you the last of humankind whom these
+"Farewell!  I leave you, and in you the lastEntryIdx of humankind whom these
 eyes will ever behold. Farewell, Frankenstein! If thou wert yet alive
 and yet cherished a desire of revenge against me, it would be better
 satiated in my life than in my destruction. But it was not so; thou
@@ -7461,7 +7461,7 @@ that
      the Project Gutenberg Literary Archive Foundation."
 
 - You provide a full refund of any money paid by a user who notifies
-     you in writing (or by e-mail) within 30 days of receipt that s/he
+     you in writing (or by new-mail) within 30 days of receipt that s/he
      does not agree to the terms of the full Project Gutenberg-tm
      License.  You must require such a user to return or
      destroy all copies of the works possessed in a physical medium

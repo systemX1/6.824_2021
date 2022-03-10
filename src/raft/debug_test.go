@@ -59,10 +59,10 @@ func TestLoggerDebug(t *testing.T) {
 func TestRaftLogCheckAppendEntries(t *testing.T) {
 	rL := &RfLog{commitIndex: -1, lastApplied: -1}
 	rL.Entries = []LogEntry{
-		{0, 1, 0},
-		{1, 2, 100}, {2, 2, 200},
-		{3, 3, 300}, {4, 3, 400},
-		{5, 3, 500}, {6, 4, 600},
+		{Index:0, Term:1, Command:0},
+		{Index:1, Term:2, Command:100}, {Index:2, Term:2, Command:200},
+		{Index:3, Term:3, Command:300}, {Index:4, Term:3, Command:400},
+		{Index:5, Term:3, Command:500}, {Index:6, Term:4, Command:600},
 	}
 	// Index: 0 1 2 3 4
 	// Term:  2 2 3 3 3
@@ -99,10 +99,10 @@ func TestRaftLogCheckAppendEntries(t *testing.T) {
 	log.Println(rL.ConflictingEntryTermIndex(5))
 
 	rL.Entries = []LogEntry{
-		{0, 1, 0},
-		{1, 2, 100}, {2, 2, 200},
-		{3, 2, 300}, {4, 2, 400},
-		{5, 2, 500}, {6, 2, 600},
+		{Index:0, Term:1, Command:0},
+		{Index:1, Term:2, Command:100}, {Index:2, Term:2, Command:200},
+		{Index:3, Term:3, Command:300}, {Index:4, Term:3, Command:400},
+		{Index:5, Term:3, Command:500}, {Index:6, Term:4, Command:600},
 	}
 	log.Println()
 	log.Println(rL.Entries)
@@ -123,9 +123,10 @@ func TestRaftLogCheckAppendEntries(t *testing.T) {
 func TestRaftLogTruncate(t *testing.T) {
 	rL := &RfLog{commitIndex: -1, lastApplied: -1}
 	bak := []LogEntry{
-		{0, 2, 0}, {1, 2, 100},
-		{2, 3, 200}, {3, 3, 300},
-		{4, 3, 400}, {5, 3, 500},
+		{Index:0, Term:1, Command:0},
+		{Index:1, Term:2, Command:100}, {Index:2, Term:2, Command:200},
+		{Index:3, Term:3, Command:300}, {Index:4, Term:3, Command:400},
+		{Index:5, Term:3, Command:500}, {Index:6, Term:4, Command:600},
 	}
 	rL.Entries = make([]LogEntry, 6)
 
@@ -135,7 +136,7 @@ func TestRaftLogTruncate(t *testing.T) {
 	// Index:     2 3
 	// Term:      3 3
 	e := []LogEntry{
-		{2, 2, 1000}, {3, 2, 2000},
+		{Index:2, Term:2, Command:1000}, {Index:3, Term:2, Command:2000},
 	}
 	rL.TruncateAppendTest(1, bak, e)
 
@@ -144,7 +145,7 @@ func TestRaftLogTruncate(t *testing.T) {
 	// Index:         4 5
 	// Term:          3 3
 	e = []LogEntry{
-		{4, 4, 4000}, {5, 4, 5000},
+		{Index:4, Term:4, Command:4000}, {Index:5, Term:4, Command:5000},
 	}
 	rL.TruncateAppendTest(3, bak, e)
 
@@ -153,7 +154,7 @@ func TestRaftLogTruncate(t *testing.T) {
 	// Index:           5 6
 	// Term:            3 3
 	e = []LogEntry{
-		{5, 3, 5000}, {6, 4, 6000},
+		{Index:5, Term:3, Command:5000}, {Index:6, Term:4, Command:6000},
 	}
 	rL.TruncateAppendTest(4, bak, e)
 
@@ -162,7 +163,7 @@ func TestRaftLogTruncate(t *testing.T) {
 	// Index: 0 1
 	// Term:  1 1
 	e = []LogEntry{
-		{0, 1, 0}, {1, 1, 1000},
+		{Index:0, Term:1, Command:0}, {Index:1, Term:1, Command:1000},
 	}
 	rL.TruncateAppendTest(-1, bak, e)
 
@@ -178,7 +179,7 @@ func TestRaftLogTruncate(t *testing.T) {
 	// Index:
 	// Term:
 	e = []LogEntry{
-		{3, 2, 0}, {4, 2, 1000},
+		{Index:3, Term:2, Command:0}, {Index:4, Term:2, Command:1000},
 	}
 	rL.TruncateAppendTest(2, bak, e)
 
@@ -187,19 +188,28 @@ func TestRaftLogTruncate(t *testing.T) {
 	// Index:
 	// Term:
 	e = []LogEntry{
-		{3, 2, 0}, {4, 3, 1000},
-		{5, 3, 2000},
+		{Index:3, Term:2, Command:0}, {Index:4, Term:3, Command:1000},
+		{Index:5, Term:3, Command:2000},
 	}
 	rL.TruncateAppendTest(2, bak, e)
+
+	e = []LogEntry{
+		{0, 1, 7835, 0 }, {1, 1, 1526, 0 }, {2, 1, 7896, 0 }, {3, 1, 9377, 0 }, {4, 1, 1172, 0 }, {5, 1, 9152, 0 }, {6, 1, 1246, 0 }, {7, 1, 2920, 0 }, {8, 1, 9545, 0 }, {9, 1, 6123, 0 }, {10, 1, 1930, 0 }, {11, 1, 3918, 0 }, {12, 1, 3136, 0 }, {13, 1, 6714, 0 }, {14, 1, 5853, 0 }, {15, 1, 1010, 0 }, {16, 1, 6034, 0 }, {17, 1, 9439, 0 }, {18, 1, 3049, 0 }, {19, 1, 4074, 0 }, {20, 1, 7182, 0 }, {21, 1, 3688, 0 }, {22, 6, 3688, 0 }, {23, 6, 3688, 0 }, {24, 10, 3688, 0 },
+	}
+	n := make([]LogEntry, len(e))
+	copy(n, e)
+	rL.TruncateAppendTest(-1, e, n)
+	rL.TruncateAppendTest(0, e, nil)
+
 }
 
-func (rL *RfLog) TruncateAppendTest(prevLogIndex int, bak, e []LogEntry) {
-	rL.Entries = make([]LogEntry, len(bak))
-	copy(rL.Entries, bak)
-	log.Println()
+func (rL *RfLog) TruncateAppendTest(prevLogIndex int, old, new []LogEntry) {
+	rL.Entries = make([]LogEntry, len(old))
+	copy(rL.Entries, old)
+	fmt.Println()
 	log.Printf("rL.Entries:%v", rL.Entries)
-	l := rL.TruncateAppend(prevLogIndex, e)
-	log.Printf("prevLogIndex:%v e:%v len:%v", prevLogIndex, e, l)
+	rL.TruncateAppend(prevLogIndex, new)
+	log.Printf("prevLogIndex:%v new:%v", prevLogIndex, new)
 	log.Printf("rL.Entries:%v", rL.Entries)
 }
 
@@ -229,9 +239,10 @@ func TestRaftLogEntry(t *testing.T) {
 func TestRaftLogGetLastEntry(t *testing.T) {
 	rL := &RfLog{commitIndex: -1, lastApplied: -1}
 	rL.Entries = []LogEntry{
-		{0, 2, 0}, {1, 2, 100},
-		{2, 3, 200}, {3, 3, 300},
-		{4, 3, 400},
+		{Index:0, Term:1, Command:0},
+		{Index:1, Term:2, Command:100}, {Index:2, Term:2, Command:200},
+		{Index:3, Term:3, Command:300}, {Index:4, Term:3, Command:400},
+		{Index:5, Term:3, Command:500}, {Index:6, Term:4, Command:600},
 	}
 	//bak := rL.Entries
 	// Index: 0 1 2 3 4
@@ -244,7 +255,14 @@ func TestRaftLogGetLastEntry(t *testing.T) {
 }
 
 func TestRaftCheckAppendEntries(t *testing.T) {
-	rL := &RfLog{commitIndex: -1, lastApplied: -1}
+	rL := &RfLog{commitIndex: 22, lastApplied: 0}
+	rL.Entries = []LogEntry{
+		{0, 1, 2708, 0}, {1, 1, 6094, 0}, {2, 1, 4932, 0}, {3, 1, 4447, 0}, {4, 1, 6978, 0}, {5, 1, 3823, 0}, {6, 1, 5190, 0}, {7, 1, 3398, 0}, {8, 1, 612, 0}, {9, 1, 3893, 0}, {10, 1, 9642, 0}, {11, 1, 8594, 0}, {12, 1, 9648, 0}, {13, 1, 742, 0}, {14, 1, 4394, 0}, {15, 1, 3312, 0}, {16, 1, 8528, 0}, {17, 1, 1564, 0}, {18, 1, 7022, 0}, {19, 1, 1365, 0}, {20, 1, 8981, 0}, {21, 1, 5553, 0}, {22, 12, 5553, 0},
+	}
+	ok1, ok2 := rL.CheckAppendEntries(22, 12)
+	log.Printf("ok1:%v ok2:%v", ok1, ok2)
+	log.Printf("Entries:%v", rL.Entries)
+
 	//rL.Entries = []LogEntry{
 	//	{0, 2, 0}, {1, 2, 100},
 	//	{2, 3, 200}, {3, 3, 300},
@@ -284,25 +302,22 @@ func TestRaftCheckAppendEntries(t *testing.T) {
 	//log.Printf(":%v", s)
 
 
-	log.Printf("")
+	fmt.Println()
 	rL.Entries = []LogEntry{
-		{0,1,293944620429666665},{1,1,6598875434044817142},{2,1,1359549880165236450},{3,1,7089634551187792470},{4,1,6523659949574271997},{5,1,8833751060099643941},
+		{Index:0,Term:1,Command:293944620429666665},{Index:1,Term:1,Command:6598875434044817142},{Index:2,Term:1,Command:1359549880165236450},{Index:3,Term:1,Command:7089634551187792470},{Index:4,Term:1,Command:6523659949574271997},{Index:5,Term:1,Command:8833751060099643941},
 	}
 	b1, b2 := rL.CheckAppendEntries(20, 1)
 	log.Printf("%v %v", b1, b2)
 	log.Printf("Entries:%v", rL.Entries)
-	rL.TruncateAppend(2, []LogEntry{{3, 1, 7089634551187792470}, {4 , 1, 6523659949574271997}, {5, 1, 8833751060099643941}})
+	rL.TruncateAppend(2, []LogEntry{{Index:3, Term:1, Command:7089634551187792470}, {Index:4 , Term:1, Command:6523659949574271997}, {Index:5, Term:1, Command:8833751060099643941}})
 	log.Printf("Entries:%v", rL.Entries)
-
-
 
 }
 
-
-func TestRaftXXX(t *testing.T) {
+func TestGetUncommited(t *testing.T) {
 	rL := &RfLog{commitIndex: -1, lastApplied: -1}
 	rL.Entries = []LogEntry{
-		{0, 1, 101}, {-1, -1, nil}, {1, 3, 103},
+		{Index:0, Term:1, Command:101}, {Index:-1, Term:-1, Command:nil}, {Index:1, Term:3, Command:103},
 	}
 	log.Printf("majority:%v", majority([]int{11, -1, -1, 11, 11}))
 	log.Printf("next:%v", binarySearch(rL.Entries, 0))
@@ -310,6 +325,17 @@ func TestRaftXXX(t *testing.T) {
 	//log.Printf("entries:%v", rL.Entries[binarySearch(rL.Entries, 0):])
 }
 
+
+func TestRaftXXX(t *testing.T) {
+	rL := &RfLog{commitIndex: -1, lastApplied: -1}
+	rL.Entries = []LogEntry{
+		{Index:0, Term:1, Command:101}, {Index:-1, Term:-1, Command:nil}, {Index:1, Term:3, Command:103},
+	}
+	log.Printf("majority:%v", majority([]int{11, -1, -1, 11, 11}))
+	log.Printf("next:%v", binarySearch(rL.Entries, 0))
+
+	//log.Printf("entries:%v", rL.Entries[binarySearch(rL.Entries, 0):])
+}
 
 
 

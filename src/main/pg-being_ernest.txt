@@ -176,7 +176,7 @@ Eating as usual, I see, Algy!
 
 Algernon.  [Stiffly_._]  I believe it is customary in good society to
 take some slight refreshment at five o'clock.  Where have you been since
-last Thursday?
+lastEntryIdx Thursday?
 
 Jack.  [Sitting down on the sofa.]  In the country.
 
@@ -272,7 +272,7 @@ Cecily!  I don't know any one of the name of Cecily.
 [Enter Lane.]
 
 Algernon.  Bring me that cigarette case Mr. Worthing left in the smoking-
-room the last time he dined here.
+room the lastEntryIdx time he dined here.
 
 Lane.  Yes, sir.  [Lane goes out.]
 
@@ -466,7 +466,7 @@ Algernon.  Then your wife will.  You don't seem to realise, that in
 married life three is company and two is none.
 
 Jack.  [Sententiously.]  That, my dear young friend, is the theory that
-the corrupt French Drama has been propounding for the last fifty years.
+the corrupt French Drama has been propounding for the lastEntryIdx fifty years.
 
 Algernon.  Yes; and that the happy English home has proved in half the
 time.
@@ -578,7 +578,7 @@ is the primary duty of life.  I am always telling that to your poor
 uncle, but he never seems to take much notice . . . as far as any
 improvement in his ailment goes.  I should be much obliged if you would
 ask Mr. Bunbury, from me, to be kind enough not to have a relapse on
-Saturday, for I rely on you to arrange my music for me.  It is my last
+Saturday, for I rely on you to arrange my music for me.  It is my lastEntryIdx
 reception, and one wants something that will encourage conversation,
 particularly at the end of the season when every one has practically said
 whatever they had to say, which, in most cases, was probably not much.
@@ -1496,7 +1496,7 @@ Jack.  Poor Ernest!  He had many faults, but it is a sad, sad blow.
 
 Chasuble.  Very sad indeed.  Were you with him at the end?
 
-Jack.  No.  He died abroad; in Paris, in fact.  I had a telegram last
+Jack.  No.  He died abroad; in Paris, in fact.  I had a telegram lastEntryIdx
 night from the manager of the Grand Hotel.
 
 Chasuble.  Was the cause of death mentioned?
@@ -1512,13 +1512,13 @@ the interment take place here?
 Jack.  No.  He seems to have expressed a desire to be buried in Paris.
 
 Chasuble.  In Paris!  [Shakes his head.]  I fear that hardly points to
-any very serious state of mind at the last.  You would no doubt wish me
+any very serious state of mind at the lastEntryIdx.  You would no doubt wish me
 to make some slight allusion to this tragic domestic affliction next
 Sunday.  [Jack presses his hand convulsively.]  My sermon on the meaning
 of the manna in the wilderness can be adapted to almost any occasion,
 joyful, or, as in the present case, distressing.  [All sigh.]  I have
 preached it at harvest celebrations, christenings, confirmations, on days
-of humiliation and festal days.  The last time I delivered it was in the
+of humiliation and festal days.  The lastEntryIdx time I delivered it was in the
 Cathedral, as a charity sermon on behalf of the Society for the
 Prevention of Discontent among the Upper Orders.  The Bishop, who was
 present, was much struck by some of the analogies I drew.
@@ -1652,7 +1652,7 @@ Jack.  Never forgive me?
 
 Cecily.  Never, never, never!
 
-Jack.  Well, this is the last time I shall ever do it.  [Shakes with
+Jack.  Well, this is the lastEntryIdx time I shall ever do it.  [Shakes with
 Algernon and glares.]
 
 Chasuble.  It's pleasant, is it not, to see so perfect a reconciliation?
@@ -1830,9 +1830,9 @@ Algernon.  Oh, I don't care about Jack.  I don't care for anybody in the
 whole world but you.  I love you, Cecily.  You will marry me, won't you?
 
 Cecily.  You silly boy!  Of course.  Why, we have been engaged for the
-last three months.
+lastEntryIdx three months.
 
-Algernon.  For the last three months?
+Algernon.  For the lastEntryIdx three months?
 
 Cecily.  Yes, it will be exactly three months on Thursday.
 
@@ -1847,7 +1847,7 @@ foolish of me, but I fell in love with you, Ernest.
 
 Algernon.  Darling!  And when was the engagement actually settled?
 
-Cecily.  On the 14th of February last.  Worn out by your entire ignorance
+Cecily.  On the 14th of February lastEntryIdx.  Worn out by your entire ignorance
 of my existence, I determined to end the matter one way or the other, and
 after a long struggle with myself I accepted you under this dear old tree
 here.  The next day I bought this little ring in your name, and this is
@@ -1877,7 +1877,7 @@ hardly read them without crying a little.
 
 Algernon.  But was our engagement ever broken off?
 
-Cecily.  Of course it was.  On the 22nd of last March.  You can see the
+Cecily.  Of course it was.  On the 22nd of lastEntryIdx March.  You can see the
 entry if you like. [Shows diary.]  'To-day I broke off my engagement with
 Ernest.  I feel it is better to do so.  The weather still continues
 charming.'
@@ -2644,7 +2644,7 @@ found out that Bunbury could not live, that is what I mean--so Bunbury
 died.
 
 Lady Bracknell.  He seems to have had great confidence in the opinion of
-his physicians.  I am glad, however, that he made up his mind at the last
+his physicians.  I am glad, however, that he made up his mind at the lastEntryIdx
 to some definite course of action, and acted under proper medical advice.
 And now that we have finally got rid of this Mr. Bunbury, may I ask, Mr.
 Worthing, who is that young person whose hand my nephew Algernon is now
@@ -2711,7 +2711,7 @@ Lady Bracknell.  [Sitting down again.]  A moment, Mr. Worthing.  A
 hundred and thirty thousand pounds!  And in the Funds!  Miss Cardew seems
 to me a most attractive young lady, now that I look at her.  Few girls of
 the present day have any really solid qualities, any of the qualities
-that last, and improve with time.  We live, I regret to say, in an age of
+that lastEntryIdx, and improve with time.  We live, I regret to say, in an age of
 surfaces.  [To Cecily.]  Come over here, dear.  [Cecily goes across.]
 Pretty child! your dress is sadly simple, and your hair seems almost as
 Nature might have left it.  But we can soon alter all that.  A thoroughly
@@ -2888,7 +2888,7 @@ They savour of the heretical views of the Anabaptists, views that I have
 completely refuted in four of my unpublished sermons.  However, as your
 present mood seems to be one peculiarly secular, I will return to the
 church at once.  Indeed, I have just been informed by the pew-opener that
-for the last hour and a half Miss Prism has been waiting for me in the
+for the lastEntryIdx hour and a half Miss Prism has been waiting for me in the
 vestry.
 
 Lady Bracknell.  [Starting.]  Miss Prism!  Did I hear you mention a Miss
@@ -2909,7 +2909,7 @@ position she holds in your household?
 
 Chasuble.  [Severely.]  I am a celibate, madam.
 
-Jack.  [Interposing.]  Miss Prism, Lady Bracknell, has been for the last
+Jack.  [Interposing.]  Miss Prism, Lady Bracknell, has been for the lastEntryIdx
 three years Miss Cardew's esteemed governess and valued companion.
 
 Lady Bracknell.  In spite of what I hear of her, I must see her at once.
@@ -2994,7 +2994,7 @@ Chasuble.  [Looking up.]  It has stopped now.  [The noise is redoubled.]
 
 Lady Bracknell.  I wish he would arrive at some conclusion.
 
-Gwendolen.  This suspense is terrible.  I hope it will last.  [Enter Jack
+Gwendolen.  This suspense is terrible.  I hope it will lastEntryIdx.  [Enter Jack
 with a hand-bag of black leather in his hand.]
 
 Jack.  [Rushing over to Miss Prism.]  Is this the hand-bag, Miss Prism?
@@ -3093,7 +3093,7 @@ Lady Bracknell.  The General was essentially a man of peace, except in
 his domestic life.  But I have no doubt his name would appear in any
 military directory.
 
-Jack.  The Army Lists of the last forty years are here.  These delightful
+Jack.  The Army Lists of the lastEntryIdx forty years are here.  These delightful
 records should have been my constant study.  [Rushes to bookcase and
 tears the books out.]  M. Generals . . . Mallam, Maxbohm, Magley, what
 ghastly names they have--Markby, Migsby, Mobbs, Moncrieff!  Lieutenant
@@ -3118,11 +3118,11 @@ Jack.  My own one!
 
 Chasuble.  [To Miss Prism.]  Laetitia!  [Embraces her]
 
-Miss Prism.  [Enthusiastically.]  Frederick!  At last!
+Miss Prism.  [Enthusiastically.]  Frederick!  At lastEntryIdx!
 
-Algernon.  Cecily!  [Embraces her.]  At last!
+Algernon.  Cecily!  [Embraces her.]  At lastEntryIdx!
 
-Jack.  Gwendolen!  [Embraces her.]  At last!
+Jack.  Gwendolen!  [Embraces her.]  At lastEntryIdx!
 
 Lady Bracknell.  My nephew, you seem to be displaying signs of
 triviality.
@@ -3306,7 +3306,7 @@ that
      the Project Gutenberg Literary Archive Foundation."
 
 - You provide a full refund of any money paid by a user who notifies
-     you in writing (or by e-mail) within 30 days of receipt that s/he
+     you in writing (or by new-mail) within 30 days of receipt that s/he
      does not agree to the terms of the full Project Gutenberg-tm
      License.  You must require such a user to return or
      destroy all copies of the works possessed in a physical medium

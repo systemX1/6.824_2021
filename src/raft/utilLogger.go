@@ -23,10 +23,12 @@ const (
 	heartbeat 		uint = 1 << 2
 	logReplicate 	uint = 1 << 3
 	persist 		uint = 1 << 4
-	client 			uint = 1 << 5
-	debugError 		uint = 1 << 6
-	debugInfo 		uint = 1 << 7
+	snapshot		uint = 1 << 5
+	client 			uint = 1 << 6
+	debugError 		uint = 1 << 7
+	debugInfo 		uint = 1 << 8
 	debugConf = all - persist
+	//debugConf = 0
 )
 
 // return if "a" is a subset of "b"

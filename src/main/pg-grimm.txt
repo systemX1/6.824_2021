@@ -134,7 +134,7 @@ the morning another of the apples was missing. Then the second son was
 ordered to watch; and at midnight he too fell asleep, and in the morning
 another apple was gone. Then the third son offered to keep watch; but
 the gardener at first would not let him, for fear some harm should come
-to him: however, at last he consented, and the young man laid himself
+to him: however, at lastEntryIdx he consented, and the young man laid himself
 under the tree to watch. As the clock struck twelve he heard a rustling
 noise in the air, and a bird came flying that was of pure gold; and as
 it was snapping at one of the apples with its beak, the gardener's son
@@ -176,7 +176,7 @@ Time passed on again, and the youngest son too wished to set out into
 the wide world to seek for the golden bird; but his father would not
 listen to it for a long while, for he was very fond of his son, and
 was afraid that some ill luck might happen to him also, and prevent his
-coming back. However, at last it was agreed he should go, for he would
+coming back. However, at lastEntryIdx it was agreed he should go, for he would
 not rest at home; and as he came to the wood, he met the fox, and heard
 the same good counsel. But he was thankful to the fox, and did not
 attempt his life as his brothers had done; so the fox said, 'Sit upon my
@@ -245,7 +245,7 @@ As they came to the castle, all was as the fox had said, and at twelve
 o'clock the young man met the princess going to the bath and gave her the
 kiss, and she agreed to run away with him, but begged with many tears
 that he would let her take leave of her father. At first he refused,
-but she wept still more and more, and fell at his feet, till at last
+but she wept still more and more, and fell at his feet, till at lastEntryIdx
 he consented; but the moment she came to her father's house the guards
 awoke and he was taken prisoner again.
 
@@ -267,7 +267,7 @@ three, the princess, the horse, and the bird.' 'Ah!' said the young man,
 to the king, and he asks for the beautiful princess, you must say, "Here
 she is!" Then he will be very joyful; and you will mount the golden
 horse that they are to give you, and put out your hand to take leave of
-them; but shake hands with the princess last. Then lift her quickly on
+them; but shake hands with the princess lastEntryIdx. Then lift her quickly on
 to the horse behind you; clap your spurs to his side, and gallop away as
 fast as you can.'
 
@@ -286,7 +286,7 @@ you good counsel: beware of two things; ransom no one from the gallows,
 and sit down by the side of no river.' Then away he went. 'Well,'
 thought the young man, 'it is no hard matter to keep that advice.'
 
-He rode on with the princess, till at last he came to the village where
+He rode on with the princess, till at lastEntryIdx he came to the village where
 he had left his two brothers. And there he heard a great noise and
 uproar; and when he asked what was the matter, the people said, 'Two men
 are going to be hanged.' As he came nearer, he saw that the two men were
@@ -323,7 +323,7 @@ his kingdom.
 
 A long while after, he went to walk one day in the wood, and the old fox
 met him, and besought him with tears in his eyes to kill him, and cut
-off his head and feet. And at last he did so, and in a moment the
+off his head and feet. And at lastEntryIdx he did so, and in a moment the
 fox was changed into a man, and turned out to be the brother of the
 princess, who had been lost a great many many years.
 
@@ -341,7 +341,7 @@ they think of themselves, but what care they for the world? what can it
 know about the matter?
 
 One of these lucky beings was neighbour Hans. Seven long years he had
-worked hard for his master. At last he said, 'Master, my time is up; I
+worked hard for his master. At lastEntryIdx he said, 'Master, my time is up; I
 must go home and see my poor mother once more: so pray pay me my wages
 and let me go.' And the master said, 'You have been a faithful and good
 servant, Hans, so your pay shall be handsome.' Then he gave him a lump
@@ -403,10 +403,10 @@ one. 'If I have only a piece of bread (and I certainly shall always be
 able to get that), I can, whenever I like, eat my butter and cheese with
 it; and when I am thirsty I can milk my cow and drink the milk: and what
 can I wish for more?' When he came to an inn, he halted, ate up all his
-bread, and gave away his last penny for a glass of beer. When he had
+bread, and gave away his lastEntryIdx penny for a glass of beer. When he had
 rested himself he set off again, driving his cow towards his mother's
 village. But the heat grew greater as soon as noon came on, till at
-last, as he found himself on a wide heath that would take him more than
+lastEntryIdx, as he found himself on a wide heath that would take him more than
 an hour to cross, he began to be so hot and parched that his tongue
 clave to the roof of his mouth. 'I can find a cure for this,' thought
 he; 'now I will milk my cow and quench my thirst': so he tied her to the
@@ -417,7 +417,7 @@ not thought of looking to that.
 
 While he was trying his luck in milking, and managing the matter very
 clumsily, the uneasy beast began to think him very troublesome; and at
-last gave him such a kick on the head as knocked him down; and there he
+lastEntryIdx gave him such a kick on the head as knocked him down; and there he
 lay a long while senseless. Luckily a butcher soon came by, driving a
 pig in a wheelbarrow. 'What is the matter with you, my man?' said the
 butcher, as he helped him up. Hans told him what had happened, how he
@@ -440,7 +440,7 @@ its leg.
 So on he jogged, and all seemed now to go right with him: he had met
 with some misfortunes, to be sure; but he was now well repaid for all.
 How could it be otherwise with such a travelling companion as he had at
-last got?
+lastEntryIdx got?
 
 The next man he met was a countryman carrying a fine white goose. The
 countryman stopped to ask what was o'clock; this led to further chat;
@@ -485,7 +485,7 @@ working and singing,
   All the world is my home;
   Then who so blythe, so merry as I?'
 
-Hans stood looking on for a while, and at last said, 'You must be well
+Hans stood looking on for a while, and at lastEntryIdx said, 'You must be well
 off, master grinder! you seem so happy at your work.' 'Yes,' said the
 other, 'mine is a golden trade; a good grinder never puts his hand
 into his pocket without finding money in it--but where did you get that
@@ -513,9 +513,9 @@ People are so kind; they seem really to think I do them a favour in
 letting them make me rich, and giving me good bargains.'
 
 Meantime he began to be tired, and hungry too, for he had given away his
-last penny in his joy at getting the cow.
+lastEntryIdx penny in his joy at getting the cow.
 
-At last he could go no farther, for the stone tired him sadly: and he
+At lastEntryIdx he could go no farther, for the stone tired him sadly: and he
 dragged himself to the side of a river, that he might take a drink of
 water, and rest a while. So he laid the stone carefully by his side on
 the bank: but, as he stooped down to drink, he forgot it, pushed it a
@@ -554,7 +554,7 @@ than all the pretty girls that ever were seen before, and a shepherd
 lad, whose name was Jorindel, was very fond of her, and they were soon
 to be married. One day they went to walk in the wood, that they might be
 alone; and Jorindel said, 'We must take care that we don't go too near
-to the fairy's castle.' It was a beautiful evening; the last rays of the
+to the fairy's castle.' It was a beautiful evening; the lastEntryIdx rays of the
 setting sun shone bright through the long stems of the trees upon
 the green underwood beneath, and the turtle-doves sang from the tall
 birches.
@@ -592,7 +592,7 @@ chin that almost met one another.
 She mumbled something to herself, seized the nightingale, and went away
 with it in her hand. Poor Jorindel saw the nightingale was gone--but
 what could he do? He could not speak, he could not move from the spot
-where he stood. At last the fairy came back and sang with a hoarse
+where he stood. At lastEntryIdx the fairy came back and sang with a hoarse
 voice:
 
  'Till the prisoner is fast,
@@ -613,7 +613,7 @@ a strange village, and employed himself in keeping sheep. Many a time
 did he walk round and round as near to the hated castle as he dared go,
 but all in vain; he heard or saw nothing of Jorinda.
 
-At last he dreamt one night that he found a beautiful purple flower,
+At lastEntryIdx he dreamt one night that he found a beautiful purple flower,
 and that in the middle of it lay a costly pearl; and he dreamt that he
 plucked the flower, and went with it in his hand into the castle, and
 that everything he touched with it was disenchanted, and that there he
@@ -630,7 +630,7 @@ He walked nearer than a hundred paces to it, and yet he did not become
 fixed as before, but found that he could go quite close up to the door.
 Jorindel was very glad indeed to see this. Then he touched the door with
 the flower, and it sprang open; so that he went in through the court,
-and listened when he heard so many birds singing. At last he came to the
+and listened when he heard so many birds singing. At lastEntryIdx he came to the
 chamber where the fairy sat, with the seven hundred birds singing in
 the seven hundred cages. When she saw Jorindel she was very angry, and
 screamed with rage; but she could not come within two yards of him, for
@@ -709,7 +709,7 @@ the ass, 'we had better change our quarters, for our lodging is not the
 best in the world!' 'Besides,' added the dog, 'I should not be the
 worse for a bone or two, or a bit of meat.' So they walked off together
 towards the spot where Chanticleer had seen the light, and as they drew
-near it became larger and brighter, till they at last came close to a
+near it became larger and brighter, till they at lastEntryIdx came close to a
 house in which a gang of robbers lived.
 
 The ass, being the tallest of the company, marched up to the window and
@@ -718,7 +718,7 @@ do I see?' replied the ass. 'Why, I see a table spread with all kinds of
 good things, and robbers sitting round it making merry.' 'That would
 be a noble lodging for us,' said the cock. 'Yes,' said the ass, 'if we
 could only get in'; so they consulted together how they should contrive
-to get the robbers out; and at last they hit upon a plan. The ass placed
+to get the robbers out; and at lastEntryIdx they hit upon a plan. The ass placed
 himself upright on his hind legs, with his forefeet resting against the
 window; the dog got upon his back; the cat scrambled up to the dog's
 shoulders, and the cock flew up and sat upon the cat's head. When
@@ -777,11 +777,11 @@ great many years, and we ought to give him a livelihood for the rest of
 his days.' 'But what can we do with him?' said the shepherd, 'he has not
 a tooth in his head, and the thieves don't care for him at all; to
 be sure he has served us, but then he did it to earn his livelihood;
-tomorrow shall be his last day, depend upon it.'
+tomorrow shall be his lastEntryIdx day, depend upon it.'
 
 Poor Sultan, who was lying close by them, heard all that the shepherd
 and his wife said to one another, and was very much frightened to think
-tomorrow would be his last day; so in the evening he went to his good
+tomorrow would be his lastEntryIdx day; so in the evening he went to his good
 friend the wolf, who lived in the wood, and told him all his sorrows,
 and how his master meant to kill him in the morning. 'Make yourself
 easy,' said the wolf, 'I will give you some good advice. Your master,
@@ -876,7 +876,7 @@ newly-built bridge. But when she had reached the middle, and heard the
 water rushing beneath her, she was after all, afraid, and stood still,
 and ventured no farther. The straw, however, began to burn, broke in
 two pieces, and fell into the stream. The coal slipped after her, hissed
-when she got into the water, and breathed her last. The bean, who had
+when she got into the water, and breathed her lastEntryIdx. The bean, who had
 prudently stayed behind on the shore, could not but laugh at the event,
 was unable to stop, and laughed so heartily that she burst. It would
 have been all over with her, likewise, if, by good fortune, a tailor who
@@ -942,7 +942,7 @@ her loved her.
 It happened that, on the very day she was fifteen years old, the king
 and queen were not at home, and she was left alone in the palace. So she
 roved about by herself, and looked at all the rooms and chambers, till
-at last she came to an old tower, to which there was a narrow staircase
+at lastEntryIdx she came to an old tower, to which there was a narrow staircase
 ending with a little door. In the door there was a golden key, and when
 she turned it the door sprang open, and there sat an old lady spinning
 away very busily. 'Why, how now, good mother,' said the princess; 'what
@@ -966,7 +966,7 @@ asleep; the butler, who was slyly tasting the ale, fell asleep with the
 jug at his lips: and thus everything stood still, and slept soundly.
 
 A large hedge of thorns soon grew round the palace, and every year it
-became higher and thicker; till at last the old palace was surrounded
+became higher and thicker; till at lastEntryIdx the old palace was surrounded
 and hidden, so that not even the roof or the chimneys could be seen. But
 there went a report through all the land of the beautiful sleeping Briar
 Rose (for so the king's daughter was called): so that, from time to
@@ -988,7 +988,7 @@ he was bent upon going.
 Now that very day the hundred years were ended; and as the prince came
 to the thicket he saw nothing but beautiful flowering shrubs, through
 which he went with ease, and they shut in after him as thick as ever.
-Then he came at last to the palace, and there in the court lay the dogs
+Then he came at lastEntryIdx to the palace, and there in the court lay the dogs
 asleep; and the horses were standing in the stables; and on the roof sat
 the pigeons fast asleep, with their heads under their wings. And when he
 came into the palace, the flies were sleeping on the walls; the spit
@@ -998,7 +998,7 @@ plucked; and the cook in the kitchen was still holding up her hand, as
 if she was going to beat the boy.
 
 Then he went on still farther, and all was so still that he could hear
-every breath he drew; till at last he came to the old tower, and opened
+every breath he drew; till at lastEntryIdx he came to the old tower, and opened
 the door of the little room in which Briar Rose was; and there she lay,
 fast asleep on a couch by the window. She looked so beautiful that he
 could not take his eyes off her, so he stooped down and gave her a kiss.
@@ -1022,7 +1022,7 @@ was given; and they lived happily together all their lives long.
 THE DOG AND THE SPARROW
 
 A shepherd's dog had a master who took no care of him, but often let him
-suffer the greatest hunger. At last he could bear it no longer; so he
+suffer the greatest hunger. At lastEntryIdx he could bear it no longer; so he
 took to his heels, and off he ran in a very sad and sorrowful mood.
 On the road he met a sparrow that said to him, 'Why are you so sad,
 my friend?' 'Because,' said the dog, 'I am very very hungry, and have
@@ -1033,7 +1033,7 @@ the sparrow said to the dog, 'Stand there a little while till I peck you
 down a piece of meat.' So the sparrow perched upon the shelf: and having
 first looked carefully about her to see if anyone was watching her, she
 pecked and scratched at a steak that lay upon the edge of the shelf,
-till at last down it fell. Then the dog snapped it up, and scrambled
+till at lastEntryIdx down it fell. Then the dog snapped it up, and scrambled
 away with it into a corner, where he soon ate it all up. 'Well,' said
 the sparrow, 'you shall have some more if you will; so come with me to
 the next shop, and I will peck you down another steak.' When the dog had
@@ -1063,7 +1063,7 @@ mind what I say. This deed of thine shall cost thee all thou art worth.'
 'Do your worst, and welcome,' said the brute, 'what harm can you do me?'
 and passed on. But the sparrow crept under the tilt of the cart, and
 pecked at the bung of one of the casks till she loosened it; and then
-all the wine ran out, without the carter seeing it. At last he looked
+all the wine ran out, without the carter seeing it. At lastEntryIdx he looked
 round, and saw that the cart was dripping, and the cask quite empty.
 'What an unlucky wretch I am!' cried he. 'Not wretch enough yet!' said
 the sparrow, as she alighted upon the head of one of the horses, and
@@ -1086,7 +1086,7 @@ caring what he was about, struck again at the sparrow; but killed his
 third horse as he done the other two. 'Alas! miserable wretch that I
 am!' cried he. 'Not wretch enough yet!' answered the sparrow as she flew
 away; 'now will I plague and punish thee at thy own house.' The
-carter was forced at last to leave his cart behind him, and to go home
+carter was forced at lastEntryIdx to leave his cart behind him, and to go home
 overflowing with rage and vexation. 'Alas!' said he to his wife, 'what
 ill luck has befallen me!--my wine is all spilt, and my horses all three
 dead.' 'Alas! husband,' replied she, 'and a wicked bird has come into
@@ -1109,7 +1109,7 @@ cried, 'Carter! it shall cost thee thy life!' Then he became mad and
 blind with rage, and struck the window-seat with such force that he
 cleft it in two: and as the sparrow flew from place to place, the carter
 and his wife were so furious, that they broke all their furniture,
-glasses, chairs, benches, the table, and at last the walls, without
+glasses, chairs, benches, the table, and at lastEntryIdx the walls, without
 touching the bird at all. In the end, however, they caught her: and the
 wife said, 'Shall I kill her at once?' 'No,' cried he, 'that is letting
 her off too easily: she shall die a much more cruel death; I will eat
@@ -1382,7 +1382,7 @@ at once!'
 
 So the fisherman was forced to go; and he muttered as he went along,
 'This will come to no good, it is too much to ask; the fish will be
-tired at last, and then we shall be sorry for what we have done.' He
+tired at lastEntryIdx, and then we shall be sorry for what we have done.' He
 soon came to the seashore; and the water was quite black and muddy, and
 a mighty whirlwind blew over the waves and rolled them about, but he
 went as near as he could to the water's brink, and said:
@@ -1440,7 +1440,7 @@ at all this greatness, 'are you pope?' 'Yes,' said she, 'I am pope.'
 'Well, wife,' replied he, 'it is a grand thing to be pope; and now
 you must be easy, for you can be nothing greater.' 'I will think about
 that,' said the wife. Then they went to bed: but Dame Ilsabill could not
-sleep all night for thinking what she should be next. At last, as she
+sleep all night for thinking what she should be next. At lastEntryIdx, as she
 was dropping asleep, morning broke, and the sun rose. 'Ha!' thought she,
 as she woke up and looked at it through the window, 'after all I cannot
 prevent the sun rising.' At this thought she was very angry, and wakened
@@ -1546,7 +1546,7 @@ children, before we will do that.' Then the willow-wren flew to the
 bear's hole and cried: 'Growler, you are to come to the nest to my
 children, and beg their pardon, or else every rib of your body shall
 be broken.' So the bear crept thither in the greatest fear, and begged
-their pardon. And now at last the young wrens were satisfied, and sat
+their pardon. And now at lastEntryIdx the young wrens were satisfied, and sat
 down together and ate and drank, and made merry till quite late into the
 night.
 
@@ -1562,7 +1562,7 @@ to rest a while. Now she had a golden ball in her hand, which was her
 favourite plaything; and she was always tossing it up into the air, and
 catching it again as it fell. After a time she threw it up so high that
 she missed catching it as it fell; and the ball bounded away, and rolled
-along upon the ground, till at last it fell down into the spring. The
+along upon the ground, till at lastEntryIdx it fell down into the spring. The
 princess looked into the spring after her ball, but it was very deep, so
 deep that she could not see the bottom of it. Then she began to bewail
 her loss, and said, 'Alas! if I could only get my ball again, I would
@@ -1627,7 +1627,7 @@ tired; carry me upstairs, and put me into your bed.' And the princess,
 though very unwilling, took him up in her hand, and put him upon the
 pillow of her own bed, where he slept all night long. As soon as it was
 light he jumped up, hopped downstairs, and went out of the house.
-'Now, then,' thought the princess, 'at last he is gone, and I shall be
+'Now, then,' thought the princess, 'at lastEntryIdx he is gone, and I shall be
 troubled with him no more.'
 
 But she was mistaken; for when night came again she heard the same
@@ -1794,7 +1794,7 @@ maid's ill behaviour, but got upon her horse again.
 
 Then all rode farther on their journey, till the day grew so warm, and
 the sun so scorching, that the bride began to feel very thirsty again;
-and at last, when they came to a river, she forgot her maid's rude
+and at lastEntryIdx, when they came to a river, she forgot her maid's rude
 speech, and said, 'Pray get down, and fetch me some water to drink in
 my golden cup.' But the maid answered her, and even spoke more haughtily
 than before: 'Drink if you will, but I shall not be your waiting-maid.'
@@ -1815,12 +1815,12 @@ and you may have my horse instead'; so she was forced to give up her
 horse, and soon afterwards to take off her royal clothes and put on her
 maid's shabby ones.
 
-At last, as they drew near the end of their journey, this treacherous
+At lastEntryIdx, as they drew near the end of their journey, this treacherous
 servant threatened to kill her mistress if she ever told anyone what had
 happened. But Falada saw it all, and marked it well.
 
 Then the waiting-maid got upon Falada, and the real bride rode upon the
-other horse, and they went on in this way till at last they came to the
+other horse, and they went on in this way till at lastEntryIdx they came to the
 royal court. There was great joy at their coming, and the prince flew to
 meet them, and lifted the maid from her horse, thinking she was the one
 who was to be his wife; and she was led upstairs to the royal chamber;
@@ -1834,7 +1834,7 @@ to ask the bride who it was she had brought with her, that was thus left
 standing in the court below. 'I brought her with me for the sake of her
 company on the road,' said she; 'pray give the girl some work to do,
 that she may not be idle.' The old king could not for some time think
-of any work for her to do; but at last he said, 'I have a lad who takes
+of any work for her to do; but at lastEntryIdx he said, 'I have a lad who takes
 care of my geese; she may go and help him.' Now the name of this lad,
 that the real bride was to help in watching the king's geese, was
 Curdken.
@@ -2036,7 +2036,7 @@ quarters there: but the landlord at first was unwilling, and said his
 house was full, thinking they might not be very respectable company:
 however, they spoke civilly to him, and gave him the egg which Partlet
 had laid by the way, and said they would give him the duck, who was in
-the habit of laying one every day: so at last he let them come in, and
+the habit of laying one every day: so at lastEntryIdx he let them come in, and
 they bespoke a handsome supper, and spent the evening very jollily.
 
 Early in the morning, before it was quite light, and when nobody was
@@ -2158,7 +2158,7 @@ and were all carried away by the stream and drowned.
 
 Thus Chanticleer was left alone with his dead Partlet; and having dug
 a grave for her, he laid her in it, and made a little hillock over her.
-Then he sat down by the grave, and wept and mourned, till at last he
+Then he sat down by the grave, and wept and mourned, till at lastEntryIdx he
 died too; and so all were dead.
 
 
@@ -2298,7 +2298,7 @@ FUNDEVOGEL
 
 There was once a forester who went into the forest to hunt, and as
 he entered it he heard a sound of screaming as if a little child were
-there. He followed the sound, and at last came to a high tree, and at
+there. He followed the sound, and at lastEntryIdx came to a high tree, and at
 the top of this a little child was sitting, for the mother had fallen
 asleep under the tree with the child, and a bird of prey had seen it in
 her arms, had flown down, snatched it away, and set it on the high tree.
@@ -2400,7 +2400,7 @@ rose to where the flies were sitting in great numbers, and they were
 attracted and descended on it in hosts. 'Hi! who invited you?' said the
 little tailor, and drove the unbidden guests away. The flies, however,
 who understood no German, would not be turned away, but came back
-again in ever-increasing companies. The little tailor at last lost all
+again in ever-increasing companies. The little tailor at lastEntryIdx lost all
 patience, and drew a piece of cloth from the hole under his work-table,
 and saying: 'Wait, and I will give it to you,' struck it mercilessly on
 them. When he drew it away and counted, there lay before him no fewer
@@ -2521,7 +2521,7 @@ wished that he had never set eyes on the tailor, and would willingly
 have been rid of him again. But he did not venture to give him his
 dismissal, for he dreaded lest he should strike him and all his people
 dead, and place himself on the royal throne. He thought about it for a
-long time, and at last found good counsel. He sent to the little tailor
+long time, and at lastEntryIdx found good counsel. He sent to the little tailor
 and caused him to be informed that as he was a great warrior, he had one
 request to make to him. In a forest of his country lived two giants,
 who caused great mischief with their robbing, murdering, ravaging,
@@ -2546,7 +2546,7 @@ idle, gathered two pocketsful of stones, and with these climbed up the
 tree. When he was halfway up, he slipped down by a branch, until he sat
 just above the sleepers, and then let one stone after another fall on
 the breast of one of the giants. For a long time the giant felt nothing,
-but at last he awoke, pushed his comrade, and said: 'Why are you
+but at lastEntryIdx he awoke, pushed his comrade, and said: 'Why are you
 knocking me?' 'You must be dreaming,' said the other, 'I am not knocking
 you.' They laid themselves down to sleep again, and then the tailor
 threw a stone down on the second. 'What is the meaning of this?' cried
@@ -2558,7 +2558,7 @@ threw it with all his might on the breast of the first giant. 'That
 is too bad!' cried he, and sprang up like a madman, and pushed his
 companion against the tree until it shook. The other paid him back in
 the same coin, and they got into such a rage that they tore up trees and
-belaboured each other so long, that at last they both fell down dead on
+belaboured each other so long, that at lastEntryIdx they both fell down dead on
 the ground at the same time. Then the little tailor leapt down. 'It is
 a lucky thing,' said he, 'that they did not tear up the tree on which
 I was sitting, or I should have had to sprint on to another like a
@@ -2707,7 +2707,7 @@ believed that their father was near. It was not the axe, however, but
 a branch which he had fastened to a withered tree which the wind was
 blowing backwards and forwards. And as they had been sitting such a long
 time, their eyes closed with fatigue, and they fell fast asleep. When
-at last they awoke, it was already dark night. Gretel began to cry and
+at lastEntryIdx they awoke, it was already dark night. Gretel began to cry and
 said: 'How are we to get out of the forest now?' But Hansel comforted
 her and said: 'Just wait a little, until the moon has risen, and then we
 will soon find the way.' And when the full moon had risen, Hansel took
@@ -2727,7 +2727,7 @@ father: 'Everything is eaten again, we have one half loaf left, and that
 is the end. The children must go, we will take them farther into the
 wood, so that they will not find their way out again; there is no other
 means of saving ourselves!' The man's heart was heavy, and he thought:
-'It would be better for you to share the last mouthful with your
+'It would be better for you to share the lastEntryIdx mouthful with your
 children.' The woman, however, would listen to nothing that he had to
 say, but scolded and reproached him. He who says A must say B, likewise,
 and as he had yielded the first time, he had to do so a second time
@@ -2983,7 +2983,7 @@ misfortune, but her stepmother spoke harshly to her, and after giving
 her a violent scolding, said unkindly, 'As you have let the spindle fall
 into the well you may go yourself and fetch it out.'
 
-The girl went back to the well not knowing what to do, and at last in
+The girl went back to the well not knowing what to do, and at lastEntryIdx in
 her distress she jumped into the water after the spindle.
 
 She remembered nothing more until she awoke and found herself in a
@@ -3021,7 +3021,7 @@ boiled meats every day.
 
 So she stayed on with Mother Holle for some time, and then she began
 to grow unhappy. She could not at first tell why she felt sad, but she
-became conscious at last of great longing to go home; then she knew she
+became conscious at lastEntryIdx of great longing to go home; then she knew she
 was homesick, although she was a thousand times better off with Mother
 Holle than with her mother and sister. After waiting awhile, she went
 to Mother Holle and said, 'I am so homesick, that I cannot stay with
@@ -3067,7 +3067,7 @@ apples, one and all, are ripe,' it cried. But she only answered, 'A nice
 thing to ask me to do, one of the apples might fall on my head,' and
 passed on.
 
-At last she came to Mother Holle's house, and as she had heard all about
+At lastEntryIdx she came to Mother Holle's house, and as she had heard all about
 the large teeth from her sister, she was not afraid of them, and engaged
 herself without delay to the old woman.
 
@@ -3244,7 +3244,7 @@ have eaten her up. 'Well,' said the grandmother, 'we will shut the door,
 that he may not come in.' Soon afterwards the wolf knocked, and cried:
 'Open the door, grandmother, I am Little Red-Cap, and am bringing you
 some cakes.' But they did not speak, or open the door, so the grey-beard
-stole twice or thrice round the house, and at last jumped on the roof,
+stole twice or thrice round the house, and at lastEntryIdx jumped on the roof,
 intending to wait until Red-Cap went home in the evening, and then to
 steal after her and devour her in the darkness. But the grandmother
 saw what was in his thoughts. In front of the house was a great stone
@@ -3252,7 +3252,7 @@ trough, so she said to the child: 'Take the pail, Red-Cap; I made some
 sausages yesterday, so carry the water in which I boiled them to the
 trough.' Red-Cap carried until the great trough was quite full. Then the
 smell of the sausages reached the wolf, and he sniffed and peeped down,
-and at last stretched out his neck so far that he could no longer keep
+and at lastEntryIdx stretched out his neck so far that he could no longer keep
 his footing and began to slip, and slipped down from the roof straight
 into the great trough, and was drowned. But Red-Cap went joyously home,
 and no one ever did anything to harm her again.
@@ -3301,7 +3301,7 @@ cage on the wall. Again it cried:
   Linger not in this murderers' lair.'
 
 The girl passed on, going from room to room of the house, but they were
-all empty, and still she saw no one. At last she came to the cellar,
+all empty, and still she saw no one. At lastEntryIdx she came to the cellar,
 and there sat a very, very old woman, who could not keep her head from
 shaking. 'Can you tell me,' asked the girl, 'if my betrothed husband
 lives here?'
@@ -3367,7 +3367,7 @@ not say a word.
 tale you know? Tell us something.'
 
 'I will tell you a dream, then,' said the bride. 'I went alone through a
-forest and came at last to a house; not a soul could I find within, but
+forest and came at lastEntryIdx to a house; not a soul could I find within, but
 a bird that was hanging in a cage on the wall cried:
 
  'Turn back, turn back, young maiden fair,
@@ -3378,7 +3378,7 @@ and again a second time it said these words.'
 'My darling, this is only a dream.'
 
 'I went on through the house from room to room, but they were all empty,
-and everything was so grim and mysterious. At last I went down to the
+and everything was so grim and mysterious. At lastEntryIdx I went down to the
 cellar, and there sat a very, very old woman, who could not keep her
 head still. I asked her if my betrothed lived here, and she answered,
 "Ah, you poor child, you are come to a murderers' den; your betrothed
@@ -3455,7 +3455,7 @@ was calling out, 'Gently! gently!' two strangers came up. 'What an odd
 thing that is!' said one: 'there is a cart going along, and I hear a
 carter talking to the horse, but yet I can see no one.' 'That is queer,
 indeed,' said the other; 'let us follow the cart, and see where it
-goes.' So they went on into the wood, till at last they came to the
+goes.' So they went on into the wood, till at lastEntryIdx they came to the
 place where the woodman was. Then Tom Thumb, seeing his father, cried
 out, 'See, father, here I am with the cart, all right and safe! now take
 me down!' So his father took hold of the horse with one hand, and with
@@ -3463,7 +3463,7 @@ the other took his son out of the horse's ear, and put him down upon a
 straw, where he sat as merry as you please.
 
 The two strangers were all this time looking on, and did not know what
-to say for wonder. At last one took the other aside, and said, 'That
+to say for wonder. At lastEntryIdx one took the other aside, and said, 'That
 little urchin will make our fortune, if we can get him, and carry him
 about from town to town as a show; we must buy him.' So they went up to
 the woodman, and asked him what he would take for the little man. 'He
@@ -3474,7 +3474,7 @@ bargain they wanted to make, crept up his father's coat to his shoulder
 and whispered in his ear, 'Take the money, father, and let them have me;
 I'll soon come back to you.'
 
-So the woodman at last said he would sell Tom to the strangers for a
+So the woodman at lastEntryIdx said he would sell Tom to the strangers for a
 large piece of gold, and they paid the price. 'Where would you like to
 sit?' said one of them. 'Oh, put me on the rim of your hat; that will be
 a nice gallery for me; I can walk about there and see the country as we
@@ -3484,18 +3484,18 @@ father they took him away with them.
 They journeyed on till it began to be dusky, and then the little man
 said, 'Let me get down, I'm tired.' So the man took off his hat, and
 put him down on a clod of earth, in a ploughed field by the side of the
-road. But Tom ran about amongst the furrows, and at last slipped into
+road. But Tom ran about amongst the furrows, and at lastEntryIdx slipped into
 an old mouse-hole. 'Good night, my masters!' said he, 'I'm off! mind and
 look sharp after me the next time.' Then they ran at once to the place,
 and poked the ends of their sticks into the mouse-hole, but all in vain;
-Tom only crawled farther and farther in; and at last it became quite
+Tom only crawled farther and farther in; and at lastEntryIdx it became quite
 dark, so that they were forced to go their way without their prize, as
 sulky as could be.
 
 When Tom found they were gone, he came out of his hiding-place. 'What
 dangerous walking it is,' said he, 'in this ploughed field! If I were to
 fall from one of these great clods, I should undoubtedly break my neck.'
-At last, by good luck, he found a large empty snail-shell. 'This is
+At lastEntryIdx, by good luck, he found a large empty snail-shell. 'This is
 lucky,' said he, 'I can sleep here very well'; and in he crept.
 
 Just as he was falling asleep, he heard two men passing by, chatting
@@ -3505,7 +3505,7 @@ was that?' said the thief, frightened; 'I'm sure I heard someone speak.'
 They stood still listening, and Tom said, 'Take me with you, and I'll
 soon show you how to get the parson's money.' 'But where are you?' said
 they. 'Look about on the ground,' answered he, 'and listen where the
-sound comes from.' At last the thieves found him out, and lifted him
+sound comes from.' At lastEntryIdx the thieves found him out, and lifted him
 up in their hands. 'You little urchin!' they said, 'what can you do for
 us?' 'Why, I can get between the iron window-bars of the parson's house,
 and throw you out whatever you want.' 'That's a good thought,' said the
@@ -3519,7 +3519,7 @@ But Tom seemed as if he did not understand them, and bawled out again,
 'How much will you have? Shall I throw it all out?' Now the cook lay in
 the next room; and hearing a noise she raised herself up in her bed and
 listened. Meantime the thieves were frightened, and ran off a little
-way; but at last they plucked up their hearts, and said, 'The little
+way; but at lastEntryIdx they plucked up their hearts, and said, 'The little
 urchin is only trying to make fools of us.' So they came back and
 whispered softly to him, saying, 'Now let us have no more of your
 roguish jokes; but throw us out some of the money.' Then Tom called out
@@ -3533,7 +3533,7 @@ she had looked about and searched every hole and corner, and found
 nobody, she went to bed, thinking she must have been dreaming with her
 eyes open.
 
-The little man crawled about in the hay-loft, and at last found a snug
+The little man crawled about in the hay-loft, and at lastEntryIdx found a snug
 place to finish his night's rest in; so he laid himself down, meaning
 to sleep till daylight, and then find his way home to his father and
 mother. But alas! how woefully he was undone! what crosses and sorrows
@@ -3546,13 +3546,13 @@ cow's rick, and the cow had taken Tom up in a mouthful of it. 'Good
 lack-a-day!' said he, 'how came I to tumble into the mill?' But he soon
 found out where he really was; and was forced to have all his wits about
 him, that he might not get between the cow's teeth, and so be crushed to
-death. At last down he went into her stomach. 'It is rather dark,' said
+death. At lastEntryIdx down he went into her stomach. 'It is rather dark,' said
 he; 'they forgot to build windows in this room to let the sun in; a
 candle would be no bad thing.'
 
 Though he made the best of his bad luck, he did not like his quarters at
 all; and the worst of it was, that more and more hay was always coming
-down, and the space left for him became smaller and smaller. At last he
+down, and the space left for him became smaller and smaller. At lastEntryIdx he
 cried out as loud as he could, 'Don't bring me any more hay! Don't bring
 me any more hay!'
 
@@ -3572,7 +3572,7 @@ spot. So the cow was killed, and cut up; and the stomach, in which Tom
 lay, was thrown out upon a dunghill.
 
 Tom soon set himself to work to get out, which was not a very easy
-task; but at last, just as he had made room to get his head out, fresh
+task; but at lastEntryIdx, just as he had made room to get his head out, fresh
 ill-luck befell him. A hungry wolf sprang out, and swallowed up the
 whole stomach, with Tom in it, at one gulp, and ran away.
 
@@ -3697,7 +3697,7 @@ dwarf, and what she had said. But one day he came into her room, where
 she was sitting playing with her baby, and put her in mind of it. Then
 she grieved sorely at her misfortune, and said she would give him all
 the wealth of the kingdom if he would let her off, but in vain; till at
-last her tears softened him, and he said, 'I will give you three days'
+lastEntryIdx her tears softened him, and he said, 'I will give you three days'
 grace, and if during that time you tell me my name, you shall keep your
 child.'
 
@@ -3832,7 +3832,7 @@ There was once a very old man, whose eyes had become dim, his ears dull
 of hearing, his knees trembled, and when he sat at table he could hardly
 hold the spoon, and spilt the broth upon the table-cloth or let it run
 out of his mouth. His son and his son's wife were disgusted at this, so
-the old grandfather at last had to sit in the corner behind the stove,
+the old grandfather at lastEntryIdx had to sit in the corner behind the stove,
 and they gave him his food in an earthenware bowl, and not even enough
 of it. And he used to look towards the table with his eyes full of
 tears. Once, too, his trembling hands could not hold the bowl, and it
@@ -3936,7 +3936,7 @@ roast meat in the tiled stove.' 'Upon my word!' cried the miller, and
 went thither, and found the roast meat. The peasant made the raven
 prophesy still more, and said: 'Thirdly, he says that there is some
 salad on the bed.' 'That would be a fine thing!' cried the miller, and
-went there and found the salad. At last the peasant pinched the raven
+went there and found the salad. At lastEntryIdx the peasant pinched the raven
 once more till he croaked, and said: 'Fourthly, he says that there
 are some cakes under the bed.' 'That would be a fine thing!' cried the
 miller, and looked there, and found the cakes.
@@ -4003,7 +4003,7 @@ village, the small peasant also came quietly in, driving a flock of
 sheep and looking quite contented. Then the peasants were astonished,
 and said: 'Peasant, from whence do you come? Have you come out of the
 water?' 'Yes, truly,' replied the peasant, 'I sank deep, deep down,
-until at last I got to the bottom; I pushed the bottom out of the
+until at lastEntryIdx I got to the bottom; I pushed the bottom out of the
 barrel, and crept out, and there were pretty meadows on which a number
 of lambs were feeding, and from thence I brought this flock away with
 me.' Said the peasants: 'Are there any more there?' 'Oh, yes,' said he,
@@ -4035,7 +4035,7 @@ crackle in the pan; and Catherine stood by with a fork and turned it:
 then she said to herself, 'The steak is almost ready, I may as well go
 to the cellar for the ale.' So she left the pan on the fire and took a
 large jug and went into the cellar and tapped the ale cask. The beer ran
-into the jug and Catherine stood looking on. At last it popped into her
+into the jug and Catherine stood looking on. At lastEntryIdx it popped into her
 head, 'The dog is not shut up--he may be running away with the steak;
 that's well thought of.' So up she ran from the cellar; and sure enough
 the rascally cur had got the steak in his mouth, and was making off with
@@ -4051,8 +4051,8 @@ Now all this time the ale was running too, for Catherine had not turned
 the cock; and when the jug was full the liquor ran upon the floor till
 the cask was empty. When she got to the cellar stairs she saw what had
 happened. 'My stars!' said she, 'what shall I do to keep Frederick from
-seeing all this slopping about?' So she thought a while; and at last
-remembered that there was a sack of fine meal bought at the last fair,
+seeing all this slopping about?' So she thought a while; and at lastEntryIdx
+remembered that there was a sack of fine meal bought at the lastEntryIdx fair,
 and that if she sprinkled this over the floor it would suck up the ale
 nicely. 'What a lucky thing,' said she, 'that we kept that meal! we have
 now a good use for it.' So away she went for it: but she managed to set
@@ -4094,7 +4094,7 @@ work you have made! those yellow buttons were all my money: how came you
 to do such a thing?' 'Why,' answered she, 'I did not know there was any
 harm in it; you should have told me.'
 
-Catherine stood musing for a while, and at last said to her husband,
+Catherine stood musing for a while, and at lastEntryIdx said to her husband,
 'Hark ye, Frederick, we will soon get the gold back: let us run after
 the thieves.' 'Well, we will try,' answered he; 'but take some butter
 and cheese with you, that we may have something to eat by the way.'
@@ -4116,7 +4116,7 @@ it; and away it went, nobody knows where, down the hill. But she said
 she supposed that they knew the road, and would follow her, and she
 could not stay there all day waiting for them.
 
-At last she overtook Frederick, who desired her to give him something to
+At lastEntryIdx she overtook Frederick, who desired her to give him something to
 eat. Then she gave him the dry bread. 'Where are the butter and cheese?'
 said he. 'Oh!' answered she, 'I used the butter to grease those poor
 trees that the wheels chafed so: and one of the cheeses ran away so I
@@ -4174,7 +4174,7 @@ don't,' answered he, 'it will discover us.' 'I can't help that,' said
 she, 'go it must.' So she poured all the vinegar down; and the thieves
 said, 'What a heavy dew there is!'
 
-At last it popped into Catherine's head that it was the door itself that
+At lastEntryIdx it popped into Catherine's head that it was the door itself that
 was so heavy all the time: so she whispered, 'Frederick, I must throw
 the door down soon.' But he begged and prayed her not to do so, for he
 was sure it would betray them. 'Here goes, however,' said she: and down
@@ -4275,7 +4275,7 @@ fire in the hearth was lighted, and the water was fetched, and at noon,
 when he came home, the table was laid, and a good dinner served. He
 could not conceive how this came to pass, for he never saw a human being
 in his house, and no one could have concealed himself in it. He was
-certainly pleased with this good attendance, but still at last he was so
+certainly pleased with this good attendance, but still at lastEntryIdx he was so
 afraid that he went to a wise woman and asked for her advice. The wise
 woman said: 'There is some enchantment behind it, listen very early some
 morning if anything is moving in the room, and if you see anything, no
@@ -4299,7 +4299,7 @@ that all the girls were to be present at it, and sing in honour of the
 bridal pair. When the faithful maiden heard of this, she grew so sad
 that she thought her heart would break, and she would not go thither,
 but the other girls came and took her. When it came to her turn to sing,
-she stepped back, until at last she was the only one left, and then she
+she stepped back, until at lastEntryIdx she was the only one left, and then she
 could not refuse. But when she began her song, and it reached Roland's
 ears, he sprang up and cried: 'I know the voice, that is the true
 bride, I will have no other!' Everything he had forgotten, and which had
@@ -4366,7 +4366,7 @@ the wall stood seven little beds. As she was very hungry, she picked
 a little piece of each loaf and drank a very little wine out of each
 glass; and after that she thought she would lie down and rest. So she
 tried all the little beds; but one was too long, and another was too
-short, till at last the seventh suited her: and there she laid herself
+short, till at lastEntryIdx the seventh suited her: and there she laid herself
 down and went to sleep.
 
 By and by in came the masters of the cottage. Now they were seven little
@@ -4477,7 +4477,7 @@ other side was poisoned. Then Snowdrop was much tempted to taste, for
 the apple looked so very nice; and when she saw the old woman eat, she
 could wait no longer. But she had scarcely put the piece into her mouth,
 when she fell down dead upon the ground. 'This time nothing will save
-thee,' said the queen; and she went home to her glass, and at last it
+thee,' said the queen; and she went home to her glass, and at lastEntryIdx it
 said:
 
  'Thou, queen, art the fairest of all the fair.'
@@ -4498,15 +4498,15 @@ still look at her, and wrote upon it in golden letters what her name
 was, and that she was a king's daughter. And the coffin was set among
 the hills, and one of the dwarfs always sat by it and watched. And the
 birds of the air came too, and bemoaned Snowdrop; and first of all came
-an owl, and then a raven, and at last a dove, and sat by her side.
+an owl, and then a raven, and at lastEntryIdx a dove, and sat by her side.
 
 And thus Snowdrop lay for a long, long time, and still only looked as
 though she was asleep; for she was even now as white as snow, and as red
-as blood, and as black as ebony. At last a prince came and called at the
+as blood, and as black as ebony. At lastEntryIdx a prince came and called at the
 dwarfs' house; and he saw Snowdrop, and read what was written in golden
 letters. Then he offered the dwarfs money, and prayed and besought them
 to let him take her away; but they said, 'We will not part with her for
-all the gold in the world.' At last, however, they had pity on him, and
+all the gold in the world.' At lastEntryIdx, however, they had pity on him, and
 gave him the coffin; but the moment he lifted it up to carry it home
 with him, the piece of apple fell from between her lips, and Snowdrop
 awoke, and said, 'Where am I?' And the prince said, 'Thou art quite safe
@@ -4791,7 +4791,7 @@ seen her since.
 THE MISER IN THE BUSH
 
 A farmer had a faithful and diligent servant, who had worked hard for
-him three years, without having been paid any wages. At last it came
+him three years, without having been paid any wages. At lastEntryIdx it came
 into the man's head that he would not go on thus without pay any longer;
 so he went to his master, and said, 'I have worked hard for you a long
 time, I will trust to you to give me what I deserve to have for my
@@ -4839,7 +4839,7 @@ art only meeting thy reward': so he played up another tune. Then the
 miser began to beg and promise, and offered money for his liberty; but
 he did not come up to the musician's price for some time, and he danced
 him along brisker and brisker, and the miser bid higher and higher, till
-at last he offered a round hundred of florins that he had in his purse,
+at lastEntryIdx he offered a round hundred of florins that he had in his purse,
 and had just gained by cheating some poor fellow. When the countryman
 saw so much money, he said, 'I will agree to your proposal.' So he took
 the purse, put up his fiddle, and travelled on very pleased with his
@@ -4847,7 +4847,7 @@ bargain.
 
 Meanwhile the miser crept out of the bush half-naked and in a piteous
 plight, and began to ponder how he should take his revenge, and serve
-his late companion some trick. At last he went to the judge, and
+his late companion some trick. At lastEntryIdx he went to the judge, and
 complained that a rascal had robbed him of his money, and beaten him
 into the bargain; and that the fellow who did it carried a bow at his
 back and a fiddle hung round his neck. Then the judge sent out his
@@ -4860,9 +4860,9 @@ countryman; but the judge told him that was not likely, and cut the
 matter short by ordering him off to the gallows.
 
 So away he was taken; but as he stood on the steps he said, 'My Lord
-Judge, grant me one last request.' 'Anything but thy life,' replied the
+Judge, grant me one lastEntryIdx request.' 'Anything but thy life,' replied the
 other. 'No,' said he, 'I do not ask my life; only to let me play upon
-my fiddle for the last time.' The miser cried out, 'Oh, no! no! for
+my fiddle for the lastEntryIdx time.' The miser cried out, 'Oh, no! no! for
 heaven's sake don't listen to him! don't listen to him!' But the judge
 said, 'It is only this once, he will soon have done.' The fact was, he
 could not refuse the request, on account of the dwarf's third gift.
@@ -4931,16 +4931,16 @@ and built its nest upon the tree, and talked with her, and watched over
 her, and brought her whatever she wished for.
 
 Now it happened that the king of that land held a feast, which was to
-last three days; and out of those who came to it his son was to choose
+lastEntryIdx three days; and out of those who came to it his son was to choose
 a bride for himself. Ashputtel's two sisters were asked to come; so they
 called her up, and said, 'Now, comb our hair, brush our shoes, and tie
 our sashes for us, for we are going to dance at the king's feast.'
 Then she did as she was told; but when all was done she could not help
 crying, for she thought to herself, she should so have liked to have
-gone with them to the ball; and at last she begged her mother very hard
+gone with them to the ball; and at lastEntryIdx she begged her mother very hard
 to let her go. 'You, Ashputtel!' said she; 'you who have nothing to
 wear, no clothes at all, and who cannot even dance--you want to go to
-the ball? And when she kept on begging, she said at last, to get rid of
+the ball? And when she kept on begging, she said at lastEntryIdx, to get rid of
 her, 'I will throw this dishful of peas into the ash-heap, and if in
 two hours' time you have picked them all out, you shall go to the feast
 too.'
@@ -5334,7 +5334,7 @@ there! The house-door stood wide open. The table, chairs, and benches
 were thrown down, the washing-bowl lay broken to pieces, and the quilts
 and pillows were pulled off the bed. She sought her children, but they
 were nowhere to be found. She called them one after another by name, but
-no one answered. At last, when she came to the youngest, a soft voice
+no one answered. At lastEntryIdx, when she came to the youngest, a soft voice
 cried: 'Dear mother, I am in the clock-case.' She took the kid out, and
 it told her that the wolf had come and had eaten all the others. Then
 you may imagine how she wept over her poor children.
@@ -5388,7 +5388,7 @@ little insignificant dwarf, went out to seek for his brothers: but when
 he had found them they only laughed at him, to think that he, who was so
 young and simple, should try to travel through the world, when they, who
 were so much wiser, had been unable to get on. However, they all set
-out on their journey together, and came at last to an ant-hill. The two
+out on their journey together, and came at lastEntryIdx to an ant-hill. The two
 elder brothers would have pulled it down, in order to see how the poor
 ants in their fright would run about and carry off their eggs. But the
 little dwarf said, 'Let the poor things enjoy themselves, I will not
@@ -5431,7 +5431,7 @@ The next day the second brother undertook the task; but he succeeded no
 better than the first; for he could only find the second hundred of the
 pearls; and therefore he too was turned into stone.
 
-At last came the little dwarf's turn; and he looked in the moss; but it
+At lastEntryIdx came the little dwarf's turn; and he looked in the moss; but it
 was so hard to find the pearls, and the job was so tiresome!--so he sat
 down upon a stone and cried. And as he sat there, the king of the ants
 (whose life he had saved) came to help him, with five thousand ants; and
@@ -5450,7 +5450,7 @@ sugar, the next some sweet syrup, and the youngest a spoonful of honey;
 so he was to guess which it was that had eaten the honey.
 
 Then came the queen of the bees, who had been saved by the little dwarf
-from the fire, and she tried the lips of all three; but at last she sat
+from the fire, and she tried the lips of all three; but at lastEntryIdx she sat
 upon the lips of the one that had eaten the honey: and so the dwarf knew
 which was the youngest. Thus the spell was broken, and all who had been
 turned into stones awoke, and took their proper forms. And the dwarf
@@ -5463,7 +5463,7 @@ her father's death; but his two brothers married the other two sisters.
 THE ELVES AND THE SHOEMAKER
 
 There was once a shoemaker, who worked very hard and was very honest:
-but still he could not earn enough to live upon; and at last all he
+but still he could not earn enough to live upon; and at lastEntryIdx all he
 had in the world was gone, save just leather enough to make one pair of
 shoes.
 
@@ -5524,7 +5524,7 @@ saw the clothes lying for them, they laughed and chuckled, and seemed
 mightily delighted.
 
 Then they dressed themselves in the twinkling of an eye, and danced and
-capered and sprang about, as merry as could be; till at last they danced
+capered and sprang about, as merry as could be; till at lastEntryIdx they danced
 out at the door, and away over the green.
 
 The good couple saw them no more; but everything went well with them
@@ -5784,7 +5784,7 @@ And now only one,
 
   Kywitt, Kywitt, what a beautiful bird am I!'
 
-then he looked up and the last one had left off work.
+then he looked up and the lastEntryIdx one had left off work.
 
 'Bird,' he said, 'what a beautiful song that is you sing! Let me hear it
 too; sing it again.'
@@ -5928,7 +5928,7 @@ and sowed turnips.
 When the seed came up, there was one plant bigger than all the rest; and
 it kept getting larger and larger, and seemed as if it would never cease
 growing; so that it might have been called the prince of turnips for
-there never was such a one seen before, and never will again. At last it
+there never was such a one seen before, and never will again. At lastEntryIdx it
 was so big that it filled a cart, and two oxen could hardly draw it; and
 the gardener knew not what in the world to do with it, nor whether it
 would be a blessing or a curse to him. One day he said to himself, 'What
@@ -5998,7 +5998,7 @@ healing of the sick; the virtues of all simples, of birds, and of
 precious stones. Wert thou but once here, my friend, though wouldst feel
 and own the power of knowledge.
 
-The student listened to all this and wondered much; at last he said,
+The student listened to all this and wondered much; at lastEntryIdx he said,
 'Blessed be the day and hour when I found you; cannot you contrive to
 let me into the sack for a little while?' Then the other answered, as if
 very unwillingly, 'A little space I may allow thee to sit here, if thou
@@ -6179,7 +6179,7 @@ trouble.
 After some time he took it in his head that he would travel to Rome. On
 the way he passed by a marsh, in which a number of frogs were sitting
 croaking. He listened to them, and when he became aware of what they
-were saying, he grew very thoughtful and sad. At last he arrived in
+were saying, he grew very thoughtful and sad. At lastEntryIdx he arrived in
 Rome, where the Pope had just died, and there was great doubt among
 the cardinals as to whom they should appoint as his successor. They at
 length agreed that the person should be chosen as pope who should be
@@ -6206,7 +6206,7 @@ world,' she spoke to him in a friendly way. 'Good day, dear Mr Fox,
 how are you? How is all with you? How are you getting on in these hard
 times?' The fox, full of all kinds of arrogance, looked at the cat from
 head to foot, and for a long time did not know whether he would give
-any answer or not. At last he said: 'Oh, you wretched beard-cleaner, you
+any answer or not. At lastEntryIdx he said: 'Oh, you wretched beard-cleaner, you
 piebald fool, you hungry mouse-hunter, what can you be thinking of? Have
 you the cheek to ask how I am getting on? What have you learnt? How
 many arts do you understand?' 'I understand but one,' replied the
@@ -6402,7 +6402,7 @@ agree to this, I will give you your life, and the rose too for your
 daughter.' But the man was unwilling to do so and said, 'It may be my
 youngest daughter, who loves me most, and always runs to meet me when
 I go home.' Then the servant was greatly frightened, and said, 'It may
-perhaps be only a cat or a dog.' And at last the man yielded with a
+perhaps be only a cat or a dog.' And at lastEntryIdx the man yielded with a
 heavy heart, and took the rose; and said he would give the lion whatever
 should meet him first on his return.
 
@@ -6444,7 +6444,7 @@ a very hazardous thing; for if the least ray of the torch-light should
 fall upon him his enchantment would become still worse, for he should be
 changed into a dove, and be forced to wander about the world for seven
 long years. However, she gave him no rest, and said she would take care
-no light should fall upon him. So at last they set out together, and
+no light should fall upon him. So at lastEntryIdx they set out together, and
 took with them their little child; and she chose a large hall with thick
 walls for him to sit in while the wedding-torches were lighted; but,
 unluckily, no one saw that there was a crack in the door. Then the
@@ -6454,7 +6454,7 @@ fell upon the prince. In a moment he disappeared, and when his wife came
 in and looked for him, she found only a white dove; and it said to her,
 'Seven years must I fly up and down over the face of the earth, but
 every now and then I will let fall a white feather, that will show you
-the way I am going; follow it, and at last you may overtake and set me
+the way I am going; follow it, and at lastEntryIdx you may overtake and set me
 free.'
 
 This said, he flew out at the door, and poor Lily followed; and every
@@ -6520,12 +6520,12 @@ the dress pleased the bride so much that she asked whether it was to be
 sold. 'Not for gold and silver.' said she, 'but for flesh and blood.'
 The princess asked what she meant, and she said, 'Let me speak with the
 bridegroom this night in his chamber, and I will give thee the dress.'
-At last the princess agreed, but she told her chamberlain to give the
+At lastEntryIdx the princess agreed, but she told her chamberlain to give the
 prince a sleeping draught, that he might not hear or see her. When
 evening came, and the prince had fallen asleep, she was led into
 his chamber, and she sat herself down at his feet, and said: 'I have
 followed thee seven years. I have been to the sun, the moon, and the
-night-wind, to seek thee, and at last I have helped thee to overcome
+night-wind, to seek thee, and at lastEntryIdx I have helped thee to overcome
 the dragon. Wilt thou then forget me quite?' But the prince all the time
 slept so soundly, that her voice only passed over him, and seemed like
 the whistling of the wind among the fir-trees.
@@ -6650,7 +6650,7 @@ The poor soldier fell without injury on the moist ground, and the blue
 light went on burning, but of what use was that to him? He saw very well
 that he could not escape death. He sat for a while very sorrowfully,
 then suddenly he felt in his pocket and found his tobacco pipe, which
-was still half full. 'This shall be my last pleasure,' thought he,
+was still half full. 'This shall be my lastEntryIdx pleasure,' thought he,
 pulled it out, lit it at the blue light and began to smoke. When the
 smoke had circled about the cavern, suddenly a little black dwarf stood
 before him, and said: 'Lord, what are your commands?' 'What my commands
@@ -6711,7 +6711,7 @@ cock-crow.
 
 Next morning the king sent his people out to seek the track, but it was
 all in vain, for in every street poor children were sitting, picking up
-peas, and saying: 'It must have rained peas, last night.' 'We must think
+peas, and saying: 'It must have rained peas, lastEntryIdx night.' 'We must think
 of something else,' said the king; 'keep your shoes on when you go to
 bed, and before you come back from the place where you are taken, hide
 one of them there, I will soon contrive to find it.' The black manikin
@@ -6738,7 +6738,7 @@ again, he lighted his pipe and summoned the black manikin. 'Have no
 fear,' said the latter to his master. 'Go wheresoever they take you, and
 let them do what they will, only take the blue light with you.' Next day
 the soldier was tried, and though he had done nothing wicked, the judge
-condemned him to death. When he was led forth to die, he begged a last
+condemned him to death. When he was led forth to die, he begged a lastEntryIdx
 favour of the king. 'What is it?' asked the king. 'That I may smoke one
 more pipe on my way.' 'You may smoke three,' answered the king, 'but do
 not imagine that I will spare your life.' Then the soldier pulled out
@@ -6779,7 +6779,7 @@ a deep sleep, and will not be able to help me. In the garden behind the
 house is a large tan-heap, and on that you must stand and watch for me.
 I shall drive there in my carriage at two o'clock in the afternoon for
 three successive days; the first day it will be drawn by four white, the
-second by four chestnut, and the last by four black horses; but if you
+second by four chestnut, and the lastEntryIdx by four black horses; but if you
 fail to keep awake and I find you sleeping, I shall not be set free.'
 
 The man promised to do all that she wished, but the raven said, 'Alas! I
@@ -6795,7 +6795,7 @@ something to eat and drink.'
 
 But she would not leave him alone, and urged him saying, 'If you will
 not eat anything, at least you might take a draught of wine; one drink
-counts for nothing,' and at last he allowed himself to be persuaded, and
+counts for nothing,' and at lastEntryIdx he allowed himself to be persuaded, and
 drank.
 
 As it drew towards the appointed hour, he went outside into the garden
@@ -6812,7 +6812,7 @@ of her carriage and went to him; she called him and shook him, but it
 was all in vain, he still continued sleeping.
 
 The next day at noon, the old woman came to him again with food and
-drink which he at first refused. At last, overcome by her persistent
+drink which he at first refused. At lastEntryIdx, overcome by her persistent
 entreaties that he would take something, he lifted the glass and drank
 again.
 
@@ -6861,7 +6861,7 @@ things which were lying beside him; he read the letter, and knew from it
 all that had happened. He rose up without delay, eager to start on his
 way and to reach the castle of Stromberg, but he had no idea in which
 direction he ought to go. He travelled about a long time in search of it
-and came at last to a dark forest, through which he went on walking for
+and came at lastEntryIdx to a dark forest, through which he went on walking for
 fourteen days and still could not find a way out. Once more the night
 came on, and worn out he lay down under a bush and fell asleep. Again
 the next day he pursued his way through the forest, and that evening,
@@ -6900,7 +6900,7 @@ maps as soon as he had eaten and appeased his hunger. Accordingly, when
 he had finished his supper, they all went up together to his room and
 looked through his maps, but the castle was not to be found. Then he
 fetched other older maps, and they went on looking for the castle until
-at last they found it, but it was many thousand miles away. 'How shall I
+at lastEntryIdx they found it, but it was many thousand miles away. 'How shall I
 be able to get there?' asked the man. 'I have two hours to spare,' said
 the giant, 'and I will carry you into the neighbourhood of the castle; I
 must then return to look after the child who is in our care.'
@@ -6996,7 +6996,7 @@ carried home.
 Then Dummling said: 'Father, do let me go and cut wood.' The father
 answered: 'Your brothers have hurt themselves with it, leave it alone,
 you do not understand anything about it.' But Dummling begged so long
-that at last he said: 'Just go then, you will get wiser by hurting
+that at lastEntryIdx he said: 'Just go then, you will get wiser by hurting
 yourself.' His mother gave him a cake made with water and baked in the
 cinders, and with it a bottle of sour beer.
 
@@ -7026,7 +7026,7 @@ The second came soon afterwards, thinking only of how she might get a
 feather for herself, but she had scarcely touched her sister than she
 was held fast.
 
-At last the third also came with the like intent, and the others
+At lastEntryIdx the third also came with the like intent, and the others
 screamed out: 'Keep away; for goodness' sake keep away!' But she did
 not understand why she was to keep away. 'The others are there,' she
 thought, 'I may as well be there too,' and ran to them; but as soon as
@@ -7142,7 +7142,7 @@ the prince haughtily, and rode on.
 
 But the dwarf was enraged at his behaviour, and laid a fairy spell
 of ill-luck upon him; so that as he rode on the mountain pass became
-narrower and narrower, and at last the way was so straitened that he
+narrower and narrower, and at lastEntryIdx the way was so straitened that he
 could not go to step forward: and when he thought to have turned his
 horse round and go back the way he came, he heard a loud laugh ringing
 round him, and found that the path was closed behind him, so that he was
@@ -7151,17 +7151,17 @@ on foot, but again the laugh rang in his ears, and he found himself
 unable to move a step, and thus he was forced to abide spellbound.
 
 Meantime the old king was lingering on in daily hope of his son's
-return, till at last the second son said, 'Father, I will go in search
+return, till at lastEntryIdx the second son said, 'Father, I will go in search
 of the Water of Life.' For he thought to himself, 'My brother is surely
 dead, and the kingdom will fall to me if I find the water.' The king was
-at first very unwilling to let him go, but at last yielded to his wish.
+at first very unwilling to let him go, but at lastEntryIdx yielded to his wish.
 So he set out and followed the same road which his brother had done,
 and met with the same elf, who stopped him at the same spot in the
 mountains, saying, as before, 'Prince, prince, whither so fast?' 'Mind
 your own affairs, busybody!' said the prince scornfully, and rode on.
 
 But the dwarf put the same spell upon him as he put on his elder
-brother, and he, too, was at last obliged to take up his abode in the
+brother, and he, too, was at lastEntryIdx obliged to take up his abode in the
 heart of the mountains. Thus it is with proud silly people, who think
 themselves above everyone else, and are too proud to ask or take advice.
 
@@ -7221,7 +7221,7 @@ said, 'My dear friend, cannot you tell me where my two brothers are, who
 set out in search of the Water of Life before me, and never came back?'
 'I have shut them up by a charm between two mountains,' said the dwarf,
 'because they were proud and ill-behaved, and scorned to ask advice.'
-The prince begged so hard for his brothers, that the dwarf at last set
+The prince begged so hard for his brothers, that the dwarf at lastEntryIdx set
 them free, though unwillingly, saying, 'Beware of them, for they have
 bad hearts.' Their brother, however, was greatly rejoiced to see them,
 and told them all that had happened to him; how he had found the Water
@@ -7488,7 +7488,7 @@ Meantime little Heinel grew up, and as the end of the twelve years drew
 near the merchant began to call to mind his bond, and became very sad
 and thoughtful; so that care and sorrow were written upon his face. The
 boy one day asked what was the matter, but his father would not tell for
-some time; at last, however, he said that he had, without knowing it,
+some time; at lastEntryIdx, however, he said that he had, without knowing it,
 sold him for gold to a little, ugly-looking, black dwarf, and that the
 twelve years were coming round when he must keep his word. Then Heinel
 said, 'Father, give yourself very little trouble about that; I shall be
@@ -7499,7 +7499,7 @@ agreed upon: and the son drew a circle on the ground, and set himself
 and his father in the middle of it. The little black dwarf soon came,
 and walked round and round about the circle, but could not find any way
 to get into it, and he either could not, or dared not, jump over it. At
-last the boy said to him. 'Have you anything to say to us, my friend, or
+lastEntryIdx the boy said to him. 'Have you anything to say to us, my friend, or
 what do you want?' Now Heinel had found a friend in a good fairy, that
 was fond of him, and had told him what to do; for this fairy knew what
 good luck was in store for him. 'Have you brought me what you said you
@@ -7512,7 +7512,7 @@ and your father has had it, and spent it; so be so good as to let me
 have what I paid it for.' 'You must have my consent to that first,' said
 Heinel, 'so please to step in here, and let us talk it over.' The old
 man grinned, and showed his teeth, as if he should have been very glad
-to get into the circle if he could. Then at last, after a long talk,
+to get into the circle if he could. Then at lastEntryIdx, after a long talk,
 they came to terms. Heinel agreed that his father must give him up, and
 that so far the dwarf should have his way: but, on the other hand, the
 fairy had told Heinel what fortune was in store for him, if he followed
@@ -7535,11 +7535,11 @@ young man sat safe within, till at length it ran ashore upon an unknown
 land. As he jumped upon the shore he saw before him a beautiful castle
 but empty and dreary within, for it was enchanted. 'Here,' said he to
 himself, 'must I find the prize the good fairy told me of.' So he once
-more searched the whole palace through, till at last he found a white
+more searched the whole palace through, till at lastEntryIdx he found a white
 snake, lying coiled up on a cushion in one of the chambers.
 
 Now the white snake was an enchanted princess; and she was very glad
-to see him, and said, 'Are you at last come to set me free? Twelve
+to see him, and said, 'Are you at lastEntryIdx come to set me free? Twelve
 long years have I waited here for the fairy to bring you hither as she
 promised, for you alone can save me. This night twelve men will come:
 their faces will be black, and they will be dressed in chain armour.
@@ -7587,7 +7587,7 @@ about in a shepherd's frock!' At this the son was vexed; and forgetting
 his word, turned his ring, and wished for his queen and son. In an
 instant they stood before him; but the queen wept, and said he had
 broken his word, and bad luck would follow. He did all he could to
-soothe her, and she at last seemed to be appeased; but she was not so in
+soothe her, and she at lastEntryIdx seemed to be appeased; but she was not so in
 truth, and was only thinking how she should punish him.
 
 One day he took her to walk with him out of the town, and showed her
@@ -7712,7 +7712,7 @@ from both sides much money in reward, and became a renowned man.
 
 THE SEVEN RAVENS
 
-There was once a man who had seven sons, and last of all one daughter.
+There was once a man who had seven sons, and lastEntryIdx of all one daughter.
 Although the little girl was very pretty, she was so weak and small that
 they thought she could not live; but they said she should at once be
 christened.
@@ -7778,7 +7778,7 @@ dinner ready, and he brought their food upon seven little plates, and
 their drink in seven little glasses, and set them upon the table, and
 out of each little plate their sister ate a small piece, and out of each
 little glass she drank a small drop; but she let the ring that she had
-brought with her fall into the last glass.
+brought with her fall into the lastEntryIdx glass.
 
 On a sudden she heard a fluttering and croaking in the air, and the
 dwarf said, 'Here come my masters.' When they came in, they wanted to
@@ -7851,7 +7851,7 @@ Miss Cat went downstairs and sent the wooer away. Soon afterwards there
 was another knock, and another fox was at the door who wished to woo Mrs
 Fox. He had two tails, but he did not fare better than the first. After
 this still more came, each with one tail more than the other, but they
-were all turned away, until at last one came who had nine tails, like
+were all turned away, until at lastEntryIdx one came who had nine tails, like
 old Mr Fox. When the widow heard that, she said joyfully to the cat:
 
  'Now open the gates and doors all wide,
@@ -7955,7 +7955,7 @@ out the heart, and carried the cloak home with him.
 The next morning when he awoke he lifted up his pillow, and there lay
 the piece of gold glittering underneath; the same happened next day, and
 indeed every day when he arose. He heaped up a great deal of gold, and
-at last thought to himself, 'Of what use is this gold to me whilst I am
+at lastEntryIdx thought to himself, 'Of what use is this gold to me whilst I am
 at home? I will go out into the world and look about me.'
 
 Then he took leave of his friends, and hung his bag and bow about his
@@ -8021,7 +8021,7 @@ and he fell quite gently to the ground amongst the greens and cabbages.
 
 Then he looked around him, and said, 'I wish I had something to eat, if
 not I shall be worse off than before; for here I see neither apples
-nor pears, nor any kind of fruits, nothing but vegetables.' At last he
+nor pears, nor any kind of fruits, nothing but vegetables.' At lastEntryIdx he
 thought to himself, 'I can eat salad, it will refresh and strengthen
 me.' So he picked out a fine head and ate of it; but scarcely had he
 swallowed two bites when he felt himself quite changed, and saw with
@@ -8087,7 +8087,7 @@ wanted.
 
 Some days after, the miller came to him and told him that the old ass
 was dead; 'The other two,' said he, 'are alive and eat, but are so
-sorrowful that they cannot last long.' Then the huntsman pitied them,
+sorrowful that they cannot lastEntryIdx long.' Then the huntsman pitied them,
 and told the miller to drive them back to him, and when they came, he
 gave them some of the good salad to eat. And the beautiful young lady
 fell upon her knees before him, and said, 'O dearest huntsman! forgive
@@ -8284,7 +8284,7 @@ and was about to sit down again by his fire, out from every hole and
 corner came black cats and black dogs with red-hot chains, and more
 and more of them came until he could no longer move, and they yelled
 horribly, and got on his fire, pulled it to pieces, and tried to put
-it out. He watched them for a while quietly, but at last when they were
+it out. He watched them for a while quietly, but at lastEntryIdx when they were
 going too far, he seized his cutting-knife, and cried: 'Away with you,
 vermin,' and began to cut them down. Some of them ran away, the others
 he killed, and threw out into the fish-pond. When he came back he fanned
@@ -8393,7 +8393,7 @@ shudder!'
 Then the gold was brought up and the wedding celebrated; but howsoever
 much the young king loved his wife, and however happy he was, he still
 said always: 'If I could but shudder--if I could but shudder.' And this
-at last angered her. Her waiting-maid said: 'I will find a cure for him;
+at lastEntryIdx angered her. Her waiting-maid said: 'I will find a cure for him;
 he shall soon learn what it is to shudder.' She went out to the stream
 which flowed through the garden, and had a whole bucketful of gudgeons
 brought to her. At night when the young king was sleeping, his wife was
@@ -8460,7 +8460,7 @@ thine.' 'Ah! wretch that I am!' sighed she; 'why did I not marry King
 Grisly-beard?' 'That is no business of mine,' said the fiddler: 'why
 should you wish for another husband? Am not I good enough for you?'
 
-At last they came to a small cottage. 'What a paltry place!' said she;
+At lastEntryIdx they came to a small cottage. 'What a paltry place!' said she;
 'to whom does that little dirty hole belong?' Then the fiddler said,
 'That is your and my house, where we are to live.' 'Where are your
 servants?' cried she. 'What do we want with servants?' said he; 'you
@@ -8731,7 +8731,7 @@ and it would have gone badly without me." And then he was still more
 ridiculed.'
 
 The king said to his daughter: 'I will proclaim a great feast that shall
-last for three days, and you shall throw a golden apple. Perhaps the
+lastEntryIdx for three days, and you shall throw a golden apple. Perhaps the
 unknown man will show himself.' When the feast was announced, the youth
 went out to the forest, and called Iron Hans. 'What do you desire?'
 asked he. 'That I may catch the king's daughter's golden apple.' 'It is
@@ -8801,7 +8801,7 @@ will never marry again, unless you meet with a wife who is as beautiful
 as I am, and who has golden hair like mine.' Then when the king in his
 grief promised all she asked, she shut her eyes and died. But the king
 was not to be comforted, and for a long time never thought of taking
-another wife. At last, however, his wise men said, 'this will not do;
+another wife. At lastEntryIdx, however, his wise men said, 'this will not do;
 the king must marry again, that we may have a queen.' So messengers were
 sent far and wide, to seek for a bride as beautiful as the late queen.
 But there was no princess in the world so beautiful; and if there had
@@ -8836,7 +8836,7 @@ dresses--of the sun, the moon, and the stars--up in a nutshell, and
 wrapped herself up in the mantle made of all sorts of fur, and besmeared
 her face and hands with soot. Then she threw herself upon Heaven for
 help in her need, and went away, and journeyed on the whole night, till
-at last she came to a large wood. As she was very tired, she sat herself
+at lastEntryIdx she came to a large wood. As she was very tired, she sat herself
 down in the hollow of a tree and soon fell asleep: and there she slept
 on till it was midday.
 
@@ -9131,13 +9131,13 @@ It happened that soon afterwards the mother sent the two children to the
 town to buy needles and thread, and laces and ribbons. The road led them
 across a heath upon which huge pieces of rock lay strewn about. There
 they noticed a large bird hovering in the air, flying slowly round and
-round above them; it sank lower and lower, and at last settled near a
+round above them; it sank lower and lower, and at lastEntryIdx settled near a
 rock not far away. Immediately they heard a loud, piteous cry. They ran
 up and saw with horror that the eagle had seized their old acquaintance
 the dwarf, and was going to carry him off.
 
 The children, full of pity, at once took tight hold of the little man,
-and pulled against the eagle so long that at last he let his booty go.
+and pulled against the eagle so long that at lastEntryIdx he let his booty go.
 As soon as the dwarf had recovered from his first fright he cried
 with his shrill voice: 'Could you not have done it more carefully! You
 dragged at my brown coat so that it is all torn and full of holes, you
@@ -9377,7 +9377,7 @@ that
      the Project Gutenberg Literary Archive Foundation."
 
 - You provide a full refund of any money paid by a user who notifies
-     you in writing (or by e-mail) within 30 days of receipt that s/he
+     you in writing (or by new-mail) within 30 days of receipt that s/he
      does not agree to the terms of the full Project Gutenberg-tm
      License.  You must require such a user to return or
      destroy all copies of the works possessed in a physical medium
