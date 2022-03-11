@@ -7,9 +7,6 @@
     <list default="true" id="60242920-15ec-48b0-a8b0-92cd967e992b" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/raft/raft.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/raft/raft.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/raft/raftLog.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/raft/raftLog.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/raft/test_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/raft/test_test.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/raft/utilLogger.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/raft/utilLogger.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

@@ -237,9 +237,9 @@ func (rf *Raft) sendInstallSnapshot(server int, args *InstallSnapshotArgs, reply
 func (rf *Raft) HandleInstallSnapshot(args *InstallSnapshotArgs, reply *InstallSnapshotReply) {
 	rf.Lock()
 	defer rf.Unlock()
-	defer DPrintf(snapshot, "%v %v %v", rf, args, reply)
+	defer DPrintf(snapshot, "%v %v %v %v", rf, rf.rfLog, args, reply)
 	reply.Term, reply.Succ = rf.currTerm, false
-	DPrintf(snapshot, "%v %v", rf, args)
+	DPrintf(snapshot, "%v %v %v", rf, args, rf.rfLog)
 
 	if args.Term > rf.currTerm {
 		rf.setState(Follower)
@@ -277,7 +277,7 @@ func (rf *Raft) HandleInstallSnapshot(args *InstallSnapshotArgs, reply *InstallS
 			SnapshotValid: true,
 			Snapshot:      args.Data,
 			SnapshotTerm:  args.LastIncludedTerm,
-			SnapshotIndex: args.LastIncludedIndex,
+			SnapshotIndex: args.LastIncludedIndex + 1,
 		}
 		DPrintf(applyClient, "%v %v %v", rf, rf.rfLog, args)
 	}()
@@ -538,11 +538,8 @@ func (rf *Raft) startLogReplication()  {
 			prevLogTerm := -1
 			if rf.nextIndex[serv] > 0 {
 				prevLogIndex = rf.nextIndex[serv] - 1
-				prevLogTerm = rf.rfLog.GetEntryTerm(prevLogIndex)
 			}
-			if prevLogIndex == rf.lastIncludedIndex {
-				prevLogTerm = rf.lastIncludedTerm
-			}
+
 			var entries []LogEntry
 			if rf.nextIndex[serv] - rf.matchIndex[serv] == 1 {
 				tmp := rf.rfLog.GetUncommited(rf.nextIndex[serv])
@@ -562,6 +559,14 @@ func (rf *Raft) startLogReplication()  {
 				if ok := rf.startSendSnapshot(serv, snapshotArgs, stat); !ok {
 					return
 				}
+			}
+
+			if rf.nextIndex[serv] > 0 {
+				prevLogIndex = rf.nextIndex[serv] - 1
+				prevLogTerm = rf.rfLog.GetEntryTerm(prevLogIndex)
+			}
+			if prevLogIndex == rf.lastIncludedIndex {
+				prevLogTerm = rf.lastIncludedTerm
 			}
 			if ok := rf.startAppendEntries(serv, currTerm, me, prevLogIndex, prevLogTerm, LeaderCommit, entries, stat); !ok {
 				return
@@ -698,7 +703,7 @@ func (rf *Raft) HandleAppendEntries(args *AppendEntriesArgs, reply *AppendEntrie
 	}
 	reply.Success = true
 
-	DPrintf(heartbeat|logReplicate, "%v reset electionTimeout, %v", rf, rf.rfLog)
+	DPrintf(heartbeat|logReplicate, "%v reset electionTimeout", rf)
 	rf.rfLog.TruncateAppend(args.PrevLogIndex, args.Entries)
 
 	if args.LeaderCommit > rf.rfLog.GetCommitIndex() {
