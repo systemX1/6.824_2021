@@ -11,8 +11,8 @@ Title: The Picture of Dorian Gray
 Author: Oscar Wilde
 
 Release Date: June 9, 2008 [EBook #174]
-[This file lastEntryIdx updated on July 2, 2011]
-[This file lastEntryIdx updated on July 23, 2014]
+[This file entryIdx updated on July 2, 2011]
+[This file entryIdx updated on July 23, 2014]
 
 
 Language: English
@@ -627,7 +627,7 @@ afraid, one of her victims also."
 
 "I am in Lady Agatha's black books at present," answered Dorian with a
 funny look of penitence.  "I promised to go to a club in Whitechapel
-with her lastEntryIdx Tuesday, and I really forgot all about it.  We were to
+with her entryIdx Tuesday, and I really forgot all about it.  We were to
 have played a duet together--three duets, I believe.  I don't know what
 she will say to me.  I am far too frightened to call."
 
@@ -651,7 +651,7 @@ charming." And Lord Henry flung himself down on the divan and opened
 his cigarette-case.
 
 The painter had been busy mixing his colours and getting his brushes
-ready.  He was looking worried, and when he heard Lord Henry's lastEntryIdx
+ready.  He was looking worried, and when he heard Lord Henry's entryIdx
 remark, he glanced at him, hesitated for a moment, and then said,
 "Harry, I want to finish this picture to-day. Would you think it
 awfully rude of me if I asked you to go away?"
@@ -903,7 +903,7 @@ you were quite unconscious of what you really are, of what you really
 might be.  There was so much in you that charmed me that I felt I must
 tell you something about yourself.  I thought how tragic it would be if
 you were wasted.  For there is such a little time that your youth will
-lastEntryIdx--such a little time.  The common hill-flowers wither, but they
+entryIdx--such a little time.  The common hill-flowers wither, but they
 blossom again.  The laburnum will be as yellow next June as it is now.
 In a month there will be purple stars on the clematis, and year after
 year the green night of its leaves will hold its purple stars.  But we
@@ -944,7 +944,7 @@ him.
 
 "Always!  That is a dreadful word.  It makes me shudder when I hear it.
 Women are so fond of using it.  They spoil every romance by trying to
-make it lastEntryIdx for ever.  It is a meaningless word, too.  The only
+make it entryIdx for ever.  It is a meaningless word, too.  The only
 difference between a caprice and a lifelong passion is that the caprice
 lasts a little longer."
 
@@ -963,7 +963,7 @@ heavy scent of the roses seemed to brood over everything.
 After about a quarter of an hour Hallward stopped painting, looked for
 a long time at Dorian Gray, and then for a long time at the picture,
 biting the end of one of his huge brushes and frowning.  "It is quite
-finished," he cried at lastEntryIdx, and stooping down he wrote his name in
+finished," he cried at entryIdx, and stooping down he wrote his name in
 long vermilion letters on the left-hand corner of the canvas.
 
 Lord Henry came over and examined the picture.  It was certainly a
@@ -1008,7 +1008,7 @@ knife and made each delicate fibre of his nature quiver.  His eyes
 deepened into amethyst, and across them came a mist of tears.  He felt
 as if a hand of ice had been laid upon his heart.
 
-"Don't you like it?" cried Hallward at lastEntryIdx, stung a little by the
+"Don't you like it?" cried Hallward at entryIdx, stung a little by the
 lad's silence, not understanding what it meant.
 
 "Of course he likes it," said Lord Henry.  "Who wouldn't like it?  It
@@ -1091,13 +1091,13 @@ painting-table that was set beneath the high curtained window.  What
 was he doing there?  His fingers were straying about among the litter
 of tin tubes and dry brushes, seeking for something.  Yes, it was for
 the long palette-knife, with its thin blade of lithe steel.  He had
-found it at lastEntryIdx.  He was going to rip up the canvas.
+found it at entryIdx.  He was going to rip up the canvas.
 
 With a stifled sob the lad leaped from the couch, and, rushing over to
 Hallward, tore the knife out of his hand, and flung it to the end of
 the studio.  "Don't, Basil, don't!" he cried.  "It would be murder!"
 
-"I am glad you appreciate my work at lastEntryIdx, Dorian," said the painter
+"I am glad you appreciate my work at entryIdx, Dorian," said the painter
 coldly when he had recovered from his surprise.  "I never thought you
 would."
 
@@ -1110,7 +1110,7 @@ across the room and rang the bell for tea.  "You will have tea, of
 course, Dorian?  And so will you, Harry?  Or do you object to such
 simple pleasures?"
 
-"I adore simple pleasures," said Lord Henry.  "They are the lastEntryIdx refuge
+"I adore simple pleasures," said Lord Henry.  "They are the entryIdx refuge
 of the complex.  But I don't like scenes, except on the stage.  What
 absurd fellows you are, both of you!  I wonder who it was defined man
 as a rational animal.  It was the most premature definition ever given.
@@ -1305,7 +1305,7 @@ Lord Henry languidly.
 white eyebrows.
 
 "That is what I have come to learn, Uncle George.  Or rather, I know
-who he is.  He is the lastEntryIdx Lord Kelso's grandson.  His mother was a
+who he is.  He is the entryIdx Lord Kelso's grandson.  His mother was a
 Devereux, Lady Margaret Devereux.  I want you to tell me about his
 mother.  What was she like?  Whom did she marry?  You have known nearly
 everybody in your time, so you might have known her.  I am very much
@@ -1363,7 +1363,7 @@ striking the table with his fist.
 
 "The betting is on the Americans."
 
-"They don't lastEntryIdx, I am told," muttered his uncle.
+"They don't entryIdx, I am told," muttered his uncle.
 
 "A long engagement exhausts them, but they are capital at a
 steeplechase.  They take things flying.  I don't think Dartmoor has a
@@ -1666,7 +1666,7 @@ followed his pipe, laughing.  Dorian Gray never took his gaze off him,
 but sat like one under a spell, smiles chasing each other over his lips
 and wonder growing grave in his darkening eyes.
 
-At lastEntryIdx, liveried in the costume of the age, reality entered the room
+At entryIdx, liveried in the costume of the age, reality entered the room
 in the shape of a servant to tell the duchess that her carriage was
 waiting.  She wrung her hands in mock despair.  "How annoying!" she
 cried.  "I must go.  I have to call for my husband at the club, to take
@@ -1765,7 +1765,7 @@ found in one of the book-cases. The formal monotonous ticking of the
 Louis Quatorze clock annoyed him.  Once or twice he thought of going
 away.
 
-At lastEntryIdx he heard a step outside, and the door opened.  "How late you
+At entryIdx he heard a step outside, and the door opened.  "How late you
 are, Harry!" he murmured.
 
 "I am afraid it is not Harry, Mr. Gray," answered a shrill voice.
@@ -1980,7 +1980,7 @@ must admit that I was rather annoyed at the idea of seeing Shakespeare
 done in such a wretched hole of a place.  Still, I felt interested, in
 a sort of way.  At any rate, I determined to wait for the first act.
 There was a dreadful orchestra, presided over by a young Hebrew who sat
-at a cracked piano, that nearly drove me away, but at lastEntryIdx the
+at a cracked piano, that nearly drove me away, but at entryIdx the
 drop-scene was drawn up and the play began.  Romeo was a stout elderly
 gentleman, with corked eyebrows, a husky tragedy voice, and a figure
 like a beer-barrel. Mercutio was almost as bad.  He was played by the
@@ -2175,7 +2175,7 @@ studio!  His nature had developed like a flower, had borne blossoms of
 scarlet flame.  Out of its secret hiding-place had crept his soul, and
 desire had come to meet it on the way.
 
-"And what do you propose to do?" said Lord Henry at lastEntryIdx.
+"And what do you propose to do?" said Lord Henry at entryIdx.
 
 "I want you and Basil to come with me some night and see her act.  I
 have not the slightest fear of the result.  You are certain to
@@ -2464,7 +2464,7 @@ stage.  I hate it."
 really going for a walk with me?  That will be nice!  I was afraid you
 were going to say good-bye to some of your friends--to Tom Hardy, who
 gave you that hideous pipe, or Ned Langton, who makes fun of you for
-smoking it.  It is very sweet of you to let me have your lastEntryIdx
+smoking it.  It is very sweet of you to let me have your entryIdx
 afternoon.  Where shall we go?  Let us go to the park."
 
 "I am too shabby," he answered, frowning.  "Only swell people go to the
@@ -2472,7 +2472,7 @@ park."
 
 "Nonsense, Jim," she whispered, stroking the sleeve of his coat.
 
-He hesitated for a moment.  "Very well," he said at lastEntryIdx, "but don't be
+He hesitated for a moment.  "Very well," he said at entryIdx, "but don't be
 too long dressing."  She danced out of the door.  One could hear her
 singing as she ran upstairs.  Her little feet pattered overhead.
 
@@ -2781,7 +2781,7 @@ have a right to know.  Were you married to my father?"
 
 She heaved a deep sigh.  It was a sigh of relief.  The terrible moment,
 the moment that night and day, for weeks and months, she had dreaded,
-had come at lastEntryIdx, and yet she felt no terror.  Indeed, in some measure
+had come at entryIdx, and yet she felt no terror.  Indeed, in some measure
 it was a disappointment to her.  The vulgar directness of the question
 called for a direct answer.  The situation had not been gradually led
 up to.  It was crude.  It reminded her of a bad rehearsal.
@@ -3313,7 +3313,7 @@ A few moments afterwards the footlights flared up and the curtain rose
 on the third act.  Dorian Gray went back to his seat.  He looked pale,
 and proud, and indifferent.  The play dragged on, and seemed
 interminable.  Half of the audience went out, tramping in heavy boots
-and laughing.  The whole thing was a _fiasco_.  The lastEntryIdx act was played
+and laughing.  The whole thing was a _fiasco_.  The entryIdx act was played
 to almost empty benches.  The curtain went down on a titter and some
 groans.
 
@@ -3434,7 +3434,7 @@ always something ridiculous about the emotions of people whom one has
 ceased to love.  Sibyl Vane seemed to him to be absurdly melodramatic.
 Her tears and sobs annoyed him.
 
-"I am going," he said at lastEntryIdx in his calm clear voice.  "I don't wish
+"I am going," he said at entryIdx in his calm clear voice.  "I don't wish
 to be unkind, but I can't see you again.  You have disappointed me."
 
 She wept silently, and made no answer, but crept nearer.  Her little
@@ -3832,7 +3832,7 @@ addressed to a dead girl.  Can they feel, I wonder, those white silent
 people we call the dead?  Sibyl!  Can she feel, or know, or listen?
 Oh, Harry, how I loved her once!  It seems years ago to me now.  She
 was everything to me.  Then came that dreadful night--was it really
-only lastEntryIdx night?--when she played so badly, and my heart almost broke.
+only entryIdx night?--when she played so badly, and my heart almost broke.
 She explained it all to me.  It was terribly pathetic.  But I was not
 moved a bit.  I thought her shallow.  Suddenly something happened that
 made me afraid.  I can't tell you what it was, but it was terrible.  I
@@ -3873,7 +3873,7 @@ have no account."
 "why is it that I cannot feel this tragedy as much as I want to?  I
 don't think I am heartless.  Do you?"
 
-"You have done too many foolish things during the lastEntryIdx fortnight to be
+"You have done too many foolish things during the entryIdx fortnight to be
 entitled to give yourself that name, Dorian," answered Lord Henry with
 his sweet melancholy smile.
 
@@ -3978,7 +3978,7 @@ if she died as Juliet, she came to life as Imogen."
 "She will never come to life again now," muttered the lad, burying his
 face in his hands.
 
-"No, she will never come to life.  She has played her lastEntryIdx part.  But
+"No, she will never come to life.  She has played her entryIdx part.  But
 you must think of that lonely death in the tawdry dressing-room simply
 as a strange lurid fragment from some Jacobean tragedy, as a wonderful
 scene from Webster, or Ford, or Cyril Tourneur.  The girl never really
@@ -4049,7 +4049,7 @@ hoped it.
 
 Poor Sibyl!  What a romance it had all been!  She had often mimicked
 death on the stage.  Then Death himself had touched her and taken her
-with him.  How had she played that dreadful lastEntryIdx scene?  Had she cursed
+with him.  How had she played that dreadful entryIdx scene?  Had she cursed
 him, as she died?  No; she had died for love of him, and love would
 always be a sacrament to him now.  She had atoned for everything by the
 sacrifice she had made of her life.  He would not think any more of
@@ -4121,7 +4121,7 @@ As he was sitting at breakfast next morning, Basil Hallward was shown
 into the room.
 
 "I am so glad I have found you, Dorian," he said gravely.  "I called
-lastEntryIdx night, and they told me you were at the opera.  Of course, I knew
+entryIdx night, and they told me you were at the opera.  Of course, I knew
 that was impossible.  But I wish you had left word where you had really
 gone to.  I passed a dreadful evening, half afraid that one tragedy
 might be followed by another.  I think you might have telegraphed for
@@ -4177,7 +4177,7 @@ influence.  I see that."
 
 The lad flushed up and, going to the window, looked out for a few
 moments on the green, flickering, sun-lashed garden.  "I owe a great
-deal to Harry, Basil," he said at lastEntryIdx, "more than I owe to you.  You
+deal to Harry, Basil," he said at entryIdx, "more than I owe to you.  You
 only taught me to be vain."
 
 "Well, I am punished for that, Dorian--or shall be some day."
@@ -4205,7 +4205,7 @@ of the great romantic tragedies of the age.  As a rule, people who act
 lead the most commonplace lives.  They are good husbands, or faithful
 wives, or something tedious.  You know what I mean--middle-class virtue
 and all that kind of thing.  How different Sibyl was!  She lived her
-finest tragedy.  She was always a heroine.  The lastEntryIdx night she
+finest tragedy.  She was always a heroine.  The entryIdx night she
 played--the night you saw her--she acted badly because she had known
 the reality of love.  When she knew its unreality, she died, as Juliet
 might have died.  She passed again into the sphere of art.  There is
@@ -4665,7 +4665,7 @@ secret of his life and hide his soul from the eyes of men.
 He had not entered the place for more than four years--not, indeed,
 since he had used it first as a play-room when he was a child, and then
 as a study when he grew somewhat older.  It was a large,
-well-proportioned room, which had been specially built by the lastEntryIdx Lord
+well-proportioned room, which had been specially built by the entryIdx Lord
 Kelso for the use of the little grandson whom, for his strange likeness
 to his mother, and also for other reasons, he had always hated and
 desired to keep at a distance.  It appeared to Dorian to have but
@@ -5192,7 +5192,7 @@ studded with jacinths, a collar of gold roses set with
 turquoise-stones, and a skull-cap _parseme_ with pearls.  Henry II wore
 jewelled gloves reaching to the elbow, and had a hawk-glove sewn with
 twelve rubies and fifty-two great orients.  The ducal hat of Charles
-the Rash, the lastEntryIdx Duke of Burgundy of his race, was hung with
+the Rash, the entryIdx Duke of Burgundy of his race, was hung with
 pear-shaped pearls and studded with sapphires.
 
 How exquisite life had once been!  How gorgeous in its pomp and
@@ -5608,7 +5608,7 @@ face.  It cannot be concealed.  People talk sometimes of secret vices.
 There are no such things.  If a wretched man has a vice, it shows
 itself in the lines of his mouth, the droop of his eyelids, the
 moulding of his hands even.  Somebody--I won't mention his name, but
-you know him--came to me lastEntryIdx year to have his portrait done.  I had
+you know him--came to me entryIdx year to have his portrait done.  I had
 never seen him before, and had never heard anything about him at the
 time, though I have heard a good deal since.  He offered an extravagant
 price.  I refused him.  There was something in the shape of his fingers
@@ -5622,7 +5622,7 @@ don't know what to say.  Why is it, Dorian, that a man like the Duke of
 Berwick leaves the room of a club when you enter it?  Why is it that so
 many gentlemen in London will neither go to your house or invite you to
 theirs?  You used to be a friend of Lord Staveley.  I met him at dinner
-lastEntryIdx week.  Your name happened to come up in conversation, in
+entryIdx week.  Your name happened to come up in conversation, in
 connection with the miniatures you have lent to the exhibition at the
 Dudley.  Staveley curled his lip and said that you might have the most
 artistic tastes, but that you were a man whom no pure-minded girl
@@ -5839,7 +5839,7 @@ real sorrow in it nor real joy.  There was simply the passion of the
 spectator, with perhaps a flicker of triumph in his eyes.  He had taken
 the flower out of his coat, and was smelling it, or pretending to do so.
 
-"What does this mean?" cried Hallward, at lastEntryIdx.  His own voice sounded
+"What does this mean?" cried Hallward, at entryIdx.  His own voice sounded
 shrill and curious in his ears.
 
 "Years ago, when I was a boy," said Dorian Gray, crushing the flower in
@@ -6219,7 +6219,7 @@ curious experiments.
 
 This was the man Dorian Gray was waiting for.  Every second he kept
 glancing at the clock.  As the minutes went by he became horribly
-agitated.  At lastEntryIdx he got up and began to pace up and down the room,
+agitated.  At entryIdx he got up and began to pace up and down the room,
 looking like a beautiful caged thing.  He took long stealthy strides.
 His hands were curiously cold.
 
@@ -6238,7 +6238,7 @@ dead, raced nimbly on in front, and dragged a hideous future from its
 grave, and showed it to him.  He stared at it.  Its very horror made
 him stone.
 
-At lastEntryIdx the door opened and his servant entered.  He turned glazed eyes
+At entryIdx the door opened and his servant entered.  He turned glazed eyes
 upon him.
 
 "Mr. Campbell, sir," said the man.
@@ -6635,7 +6635,7 @@ now and then Lord Henry looked across at him, wondering at his silence
 and abstracted manner.  From time to time the butler filled his glass
 with champagne.  He drank eagerly, and his thirst seemed to increase.
 
-"Dorian," said Lord Henry at lastEntryIdx, as the _chaud-froid_ was being handed
+"Dorian," said Lord Henry at entryIdx, as the _chaud-froid_ was being handed
 round, "what is the matter with you to-night? You are quite out of
 sorts."
 
@@ -6702,7 +6702,7 @@ terms."
 shaking her head.
 
 Lord Henry looked serious for some moments.  "It is perfectly
-monstrous," he said, at lastEntryIdx, "the way people go about nowadays saying
+monstrous," he said, at entryIdx, "the way people go about nowadays saying
 things against one behind one's back that are absolutely and entirely
 true."
 
@@ -6809,7 +6809,7 @@ sorts at dinner."
 
 "I am quite well, Harry.  I am tired.  That is all."
 
-"You were charming lastEntryIdx night.  The little duchess is quite devoted to
+"You were charming entryIdx night.  The little duchess is quite devoted to
 you.  She tells me she is going down to Selby."
 
 "She has promised to come on the twentieth."
@@ -6842,12 +6842,12 @@ being always absolutely over-educated. He is a very modern type."
 Monte Carlo with his father."
 
 "Ah! what a nuisance people's people are!  Try and make him come.  By
-the way, Dorian, you ran off very early lastEntryIdx night.  You left before
+the way, Dorian, you ran off very early entryIdx night.  You left before
 eleven.  What did you do afterwards?  Did you go straight home?"
 
 Dorian glanced at him hurriedly and frowned.
 
-"No, Harry," he said at lastEntryIdx, "I did not get home till nearly three."
+"No, Harry," he said at entryIdx, "I did not get home till nearly three."
 
 "Did you go to the club?"
 
@@ -6895,7 +6895,7 @@ and make afraid, as though it held something that he longed for and yet
 almost loathed.  His breath quickened.  A mad craving came over him.
 He lit a cigarette and then threw it away.  His eyelids drooped till
 the long fringed lashes almost touched his cheek.  But he still watched
-the cabinet.  At lastEntryIdx he got up from the sofa on which he had been
+the cabinet.  At entryIdx he got up from the sofa on which he had been
 lying, went over to it, and having unlocked it, touched some hidden
 spring.  A triangular drawer passed slowly out.  His fingers moved
 instinctively towards it, dipped in, and closed on something.  It was a
@@ -7062,7 +7062,7 @@ will speak to me now."
 "I thought you had left England."
 
 "Darlington is not going to do anything.  My brother paid the bill at
-lastEntryIdx.  George doesn't speak to me either.... I don't care," he added
+entryIdx.  George doesn't speak to me either.... I don't care," he added
 with a sigh.  "As long as one has this stuff, one doesn't want friends.
 I think I have had too many friends."
 
@@ -7295,7 +7295,7 @@ among the cups, and her full red lips were smiling at something that
 Dorian had whispered to her.  Lord Henry was lying back in a
 silk-draped wicker chair, looking at them.  On a peach-coloured divan
 sat Lady Narborough, pretending to listen to the duke's description of
-the lastEntryIdx Brazilian beetle that he had added to his collection.  Three
+the entryIdx Brazilian beetle that he had added to his collection.  Three
 young men in elaborate smoking-suits were handing tea-cakes to some of
 the women.  The house-party consisted of twelve people, and there were
 more expected to arrive on the next day.
@@ -7846,7 +7846,7 @@ Dorian, Lord Henry turned and looked at the duchess with his slumberous
 eyes.  "Are you very much in love with him?" he asked.
 
 She did not answer for some time, but stood gazing at the landscape.
-"I wish I knew," she said at lastEntryIdx.
+"I wish I knew," she said at entryIdx.
 
 He shook his head.  "Knowledge would be fatal.  It is the uncertainty
 that charms one.  A mist makes things wonderful."
@@ -7967,7 +7967,7 @@ path.  Once the mare swerved at a white gate-post and nearly threw him.
 He lashed her across the neck with his crop.  She cleft the dusky air
 like an arrow.  The stones flew from her hoofs.
 
-At lastEntryIdx he reached the Home Farm.  Two men were loitering in the yard.
+At entryIdx he reached the Home Farm.  Two men were loitering in the yard.
 He leaped from the saddle and threw the reins to one of them.  In the
 farthest stable a light was glimmering.  Something seemed to tell him
 that the body was there, and he hurried to the door and put his hand
@@ -8162,7 +8162,7 @@ into the Seine off an omnibus and that the conductor hushed up the
 scandal.  Yes:  I should fancy that was his end.  I see him lying now
 on his back under those dull-green waters, with the heavy barges
 floating over him and long weeds catching in his hair.  Do you know, I
-don't think he would have done much more good work.  During the lastEntryIdx
+don't think he would have done much more good work.  During the entryIdx
 ten years his painting had gone off very much."
 
 Dorian heaved a sigh, and Lord Henry strolled across the room and began
@@ -8215,7 +8215,7 @@ The music jarred, and Dorian Gray started and stared at his friend.
 
 "My dear fellow," said Lord Henry, elevating his eyebrows in surprise,
 "I asked you because I thought you might be able to give me an answer.
-That is all.  I was going through the park lastEntryIdx Sunday, and close by
+That is all.  I was going through the park entryIdx Sunday, and close by
 the Marble Arch there stood a little crowd of shabby-looking people
 listening to some vulgar street-preacher. As I passed by, I heard the
 man yelling out that question to his audience.  It struck me as being
@@ -8527,7 +8527,7 @@ to force the door, they got on the roof and dropped down on to the
 balcony.  The windows yielded easily--their bolts were old.
 
 When they entered, they found hanging upon the wall a splendid portrait
-of their master as they had lastEntryIdx seen him, in all the wonder of his
+of their master as they had entryIdx seen him, in all the wonder of his
 exquisite youth and beauty.  Lying on the floor was a dead man, in
 evening dress, with a knife in his heart.  He was withered, wrinkled,
 and loathsome of visage.  It was not till they had examined the rings

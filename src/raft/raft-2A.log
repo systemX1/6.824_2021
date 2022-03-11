@@ -897,7 +897,7 @@ Test (2A): election after network failure ...
 23:47:01.475746 raft.go 385 raft.(*Raft).startAppendEntries [S0 Leader t:8 vF:0 c:-1 a:-1 m:[-1 -1 -1] n:[0 0 0]] sendAppendEntries to 1 succ
 23:47:01.489552 raft.go 211 raft.(*Raft).startRequestVote [S1 Follower t:8 vF:-1 c:-1 a:-1] sendRequestVote to 2 failed
 23:47:01.538533 ********************************************************
-23:47:01.538663 re-join of lastEntryIdx node shouldn't prevent leader from existing.
+23:47:01.538663 re-join of entryIdx node shouldn't prevent leader from existing.
 23:47:01.559660 raft.go 540 raft.(*Raft).run [S0 Leader t:8 vF:0 c:-1 a:-1 m:[-1 -1 -1] n:[0 0 0]] sending heartbeat msg
 23:47:01.560025 raft.go 311 raft.(*Raft).startLogReplication [S0 Leader t:8 vF:0 c:-1 a:-1 m:[-1 -1 -1] n:[0 0 0]] startLogReplication
 23:47:01.561041 raft.go 350 raft.(*Raft).startAppendEntries [S0 Leader t:8 vF:0 c:-1 a:-1 m:[-1 -1 -1] n:[0 0 0]] sendAppendEntries to 2, [arg S0 term:8 preLogIdx:-1 preLogT:-1 [] LComit:-1]

@@ -193,8 +193,8 @@ func (cfg *config) applierSnap(i int, applyCh chan ApplyMsg) {
 				r := bytes.NewBuffer(m.Snapshot)
 				d := labgob.NewDecoder(r)
 				var v int
-				if d.Decode(&v) != nil {
-					log.Fatalf("decode error\n")
+				if err := d.Decode(&v); err != nil {
+					log.Fatalf("decode error:%v\n", err)
 				}
 				cfg.logs[i][m.SnapshotIndex] = v
 				lastApplied = m.SnapshotIndex

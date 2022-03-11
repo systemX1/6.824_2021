@@ -14,14 +14,12 @@
       <change beforePath="$PROJECT_DIR$/src/main/pg-metamorphosis.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/pg-metamorphosis.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/pg-sherlock_holmes.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/pg-sherlock_holmes.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/pg-tom_sawyer.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/pg-tom_sawyer.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/raft/config.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/raft/config.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/raft/debug_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/raft/debug_test.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/raft/go-test-concurr.sh" beforeDir="false" afterPath="$PROJECT_DIR$/src/raft/go-test-concurr.sh" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/raft/raft-2A.log" beforeDir="false" afterPath="$PROJECT_DIR$/src/raft/raft-2A.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/raft/raft-2B.log" beforeDir="false" afterPath="$PROJECT_DIR$/src/raft/raft-2B.log" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/raft/raft.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/raft/raft.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/raft/raftLog.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/raft/raftLog.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/raft/test-3.err" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/raft/test_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/raft/test_test.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/raft/test-8.err" beforeDir="false" afterPath="$PROJECT_DIR$/src/raft/test-8.err" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/raft/utilLogger.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/raft/utilLogger.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -102,16 +100,5 @@
         <option value="Default.Subject" />
       </list>
     </option>
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
-          <url>file://$PROJECT_DIR$/src/raft/raftLog.go</url>
-          <line>87</line>
-          <option name="timeStamp" value="5" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>

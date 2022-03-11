@@ -25,12 +25,15 @@ func (rL *RfLog) Clear() {
 	rL.Entries = make([]LogEntry, 0, 20)
 }
 
-func (rL *RfLog) AppendEntries(entries ...LogEntry) {
+func (rL *RfLog) AppendEntries(lastIncludedIndex int, entries ...LogEntry) {
 	rL.Lock()
 	defer rL.Unlock()
 	nextIdx := 0
 	if next := rL.getLastEntry(Index); next != nil {
 		nextIdx = next.(int) + 1
+	}
+	if rL.Entries == nil || len(rL.Entries) == 0 {
+		nextIdx = lastIncludedIndex + 1
 	}
 	for _, entry := range entries {
 		if entry.Index != -1 {
@@ -90,15 +93,16 @@ func (rL *RfLog) TruncateAppend(prevLogIndex int, entries []LogEntry) {
 		return
 	}
 
-	// binarySearch, find real index
+	// binarySearch, tran to real index
 	lastEntryIndex := -1
-	if lastEntry := rL.getLastEntry(Index); lastEntry != nil {
-		lastEntryIndex = lastEntry.(int)
+	if rL.Entries != nil && len(rL.Entries) > 0 {
+		lastEntryIndex = len(rL.Entries) - 1
 	}
-	entry := sort.Search(len(rL.Entries), func(i int) bool { return rL.Entries[i].Index >= prevLogIndex })
-	if entry < len(rL.Entries) && rL.Entries[entry].Index == prevLogIndex {
-		prevLogIndex = entry
+	entryIdx := sort.Search(len(rL.Entries), func(i int) bool { return rL.Entries[i].Index >= prevLogIndex })
+	if entryIdx < len(rL.Entries) && rL.Entries[entryIdx].Index == prevLogIndex {
+		prevLogIndex = entryIdx
 	}
+	DPrintf(raftLog, "lastEntryIndex:%v entryIdx:%v", lastEntryIndex, entryIdx)
 
 	// remove conflict Entries
 	if entries == nil && rL.Entries != nil && prevLogIndex + 1 <= lastEntryIndex {
@@ -108,10 +112,12 @@ func (rL *RfLog) TruncateAppend(prevLogIndex int, entries []LogEntry) {
 	for ;
 		i < prevLogIndex + len(entries) && i <= lastEntryIndex;
 		i, j = i + 1, j + 1 {
+		DPrintf(raftLog, "i:%v j:%v", i, j)
 		if rL.Entries[i].Term != entries[j].Term {
 			break
 		}
 	}
+	DPrintf(raftLog, "i:%v j:%v fin", i, j)
 	// prevent overlap
 	rL.Entries = rL.Entries[:i]
 	entries = entries[j:]
@@ -120,25 +126,19 @@ func (rL *RfLog) TruncateAppend(prevLogIndex int, entries []LogEntry) {
 	return
 }
 
-func (rL *RfLog) Truncate(i, j int) {
-	rL.Lock()
-	defer rL.Unlock()
-	rL.Entries = rL.Entries[i:j]
-}
-
-func (rL *RfLog) DoSnapshot(index int) bool {
+func (rL *RfLog) DoSnapshot(index int) (bool, int, int) {
 	rL.Lock()
 	defer rL.Unlock()
 	if len(rL.Entries) == 0 {
-		return false
+		return false, -1, -1
 	}
-	lastEntryIdx := binarySearch(rL.Entries, index)
-	if lastEntryIdx == -1 {
-		return false
+	entryIdx := binarySearch(rL.Entries, index)
+	if entryIdx == -1 {
+		return false, -1, -1
 	}
-	rL.Entries = rL.Entries[lastEntryIdx:]
-	rL.Entries[0].Command = nil
-	return true
+	entryTerm := rL.Entries[entryIdx].Term
+	rL.Entries = rL.Entries[entryIdx+1:]
+	return true, index, entryTerm
 }
 
 func (rL *RfLog) getLastEntry(typ LogEntryItem) interface{} {
@@ -232,7 +232,9 @@ func (rL *RfLog) SetLastApplied(i int) int {
 func (rL *RfLog) GetUncommited(nextIndex int) (entries []LogEntry) {
 	rL.Lock()
 	defer rL.Unlock()
-	if nextIndex >= len(rL.Entries) || rL.Entries == nil || len(rL.Entries) == 0 {
+	if rL.Entries == nil ||
+		len(rL.Entries) == 0 ||
+		nextIndex > rL.Entries[len(rL.Entries)-1].Index {
 		return nil
 	}
 	nextIndex = binarySearch(rL.Entries, nextIndex)

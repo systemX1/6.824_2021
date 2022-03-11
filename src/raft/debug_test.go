@@ -201,6 +201,13 @@ func TestRaftLogTruncate(t *testing.T) {
 	rL.TruncateAppendTest(-1, e, n)
 	rL.TruncateAppendTest(0, e, nil)
 
+	e = []LogEntry{
+		{9, 1, 7346114951392631761, 0}, {10, 1, 1738741665562420248, 0}, {11, 1, 6684187936943440122, 0}, {12, 1, 8036592355440237559, 0}, {13, 1, 8361368526235920682, 0},
+	}
+	n = []LogEntry{
+		{14, 1, 4360611029131970908, 0}, {15, 1, 7400823843287529525, 0}, {16, 1, 2489418614210817561, 0}, {17, 1, 8519260016716978626, 0}, {18, 1, 6993154974038825947, 0}, {19, 1, 1008007605460300518, 0}, {20, 1, 1774280318773226980, 0}, {21, 1, 4617934639504924324, 0}, {22, 1, 3015210891149567234, 0}, {23, 1, 2534946382264358140, 0}, {24, 1, 7008595092771287268, 0}, {25, 1, 3753485396871821837, 0},
+	}
+	rL.TruncateAppendTest(13, e, n)
 }
 
 func (rL *RfLog) TruncateAppendTest(prevLogIndex int, old, new []LogEntry) {
@@ -325,6 +332,27 @@ func TestGetUncommited(t *testing.T) {
 	//log.Printf("entries:%v", rL.Entries[binarySearch(rL.Entries, 0):])
 }
 
+func TestRfLog_DoSnapshot(t *testing.T) {
+	rL := &RfLog{commitIndex: -1, lastApplied: -1}
+	rL.Entries = []LogEntry{
+		{Index:0, Term:1, Command:1000}, {Index:1, Term:1, Command:2000}, {Index:2, Term:3, Command:3000},
+	}
+	log.Printf("rL:%v", rL)
+	rL.DoSnapshot(0)
+	log.Printf("rL:%v", rL)
+
+	rL.Entries = []LogEntry{
+		{Index:0, Term:1, Command:1000}, {Index:1, Term:1, Command:2000}, {Index:2, Term:3, Command:3000},
+	}
+	rL.DoSnapshot(1)
+	log.Printf("rL:%v", rL)
+
+	rL.Entries = []LogEntry{
+		{Index:0, Term:1, Command:1000}, {Index:1, Term:1, Command:2000}, {Index:2, Term:3, Command:3000},
+	}
+	rL.DoSnapshot(2)
+	log.Printf("rL:%v", rL)
+}
 
 func TestRaftXXX(t *testing.T) {
 	rL := &RfLog{commitIndex: -1, lastApplied: -1}
