@@ -376,7 +376,7 @@ func (rf *Raft) startElection() {
 	rf.setCurrTerm(rf.currTerm + 1)
 	rf.setVotedFor(rf.me)
 	lastLogIndex := rf.getLastEntryIndex()
-	lastLogTerm := rf.rfLog.GetLastEntryTerm()
+	lastLogTerm := rf.getLastEntryTerm()
 	DPrintf(requsetVote, "%v is starting an election", rf)
 	votes := 1
 	done := false
@@ -471,7 +471,7 @@ func (rf *Raft) HandleRequestVote(arg *RequestVoteArgs, reply *RequestVoteReply)
 	reply.Term = rf.currTerm
 
 	lastLogIndex := rf.getLastEntryIndex()
-	lastLogTerm := rf.rfLog.GetLastEntryTerm()
+	lastLogTerm := rf.getLastEntryTerm()
 	DPrintf(requsetVote, "%v lasLogIdx:%v lasLogT:%v", rf, lastLogIndex, lastLogTerm)
 
 	if (arg.Term < rf.currTerm) || (arg.LastLogTerm < lastLogTerm ||
@@ -640,7 +640,8 @@ func(rf *Raft) startAppendEntries(serv, currTerm, me, prevLogIndex, prevLogTerm,
 				rf.matchIndex[serv] = rf.nextIndex[serv] - 1
 			}
 		}
-		DPrintf(debugError|logReplicate, "%v sendAppendEntries to %v failed, arg pLogIdx:%v pLogTerm:%v, %v", rf, serv, args.PrevLogIndex, args.PrevLogTerm, reply)
+		DPrintf(debugError|logReplicate, "%v sendAppendEntries to S%v failed, %v %v",
+			rf, serv, args, reply)
 		return false
 	}
 	// NOTE: 因为RPC期间无锁, 可能相关状态被其他RPC修改了
@@ -656,10 +657,11 @@ func(rf *Raft) startAppendEntries(serv, currTerm, me, prevLogIndex, prevLogTerm,
 func (rf *Raft) HandleAppendEntries(args *AppendEntriesArgs, reply *AppendEntriesReply) {
 	rf.Lock()
 	defer rf.Unlock()
+	defer DPrintf(logReplicate, "%v HandleAppendEntries DONE %v %v %v", rf, rf.rfLog, args, reply)
 	defer DPrintf(persist, "%v save persist %v", rf, rf.rfLog)
 	defer rf.persist()
 	reply.Success, reply.Incoist, reply.TermIncoist, reply.Term = false, false, false, rf.currTerm
-	DPrintf(heartbeat|logReplicate, "%v received AppendEntries %v", rf, args)
+	DPrintf(logReplicate, "%v Receive AppendEntries %v %v", rf, rf.rfLog, args)
 	if args.Term < rf.currTerm {
 		return
 	} else if args.Term > rf.currTerm {
@@ -667,23 +669,29 @@ func (rf *Raft) HandleAppendEntries(args *AppendEntriesArgs, reply *AppendEntrie
 		rf.setState(Follower)
 	}
 
+	rf.resetElectionTimeout()
 	if args.PrevLogIndex < rf.lastIncludedIndex ||
 		(args.PrevLogIndex == rf.lastIncludedIndex &&
 			args.PrevLogTerm != rf.lastIncludedTerm) {
 		reply.Incoist, reply.TermIncoist, reply.NextIndex = true, true, rf.lastIncludedIndex - 1
 		return
 	}
-	if args.PrevLogIndex != -1 && args.PrevLogIndex == rf.lastIncludedIndex && args.PrevLogTerm == rf.lastIncludedTerm {
+	if rf.lastIncludedIndex != -1 &&
+		args.PrevLogIndex == rf.lastIncludedIndex &&
+		args.PrevLogTerm == rf.lastIncludedTerm {
 		reply.Success = true
+		rf.rfLog.AppendEntries2(args.Entries)
 		return
 	}
 
-	rf.resetElectionTimeout()
 	if ok1, ok2 := rf.rfLog.CheckAppendEntries(args.PrevLogIndex, args.PrevLogTerm); !ok1 {
 		reply.Incoist = true
 		if !ok2 {
-			reply.NextIndex = rf.rfLog.ConflictingEntryTermIndex(args.PrevLogTerm)
 			reply.TermIncoist = true
+			reply.NextIndex = rf.rfLog.ConflictingEntryTermIndex(args.PrevLogTerm)
+			if rf.lastIncludedIndex > reply.NextIndex {
+				reply.NextIndex = rf.lastIncludedIndex + 1
+			}
 		}
 		DPrintf(logReplicate, "ConflictingEntry %v %v %v", rf, rf.rfLog, reply)
 		return
@@ -692,14 +700,11 @@ func (rf *Raft) HandleAppendEntries(args *AppendEntriesArgs, reply *AppendEntrie
 
 	DPrintf(heartbeat|logReplicate, "%v reset electionTimeout, %v", rf, rf.rfLog)
 	rf.rfLog.TruncateAppend(args.PrevLogIndex, args.Entries)
-	DPrintf(logReplicate, "S%v %v preLgIdx:%v arg:%v", rf.me, rf.rfLog, args.PrevLogIndex, args)
 
 	if args.LeaderCommit > rf.rfLog.GetCommitIndex() {
 		lastEntryIndex := rf.getLastEntryIndex()
 		rf.rfLog.SetCommitIndex(min(args.LeaderCommit, lastEntryIndex) )
 	}
-
-	DPrintf(logReplicate, "%v %v %v", rf, rf.rfLog, reply)
 }
 
 func (rf *Raft) sendAppendEntries(serv int, args *AppendEntriesArgs, reply *AppendEntriesReply) bool {

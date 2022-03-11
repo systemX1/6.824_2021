@@ -871,7 +871,7 @@ func TestFigure8Unreliable2C(t *testing.T) {
 			s := rand.Int() % servers
 			if cfg.connected[s] == false {
 				cfg.connect(s)
-				log.Printf("@@****************** connect S%v", s)
+				log.Printf("@@****************** reconnect S%v", s)
 				nup += 1
 			}
 		}
@@ -1065,10 +1065,12 @@ func snapcommon(t *testing.T, name string, disconnect bool, reliable bool, crash
 
 		if disconnect {
 			cfg.disconnect(victim)
+			log.Printf("@@****************** disconnect S%v", victim)
 			cfg.one(rand.Int(), servers-1, true)
 		}
 		if crash {
 			cfg.crash1(victim)
+			log.Printf("@@****************** crash S%v", victim)
 			cfg.one(rand.Int(), servers-1, true)
 		}
 		// send enough to get a snapshot
@@ -1085,12 +1087,14 @@ func snapcommon(t *testing.T, name string, disconnect bool, reliable bool, crash
 			// reconnect a follower, who maybe behind and
 			// needs to receive a snapshot to catch up.
 			cfg.connect(victim)
+			log.Printf("@****************** reconnect S%v", victim)
 			cfg.one(rand.Int(), servers, true)
 			leader1 = cfg.checkOneLeader()
 		}
 		if crash {
 			cfg.start1(victim, cfg.applierSnap)
 			cfg.connect(victim)
+			log.Printf("@****************** restart S%v", victim)
 			cfg.one(rand.Int(), servers, true)
 			leader1 = cfg.checkOneLeader()
 		}

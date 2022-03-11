@@ -45,6 +45,12 @@ func (rL *RfLog) AppendEntries(lastIncludedIndex int, entries ...LogEntry) {
 	}
 }
 
+func (rL *RfLog) AppendEntries2(entries []LogEntry) {
+	rL.Lock()
+	defer rL.Unlock()
+	rL.Entries = append(rL.Entries, entries...)
+}
+
 // CheckAppendEntries return if prevLogIndex and lastLogTerm correspond to paras
 func (rL *RfLog) CheckAppendEntries(prevLogIndex, prevLogTerm int) (bool, bool) {
 	rL.Lock()
