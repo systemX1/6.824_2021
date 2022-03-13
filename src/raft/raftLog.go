@@ -25,6 +25,12 @@ func (rL *RfLog) Clear() {
 	rL.Entries = make([]LogEntry, 0, 20)
 }
 
+func (rL *RfLog) Len() int {
+	rL.Lock()
+	defer rL.Unlock()
+	return len(rL.Entries)
+}
+
 func (rL *RfLog) AppendEntries(lastIncludedIndex int, entries ...LogEntry) {
 	rL.Lock()
 	defer rL.Unlock()
@@ -41,7 +47,7 @@ func (rL *RfLog) AppendEntries(lastIncludedIndex int, entries ...LogEntry) {
 		}
 		nextIdx++
 		rL.Entries = append(rL.Entries, entry)
-		DPrintf(logReplicate, "%v %v", entry, rL.Entries)
+		DPrintf(raftLog, "%v %v", entry, rL.Entries)
 	}
 }
 

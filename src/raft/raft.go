@@ -416,7 +416,7 @@ func (rf *Raft) startRequestVote(serv, term, me, lastLogIndex, lastLogTerm int, 
 	}
 	var reply RequestVoteReply
 	if ok := rf.sendRequestVote(serv, &args, &reply); !ok || reply.Term > term {
-		rf.DMutexPrintf(requsetVote, "%v sendRequestVote to %v failed", rf, serv)
+		rf.DMutexPrintf(requsetVote, "%v sendRequestVote to S%v failed", rf, serv)
 		return false
 	}
 	// Term confusion: drop the reply and return if the term and state has changed
@@ -425,7 +425,7 @@ func (rf *Raft) startRequestVote(serv, term, me, lastLogIndex, lastLogTerm int, 
 	if rf.currTerm != term || rf.stat != stat {
 		return false
 	}
-	DPrintf(requsetVote, "%v sendRequestVote to %v succ", rf, serv)
+	DPrintf(requsetVote, "%v sendRequestVote to S%v succ", rf, serv)
 	return reply.VoteGranted
 }
 
@@ -487,7 +487,7 @@ func (rf *Raft) HandleRequestVote(arg *RequestVoteArgs, reply *RequestVoteReply)
 		reply.VoteGranted = true
 		rf.setVotedFor(arg.CandidateID)
 		rf.resetElectionTimeout()
-		DPrintf(requsetVote, "%v HandleRequestVote has voted to %v", rf, arg.CandidateID)
+		DPrintf(requsetVote, "%v VOTE to %v", rf, arg.CandidateID)
 	}
 }
 
@@ -555,12 +555,13 @@ func (rf *Raft) startLogReplication()  {
 				LastIncludedTerm:  lastIncludedTerm,
 				Data:              rf.persister.ReadSnapshot(),
 			}
-			if prevLogIndex < rf.lastIncludedIndex {
+			if prevLogIndex < lastIncludedIndex {
 				if ok := rf.startSendSnapshot(serv, snapshotArgs, stat); !ok {
 					return
 				}
 			}
 
+			rf.Lock()
 			if rf.nextIndex[serv] > 0 {
 				prevLogIndex = rf.nextIndex[serv] - 1
 				prevLogTerm = rf.rfLog.GetEntryTerm(prevLogIndex)
@@ -568,6 +569,7 @@ func (rf *Raft) startLogReplication()  {
 			if prevLogIndex == rf.lastIncludedIndex {
 				prevLogTerm = rf.lastIncludedTerm
 			}
+			rf.Unlock()
 			if ok := rf.startAppendEntries(serv, currTerm, me, prevLogIndex, prevLogTerm, LeaderCommit, entries, stat); !ok {
 				return
 			}
@@ -685,6 +687,7 @@ func (rf *Raft) HandleAppendEntries(args *AppendEntriesArgs, reply *AppendEntrie
 		args.PrevLogIndex == rf.lastIncludedIndex &&
 		args.PrevLogTerm == rf.lastIncludedTerm {
 		reply.Success = true
+		rf.rfLog.Clear()
 		rf.rfLog.AppendEntries2(args.Entries)
 		return
 	}
@@ -884,7 +887,7 @@ func (rf *Raft) applyClient(applyCh chan<- ApplyMsg) {
 					CommandIndex: lastApplied + 1,
 					Command:      command,
 				}
-				DPrintf(applyClient, "%v %v %v", rf, rf.rfLog, applyMsg)
+				DPrintf(applyClient, "%v rfLogLen:%v %v", rf, rf.rfLog.Len(), applyMsg)
 				applyCh <- applyMsg
 			}
 		}
