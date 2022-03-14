@@ -5,33 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="60242920-15ec-48b0-a8b0-92cd967e992b" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/kvraft/go-test-concurr.sh" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/kvraft/log/test-1.err" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/kvraft/log/test-1.log" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/kvraft/log/test-2.err" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/kvraft/log/test-2.log" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/kvraft/log/test-3.err" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/kvraft/log/test-3.log" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/kvraft/log/test-4.err" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/kvraft/log/test-4.log" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/kvraft/log/tester" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/shardkv/go-test-concurr.sh" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/kvraft/client.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/kvraft/client.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/kvraft/common.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/kvraft/common.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/kvraft/server.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/kvraft/server.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/kvraft/test_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/kvraft/test_test.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/kvraft/util.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/kvraft/util.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/pg-being_ernest.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/pg-being_ernest.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/pg-dorian_gray.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/pg-dorian_gray.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/pg-huckleberry_finn.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/pg-huckleberry_finn.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/pg-metamorphosis.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/pg-metamorphosis.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/pg-sherlock_holmes.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/pg-sherlock_holmes.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/pg-tom_sawyer.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/pg-tom_sawyer.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/kv.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/kv.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/raft/raft.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/raft/raft.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/raft/raftLog.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/raft/raftLog.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/raft/utilLogger.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/raft/utilLogger.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

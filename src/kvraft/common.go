@@ -13,9 +13,10 @@ const (
 )
 
 const (
-	ClerkRetryTimeout  = 300 * time.Millisecond
-	ServerApplyTimeout = 2000 * time.Millisecond
-	clntIdDebugMod     = 1000000
+	ClerkRetryTimeout   = 400 * time.Millisecond
+	ClerkWLeaderTimeout = 200 * time.Millisecond
+	ServerApplyTimeout  = 2000 * time.Millisecond
+	clntIdDebugMod      = 1000000
 )
 
 type Err string

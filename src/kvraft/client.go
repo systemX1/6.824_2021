@@ -32,7 +32,7 @@ func nrand() int64 {
 
 func MakeClerk(servers []*labrpc.ClientEnd) *Clerk {
 	// You'll have to add code here.
-	time.Sleep(1 * time.Second)
+	time.Sleep(1500 * time.Millisecond)
 	return &Clerk{
 		servers: servers,
 		clntId:  nrand(),
@@ -49,9 +49,10 @@ func (ck *Clerk) StartOp(args *OpArgs) string {
 		if ok := ck.servers[leader].Call("KVServer.OpHandler", args, reply); !ok {
 			DPrintf(clerk, "%v to S%v failed %v %v", ck, leader, args, reply)
 			time.Sleep(ClerkRetryTimeout)
+			continue
 		}
-		DPrintf(debugInfo|clerk, "%v to S%v return %v %v", ck, leader, args, reply)
 
+		DPrintf(debugInfo|clerk, "%v to S%v return %v %v", ck, leader, args, reply)
 		switch reply.Err {
 		case OK, ErrNoKey:
 			return reply.Value
@@ -59,9 +60,9 @@ func (ck *Clerk) StartOp(args *OpArgs) string {
 			continue
 		case ErrWrongLeader:
 			leader = ck.nextLeader()
-			time.Sleep(ClerkRetryTimeout)
+			time.Sleep(ClerkWLeaderTimeout)
 		default:
-			DPanicf(clerk, "return with ERR Uninitialized %v to S%v %v %v", ck, leader, args, reply)
+			DPanicf(clerk, "return with ERROR Uninitialized %v to S%v %v %v", ck, leader, args, reply)
 		}
 	}
 }
