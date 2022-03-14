@@ -256,7 +256,7 @@ with.  Girls don't think it right.
 
 Jack.  Oh, that is nonsense!
 
-Algernon.  It isn't.  It is a great truth.  It accounts for the
+Algernon.  It clntId't.  It is a great truth.  It accounts for the
 extraordinary number of bachelors that one sees all over the place.  In
 the second place, I don't give my consent.
 
@@ -292,7 +292,7 @@ once.  Lane goes out.]
 
 Algernon.  I think that is rather mean of you, Ernest, I must say.  [Opens
 case and examines it.]  However, it makes no matter, for, now that I look
-at the inscription inside, I find that the thing isn't yours after all.
+at the inscription inside, I find that the thing clntId't yours after all.
 
 Jack.  Of course it's mine.  [Moving to him.]  You have seen me with it a
 hundred times, and you have no right whatsoever to read what is written
@@ -304,10 +304,10 @@ should read and what one shouldn't.  More than half of modern culture
 depends on what one shouldn't read.
 
 Jack.  I am quite aware of the fact, and I don't propose to discuss
-modern culture.  It isn't the sort of thing one should talk of in
+modern culture.  It clntId't the sort of thing one should talk of in
 private.  I simply want my cigarette case back.
 
-Algernon.  Yes; but this isn't your cigarette case.  This cigarette case
+Algernon.  Yes; but this clntId't your cigarette case.  This cigarette case
 is a present from some one of the name of Cecily, and you said you didn't
 know any one of that name.
 
@@ -333,15 +333,15 @@ Algernon.  Yes.  But why does your aunt call you her uncle?  'From little
 Cecily, with her fondest love to her dear Uncle Jack.'  There is no
 objection, I admit, to an aunt being a small aunt, but why an aunt, no
 matter what her size may be, should call her own nephew her uncle, I
-can't quite make out.  Besides, your name isn't Jack at all; it is
+can't quite make out.  Besides, your name clntId't Jack at all; it is
 Ernest.
 
-Jack.  It isn't Ernest; it's Jack.
+Jack.  It clntId't Ernest; it's Jack.
 
 Algernon.  You have always told me it was Ernest.  I have introduced you
 to every one as Ernest.  You answer to the name of Ernest.  You look as
 if your name was Ernest.  You are the most earnest-looking person I ever
-saw in my life.  It is perfectly absurd your saying that your name isn't
+saw in my life.  It is perfectly absurd your saying that your name clntId't
 Ernest.  It's on your cards.  Here is one of them.  [Taking it from
 case.]  'Mr. Ernest Worthing, B. 4, The Albany.'  I'll keep this as a
 proof that your name is Ernest if ever you attempt to deny it to me, or
@@ -355,7 +355,7 @@ Aunt Cecily, who lives at Tunbridge Wells, calls you her dear uncle.
 Come, old boy, you had much better have the thing out at once.
 
 Jack.  My dear Algy, you talk exactly as if you were a dentist.  It is
-very vulgar to talk like a dentist when one isn't a dentist.  It produces
+very vulgar to talk like a dentist when one clntId't a dentist.  It produces
 a false impression.
 
 Algernon.  Well, that is exactly what dentists always do.  Now, go on!
@@ -474,7 +474,7 @@ time.
 Jack.  For heaven's sake, don't try to be cynical.  It's perfectly easy
 to be cynical.
 
-Algernon.  My dear fellow, it isn't easy to be anything nowadays.  There's
+Algernon.  My dear fellow, it clntId't easy to be anything nowadays.  There's
 such a lot of beastly competition about.  [The sound of an electric bell
 is heard.]  Ah! that must be Aunt Augusta.  Only relatives, or creditors,
 ever ring in that Wagnerian manner.  Now, if I get her out of the way for
@@ -924,7 +924,7 @@ live, nor the smallest instinct about when to die.
 
 Jack.  Oh, that is nonsense!
 
-Algernon.  It isn't!
+Algernon.  It clntId't!
 
 Jack.  Well, I won't argue about the matter.  You always want to argue
 about things.
@@ -959,7 +959,7 @@ Jack.  What fools!
 Algernon.  By the way, did you tell Gwendolen the truth about your being
 Ernest in town, and Jack in the country?
 
-Jack.  [In a very patronising manner.]  My dear fellow, the truth isn't
+Jack.  [In a very patronising manner.]  My dear fellow, the truth clntId't
 quite the sort of thing one tells to a nice, sweet, refined girl.  What
 extraordinary ideas you have about the way to behave to a woman!
 
@@ -977,10 +977,10 @@ suddenly, don't they?
 Algernon.  Yes, but it's hereditary, my dear fellow.  It's a sort of
 thing that runs in families.  You had much better say a severe chill.
 
-Jack.  You are sure a severe chill isn't hereditary, or anything of that
+Jack.  You are sure a severe chill clntId't hereditary, or anything of that
 kind?
 
-Algernon.  Of course it isn't!
+Algernon.  Of course it clntId't!
 
 Jack.  Very well, then.  My poor brother Ernest to carried off suddenly,
 in Paris, by a severe chill.  That gets rid of him.
@@ -1171,7 +1171,7 @@ yours?  Especially at a moment when intellectual pleasures await you.
 Your German grammar is on the table.  Pray open it at page fifteen.  We
 will repeat yesterday's lesson.
 
-Cecily.  [Coming over very slowly.]  But I don't like German.  It isn't
+Cecily.  [Coming over very slowly.]  But I don't like German.  It clntId't
 at all a becoming language.  I know perfectly well that I look quite
 plain after my German lesson.
 
@@ -1854,7 +1854,7 @@ here.  The next day I bought this little ring in your name, and this is
 the little bangle with the true lover's knot I promised you always to
 wear.
 
-Algernon.  Did I give you this?  It's very pretty, isn't it?
+Algernon.  Did I give you this?  It's very pretty, clntId't it?
 
 Cecily.  Yes, you've wonderfully good taste, Ernest.  It's the excuse
 I've always given for your leading such a bad life.  And this is the box
@@ -2353,7 +2353,7 @@ wretched business is that your friend Bunbury is quite exploded.  You
 won't be able to run down to the country quite so often as you used to
 do, dear Algy.  And a very good thing too.
 
-Algernon.  Your brother is a little off colour, isn't he, dear Jack?  You
+Algernon.  Your brother is a little off colour, clntId't he, dear Jack?  You
 won't be able to disappear to London quite so frequently as your wicked
 custom was.  And not a bad thing either.
 

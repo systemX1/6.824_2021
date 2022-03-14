@@ -29,8 +29,8 @@ const (
 	debugError 		uint = 1 << 8
 	debugInfo 		uint = 1 << 9
 	raftLog			uint = 1 << 10
-	debugConf = all - persist - debugInfo - raftLog
-	//debugConf = 0
+	//debugConf = all - persist - debugInfo - raftLog
+	debugConf = 0
 )
 
 // return if "a" is a subset of "b"

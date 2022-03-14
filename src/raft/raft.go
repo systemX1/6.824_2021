@@ -52,6 +52,7 @@ type ApplyMsg struct {
 	CommandValid bool
 	Command      interface{}
 	CommandIndex int
+	CommandTerm  int
 
 	// For 2D:
 	SnapshotValid bool
@@ -217,7 +218,6 @@ func (args *InstallSnapshotArgs) String() string {
 	return fmt.Sprintf("[arg t:%v lasInIdx:%v lasInT:%v data:%v]",
 		args.Term, args.LastIncludedIndex, args.LastIncludedTerm, args.Data)
 }
-
 
 type InstallSnapshotReply struct {
 	Term              int
@@ -824,9 +824,6 @@ func Make(peers []*labrpc.ClientEnd, me int,
 	go rf.run()
 	go rf.applyClient(applyCh)
 
-	// 2D TODO:
-
-
 	// initialize from state persisted before a crash
 	rf.readPersist(persister.ReadRaftState())
 	return rf
@@ -881,11 +878,15 @@ func (rf *Raft) applyClient(applyCh chan<- ApplyMsg) {
 			for lastApplied < commitIndex {
 				DPrintf(applyClient, "%v lastApplied:%v, commitIndex:%v", rf, lastApplied, commitIndex)
 				lastApplied = rf.rfLog.SetLastApplied(lastApplied + 1)
-				command := rf.rfLog.GetEntryCommand(lastApplied)
+				command, cmdTerm := rf.rfLog.GetEntryCommand(lastApplied), rf.rfLog.GetEntryTerm(lastApplied)
+				if command == nil {
+					continue
+				}
 				applyMsg := ApplyMsg{
 					CommandValid: true,
 					CommandIndex: lastApplied + 1,
 					Command:      command,
+					CommandTerm:  cmdTerm,
 				}
 				DPrintf(applyClient, "%v rfLogLen:%v %v", rf, rf.rfLog.Len(), applyMsg)
 				applyCh <- applyMsg

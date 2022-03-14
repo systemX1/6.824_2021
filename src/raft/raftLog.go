@@ -267,6 +267,8 @@ func (rL *RfLog) getEntry(index int, typ LogEntryItem) interface{} {
 			return rL.Entries[entry].Term
 		case Command:
 			return rL.Entries[entry].Command
+		case Type:
+			return rL.Entries[entry].Type
 		}
 	}
 	return nil
@@ -295,6 +297,9 @@ func (rL *RfLog) GetEntryTerm(index int) int {
 func (rL *RfLog) GetEntryCommand(index int) interface{} {
 	rL.Lock()
 	defer rL.Unlock()
+	if rL.getEntry(index, Type).(LogEntryType) == Noop {
+		return nil
+	}
 	return rL.getEntry(index, Command)
 }
 
@@ -326,6 +331,7 @@ const (
 	Index
 	Term
 	Command
+	Type
 )
 
 func binarySearch(entries []LogEntry, index int) int {

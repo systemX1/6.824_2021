@@ -318,7 +318,7 @@ func GenericTest(t *testing.T, part string, nclients int, nservers int, unreliab
 				cfg.ShutdownServer(i)
 			}
 			// Wait for a while for servers to shutdown, since
-			// shutdown isn't a real crash and isn't instantaneous
+			// shutdown clntId't a real crash and clntId't instantaneous
 			time.Sleep(electionTimeout)
 			// log.Printf("restart servers\n")
 			// crash and re-start all
