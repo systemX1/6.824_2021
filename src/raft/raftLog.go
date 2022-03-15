@@ -297,7 +297,7 @@ func (rL *RfLog) GetEntryTerm(index int) int {
 func (rL *RfLog) GetEntryCommand(index int) interface{} {
 	rL.Lock()
 	defer rL.Unlock()
-	if rL.getEntry(index, Type).(LogEntryType) == Noop {
+	if entry :=rL.getEntry(index, Type); entry != nil && entry.(LogEntryType) == Noop {
 		return nil
 	}
 	return rL.getEntry(index, Command)

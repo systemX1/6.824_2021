@@ -89,11 +89,11 @@ func (kv *KVServer) OpHandler(args *OpArgs, reply *OpReply) {
 	case <-time.After(ServerApplyTimeout):
 		reply.Err = ErrTimeout
 	}
-	DPrintf(kvserver, "Op DONE %v %v %v", kv, args, reply)
 
 	go func() {
 		kv.Lock()
 		defer kv.Unlock()
+		DPrintf(kvserver, "Op DONE %v %v %v", kv, args, reply)
 		delete(kv.replyChanSet, logIndex)
 	}()
 	return
@@ -181,6 +181,10 @@ func (kv *KVServer) doApply(op *Op) *OpReply {
 }
 
 func (kv *KVServer) doSnapshot() {
+
+}
+
+func (kv *KVServer) snapshotLoop() {
 
 }
 

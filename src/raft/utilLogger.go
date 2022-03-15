@@ -2,6 +2,7 @@ package raft
 
 import (
 	"fmt"
+	"io"
 	"log"
 	"math"
 	"path"
@@ -13,7 +14,7 @@ func init() {
 	debugFilter = subset
 	log.SetFlags(log.Ltime | log.Lmicroseconds)
 	//log.SetFlags(0)
-	//log.SetOutput(io.Discard)
+	log.SetOutput(io.Discard)
 	//log.Lshortfile |
 }
 
@@ -69,7 +70,7 @@ func (rf *Raft) MutexLogPrintf(format string, a ...interface{}) {
 	log.Println(logInfo, printInfo)
 }
 
-func DPrintf(debugLevel uint, format string, a ...interface{}) (n int, err error) {
+func DPrintf(debugLevel uint, format string, a ...interface{}) {
 	if debugFilter(debugLevel, debugConf) {
 		funcName, file, line, _ := runtime.Caller(1)
 		file = path.Base(file)
@@ -78,17 +79,16 @@ func DPrintf(debugLevel uint, format string, a ...interface{}) (n int, err error
 		printInfo :=  fmt.Sprintf(format, a...)
 		log.Println(logInfo, printInfo)
 	}
-	return
 }
 
 func PrintLine()  {
-	log.Printf("========================================================")
+	DPrintf(debugInfo, "========================================================")
 }
 
 func PrintLine2()  {
-	log.Printf("=====================================")
+	DPrintf(debugInfo, "=====================================")
 }
 
 func PrintStars() {
-	log.Printf("********************************************************")
+	DPrintf(debugInfo, "********************************************************")
 }

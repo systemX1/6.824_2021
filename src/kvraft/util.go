@@ -24,8 +24,7 @@ const (
 	snapshot		uint = 1 << 6
 	debugError 		uint = 1 << 8
 	debugInfo 		uint = 1 << 9
-	debugConf = all
-	//debugConf = 0
+	debugConf = all - all
 )
 
 // return if "a" is a subset of "b"
@@ -47,7 +46,6 @@ func DPrintf(debugLevel uint, format string, a ...interface{}) {
 		printInfo := fmt.Sprintf(format, a...)
 		log.Println(logInfo, printInfo)
 	}
-	return
 }
 
 func DPanicf(debugLevel uint, format string, a ...interface{}) {

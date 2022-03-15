@@ -785,7 +785,7 @@ func (rf *Raft) Start(command interface{}) (int, int, bool) {
 func (rf *Raft) Kill() {
 	atomic.StoreInt32(&rf.dead, 1)
 	rf.Lock()
-	DPrintf(client, "%v is killed %v %v", rf, rf.rfLog, time.Now().Sub(rf.lastReset))
+	//DPrintf(client, "%v is killed %v %v", rf, rf.rfLog, time.Now().Sub(rf.lastReset))
 	rf.stat = Dead
 	rf.Unlock()
 }
@@ -822,7 +822,7 @@ func Make(peers []*labrpc.ClientEnd, me int,
 	// Your initialization code here (2A, 2B, 2C).
 	DPrintf(client,"%v init", rf)
 	go rf.run()
-	go rf.applyClient(applyCh)
+	go rf.applyClientLoop(applyCh)
 
 	// initialize from state persisted before a crash
 	rf.readPersist(persister.ReadRaftState())
@@ -849,25 +849,25 @@ func (rf *Raft) run() {
 			rf.Unlock()
 			rf.startLogReplication()
 
-		case t1 := <-rf.electTimer.C:
+		case _ = <-rf.electTimer.C:
 			rf.Lock()
 			if rf.stat == Leader {
 				rf.Unlock()
 				break
 			}
-			DPrintf(requsetVote, "%v ElectionTimeout %v %v",
-				rf, getTimeOffset(t1), time.Now().Sub(rf.lastReset))
+			//DPrintf(requsetVote, "%v ElectionTimeout %v %v",
+			//	rf, getTimeOffset(t1), time.Now().Sub(rf.lastReset))
 			rf.Unlock()
 			rf.startElection()
 		}
 	}
 }
 
-func (rf *Raft) applyClient(applyCh chan<- ApplyMsg) {
+func (rf *Raft) applyClientLoop(applyCh chan<- ApplyMsg) {
 	heartbeatTicker := time.Tick(heartbeatTimeout)
 	for {
 		if rf.killed() {
-			rf.DMutexPrintf(applyClient, "S%v stop applyClient", rf.me)
+			rf.DMutexPrintf(applyClient, "S%v stop applyClientLoop", rf.me)
 			PrintLine2()
 			return
 		}
@@ -907,10 +907,10 @@ func (rf *Raft) checkCommit() {
 
 // wrap
 func (rf *Raft) resetElectionTimeout()  {
-	rf.timeMu.Lock()
-	defer rf.timeMu.Unlock()
+	//rf.timeMu.Lock()
+	//defer rf.timeMu.Unlock()
 	stopResetTimer(rf.electTimer, GetElectionTimeout())
-	rf.lastReset = time.Now()
+	//rf.lastReset = time.Now()
 	funcName, _, line, _ := runtime.Caller(1)
 	funcNameStr := path.Base(runtime.FuncForPC(funcName).Name())
 	funcName2, _, line2, _ := runtime.Caller(2)
