@@ -521,17 +521,18 @@ func (reply *AppendEntriesReply) String() string {
 
 func (rf *Raft) startBroadcast(isHeartBeat bool) {
 	rf.Lock()
-	defer rf.Unlock()
-	DPrintf(logReplicate, "%v startBroadcast", rf)
+	me := rf.me
+	rf.Unlock()
+	DPrintf(logReplicate, "%v startBroadcast %v", rf, isHeartBeat)
 
 	for i := range rf.peers {
-		if i == rf.me {
+		if i == me {
 			continue
 		}
 		if isHeartBeat {
 			go rf.startReplication(i)
 		} else {
-
+			rf.replicatCond[i].Signal()
 		}
 	}
 }
@@ -764,18 +765,23 @@ func (rf *Raft) getLastEntryTerm() int {
 // the leader.
 func (rf *Raft) Start(command interface{}) (int, int, bool) {
 	rf.Lock()
-	defer rf.Unlock()
 	// Your code here (2B).
+	lastEntryIndex, currTerm := rf.getLastEntryIndex(), rf.currTerm
 	if rf.stat != Leader {
-		return rf.getLastEntryIndex() + 1, rf.currTerm, false
+		rf.Unlock()
+		return lastEntryIndex + 1, currTerm, false
 	}
-	DPrintf(client, "%v: Client start to append command %v, %v", rf, command, rf.rfLog)
+
+	DPrintf(client, "%v Client start to append command %v, %v", rf, command, rf.rfLog)
 	defer DPrintf(persist, "%v save persist %v", rf, rf.rfLog)
-	defer rf.persist()
+
 	rf.rfLog.AppendEntries(rf.lastIncludedIndex, LogEntry{Term: rf.currTerm, Command: command})
 	rf.nextIndex[rf.me] += 1
 	rf.matchIndex[rf.me] += 1
-	return rf.getLastEntryIndex() + 1, rf.currTerm, true
+	rf.persist()
+	rf.Unlock()
+	rf.startBroadcast(false)
+	return lastEntryIndex + 1, currTerm, true
 }
 
 // Kill the tester doesn't halt goroutines created by Raft after each test,
@@ -914,8 +920,12 @@ func (rf *Raft) replicateLoop(serv int) {
 	rf.replicatLock[serv].Lock()
 	defer rf.replicatLock[serv].Unlock()
 	for !rf.killed() {
-
-
+		for !rf.isNeedReplicate(serv) {
+			rf.replicatCond[serv].Wait()
+		}
+		DPrintf(replicator, "replicator startReplication %v %v", rf, rf. rfLog)
+		rf.startReplication(serv)
+		DPrintf(replicator, "replicator Done %v %v", rf, rf. rfLog)
 	}
 
 }
