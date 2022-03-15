@@ -30,8 +30,8 @@ const (
 	debugInfo 		uint = 1 << 9
 	raftLog			uint = 1 << 10
 	replicator		uint = 1 << 11
-	//debugConf = all - persist - debugInfo - raftLog
-	debugConf = replicator
+	debugConf = all - persist - debugInfo - raftLog
+	//debugConf = replicator
 	//debugConf = 0
 )
 
