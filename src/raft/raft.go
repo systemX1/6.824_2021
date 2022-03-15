@@ -235,13 +235,13 @@ func (rf *Raft) HandleInstallSnapshot(args *InstallSnapshotArgs, reply *InstallS
 	rf.Lock()
 	defer rf.Unlock()
 	defer DPrintf(snapshot, "%v %v %v %v", rf, rf.rfLog, args, reply)
+	defer rf.persist()
 	reply.Term, reply.Succ = rf.currTerm, false
 	DPrintf(snapshot, "%v %v %v", rf, args, rf.rfLog)
 
 	if args.Term > rf.currTerm {
 		rf.setState(Follower)
 		rf.setCurrTerm(args.Term)
-		rf.persist()
 	}
 	if args.Term < rf.currTerm || args.LastIncludedIndex < rf.lastIncludedIndex {
 		return
@@ -594,6 +594,7 @@ func(rf *Raft) startSendSnapshot(serv int, args *InstallSnapshotArgs, stat State
 	if reply.Term > rf.currTerm {
 		rf.setCurrTerm(reply.Term)
 		rf.setState(Follower)
+		rf.persist()
 		return false
 	}
 	rf.nextIndex[serv] = args.LastIncludedIndex + 1
