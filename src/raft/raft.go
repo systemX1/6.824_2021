@@ -532,7 +532,7 @@ func (rf *Raft) startBroadcast(isHeartBeat bool) {
 		if isHeartBeat {
 			go rf.startReplication(i)
 		} else {
-			//rf.replicatCond[i].Signal()
+			rf.replicatCond[i].Signal()
 		}
 	}
 }
@@ -922,7 +922,7 @@ func (rf *Raft) replicateLoop(serv int) {
 		}
 		DPrintf(replicator, "replicator startReplication %v %v", rf, rf.rfLog)
 		replicationNum++
-		if replicationNum == 2 {
+		if replicationNum == 1 {
 			rf.startReplication(serv)
 			replicationNum = 0
 		}
@@ -940,7 +940,7 @@ func (rf *Raft) debugRuntime() bool {
 	t1 := time.Now()
 	for {
 		rf.Lock()
-		DPrintf(replicator, "%v Goroutine Num:%v %v", time.Now().Sub(t1), runtime.NumGoroutine(), rf)
+		DPrintf(replicator, "Goroutine Num:%v %v %v", runtime.NumGoroutine(), time.Now().Sub(t1), rf)
 		rf.Unlock()
 		if runtime.NumGoroutine() > 120 {
 			panic(1)
