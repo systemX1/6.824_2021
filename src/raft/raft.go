@@ -92,6 +92,7 @@ type Raft struct {
 	matchIndex 	[]int
 	applyCh		chan ApplyMsg
 	replicatLock []*sync.Mutex
+	replicatCond []*sync.Cond
 
 	// 2D
 	lastIncludedIndex int
@@ -529,6 +530,8 @@ func (rf *Raft) startBroadcast(isHeartBeat bool) {
 		}
 		if isHeartBeat {
 			go rf.startReplication(i)
+		} else {
+
 		}
 	}
 }
@@ -537,10 +540,13 @@ func (rf *Raft) startReplication(serv int) {
 	rf.Lock()
 	prevLogIndex, prevLogTerm := -1, -1
 	currTerm, me, LeaderCommit, stat := rf.currTerm, rf.me, rf.rfLog.GetCommitIndex(), rf.stat
+	if stat != Leader {
+		rf.Unlock()
+		return
+	}
 	if rf.nextIndex[serv] > 0 {
 		prevLogIndex = rf.nextIndex[serv] - 1
 	}
-
 	var entries []LogEntry
 	if rf.nextIndex[serv] - rf.matchIndex[serv] == 1 {
 		tmp := rf.rfLog.GetUncommited(rf.nextIndex[serv])
@@ -549,6 +555,7 @@ func (rf *Raft) startReplication(serv int) {
 	}
 	lastIncludedIndex, lastIncludedTerm := rf.lastIncludedIndex, rf.lastIncludedTerm
 	rf.Unlock()
+
 	snapshotArgs := &InstallSnapshotArgs{
 		Term:              currTerm,
 		LeaderId:          me,
@@ -811,6 +818,8 @@ func Make(peers []*labrpc.ClientEnd, me int,
 		lastReset: time.Now(),
 		nextIndex: make([]int, len(peers)),
 		matchIndex: make([]int, len(peers)),
+		replicatLock: make([]*sync.Mutex, len(peers)),
+		replicatCond: make([]*sync.Cond, len(peers)),
 		lastIncludedIndex: -1,
 		lastIncludedTerm: -1,
 		rfLog: NewRaftLog(),
@@ -818,12 +827,21 @@ func Make(peers []*labrpc.ClientEnd, me int,
 	}
 
 	// Your initialization code here (2A, 2B, 2C).
-	DPrintf(client,"%v init", rf)
+	for i := range rf.peers {
+		if i == rf.me {
+			continue
+		}
+		rf.replicatLock[i] = &sync.Mutex{}
+		rf.replicatCond[i] = sync.NewCond(rf.replicatLock[i])
+		go rf.replicateLoop(i)
+	}
+
 	go rf.run()
 	go rf.applyClientLoop(applyCh)
 
 	// initialize from state persisted before a crash
 	rf.readPersist(persister.ReadRaftState())
+	DPrintf(client,"%v init", rf)
 	return rf
 }
 
@@ -885,11 +903,27 @@ func (rf *Raft) applyClientLoop(applyCh chan<- ApplyMsg) {
 					Command:      command,
 					CommandTerm:  cmdTerm,
 				}
-				DPrintf(applyClient, "%v rfLogLen:%v %v", rf, rf.rfLog.Len(), applyMsg)
+				DPrintf(applyClient, "%v rfLogLen:%v %v", rf, rf.rfLog.Len(), &applyMsg)
 				applyCh <- applyMsg
 			}
 		}
 	}
+}
+
+func (rf *Raft) replicateLoop(serv int) {
+	rf.replicatLock[serv].Lock()
+	defer rf.replicatLock[serv].Unlock()
+	for !rf.killed() {
+
+
+	}
+
+}
+
+func (rf *Raft) isNeedReplicate(serv int) bool {
+	rf.Lock()
+	defer rf.Unlock()
+	return rf.stat == Leader && rf.matchIndex[serv] < rf.getLastEntryIndex()
 }
 
 func (rf *Raft) checkCommit() {
