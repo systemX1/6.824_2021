@@ -257,18 +257,28 @@ func (rL *RfLog) GetUncommited(nextIndex int) (entries []LogEntry) {
 	return entries
 }
 
+func (rL *RfLog) GetUnappliedCopy() (entries []LogEntry) {
+	entryIdx := sort.Search(len(rL.Entries), func(i int) bool { return rL.Entries[i].Index >= rL.lastApplied })
+	if entryIdx < len(rL.Entries) && rL.Entries[entryIdx].Index == rL.lastApplied  {
+		length := rL.commitIndex - rL.lastApplied
+		entries := make([]LogEntry, length)
+		copy(entries, rL.Entries[entryIdx + 1:entryIdx + 1 + length])
+	}
+	return entries
+}
+
 func (rL *RfLog) getEntry(index int, typ LogEntryItem) interface{} {
-	entry := sort.Search(len(rL.Entries), func(i int) bool { return rL.Entries[i].Index >= index })
-	if entry < len(rL.Entries) && rL.Entries[entry].Index == index {
+	entryIdx := sort.Search(len(rL.Entries), func(i int) bool { return rL.Entries[i].Index >= index })
+	if entryIdx < len(rL.Entries) && rL.Entries[entryIdx].Index == index {
 		switch typ {
 		case Pointer:
-			return &rL.Entries[entry]
+			return &rL.Entries[entryIdx]
 		case Term:
-			return rL.Entries[entry].Term
+			return rL.Entries[entryIdx].Term
 		case Command:
-			return rL.Entries[entry].Command
+			return rL.Entries[entryIdx].Command
 		case Type:
-			return rL.Entries[entry].Type
+			return rL.Entries[entryIdx].Type
 		}
 	}
 	return nil
