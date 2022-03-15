@@ -766,12 +766,14 @@ func (rf *Raft) getLastEntryTerm() int {
 // the leader.
 func (rf *Raft) Start(command interface{}) (int, int, bool) {
 	rf.Lock()
-	defer rf.startBroadcast(false)
-	defer rf.Unlock()
+
 	// Your code here (2B).
 	if rf.stat != Leader {
+		defer rf.Unlock()
 		return rf.getLastEntryIndex() + 1, rf.currTerm, false
 	}
+	defer rf.startBroadcast(false)
+	defer rf.Unlock()
 	DPrintf(client, "%v: Client start to append command %v, %v", rf, command, rf.rfLog)
 	defer DPrintf(persist, "%v save persist %v", rf, rf.rfLog)
 	defer rf.persist()
@@ -894,7 +896,7 @@ func (rf *Raft) applyClientLoop(applyCh chan<- ApplyMsg) {
 			lastApplied := rf.rfLog.GetLastApplied()
 			commitIndex := rf.rfLog.GetCommitIndex()
 			for lastApplied < commitIndex {
-				DPrintf(applyClient, "%v lastApplied:%v, commitIndex:%v", rf, lastApplied, commitIndex)
+				//DPrintf(applyClient, "%v lastApplied:%v, commitIndex:%v", rf, lastApplied, commitIndex)
 				lastApplied = rf.rfLog.SetLastApplied(lastApplied + 1)
 				command, cmdTerm := rf.rfLog.GetEntryCommand(lastApplied), rf.rfLog.GetEntryTerm(lastApplied)
 				if command == nil {
@@ -906,8 +908,8 @@ func (rf *Raft) applyClientLoop(applyCh chan<- ApplyMsg) {
 					Command:      command,
 					CommandTerm:  cmdTerm,
 				}
-				DPrintf(applyClient, "%v rfLogLen:%v %v", rf, rf.rfLog.Len(), applyMsg)
-				applyCh <- applyMsg
+				DPrintf(applyClient, "%v rfLogLen:%v %v", rf, rf.rfLog.Len(), &applyMsg)
+				applyCh <-applyMsg
 			}
 		}
 	}
@@ -921,13 +923,13 @@ func (rf *Raft) replicateLoop(serv int) {
 		for !rf.isNeedReplicate(serv) {
 			rf.replicatCond[serv].Wait()
 		}
-		DPrintf(replicator, "replicator startReplication %v %v", rf, rf.rfLog)
+		DPrintf(replicator, "replicator%v startReplication %v %v", serv, rf, rf.rfLog)
 		replicationNum++
 		if replicationNum == 2 {
 			rf.startReplication(serv)
 			replicationNum = 0
 		}
-		DPrintf(replicator, "replicator Done %v %v", rf, rf. rfLog)
+		DPrintf(replicator, "replicator%v Done %v %v", serv, rf, rf.rfLog)
 	}
 }
 
