@@ -295,6 +295,9 @@ func (kv *KVServer) debugGoroutine() bool {
 	t1 := time.Now()
 	for {
 		DPrintf(debugInfo, "Goroutine Num:%v %v", runtime.NumGoroutine(), time.Now().Sub(t1))
+		if runtime.NumGoroutine() > 120 {
+			panic(1)
+		}
 		time.Sleep(10 * time.Second)
 	}
 }

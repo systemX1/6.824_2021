@@ -20,6 +20,7 @@ import (
 	"../labrpc"
 	"bytes"
 	"fmt"
+	"runtime"
 	"sync"
 	"sync/atomic"
 	"time"
@@ -521,18 +522,17 @@ func (reply *AppendEntriesReply) String() string {
 
 func (rf *Raft) startBroadcast(isHeartBeat bool) {
 	rf.Lock()
-	me := rf.me
-	rf.Unlock()
-	DPrintf(logReplicate, "%v startBroadcast %v", rf, isHeartBeat)
+	defer rf.Unlock()
+	DPrintf(logReplicate, "%v startBroadcast", rf)
 
 	for i := range rf.peers {
-		if i == me {
+		if i == rf.me {
 			continue
 		}
 		if isHeartBeat {
 			go rf.startReplication(i)
 		} else {
-			rf.replicatCond[i].Signal()
+			//rf.replicatCond[i].Signal()
 		}
 	}
 }
@@ -765,23 +765,18 @@ func (rf *Raft) getLastEntryTerm() int {
 // the leader.
 func (rf *Raft) Start(command interface{}) (int, int, bool) {
 	rf.Lock()
+	defer rf.Unlock()
 	// Your code here (2B).
-	lastEntryIndex, currTerm := rf.getLastEntryIndex(), rf.currTerm
 	if rf.stat != Leader {
-		rf.Unlock()
-		return lastEntryIndex + 1, currTerm, false
+		return rf.getLastEntryIndex() + 1, rf.currTerm, false
 	}
-
-	DPrintf(client, "%v Client start to append command %v, %v", rf, command, rf.rfLog)
+	DPrintf(client, "%v: Client start to append command %v, %v", rf, command, rf.rfLog)
 	defer DPrintf(persist, "%v save persist %v", rf, rf.rfLog)
-
+	defer rf.persist()
 	rf.rfLog.AppendEntries(rf.lastIncludedIndex, LogEntry{Term: rf.currTerm, Command: command})
 	rf.nextIndex[rf.me] += 1
 	rf.matchIndex[rf.me] += 1
-	rf.persist()
-	rf.Unlock()
-	rf.startBroadcast(false)
-	return lastEntryIndex + 1, currTerm, true
+	return rf.getLastEntryIndex() + 1, rf.currTerm, true
 }
 
 // Kill the tester doesn't halt goroutines created by Raft after each test,
@@ -844,6 +839,7 @@ func Make(peers []*labrpc.ClientEnd, me int,
 
 	go rf.run()
 	go rf.applyClientLoop(applyCh)
+	go rf.debugRuntime()
 
 	// initialize from state persisted before a crash
 	rf.readPersist(persister.ReadRaftState())
@@ -917,23 +913,40 @@ func (rf *Raft) applyClientLoop(applyCh chan<- ApplyMsg) {
 }
 
 func (rf *Raft) replicateLoop(serv int) {
+	replicationNum := 0
 	rf.replicatLock[serv].Lock()
 	defer rf.replicatLock[serv].Unlock()
 	for !rf.killed() {
 		for !rf.isNeedReplicate(serv) {
 			rf.replicatCond[serv].Wait()
 		}
-		DPrintf(replicator, "replicator startReplication %v %v", rf, rf. rfLog)
-		rf.startReplication(serv)
+		DPrintf(replicator, "replicator startReplication %v %v", rf, rf.rfLog)
+		replicationNum++
+		if replicationNum == 2 {
+			rf.startReplication(serv)
+			replicationNum = 0
+		}
 		DPrintf(replicator, "replicator Done %v %v", rf, rf. rfLog)
 	}
-
 }
 
 func (rf *Raft) isNeedReplicate(serv int) bool {
 	rf.Lock()
 	defer rf.Unlock()
 	return rf.stat == Leader && rf.matchIndex[serv] < rf.getLastEntryIndex()
+}
+
+func (rf *Raft) debugRuntime() bool {
+	t1 := time.Now()
+	for {
+		rf.Lock()
+		DPrintf(replicator, "%v Goroutine Num:%v %v", time.Now().Sub(t1), runtime.NumGoroutine(), rf)
+		rf.Unlock()
+		if runtime.NumGoroutine() > 120 {
+			panic(1)
+		}
+		time.Sleep(10 * time.Second)
+	}
 }
 
 func (rf *Raft) checkCommit() {
