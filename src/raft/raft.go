@@ -522,63 +522,67 @@ func (reply *AppendEntriesReply) String() string {
 
 func (rf *Raft) startBroadcast(isHeartBeat bool) {
 	rf.Lock()
-	defer rf.Unlock()
-	defer DPrintf(persist, "%v save persist %v", rf, rf.rfLog)
-	defer rf.persist()
-	DPrintf(logReplicate, "%v startBroadcast", rf)
-	leaderCommit := rf.rfLog.GetCommitIndex()
+	me := rf.me
+	rf.Unlock()
+	DPrintf(logReplicate, "%v startBroadcast %v", rf, isHeartBeat)
 
 	for i := range rf.peers {
-		if i == rf.me {
+		if i == me {
 			continue
 		}
-		go func(serv, currTerm, me, LeaderCommit int, stat State) {
-			rf.Lock()
-			prevLogIndex := -1
-			prevLogTerm := -1
-			if rf.nextIndex[serv] > 0 {
-				prevLogIndex = rf.nextIndex[serv] - 1
-			}
-
-			var entries []LogEntry
-			if rf.nextIndex[serv] - rf.matchIndex[serv] == 1 {
-				tmp := rf.rfLog.GetUncommited(rf.nextIndex[serv])
-				entries = make([]LogEntry, len(tmp))
-				copy(entries, tmp)
-			}
-			lastIncludedIndex, lastIncludedTerm := rf.lastIncludedIndex, rf.lastIncludedTerm
-			rf.Unlock()
-			snapshotArgs := &InstallSnapshotArgs{
-				Term:              currTerm,
-				LeaderId:          me,
-				LastIncludedIndex: lastIncludedIndex,
-				LastIncludedTerm:  lastIncludedTerm,
-				Data:              rf.persister.ReadSnapshot(),
-			}
-			if prevLogIndex < lastIncludedIndex {
-				if ok := rf.startSendSnapshot(serv, snapshotArgs, stat); !ok {
-					return
-				}
-			}
-
-			rf.Lock()
-			if rf.nextIndex[serv] > 0 {
-				prevLogIndex = rf.nextIndex[serv] - 1
-				prevLogTerm = rf.rfLog.GetEntryTerm(prevLogIndex)
-			}
-			if prevLogIndex == rf.lastIncludedIndex {
-				prevLogTerm = rf.lastIncludedTerm
-			}
-			rf.Unlock()
-			if ok := rf.startAppendEntries(serv, currTerm, me, prevLogIndex, prevLogTerm, LeaderCommit, entries, stat); !ok {
-				return
-			}
-		}(i, rf.currTerm, rf.me, leaderCommit, rf.stat)
+		if isHeartBeat {
+			go rf.startReplication(i)
+		} else {
+			rf.replicatCond[i].Signal()
+		}
 	}
 }
 
-func (rf *Raft) startReplication() {
+func (rf *Raft) startReplication(serv int) {
+	rf.Lock()
+	prevLogIndex, prevLogTerm := -1, -1
+	currTerm, me, LeaderCommit, stat := rf.currTerm, rf.me, rf.rfLog.GetCommitIndex(), rf.stat
+	if stat != Leader {
+		rf.Unlock()
+		return
+	}
+	if rf.nextIndex[serv] > 0 {
+		prevLogIndex = rf.nextIndex[serv] - 1
+	}
+	var entries []LogEntry
+	if rf.nextIndex[serv] - rf.matchIndex[serv] == 1 {
+		tmp := rf.rfLog.GetUncommited(rf.nextIndex[serv])
+		entries = make([]LogEntry, len(tmp))
+		copy(entries, tmp)
+	}
+	lastIncludedIndex, lastIncludedTerm := rf.lastIncludedIndex, rf.lastIncludedTerm
+	rf.Unlock()
 
+	snapshotArgs := &InstallSnapshotArgs{
+		Term:              currTerm,
+		LeaderId:          me,
+		LastIncludedIndex: lastIncludedIndex,
+		LastIncludedTerm:  lastIncludedTerm,
+		Data:              rf.persister.ReadSnapshot(),
+	}
+	if prevLogIndex < lastIncludedIndex {
+		if ok := rf.startSendSnapshot(serv, snapshotArgs, stat); !ok {
+			return
+		}
+	}
+
+	rf.Lock()
+	if rf.nextIndex[serv] > 0 {
+		prevLogIndex = rf.nextIndex[serv] - 1
+		prevLogTerm = rf.rfLog.GetEntryTerm(prevLogIndex)
+	}
+	if prevLogIndex == rf.lastIncludedIndex {
+		prevLogTerm = rf.lastIncludedTerm
+	}
+	rf.Unlock()
+	if ok := rf.startAppendEntries(serv, currTerm, me, prevLogIndex, prevLogTerm, LeaderCommit, entries, stat); !ok {
+		return
+	}
 }
 
 func(rf *Raft) startSendSnapshot(serv int, args *InstallSnapshotArgs, stat State) bool {
@@ -816,6 +820,8 @@ func Make(peers []*labrpc.ClientEnd, me int,
 		lastReset: time.Now(),
 		nextIndex: make([]int, len(peers)),
 		matchIndex: make([]int, len(peers)),
+		replicatLock: make([]*sync.Mutex, len(peers)),
+		replicatCond: make([]*sync.Cond, len(peers)),
 		lastIncludedIndex: -1,
 		lastIncludedTerm: -1,
 		rfLog: NewRaftLog(),
