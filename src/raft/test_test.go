@@ -1122,4 +1122,4 @@ func TestSnapshotInstallCrash2D(t *testing.T) {
 func TestSnapshotInstallUnCrash2D(t *testing.T) {
 	snapcommon(t, "Test (2D): install snapshots (unreliable+crash)", false, false, true)
 }
-//time go test -run "[a-zA-Z]+2[A-Z]" -race
+//time go test -run "[a-zA-Z0-9]+2[A-Z]" -race

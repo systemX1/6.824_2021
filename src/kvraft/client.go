@@ -43,11 +43,17 @@ func MakeClerk(servers []*labrpc.ClientEnd) *Clerk {
 func (ck *Clerk) StartOp(args *OpArgs) string {
 	args.Seq = ck.nextSeq()
 	leader := atomic.LoadInt32(&ck.leader)
+	rpcErrorNum := 0 // try another server after rpc error(server crashed) 3 times
 	for {
 		reply := &OpReply{}
 		DPrintf(clerk, "%v to S%v %v", ck, leader, args)
 		if ok := ck.servers[leader].Call("KVServer.OpHandler", args, reply); !ok {
 			DPrintf(clerk, "%v to S%v failed %v %v", ck, leader, args, reply)
+			rpcErrorNum++
+			if rpcErrorNum == 3 {
+				leader = ck.nextLeader()
+				rpcErrorNum = 0
+			}
 			time.Sleep(ClerkRetryTimeout)
 			continue
 		}

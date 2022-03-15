@@ -59,14 +59,14 @@ type ApplyMsg struct {
 	SnapshotIndex int
 }
 
-func (msg ApplyMsg) String() string {
+func (msg *ApplyMsg) String() string {
 	if msg.CommandValid == true {
 		return fmt.Sprintf("[msg idx:%v cmd:%v]",
 			msg.CommandIndex, msg.Command,
 		)
 	}
-	return fmt.Sprintf("[msg sn idx:%v t:%v %v]",
-		msg.SnapshotIndex, msg.SnapshotTerm, msg.Snapshot,
+	return fmt.Sprintf("[msg sn idx:%v t:%v l:%v]",
+		msg.SnapshotIndex, msg.SnapshotTerm, len(msg.Snapshot),
 	)
 }
 
@@ -212,8 +212,8 @@ type InstallSnapshotArgs struct {
 	Data              []byte
 }
 func (args *InstallSnapshotArgs) String() string {
-	return fmt.Sprintf("[arg t:%v lasInIdx:%v lasInT:%v data:%v]",
-		args.Term, args.LastIncludedIndex, args.LastIncludedTerm, args.Data)
+	return fmt.Sprintf("[arg t:%v lasInIdx:%v lasInT:%v datalen:%v]",
+		args.Term, args.LastIncludedIndex, args.LastIncludedTerm, len(args.Data))
 }
 
 type InstallSnapshotReply struct {
@@ -288,14 +288,14 @@ func (rf *Raft) CondInstallSnapshot(lastIncludedTerm int,
 	lastIncludedIndex--
 	rf.Lock()
 	defer rf.Unlock()
-	defer DPrintf(snapshot, "%v lasInIdx:%v lasInT:%v data:%v", rf, lastIncludedIndex, lastIncludedTerm, data)
+	defer DPrintf(snapshot, "%v lasInIdx:%v lasInT:%v dataLen:%v", rf, lastIncludedIndex, lastIncludedTerm, len(data))
 
 	if lastIncludedIndex < rf.rfLog.GetCommitIndex() {
-		DPrintf(snapshot, "%v outdated Snapshot lasInIdx:%v lasInT:%v data:%v", rf, lastIncludedIndex, lastIncludedTerm, data)
+		DPrintf(snapshot, "%v outdated Snapshot lasInIdx:%v lasInT:%v dataLen:%v", rf, lastIncludedIndex, lastIncludedTerm, len(data))
 		return false
 	}
 
-	DPrintf(snapshot, "%v lasInIdx:%v lasInT:%v data:%v", rf, lastIncludedIndex, lastIncludedTerm, data)
+	DPrintf(snapshot, "%v lasInIdx:%v lasInT:%v dataLen:%v", rf, lastIncludedIndex, lastIncludedTerm, len(data))
 	if lastIncludedIndex >= rf.rfLog.GetLastEntryIndex() {
 		rf.rfLog.Clear()
 	} else {
@@ -324,7 +324,7 @@ func (rf *Raft) Snapshot(index int, data []byte) {
 	index--
 	rf.Lock()
 	defer rf.Unlock()
-	DPrintf(snapshot, "%v idx:%v data:%v %v", rf, index, data, rf.rfLog)
+	DPrintf(snapshot, "%v idx:%v dataLen:%v %v", rf, index, len(data), rf.rfLog)
 	ok, entryIdx, entryTerm := rf.rfLog.DoSnapshot(index)
 	if ok {
 		rf.persister.SaveStateAndSnapshot(rf.serializeStableState(), data)
@@ -901,6 +901,10 @@ func (rf *Raft) checkCommit() {
 			rf.rfLog.SetCommitIndex(n)
 		}
 	}
+}
+
+func (rf *Raft) GetPersisterSize() int {
+	return rf.persister.RaftStateSize()
 }
 
 // wrap

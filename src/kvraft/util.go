@@ -21,10 +21,10 @@ const (
 	all 			uint = math.MaxUint32
 	clerk			uint = 1 << 4
 	kvserver 		uint = 1 << 5
-	snapshot		uint = 1 << 6
+	snapshotLog		uint = 1 << 6
 	debugError 		uint = 1 << 8
 	debugInfo 		uint = 1 << 9
-	debugConf = debugInfo
+	debugConf = all
 )
 
 // return if "a" is a subset of "b"
