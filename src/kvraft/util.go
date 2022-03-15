@@ -11,7 +11,7 @@ import (
 
 var debugFilter func (a uint, b uint) bool
 func init() {
-	debugFilter = intersection
+	debugFilter = subset
 	log.SetFlags(log.Ltime | log.Lmicroseconds)
 	//log.SetOutput(io.Discard)
 	//log.Lshortfile |
@@ -24,7 +24,7 @@ const (
 	snapshot		uint = 1 << 6
 	debugError 		uint = 1 << 8
 	debugInfo 		uint = 1 << 9
-	debugConf = all - all
+	debugConf = debugInfo
 )
 
 // return if "a" is a subset of "b"

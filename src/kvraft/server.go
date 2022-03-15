@@ -5,6 +5,7 @@ import (
 	"../labrpc"
 	"../raft"
 	"fmt"
+	"runtime"
 	"sync"
 	"sync/atomic"
 	"time"
@@ -240,5 +241,14 @@ func StartKVServer(servers []*labrpc.ClientEnd, me int, persister *raft.Persiste
 	kv.lastApplied = -1
 	DPrintf(kvserver,"%v init", kv)
 	go kv.run()
+	go kv.debugGoroutine()
 	return kv
+}
+
+func (kv *KVServer) debugGoroutine() bool {
+	t1 := time.Now()
+	for {
+		DPrintf(debugInfo, "Goroutine Num:%v %v", runtime.NumGoroutine(), time.Now().Sub(t1))
+		time.Sleep(10 * time.Second)
+	}
 }

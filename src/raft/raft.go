@@ -20,8 +20,6 @@ import (
 	"../labrpc"
 	"bytes"
 	"fmt"
-	"path"
-	"runtime"
 	"sync"
 	"sync/atomic"
 	"time"
@@ -88,7 +86,6 @@ type Raft struct {
 	stat 		State
 	electTimer	*time.Timer
 	lastReset	time.Time
-	timeMu		sync.Mutex
 
 	rfLog     *RfLog
 	nextIndex []int
@@ -408,7 +405,7 @@ func (rf *Raft) startElection() {
 
 // don't hold any locks thought any RPC calls for deadlock avoidance
 func (rf *Raft) startRequestVote(serv, term, me, lastLogIndex, lastLogTerm int, stat State) bool {
-	rf.DMutexPrintf(requsetVote, "%v is sending an RequestVote to %v", rf, serv)
+	DPrintf(requsetVote, "%v is sending an RequestVote to %v", rf, serv)
 	args := RequestVoteArgs{
 		Term: term, 	CandidateID: me,
 		LastLogIndex: 	lastLogIndex,
@@ -416,7 +413,7 @@ func (rf *Raft) startRequestVote(serv, term, me, lastLogIndex, lastLogTerm int, 
 	}
 	var reply RequestVoteReply
 	if ok := rf.sendRequestVote(serv, &args, &reply); !ok || reply.Term > term {
-		rf.DMutexPrintf(requsetVote, "%v sendRequestVote to S%v failed", rf, serv)
+		DPrintf(requsetVote, "%v sendRequestVote to S%v failed", rf, serv)
 		return false
 	}
 	// Term confusion: drop the reply and return if the term and state has changed
@@ -520,12 +517,12 @@ func (reply *AppendEntriesReply) String() string {
 		reply.Term, reply.Success, reply.Incoist, reply.TermIncoist, reply.NextIndex)
 }
 
-func (rf *Raft) startLogReplication()  {
+func (rf *Raft) startBroadcast(isHeartBeat bool) {
 	rf.Lock()
 	defer rf.Unlock()
 	defer DPrintf(persist, "%v save persist %v", rf, rf.rfLog)
 	defer rf.persist()
-	DPrintf(logReplicate, "%v startLogReplication", rf)
+	DPrintf(logReplicate, "%v startBroadcast", rf)
 	leaderCommit := rf.rfLog.GetCommitIndex()
 
 	for i := range rf.peers {
@@ -575,6 +572,10 @@ func (rf *Raft) startLogReplication()  {
 			}
 		}(i, rf.currTerm, rf.me, leaderCommit, rf.stat)
 	}
+}
+
+func (rf *Raft) startReplication() {
+
 }
 
 func(rf *Raft) startSendSnapshot(serv int, args *InstallSnapshotArgs, stat State) bool {
@@ -647,8 +648,7 @@ func(rf *Raft) startAppendEntries(serv, currTerm, me, prevLogIndex, prevLogTerm,
 				rf.matchIndex[serv] = rf.nextIndex[serv] - 1
 			}
 		}
-		DPrintf(debugError|logReplicate, "%v sendAppendEntries to S%v failed, %v %v",
-			rf, serv, args, reply)
+		DPrintf(debugError|logReplicate, "%v sendAppendEntries to S%v failed, %v %v", rf, serv, args, reply)
 		return false
 	}
 	// NOTE: 因为RPC期间无锁, 可能相关状态被其他RPC修改了
@@ -758,7 +758,6 @@ func (rf *Raft) getLastEntryTerm() int {
 // the leader.
 func (rf *Raft) Start(command interface{}) (int, int, bool) {
 	rf.Lock()
-	//defer rf.startLogReplication()
 	defer rf.Unlock()
 	// Your code here (2B).
 	if rf.stat != Leader {
@@ -785,7 +784,7 @@ func (rf *Raft) Start(command interface{}) (int, int, bool) {
 func (rf *Raft) Kill() {
 	atomic.StoreInt32(&rf.dead, 1)
 	rf.Lock()
-	//DPrintf(client, "%v is killed %v %v", rf, rf.rfLog, time.Now().Sub(rf.lastReset))
+	DPrintf(client, "%v is killed %v %v", rf, rf.rfLog, time.Now().Sub(rf.lastReset))
 	rf.stat = Dead
 	rf.Unlock()
 }
@@ -834,7 +833,7 @@ func (rf *Raft) run() {
 	rf.resetElectionTimeout()
 	for {
 		if rf.killed() {
-			rf.DMutexPrintf(client, "%v stop running", rf)
+			DPrintf(client, "%v stop running", rf)
 			PrintLine()
 			return
 		}
@@ -847,7 +846,7 @@ func (rf *Raft) run() {
 			}
 			DPrintf(heartbeat, "%v sending heartbeat msg", rf)
 			rf.Unlock()
-			rf.startLogReplication()
+			rf.startBroadcast(true)
 
 		case _ = <-rf.electTimer.C:
 			rf.Lock()
@@ -855,8 +854,7 @@ func (rf *Raft) run() {
 				rf.Unlock()
 				break
 			}
-			//DPrintf(requsetVote, "%v ElectionTimeout %v %v",
-			//	rf, getTimeOffset(t1), time.Now().Sub(rf.lastReset))
+			//DPrintf(requsetVote, "%v ElectionTimeout %v %v", rf, getTimeOffset(t1), time.Now().Sub(rf.lastReset))
 			rf.Unlock()
 			rf.startElection()
 		}
@@ -867,7 +865,7 @@ func (rf *Raft) applyClientLoop(applyCh chan<- ApplyMsg) {
 	heartbeatTicker := time.Tick(heartbeatTimeout)
 	for {
 		if rf.killed() {
-			rf.DMutexPrintf(applyClient, "S%v stop applyClientLoop", rf.me)
+			DPrintf(applyClient, "S%v stop applyClientLoop", rf.me)
 			PrintLine2()
 			return
 		}
@@ -911,10 +909,9 @@ func (rf *Raft) resetElectionTimeout()  {
 	//defer rf.timeMu.Unlock()
 	stopResetTimer(rf.electTimer, GetElectionTimeout())
 	//rf.lastReset = time.Now()
-	funcName, _, line, _ := runtime.Caller(1)
-	funcNameStr := path.Base(runtime.FuncForPC(funcName).Name())
-	funcName2, _, line2, _ := runtime.Caller(2)
-	funcNameStr2 := path.Base(runtime.FuncForPC(funcName2).Name())
-	DPrintf(requsetVote, "%d %s %d %s @resetElectionTimeout S%v",
-		line, funcNameStr, line2, funcNameStr2, rf.me)
+	//funcName, _, line, _ := runtime.Caller(1)
+	//funcNameStr := path.Base(runtime.FuncForPC(funcName).Name())
+	//funcName2, _, line2, _ := runtime.Caller(2)
+	//funcNameStr2 := path.Base(runtime.FuncForPC(funcName2).Name())
+	//DPrintf(requsetVote, "%d %s %d %s @resetElectionTimeout S%v", line, funcNameStr, line2, funcNameStr2, rf.me)
 }

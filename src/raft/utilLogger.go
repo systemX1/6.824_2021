@@ -2,7 +2,6 @@ package raft
 
 import (
 	"fmt"
-	"io"
 	"log"
 	"math"
 	"path"
@@ -14,7 +13,7 @@ func init() {
 	debugFilter = subset
 	log.SetFlags(log.Ltime | log.Lmicroseconds)
 	//log.SetFlags(0)
-	log.SetOutput(io.Discard)
+	//log.SetOutput(io.Discard)
 	//log.Lshortfile |
 }
 
@@ -42,21 +41,6 @@ func subset(a, b uint) bool {
 // return if "a" intersection "b" not empty
 func intersection(a, b uint) bool {
 	return a & b != 0 || a == 0
-}
-
-// DMutexPrintf log func
-func (rf *Raft) DMutexPrintf(debugLevel uint, format string, a ...interface{}) {
-	if debugFilter(debugLevel, debugConf) {
-		funcName, file, line, _ := runtime.Caller(1)
-		file = path.Base(file)
-		funcNameStr := path.Base(runtime.FuncForPC(funcName).Name())
-		logInfo := fmt.Sprintf("%v %d %s", file, line, funcNameStr)
-		rf.Lock()
-		defer rf.Unlock()
-		printInfo :=  fmt.Sprintf(format, a...)
-		log.Println(logInfo, printInfo)
-	}
-	return
 }
 
 func (rf *Raft) MutexLogPrintf(format string, a ...interface{}) {

@@ -13,8 +13,8 @@ const (
 )
 
 const (
-	ClerkRetryTimeout   = 400 * time.Millisecond
-	ClerkWLeaderTimeout = 200 * time.Millisecond
+	ClerkRetryTimeout   = 200 * time.Millisecond
+	ClerkWLeaderTimeout = 100 * time.Millisecond
 	ServerApplyTimeout  = 2000 * time.Millisecond
 	clntIdDebugMod      = 1000000
 )
