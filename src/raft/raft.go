@@ -521,9 +521,9 @@ func (reply *AppendEntriesReply) String() string {
 }
 
 func (rf *Raft) startBroadcast(isHeartBeat bool) {
-	rf.Lock()
+	//rf.Lock()
 	me := rf.me
-	rf.Unlock()
+	//rf.Unlock()
 	DPrintf(logReplicate, "%v startBroadcast %v", rf, isHeartBeat)
 
 	for i := range rf.peers {
@@ -766,6 +766,7 @@ func (rf *Raft) getLastEntryTerm() int {
 // the leader.
 func (rf *Raft) Start(command interface{}) (int, int, bool) {
 	rf.Lock()
+	defer rf.startBroadcast(false)
 	defer rf.Unlock()
 	// Your code here (2B).
 	if rf.stat != Leader {
@@ -829,12 +830,21 @@ func Make(peers []*labrpc.ClientEnd, me int,
 	}
 
 	// Your initialization code here (2A, 2B, 2C).
-	DPrintf(client,"%v init", rf)
+	for i := range rf.peers {
+		if i == rf.me {
+			continue
+		}
+		rf.replicatLock[i] = &sync.Mutex{}
+		rf.replicatCond[i] = sync.NewCond(rf.replicatLock[i])
+		go rf.replicateLoop(i)
+	}
+
 	go rf.run()
 	go rf.applyClientLoop(applyCh)
 
 	// initialize from state persisted before a crash
 	rf.readPersist(persister.ReadRaftState())
+	DPrintf(client,"%v init", rf)
 	return rf
 }
 
@@ -902,7 +912,6 @@ func (rf *Raft) applyClientLoop(applyCh chan<- ApplyMsg) {
 		}
 	}
 }
-
 
 func (rf *Raft) replicateLoop(serv int) {
 	replicationNum := 0
