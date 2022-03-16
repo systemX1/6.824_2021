@@ -18,9 +18,9 @@ func init() {
 }
 
 const (
-	all 			uint = math.MaxUint32
-	requsetVote 	uint = 1
-	heartbeat 		uint = 1 << 2
+	all         uint = math.MaxUint32
+	requestVote uint = 1
+	heartbeat   uint = 1 << 2
 	logReplicate 	uint = 1 << 3
 	applyClient		uint = 1 << 4
 	persist 		uint = 1 << 5

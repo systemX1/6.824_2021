@@ -377,12 +377,12 @@ func (rf *Raft) startElection() {
 	rf.setVotedFor(rf.me)
 	lastLogIndex := rf.getLastEntryIndex()
 	lastLogTerm := rf.getLastEntryTerm()
-	DPrintf(requsetVote, "%v is starting an election", rf)
+	DPrintf(requestVote, "%v is starting an election", rf)
 	votes := 1
 	done := false
 	for i := range rf.peers {
 		if i == rf.me {
-			DPrintf(requsetVote, "%v votes to itself, votes:%v", rf, votes)
+			DPrintf(requestVote, "%v votes to itself, votes:%v", rf, votes)
 			continue
 		}
 		go func(idx, term, me, lastLogIndex, lastLogTerm int, stat State) {
@@ -392,23 +392,23 @@ func (rf *Raft) startElection() {
 			rf.Lock()
 			defer rf.Unlock()
 			votes++
-			DPrintf(requsetVote, "%v got vote from %v, votes:%v", rf, idx, votes)
+			DPrintf(requestVote, "%v got vote from %v, votes:%v", rf, idx, votes)
 			if done || votes <= len(rf.peers) / 2 { return }
 			done = true
 			if rf.stat != Candidate || rf.currTerm != term {
-				DPrintf(requsetVote, "%v back to Follower", rf)
+				DPrintf(requestVote, "%v back to Follower", rf)
 				return
 			}
 			rf.setState(Leader)
 			rf.initPeerLogIndex()
-			DPrintf(requsetVote, "%v WON the election, votes:%v, peers:%v, RLogs:%v", rf, votes, len(rf.peers), rf.rL)
+			DPrintf(requestVote, "%v WON the election, votes:%v, peers:%v, RLogs:%v", rf, votes, len(rf.peers), rf.rL)
 		}(i, rf.currTerm, rf.me, lastLogIndex, lastLogTerm, rf.stat)
 	}
 }
 
 // don't hold any locks thought any RPC calls for deadlock avoidance
 func (rf *Raft) startRequestVote(serv, term, me, lastLogIndex, lastLogTerm int, stat State) bool {
-	DPrintf(requsetVote, "%v is sending an RequestVote to %v", rf, serv)
+	DPrintf(requestVote, "%v is sending an RequestVote to %v", rf, serv)
 	args := RequestVoteArgs{
 		Term: term, 	CandidateID: me,
 		LastLogIndex: 	lastLogIndex,
@@ -416,7 +416,7 @@ func (rf *Raft) startRequestVote(serv, term, me, lastLogIndex, lastLogTerm int, 
 	}
 	var reply RequestVoteReply
 	if ok := rf.sendRequestVote(serv, &args, &reply); !ok || reply.Term > term {
-		DPrintf(requsetVote, "%v sendRequestVote to S%v failed", rf, serv)
+		DPrintf(requestVote, "%v sendRequestVote to S%v failed", rf, serv)
 		return false
 	}
 	// Term confusion: drop the reply and return if the term and state has changed
@@ -425,7 +425,7 @@ func (rf *Raft) startRequestVote(serv, term, me, lastLogIndex, lastLogTerm int, 
 	if rf.currTerm != term || rf.stat != stat {
 		return false
 	}
-	DPrintf(requsetVote, "%v sendRequestVote to S%v succ", rf, serv)
+	DPrintf(requestVote, "%v sendRequestVote to S%v succ", rf, serv)
 	return reply.VoteGranted
 }
 
@@ -467,12 +467,12 @@ func (rf *Raft) HandleRequestVote(arg *RequestVoteArgs, reply *RequestVoteReply)
 	defer rf.Unlock()
 	defer DPrintf(persist, "%v save persist %v", rf, rf.rL)
 	defer rf.persist()
-	DPrintf(requsetVote, "%v received RequestVote RPC from %v, %v", rf, arg.CandidateID, arg)
+	DPrintf(requestVote, "%v received RequestVote RPC from %v, %v", rf, arg.CandidateID, arg)
 	reply.Term = rf.currTerm
 
 	lastLogIndex := rf.getLastEntryIndex()
 	lastLogTerm := rf.getLastEntryTerm()
-	DPrintf(requsetVote, "%v lasLogIdx:%v lasLogT:%v", rf, lastLogIndex, lastLogTerm)
+	DPrintf(requestVote, "%v lasLogIdx:%v lasLogT:%v", rf, lastLogIndex, lastLogTerm)
 
 	if (arg.Term < rf.currTerm) || (arg.LastLogTerm < lastLogTerm ||
 		(arg.LastLogTerm == lastLogTerm && arg.LastLogIndex < lastLogIndex) ) {
@@ -487,7 +487,7 @@ func (rf *Raft) HandleRequestVote(arg *RequestVoteArgs, reply *RequestVoteReply)
 		reply.VoteGranted = true
 		rf.setVotedFor(arg.CandidateID)
 		rf.resetElectionTimeout()
-		DPrintf(requsetVote, "%v VOTE to %v", rf, arg.CandidateID)
+		DPrintf(requestVote, "%v VOTE to %v", rf, arg.CandidateID)
 	}
 }
 
@@ -722,8 +722,13 @@ func (rf *Raft) HandleAppendEntries(args *AppendEntriesArgs, reply *AppendEntrie
 	DPrintf(heartbeat|logReplicate, "%v reset electionTimeout", rf)
 	rf.rL.TruncateAppend(args.PrevLogIndex, args.Entries)
 
+	// If leaderCommit > commitIndex, set commitIndex = min(leaderCommit, index of last new entry)
 	if args.LeaderCommit > rf.rL.GetCommitIndex() {
-		lastEntryIndex := rf.getLastEntryIndex()
+		//lastEntryIndex := rf.getLastEntryIndex()
+		lastEntryIndex := args.PrevLogIndex
+		if len(args.Entries) > 0 {
+			lastEntryIndex = args.Entries[len(args.Entries)-1].Index
+		}
 		rf.rL.SetCommitIndex(min(args.LeaderCommit, lastEntryIndex) )
 	}
 }
@@ -877,11 +882,11 @@ func (rf *Raft) run() {
 
 		case _ = <-rf.electTimer.C:
 			rf.Lock()
-			if rf.stat == Leader {
+			if rf.stat == Leader || rf.stat == Dead {
 				rf.Unlock()
 				break
 			}
-			//DPrintf(requsetVote, "%v ElectionTimeout %v %v", rf, getTimeOffset(t1), time.Now().Sub(rf.lastReset))
+			//DPrintf(requestVote, "%v ElectionTimeout %v %v", rf, getTimeOffset(t1), time.Now().Sub(rf.lastReset))
 			rf.Unlock()
 			rf.startElection()
 		}
@@ -929,7 +934,7 @@ func (rf *Raft) applyClientLoop(applyCh chan<- ApplyMsg) {
 			commitIndex := rf.rL.GetCommitIndex()
 			for lastApplied < commitIndex {
 				DPrintf(applyClient, "%v lastApplied:%v, commitIndex:%v", rf, lastApplied, commitIndex)
-				lastApplied += 1
+				lastApplied = rf.rL.SetLastApplied(lastApplied + 1)
 				command, cmdTerm := rf.rL.GetEntryCommand(lastApplied), rf.rL.GetEntryTerm(lastApplied)
 				if command == nil {
 					continue
@@ -942,8 +947,8 @@ func (rf *Raft) applyClientLoop(applyCh chan<- ApplyMsg) {
 				}
 				DPrintf(applyClient, "%v rfLogLen:%v %v", rf, rf.rL.Len(), &applyMsg)
 				applyCh <- applyMsg
-				rf.rL.SetLastApplied(max(rf.rL.GetLastApplied(), commitIndex))
 			}
+			rf.rL.SetLastApplied(max(rf.rL.GetLastApplied(), commitIndex))
 		}
 	}
 }
@@ -1009,7 +1014,7 @@ func (rf *Raft) resetElectionTimeout()  {
 	//funcNameStr := path.Base(runtime.FuncForPC(funcName).Name())
 	//funcName2, _, line2, _ := runtime.Caller(2)
 	//funcNameStr2 := path.Base(runtime.FuncForPC(funcName2).Name())
-	//DPrintf(requsetVote, "%d %s %d %s @resetElectionTimeout S%v", line, funcNameStr, line2, funcNameStr2, rf.me)
+	//DPrintf(requestVote, "%d %s %d %s @resetElectionTimeout S%v", line, funcNameStr, line2, funcNameStr2, rf.me)
 }
 
 

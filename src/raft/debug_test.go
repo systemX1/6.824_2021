@@ -30,7 +30,7 @@ func TestElectionTimeout(t *testing.T) {
 	for {
 		select {
 		case t1 := <-electTimer.C:
-			DPrintf(requsetVote, "ElectionTimeout %v %v %v",
+			DPrintf(requestVote, "ElectionTimeout %v %v %v",
 				getTimeOffset(t1), t1.Sub(t0), electTimer)
 			t0 = t1
 			stopResetTimer(electTimer, GetElectionTimeout())
@@ -209,15 +209,37 @@ func TestRaftLogTruncate(t *testing.T) {
 	}
 	rL.TruncateAppendTest(13, e, n)
 
-	//e = []LogEntry{
-	//	{198, 1, 4002,0}, {199, 1, 4003,0}, {200, 1, 41,0}, {201, 1, 4103,0}, {202, 1, 4101,0}, {203, 1, 4100,0}, {204, 1, 4102,0},
-	//}
-	//n = []LogEntry{
-	//	{201, 1, 4103,0}, {202, 1, 4101,0}, {203, 1, 4100,0}, {204, 1, 4102,0},
-	//}
-	//rL.TruncateAppendTest(204, e, n)
+	e = []LogEntry{
+		{198, 1, 4002,0}, {199, 1, 4003,0}, {200, 1, 41,0}, {201, 1, 4103,0}, {202, 1, 4101,0}, {203, 1, 4100,0}, {204, 1, 4102,0},
+	}
+	n = []LogEntry{
+		{201, 1, 4103,0}, {202, 1, 4101,0}, {203, 1, 4100,0},
+	}
+	rL.TruncateAppendTest(200, e, n)
 
+	e = []LogEntry{
+		{198, 1, 4002,0}, {199, 1, 4003,0}, {200, 1, 41,0}, {201, 1, 4103,0}, {202, 1, 4101,0}, {203, 1, 4100,0}, {204, 1, 4102,0}, {205, 1, 4103,0},
+	}
+	n = []LogEntry{
+		{201, 1, 4103,0}, {202, 1, 4101,0}, {203, 1, 4100,0}, {204, 1, 4102,0},
+	}
+	rL.TruncateAppendTest(200, e, n)
 
+	e = []LogEntry{
+		{198, 1, 4002,0}, {199, 1, 4003,0}, {200, 1, 41,0}, {201, 1, 4103,0}, {202, 1, 4101,0}, {203, 1, 4100,0},
+	}
+	n = []LogEntry{
+		{201, 1, 4103,0}, {202, 1, 4101,0}, {203, 1, 4100,0}, {204, 1, 4102,0},
+	}
+	rL.TruncateAppendTest(200, e, n)
+
+	e = []LogEntry{
+		{198, 1, 4002,0}, {199, 1, 4003,0}, {200, 1, 41,0}, {201, 1, 4103,0}, {202, 1, 4101,0}, {203, 1, 4100,0},
+	}
+	n = []LogEntry{
+		{201, 1, 4103,0}, {202, 1, 4101,0}, {203, 2, 4100,0}, {204, 2, 4102,0},
+	}
+	rL.TruncateAppendTest(200, e, n)
 }
 
 func (rL *RfLog) TruncateAppendTest(prevLogIndex int, old, new []LogEntry) {

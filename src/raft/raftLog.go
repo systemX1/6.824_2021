@@ -120,23 +120,20 @@ func (rL *RfLog) TruncateAppend(prevLogIndex int, entries []LogEntry) {
 	DPrintf(raftLog, "lastEntryIndex:%v entryIdx:%v", lastEntryIndex, entryIdx)
 
 	// remove conflict Entries
-	//if entries == nil && rL.Entries != nil && prevLogIndex + 1 <= lastEntryIndex {
-	//	rL.Entries = rL.Entries[:prevLogIndex + 1]
-	//}
+	// prevent overlap
 	i, j := prevLogIndex + 1, 0
 	for ;
-		i < prevLogIndex + len(entries) && i <= lastEntryIndex;
+		j < len(entries) && i <= lastEntryIndex;
 		i, j = i + 1, j + 1 {
 		DPrintf(raftLog, "i:%v j:%v", i, j)
 		if rL.Entries[i].Term != entries[j].Term {
+			rL.Entries = rL.Entries[:i]
 			break
 		}
 	}
 	DPrintf(raftLog, "i:%v j:%v fin", i, j)
-	// prevent overlap
-	rL.Entries = rL.Entries[:i]
+
 	entries = entries[j:]
-	// append
 	rL.Entries = append(rL.Entries, entries...)
 	return
 }
