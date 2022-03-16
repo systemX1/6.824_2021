@@ -100,6 +100,9 @@ func (rL *RfLog) ConflictingEntryTermIndex(lastLogTerm int) int {
 func (rL *RfLog) TruncateAppend(prevLogIndex int, entries []LogEntry) {
 	rL.Lock()
 	defer rL.Unlock()
+	if entries == nil || len(entries) == 0 {
+		return
+	}
 	if prevLogIndex < 0 {
 		rL.Entries = entries
 		return
@@ -117,9 +120,9 @@ func (rL *RfLog) TruncateAppend(prevLogIndex int, entries []LogEntry) {
 	DPrintf(raftLog, "lastEntryIndex:%v entryIdx:%v", lastEntryIndex, entryIdx)
 
 	// remove conflict Entries
-	if entries == nil && rL.Entries != nil && prevLogIndex + 1 <= lastEntryIndex {
-		rL.Entries = rL.Entries[:prevLogIndex + 1]
-	}
+	//if entries == nil && rL.Entries != nil && prevLogIndex + 1 <= lastEntryIndex {
+	//	rL.Entries = rL.Entries[:prevLogIndex + 1]
+	//}
 	i, j := prevLogIndex + 1, 0
 	for ;
 		i < prevLogIndex + len(entries) && i <= lastEntryIndex;

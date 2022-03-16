@@ -937,7 +937,7 @@ func (rf *Raft) applyClientLoop(applyCh chan<- ApplyMsg) {
 				}
 				DPrintf(applyClient, "%v rfLogLen:%v %v", rf, rf.rL.Len(), &applyMsg)
 				applyCh <- applyMsg
-				rf.rL.SetLastApplied(max(lastApplied, commitIndex))
+				rf.rL.SetLastApplied(max(rf.rL.GetLastApplied(), commitIndex))
 			}
 		}
 	}
@@ -951,13 +951,13 @@ func (rf *Raft) replicateLoop(serv int) {
 		for !rf.isNeedReplicate(serv) {
 			rf.replicatCond[serv].Wait()
 		}
-		DPrintf(replicator, "replicator%v startReplication %v %v", serv, rf, rf.rL)
+		DPrintf(replicator, "replicator%v startReplication %v %v", serv, rf, len(rf.rL.Entries))
 		replicationNum++
 		if replicationNum == 2 {
 			rf.startReplication(serv)
 			replicationNum = 0
 		}
-		DPrintf(replicator, "replicator%v Done %v %v", serv, rf, rf.rL)
+		DPrintf(replicator, "replicator%v Done %v %v", serv, rf, len(rf.rL.Entries))
 	}
 }
 
@@ -1007,9 +1007,4 @@ func (rf *Raft) resetElectionTimeout()  {
 	//DPrintf(requsetVote, "%d %s %d %s @resetElectionTimeout S%v", line, funcNameStr, line2, funcNameStr2, rf.me)
 }
 
-func max(a, b int) int {
-	if a > b {
-		return a
-	}
-	return b
-}
+

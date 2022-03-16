@@ -57,6 +57,13 @@ func min(a, b int) int {
 	return b
 }
 
+func max(a, b int) int {
+	if a > b {
+		return a
+	}
+	return b
+}
+
 // return the majority number of the input, return -1 if not exists
 func majority(nums []int) int {
 	m := make(map[int]int)
