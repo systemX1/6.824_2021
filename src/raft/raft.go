@@ -541,7 +541,8 @@ func (rf *Raft) startBroadcast(isHeartBeat bool) {
 func (rf *Raft) startReplication(serv int) {
 	rf.Lock()
 	prevLogIndex, prevLogTerm := -1, -1
-	currTerm, me, LeaderCommit, stat := rf.currTerm, rf.me, rf.rL.GetCommitIndex(), rf.stat
+	currTerm, me, stat := rf.currTerm, rf.me, rf.stat
+	lastIncludedIndex, lastIncludedTerm := rf.lastIncludedIndex, rf.lastIncludedTerm
 	if stat != Leader {
 		rf.Unlock()
 		return
@@ -549,13 +550,6 @@ func (rf *Raft) startReplication(serv int) {
 	if rf.nextIndex[serv] > 0 {
 		prevLogIndex = rf.nextIndex[serv] - 1
 	}
-	var entries []LogEntry
-	if rf.nextIndex[serv] - rf.matchIndex[serv] == 1 {
-		tmp := rf.rL.GetUncommited(rf.nextIndex[serv])
-		entries = make([]LogEntry, len(tmp))
-		copy(entries, tmp)
-	}
-	lastIncludedIndex, lastIncludedTerm := rf.lastIncludedIndex, rf.lastIncludedTerm
 	rf.Unlock()
 
 	snapshotArgs := &InstallSnapshotArgs{
@@ -572,12 +566,23 @@ func (rf *Raft) startReplication(serv int) {
 	}
 
 	rf.Lock()
+	if stat != Leader {
+		rf.Unlock()
+		return
+	}
+	currTerm, me, LeaderCommit, stat := rf.currTerm, rf.me, rf.rL.GetCommitIndex(), rf.stat
 	if rf.nextIndex[serv] > 0 {
 		prevLogIndex = rf.nextIndex[serv] - 1
 		prevLogTerm = rf.rL.GetEntryTerm(prevLogIndex)
 	}
 	if prevLogIndex == rf.lastIncludedIndex {
 		prevLogTerm = rf.lastIncludedTerm
+	}
+	var entries []LogEntry
+	if rf.nextIndex[serv] - rf.matchIndex[serv] == 1 {
+		tmp := rf.rL.GetUncommited(rf.nextIndex[serv])
+		entries = make([]LogEntry, len(tmp))
+		copy(entries, tmp)
 	}
 	rf.Unlock()
 	if ok := rf.startAppendEntries(serv, currTerm, me, prevLogIndex, prevLogTerm, LeaderCommit, entries, stat); !ok {
