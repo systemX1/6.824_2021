@@ -540,13 +540,13 @@ func (rf *Raft) startBroadcast(isHeartBeat bool) {
 
 func (rf *Raft) startReplication(serv int) {
 	rf.Lock()
-	prevLogIndex, prevLogTerm := -1, -1
-	currTerm, me, stat := rf.currTerm, rf.me, rf.stat
-	lastIncludedIndex, lastIncludedTerm := rf.lastIncludedIndex, rf.lastIncludedTerm
-	if stat != Leader {
+	if rf.stat != Leader {
 		rf.Unlock()
 		return
 	}
+	prevLogIndex, prevLogTerm := -1, -1
+	currTerm, me, stat := rf.currTerm, rf.me, rf.stat
+	lastIncludedIndex, lastIncludedTerm := rf.lastIncludedIndex, rf.lastIncludedTerm
 	if rf.nextIndex[serv] > 0 {
 		prevLogIndex = rf.nextIndex[serv] - 1
 	}
@@ -566,7 +566,7 @@ func (rf *Raft) startReplication(serv int) {
 	}
 
 	rf.Lock()
-	if stat != Leader {
+	if rf.stat != Leader {
 		rf.Unlock()
 		return
 	}
@@ -618,7 +618,6 @@ func(rf *Raft) startSendSnapshot(serv int, args *InstallSnapshotArgs, stat State
 func(rf *Raft) startAppendEntries(serv, currTerm, me, prevLogIndex, prevLogTerm,
 	leaderCommit int, entries []LogEntry, stat State) bool {
 	rf.Lock()
-
 	args := &AppendEntriesArgs{
 		Term: currTerm, 			LeaderID: me,
 		PrevLogIndex: prevLogIndex,
@@ -1006,8 +1005,6 @@ func (rf *Raft) GetPersisterSize() int {
 
 // wrap
 func (rf *Raft) resetElectionTimeout()  {
-	//rf.timeMu.Lock()
-	//defer rf.timeMu.Unlock()
 	stopResetTimer(rf.electTimer, GetElectionTimeout())
 	//rf.lastReset = time.Now()
 	//funcName, _, line, _ := runtime.Caller(1)

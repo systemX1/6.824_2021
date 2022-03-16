@@ -394,7 +394,12 @@ func TestRaftXXX(t *testing.T) {
 	log.Printf("majority:%v", majority([]int{11, -1, -1, 11, 11}))
 	log.Printf("next:%v", binarySearch(rL.Entries, 0))
 
-	//log.Printf("entries:%v", rL.Entries[binarySearch(rL.Entries, 0):])
+	a, b, c := 100, 200, 300
+	log.Printf("%v %v %v", a, b, c)
+
+	a, b, c, d := 1000, 2000, 3000, 4000
+	log.Printf("%v %v %v %v", a, b, c, d)
+
 }
 
 
