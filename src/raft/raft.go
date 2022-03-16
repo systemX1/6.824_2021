@@ -893,7 +893,7 @@ func (rf *Raft) run() {
 }
 
 func (rf *Raft) applyClientLoop(applyCh chan<- ApplyMsg) {
-	heartbeatTicker := time.Tick(heartbeatTimeout)
+	applyTicker := time.Tick(applyInterval)
 	for {
 		if rf.killed() {
 			DPrintf(applyClient, "S%v stop applyClientLoop", rf.me)
@@ -901,34 +901,7 @@ func (rf *Raft) applyClientLoop(applyCh chan<- ApplyMsg) {
 			return
 		}
 		select {
-		case <-heartbeatTicker:
-			//rf.rL.Lock()
-			//lastApplied, commitIndex := rf.rL.lastApplied, rf.rL.commitIndex
-			//var entries []LogEntry
-			//if lastApplied < commitIndex {
-			//	entries = rf.rL.GetUnappliedCopy()
-			//} else {
-			//	rf.rL.Unlock()
-			//	continue
-			//}
-			//rf.rL.Unlock()
-			//if entries != nil && len(entries) > 0 {
-			//	for _, entry := range entries {
-			//		applyMsg := ApplyMsg{
-			//			CommandValid: true,
-			//			CommandIndex: entry.Index,
-			//			Command:      entry.Command,
-			//			CommandTerm:  entry.Term,
-			//		}
-			//		applyCh <-applyMsg
-			//	}
-			//}
-			//
-			//rf.Lock()
-			//DPrintf(applyClient, "%v rfLogLen:%v %v", rf, rf.rL.Len(), entries)
-			//rf.rL.SetLastApplied(max(lastApplied + 1, commitIndex))
-			//rf.Unlock()
-
+		case <-applyTicker:
 			lastApplied := rf.rL.GetLastApplied()
 			commitIndex := rf.rL.GetCommitIndex()
 			for lastApplied < commitIndex {
@@ -953,7 +926,6 @@ func (rf *Raft) applyClientLoop(applyCh chan<- ApplyMsg) {
 }
 
 func (rf *Raft) replicateLoop(serv int) {
-	replicationNum := 0
 	rf.replicatLock[serv].Lock()
 	defer rf.replicatLock[serv].Unlock()
 	for !rf.killed() {
@@ -961,11 +933,7 @@ func (rf *Raft) replicateLoop(serv int) {
 			rf.replicatCond[serv].Wait()
 		}
 		DPrintf(replicator, "replicator%v startReplication %v %v", serv, rf, len(rf.rL.Entries))
-		replicationNum++
-		if replicationNum == 2 {
-			rf.startReplication(serv)
-			replicationNum = 0
-		}
+		rf.startReplication(serv)
 		DPrintf(replicator, "replicator%v Done %v %v", serv, rf, len(rf.rL.Entries))
 	}
 }

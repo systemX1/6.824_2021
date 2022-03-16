@@ -2,6 +2,7 @@ package raft
 
 import (
 	"fmt"
+	"io"
 	"log"
 	"math"
 	"path"
@@ -13,7 +14,7 @@ func init() {
 	debugFilter = subset
 	log.SetFlags(log.Ltime | log.Lmicroseconds)
 	//log.SetFlags(0)
-	//log.SetOutput(io.Discard)
+	log.SetOutput(io.Discard)
 	//log.Lshortfile |
 }
 
@@ -30,9 +31,9 @@ const (
 	debugInfo 		uint = 1 << 9
 	raftLog			uint = 1 << 10
 	replicator		uint = 1 << 11
-	debugConf = all - persist - debugInfo - raftLog
+	//debugConf = all - persist - debugInfo - raftLog
 	//debugConf = replicator
-	//debugConf = 0
+	debugConf = 0
 )
 
 // return if "a" is a subset of "b"

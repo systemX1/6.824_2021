@@ -9,12 +9,13 @@ import (
 const (
 	// Time
 	heartbeatTimeout = 100 * time.Millisecond
+	applyInterval    = 50 * time.Millisecond
 )
 
 // GetElectionTimeout time func
 func GetElectionTimeout() time.Duration {
 	rand.Seed(time.Now().UnixNano())
-	return time.Duration(int(randFloats(2.2, 6)*100000)) *
+	return time.Duration(int(randFloats(2.2, 5)*100000)) *
 		heartbeatTimeout / 100000
 }
 
