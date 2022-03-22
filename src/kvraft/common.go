@@ -6,11 +6,11 @@ import (
 )
 
 const (
-	ClerkRetryTimeout       = 100 * time.Millisecond
-	ClerkWLeaderTimeout     = 50 * time.Millisecond
-	ServerApplyTimeout      = 2000 * time.Millisecond
-	ServerSnapshotinterval  = 200 * time.Millisecond
-	clntIdDebugMod          = 1000000
+	ClerkRetryTimeout      = 100 * time.Millisecond
+	ClerkWLeaderTimeout    = 50 * time.Millisecond
+	ServerApplyTimeout     = 2000 * time.Millisecond
+	ServerSnapshotInterval = 200 * time.Millisecond
+	clntIdDebugMod         = 100000
 )
 
 type Err string

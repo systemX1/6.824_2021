@@ -1,7 +1,7 @@
 package shardkv
 
-import "6.824/shardctrler"
-import "6.824/labrpc"
+import "../shardctrler"
+import "../labrpc"
 import "testing"
 import "os"
 
@@ -12,7 +12,7 @@ import "math/rand"
 import "encoding/base64"
 import "sync"
 import "runtime"
-import "6.824/raft"
+import "../raft"
 import "strconv"
 import "fmt"
 import "time"
@@ -110,7 +110,7 @@ func (cfg *config) ctrlername(i int) string {
 }
 
 // shard server name for labrpc.
-// i'th server of group gid.
+// i'th server of group GID.
 func (cfg *config) servername(gid int, i int) string {
 	return "server-" + strconv.Itoa(gid) + "-" + strconv.Itoa(i)
 }

@@ -6,10 +6,10 @@
     - [X] Lab 2B
     - [X] Lab 2C
     - [X] Lab 2D
-- [ ] [**Lab 3**](https://github.com/Ray-Eldath/MIT6.824/tree/raft-2021)
-    - [ ] Lab 3A
-    - [ ] Lab 3B
-- [ ] [**Lab 4**](https://github.com/Ray-Eldath/MIT6.824/tree/raft-2021)
+- [x] [**Lab 3**](https://github.com/Ray-Eldath/MIT6.824/tree/raft-2021)
+    - [x] Lab 3A
+    - [x] Lab 3B
+- [x] [**Lab 4**](https://github.com/Ray-Eldath/MIT6.824/tree/raft-2021)
     - [ ] Lab 4A
     - [ ] Lab 4B
 

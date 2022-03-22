@@ -33,7 +33,6 @@ func nrand() int64 {
 }
 
 func MakeClerk(servers []*labrpc.ClientEnd) *Clerk {
-	time.Sleep(300 * time.Millisecond)
 	return &Clerk{
 		servers: servers,
 		clntId:  nrand(),

@@ -202,7 +202,7 @@ func (kv *KVServer) snapshotLoop() {
 			DPrintf(snapshotLog, "do Snapshot %v %v", kv, kv.rf)
 			kv.Unlock()
 		}
-		time.Sleep(ServerSnapshotinterval)
+		time.Sleep(ServerSnapshotInterval)
 	}
 }
 

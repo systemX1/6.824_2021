@@ -5,29 +5,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="60242920-15ec-48b0-a8b0-92cd967e992b" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/shardctrler/debug_test.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/shardctrler/go-test-concurr.sh" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/shardctrler/log/tester" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/shardctrler/util.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/shardkv/debug_test.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/shardkv/util.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/kvraft/client.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/kvraft/client.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/kvraft/common.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/kvraft/common.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/kvraft/go-test-concurr.sh" beforeDir="false" afterPath="$PROJECT_DIR$/src/kvraft/go-test-concurr.sh" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/kvraft/log/tester" beforeDir="false" afterPath="$PROJECT_DIR$/src/kvraft/log/tester" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/kvraft/server.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/kvraft/server.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/kvraft/test_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/kvraft/test_test.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/kvraft/util.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/kvraft/util.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/raft/go-test-concurr.sh" beforeDir="false" afterPath="$PROJECT_DIR$/src/raft/go-test-concurr.sh" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/raft/raft.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/raft/raft.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/raft/util.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/raft/util.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/raft/utilLogger.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/raft/utilLogger.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/shardctrler/client.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/shardctrler/client.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/shardctrler/common.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/shardctrler/common.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/shardctrler/config.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/shardctrler/config.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/shardctrler/server.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/shardctrler/server.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/shardctrler/test_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/shardctrler/test_test.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/shardkv/client.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/shardkv/client.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/shardkv/go-test-concurr.sh" beforeDir="false" afterPath="$PROJECT_DIR$/src/shardkv/go-test-concurr.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/shardkv/common.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/shardkv/common.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/shardkv/config.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/shardkv/config.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/shardkv/server.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/shardkv/server.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/shardkv/test_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/shardkv/test_test.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -78,11 +68,12 @@
     <property name="go.import.settings.migrated" value="true" />
     <property name="go.modules.go.list.on.any.changes.was.set" value="true" />
     <property name="go.sdk.automatically.set" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/shardctrler" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/shardkv" />
     <property name="settings.editor.selected.configurable" value="com.goide.configuration.GoLibrariesConfigurableProvider" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/shardkv" />
       <recent name="$PROJECT_DIR$/src/shardctrler" />
       <recent name="$PROJECT_DIR$/src/kvraft" />
     </key>
@@ -157,6 +148,11 @@
           <url>file://$PROJECT_DIR$/src/raft/raft.go</url>
           <line>291</line>
           <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
+          <url>file://$PROJECT_DIR$/src/kvraft/server.go</url>
+          <line>16</line>
+          <option name="timeStamp" value="2" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

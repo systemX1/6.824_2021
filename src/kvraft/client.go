@@ -31,7 +31,6 @@ func nrand() int64 {
 
 func MakeClerk(servers []*labrpc.ClientEnd) *Clerk {
 	// You'll have to add code here.
-	time.Sleep(300 * time.Millisecond)
 	return &Clerk{
 		servers: servers,
 		clntId:  nrand(),
@@ -77,9 +76,6 @@ func (ck *Clerk) StartOp(args *OpArgs) string {
 // arguments. and reply must be passed as a pointer.
 func (ck *Clerk) Get(key string) string {
 	// You will have to modify this function.
-	if len(key) == 0 {
-		return ""
-	}
 	return ck.StartOp(&OpArgs{
 		Key:   key,
 		Value: "",
@@ -96,9 +92,6 @@ func (ck *Clerk) Get(key string) string {
 // arguments. and reply must be passed as a pointer.
 func (ck *Clerk) PutAppend(key string, value string, op string) {
 	// You will have to modify this function.
-	if len(key) == 0 {
-		return
-	}
 	ck.StartOp(&OpArgs{
 		Key:   key,
 		Value: value,
