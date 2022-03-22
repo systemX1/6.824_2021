@@ -12,13 +12,6 @@ import (
 	"time"
 )
 
-type OPType string
-const (
-	GET    OPType = "Get"
-	PUT    OPType = "Put"
-	APPEND OPType = "Append"
-)
-
 type OpContext struct {
 	Key      string
 	Value    string
@@ -36,7 +29,7 @@ func (opctx *OpContext) String() string {
 	)
 }
 
-type Op OpArgs
+type Op                   OpArgs
 type KVMap                map[string]string
 type clntIdOpContextMap   map[int64]*OpContext	// (key: seq,      val: lastAppliedOp)
 type replyChan            chan *OpReply
@@ -65,7 +58,7 @@ func (kv *KVServer) String() string {
 
 func (kv *KVServer) OpHandler(args *OpArgs, reply *OpReply) {
 	kv.Lock()
-	if args.Op != string(GET) && kv.isDuplicated(args.Clnt, args.Seq) {
+	if kv.isDuplicated(args.Clnt, args.Seq) {
 		lastOpContext := kv.lastClntOpSet[args.Clnt]
 		reply.Value, reply.Err = lastOpContext.ReplyVal, lastOpContext.ReplyErr
 		DPrintf(kvserver, "Op isDuplicated%v %v %v", kv, args, reply)
@@ -98,7 +91,6 @@ func (kv *KVServer) OpHandler(args *OpArgs, reply *OpReply) {
 		DPrintf(kvserver, "Op DONE %v %v %v", kv, args, reply)
 		delete(kv.replyChanSet, logIndex)
 	}()
-	return
 }
 
 func (kv *KVServer) appendApplyChan(key int) replyChan {
@@ -295,9 +287,9 @@ func (kv *KVServer) debugGoroutine() bool {
 	t1 := time.Now()
 	for {
 		DPrintf(debugInfo, "Goroutine Num:%v %v", runtime.NumGoroutine(), time.Now().Sub(t1))
-		if runtime.NumGoroutine() > 120 {
-			panic(1)
-		}
+		//if runtime.NumGoroutine() > 120 {
+		//	panic(1)
+		//}
 		time.Sleep(10 * time.Second)
 	}
 }

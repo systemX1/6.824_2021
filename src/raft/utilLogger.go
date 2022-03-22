@@ -2,7 +2,6 @@ package raft
 
 import (
 	"fmt"
-	"io"
 	"log"
 	"math"
 	"path"
@@ -14,7 +13,7 @@ func init() {
 	debugFilter = subset
 	log.SetFlags(log.Ltime | log.Lmicroseconds)
 	//log.SetFlags(0)
-	log.SetOutput(io.Discard)
+	//log.SetOutput(io.Discard)
 	//log.Lshortfile |
 }
 

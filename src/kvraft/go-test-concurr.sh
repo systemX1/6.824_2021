@@ -47,7 +47,7 @@ fi
 logdir="./log"
 rm -rf $logdir
 mkdir -p $logdir
-
+export GO111MODULE=off
 # If the tests don't even build, don't bother. Also, this gives us a static
 # tester binary for higher performance and higher reproducability.
 if ! go test -c -o $logdir/tester; then

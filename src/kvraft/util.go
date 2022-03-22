@@ -8,7 +8,6 @@ import (
 	"runtime"
 )
 
-
 var debugFilter func (a uint, b uint) bool
 func init() {
 	debugFilter = subset
@@ -24,7 +23,9 @@ const (
 	snapshotLog		uint = 1 << 6
 	debugError 		uint = 1 << 8
 	debugInfo 		uint = 1 << 9
-	debugConf = all
+	//debugConf = all
+	//debugConf = debugInfo
+	debugConf = 0
 )
 
 // return if "a" is a subset of "b"
@@ -52,4 +53,3 @@ func DPanicf(debugLevel uint, format string, a ...interface{}) {
 	DPrintf(debugLevel, format, a...)
 	panic(1)
 }
-

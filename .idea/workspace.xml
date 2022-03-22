@@ -5,7 +5,29 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="60242920-15ec-48b0-a8b0-92cd967e992b" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/shardctrler/debug_test.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/shardctrler/go-test-concurr.sh" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/shardctrler/log/tester" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/shardctrler/util.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/kvraft/client.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/kvraft/client.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/kvraft/common.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/kvraft/common.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/kvraft/go-test-concurr.sh" beforeDir="false" afterPath="$PROJECT_DIR$/src/kvraft/go-test-concurr.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/kvraft/log/tester" beforeDir="false" afterPath="$PROJECT_DIR$/src/kvraft/log/tester" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/kvraft/server.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/kvraft/server.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/kvraft/test_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/kvraft/test_test.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/kvraft/util.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/kvraft/util.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/raft/go-test-concurr.sh" beforeDir="false" afterPath="$PROJECT_DIR$/src/raft/go-test-concurr.sh" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/raft/raft.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/raft/raft.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/raft/util.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/raft/util.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/raft/utilLogger.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/raft/utilLogger.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/shardctrler/client.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/shardctrler/client.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/shardctrler/common.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/shardctrler/common.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/shardctrler/config.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/shardctrler/config.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/shardctrler/server.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/shardctrler/server.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/shardctrler/test_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/shardctrler/test_test.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/shardkv/client.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/shardkv/client.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/shardkv/go-test-concurr.sh" beforeDir="false" afterPath="$PROJECT_DIR$/src/shardkv/go-test-concurr.sh" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -22,6 +44,14 @@
   <component name="GOROOT" url="file:///usr/lib/go-1.16" />
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
   </component>
   <component name="GoLibraries">
     <option name="indexEntireGoPath" value="false" />
@@ -48,15 +78,16 @@
     <property name="go.import.settings.migrated" value="true" />
     <property name="go.modules.go.list.on.any.changes.was.set" value="true" />
     <property name="go.sdk.automatically.set" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/kvraft" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/shardctrler" />
     <property name="settings.editor.selected.configurable" value="com.goide.configuration.GoLibrariesConfigurableProvider" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/shardctrler" />
       <recent name="$PROJECT_DIR$/src/kvraft" />
     </key>
   </component>
-  <component name="RunManager" selected="Go Test.TestRaftCheckAppendEntries in debug_test.go">
+  <component name="RunManager" selected="Go Test.TestHashRingExample in shardctrler">
     <configuration name="Test" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true">
       <module name="6.824" />
       <working_directory value="$PROJECT_DIR$/src/raft" />
@@ -66,6 +97,17 @@
       <filePath value="$PROJECT_DIR$/src/raft/debug_test.go" />
       <framework value="gotest" />
       <pattern value="^\QTestRaftCheckAppendEntries\E$" />
+      <method v="2" />
+    </configuration>
+    <configuration name="TestHashRingExample in shardctrler" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
+      <module name="6.824" />
+      <working_directory value="$PROJECT_DIR$/src/shardctrler" />
+      <kind value="PACKAGE" />
+      <package value="shardctrler" />
+      <directory value="$PROJECT_DIR$" />
+      <filePath value="$PROJECT_DIR$" />
+      <framework value="gotest" />
+      <pattern value="^\QTestHashRingExample\E$" />
       <method v="2" />
     </configuration>
     <configuration name="TestRaftCheckAppendEntries in debug_test.go" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
@@ -81,9 +123,11 @@
     <list>
       <item itemvalue="Go Test.Test" />
       <item itemvalue="Go Test.TestRaftCheckAppendEntries in debug_test.go" />
+      <item itemvalue="Go Test.TestHashRingExample in shardctrler" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Go Test.TestHashRingExample in shardctrler" />
         <item itemvalue="Go Test.TestRaftCheckAppendEntries in debug_test.go" />
         <item itemvalue="Go Test.Test" />
       </list>
@@ -105,5 +149,16 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
+          <url>file://$PROJECT_DIR$/src/raft/raft.go</url>
+          <line>291</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

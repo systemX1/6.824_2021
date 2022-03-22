@@ -950,9 +950,9 @@ func (rf *Raft) debugRuntime() bool {
 		rf.Lock()
 		DPrintf(replicator, "%v Goroutine Num:%v %v", time.Now().Sub(t1), runtime.NumGoroutine(), rf)
 		rf.Unlock()
-		if runtime.NumGoroutine() > 120 {
-			panic(1)
-		}
+		//if runtime.NumGoroutine() > 120 {
+		//	panic(1)
+		//}
 		time.Sleep(10 * time.Second)
 	}
 }

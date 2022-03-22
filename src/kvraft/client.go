@@ -9,7 +9,6 @@ import (
 import "crypto/rand"
 import "math/big"
 
-
 type Clerk struct {
 	servers []*labrpc.ClientEnd
 	// You will have to modify this struct.
@@ -32,7 +31,7 @@ func nrand() int64 {
 
 func MakeClerk(servers []*labrpc.ClientEnd) *Clerk {
 	// You'll have to add code here.
-	time.Sleep(1500 * time.Millisecond)
+	time.Sleep(300 * time.Millisecond)
 	return &Clerk{
 		servers: servers,
 		clntId:  nrand(),
@@ -43,17 +42,12 @@ func MakeClerk(servers []*labrpc.ClientEnd) *Clerk {
 func (ck *Clerk) StartOp(args *OpArgs) string {
 	args.Seq = ck.nextSeq()
 	leader := atomic.LoadInt32(&ck.leader)
-	rpcErrorNum := 0 // try another server after rpc error(server crashed) 3 times
 	for {
 		reply := &OpReply{}
 		DPrintf(clerk, "%v to S%v %v", ck, leader, args)
 		if ok := ck.servers[leader].Call("KVServer.OpHandler", args, reply); !ok {
 			DPrintf(clerk, "%v to S%v failed %v %v", ck, leader, args, reply)
-			rpcErrorNum++
-			if rpcErrorNum == 3 {
-				leader = ck.nextLeader()
-				rpcErrorNum = 0
-			}
+			leader = ck.nextLeader()
 			time.Sleep(ClerkRetryTimeout)
 			continue
 		}

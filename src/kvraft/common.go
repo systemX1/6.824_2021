@@ -6,21 +6,27 @@ import (
 )
 
 const (
-	OK             Err = "OK"
-	ErrNoKey       Err = "ErrNoKey"
-	ErrWrongLeader Err = "ErrWrongLeader"
-	ErrTimeout     Err = "ErrTimeout"
-)
-
-const (
-	ClerkRetryTimeout       = 200 * time.Millisecond
-	ClerkWLeaderTimeout     = 100 * time.Millisecond
+	ClerkRetryTimeout       = 100 * time.Millisecond
+	ClerkWLeaderTimeout     = 50 * time.Millisecond
 	ServerApplyTimeout      = 2000 * time.Millisecond
 	ServerSnapshotinterval  = 200 * time.Millisecond
 	clntIdDebugMod          = 1000000
 )
 
 type Err string
+const (
+	OK             Err = "OK"
+	ErrNoKey       Err = "ErrNoKey"
+	ErrWrongLeader Err = "ErrWrongLeader"
+	ErrTimeout     Err = "ErrTimeout"
+)
+
+type OPType string
+const (
+	GET    OPType = "Get"
+	PUT    OPType = "Put"
+	APPEND OPType = "Append"
+)
 
 // OpArgs Put or Append
 type OpArgs struct {
