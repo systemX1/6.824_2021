@@ -9,33 +9,37 @@ import (
 	"bytes"
 	"fmt"
 	"runtime"
+	"strings"
 	"sync"
 	"sync/atomic"
 	"time"
 )
 
-type OpCache struct {
-	Key      string
-	Value    string
-	OpType   OPType
-	Seq	     int64
-	Clnt     int64
-	ReplyVal string
-	ReplyErr Err
-}
-
-func (oc *OpCache) String() string {
-	return fmt.Sprintf("[OpCtx %v k:%v v:%v seq:%v clnt:%v rly v:%v err:%v]",
-		oc.OpType, oc.Key, oc.Value, oc.Seq, oc.Clnt,
-		oc.ReplyVal, oc.ReplyErr,
-	)
-}
-
 type Op                   OpArgs
 type KVMap                map[string]string
-type clntIdOpContextMap   map[int64]*OpCache	// (key: seq,      val: lastAppliedOp)
+type ShardMap             map[int]Shard
 type replyChan            chan *OpReply
-type logIndexReplyChanMap map[int]replyChan		// (key: logIndex, val: replyChan)
+type replyChanMap         map[int]replyChan // (key: logIndex, val: replyChan)
+
+func (s *ShardMap) isDuplicated(clntId, seqId int64) (*OpContext, bool) {
+	for _, shard := range *s {
+		if lastAppliedOp, ok := shard.isDuplicated(clntId, seqId); ok {
+			return lastAppliedOp, true
+		}
+	}
+	return nil, false
+}
+
+func (s *ShardMap) String() string {
+	var sb strings.Builder
+	sb.WriteString("[")
+	for _, shard := range *s {
+		sb.WriteString(shard.String())
+		sb.WriteByte(' ')
+	}
+	sb.WriteString("]")
+	return sb.String()
+}
 
 type ShardKV struct {
 	sync.Mutex
@@ -51,26 +55,46 @@ type ShardKV struct {
 	ctrlerClerk   *shardctrler.Clerk
 	dead          int32
 	lastApplied   int
-	storage       KVMap
-	lastClntOpSet clntIdOpContextMap
-	replyChanSet  logIndexReplyChanMap
+
+	ShardMap
+	replyChanMap
+
+	lastConfig    shardctrler.Config
+	currConfig    shardctrler.Config
+}
+
+func (kv *ShardKV) String() string {
+	return fmt.Sprintf("[ShardKV GID:%v %v a:%v Cfg:%v %v Shards:%v]",
+		kv.GID, kv.rf, kv.lastApplied, kv.currConfig, kv.lastConfig, &kv.ShardMap,
+	)
 }
 
 func (kv *ShardKV) OpHandler(args *OpArgs, reply *OpReply) {
 	kv.Lock()
-	if kv.isDuplicated(args.Clnt, args.Seq) {
-		lastOpContext := kv.lastClntOpSet[args.Clnt]
-		reply.Value, reply.Err = lastOpContext.ReplyVal, lastOpContext.ReplyErr
-		DPrintf(shardkv, "Op isDuplicated%v %v %v", kv, args, reply)
+	if lastOpCtx, ok := kv.isDuplicated(args.Clnt, args.Seq); ok {
+		reply.RlyVal, reply.RlyErr = lastOpCtx.RlyVal, lastOpCtx.RlyErr
+		DPrintf(shardkv, "Op Duplicated %v %v %v", kv, args, reply)
 		kv.Unlock()
 		return
 	}
 	kv.Unlock()
 
+	shardNum := key2shard(args.Key)
+	shard, ok := kv.ShardMap[shardNum]
+	if !ok  {
+		reply.RlyErr = ErrWrongGroup
+		DPrintf(debugTest, "reject %v %v", ErrWrongGroup, kv)
+		return
+	} else if shard.Stat == Preparing {
+		reply.RlyErr = ErrShardPreparing
+		DPrintf(debugTest, "reject %v %v", ErrShardPreparing, kv)
+		return
+	}
 	var op = (Op)(*args)
 	logIndex, _, isLeader := kv.rf.Start(op)
 	if isLeader == false {
-		reply.Err = ErrWrongLeader
+		reply.RlyErr = ErrWrongLeader
+		DPrintf(debugTest, "reject %v %v", ErrWrongLeader, kv)
 		return
 	}
 
@@ -80,28 +104,23 @@ func (kv *ShardKV) OpHandler(args *OpArgs, reply *OpReply) {
 	kv.Unlock()
 	select {
 	case tmp := <-replyChan:
-		reply.Value, reply.Err = tmp.Value, tmp.Err
+		reply.RlyVal, reply.RlyErr = tmp.RlyVal, tmp.RlyErr
 	case <-time.After(ServerApplyTimeout):
-		reply.Err = ErrTimeout
+		reply.RlyErr = ErrTimeout
 	}
 
 	go func() {
 		kv.Lock()
 		defer kv.Unlock()
 		DPrintf(shardkv, "Op DONE %v %v %v", kv, args, reply)
-		delete(kv.replyChanSet, logIndex)
+		delete(kv.replyChanMap, logIndex)
 	}()
 }
 
 func (kv *ShardKV) appendApplyChan(key int) replyChan {
 	ch := make(replyChan)
-	kv.replyChanSet[key] = ch
+	kv.replyChanMap[key] = ch
 	return ch
-}
-
-func (kv *ShardKV) isDuplicated(clntId, seqId int64) bool {
-	lastAppliedOp, ok := kv.lastClntOpSet[clntId]
-	return ok && seqId <= lastAppliedOp.Seq
 }
 
 func (kv *ShardKV) run() {
@@ -116,23 +135,24 @@ func (kv *ShardKV) run() {
 			DPrintf(shardkv, "%v Receive applyMsg %v", kv, &applyMsg)
 			if applyMsg.CommandValid {
 				if applyMsg.Command == nil || applyMsg.CommandIndex <= kv.lastApplied {
-					DPrintf(shardkv|debugError, "%v applyMsg ERROR %v", kv, &applyMsg)
+					DPrintf(shardkv|debugError, "%v applyMsg ERROR or outdated %v", kv, &applyMsg)
 					kv.Unlock()
 					continue
 				}
-				op := applyMsg.Command.(Op)
-				currTerm, isLeader := kv.rf.GetState()
-
-				var reply *OpReply
-				if !(op.OpType == OPGet && isLeader == false) {
-					reply = kv.applyCommand(&op)
+				opCtx := &OpContext{
+					OpArgs:  OpArgs(applyMsg.Command.(Op)),
+					OpReply: OpReply{RlyErr: OK},
 				}
+
+				DPrintf(shardkv, "applyOp %v %v", kv, opCtx)
+				kv.applyOp(opCtx)
 				kv.lastApplied = applyMsg.CommandIndex
-				DPrintf(shardkv, "applyCommand to SM %v %v %v", kv, &applyMsg, reply)
+				DPrintf(shardkv, "applyOp DONE %v %v", kv, opCtx)
+
 				// reply clerk only if it is the leader
-				if reply != nil && isLeader && currTerm == applyMsg.CommandTerm {
-					if ch, ok := kv.replyChanSet[applyMsg.CommandIndex]; ok {
-						ch <-reply
+				if currTerm, isLeader := kv.rf.GetState(); isLeader && currTerm == applyMsg.CommandTerm {
+					if ch, ok := kv.replyChanMap[applyMsg.CommandIndex]; ok {
+						ch <- &opCtx.OpReply
 					}
 				}
 			} else if applyMsg.SnapshotValid {
@@ -154,33 +174,62 @@ func (kv *ShardKV) run() {
 	}
 }
 
-func (kv *ShardKV) applyCommand(op *Op) *OpReply {
-	reply := &OpReply{Err: OK}
-	if preOp, ok := kv.lastClntOpSet[op.Clnt]; ok {
-		if preOp.Seq == op.Seq {
-			reply.Value, reply.Err = preOp.ReplyVal, preOp.ReplyErr
-			return reply
+func (kv *ShardKV) applyOp(opCtx *OpContext) {
+	reply := &OpReply{RlyErr: OK}
+	if lastOpCtx, ok := kv.isDuplicated(opCtx.Clnt, opCtx.Seq); ok {
+		reply.RlyVal, reply.RlyErr = lastOpCtx.RlyVal, lastOpCtx.RlyErr
+		return
+	}
+
+	switch opCtx.OpType {
+	case OPKV:
+		kv.applyOpKV(opCtx)
+	case OPPullConf:
+		kv.applyOpPullConf(opCtx)
+	case OPAddShard:
+
+	case OPDelShard:
+
+	case NOOP:
+
+	default:
+		DPanicf(shardkv|debugError, "OpType ERROR %v %v", kv, &opCtx)
+	}
+}
+
+func (kv *ShardKV) applyOpKV(opCtx *OpContext) {
+	shardNum := key2shard(opCtx.Key)
+	shard, ok := kv.ShardMap[shardNum]
+	if !ok || shard.Stat == Preparing {
+		opCtx.RlyErr = ErrWrongGroup
+		return
+	}
+	switch opCtx.OpKVType {
+	case OPGet:
+		v, ok := shard.Storage[opCtx.Key]; if !ok {
+		opCtx.RlyErr = ErrNoKey
+		}
+		opCtx.RlyVal = v
+	case OPPut:
+		shard.Storage[opCtx.Key] = opCtx.Value
+	case OPAppend:
+		shard.Storage[opCtx.Key] += opCtx.Value
+	}
+	shard.LastClntOpSet[opCtx.Clnt] = opCtx
+}
+
+func (kv *ShardKV) applyOpPullConf(opCtx *OpContext) {
+	if opCtx.Config.Num <= kv.currConfig.Num {
+		return
+	}
+	kv.lastConfig = kv.currConfig
+	kv.currConfig = opCtx.Config
+	DPrintf(debugTest, "%v %v", kv, &opCtx.Config)
+	for shardNum, GID := range kv.currConfig.Shards {
+		if GID == kv.GID {
+			kv.ShardMap[shardNum] = NewShard(shardNum)
 		}
 	}
-	switch op.OpType {
-	case OPGet:
-		v, ok := kv.storage[op.Key]; if !ok {
-		reply.Err = ErrNoKey
-	}
-		reply.Value = v
-	case OPPut:
-		kv.storage[op.Key] = op.Value
-	case OPAppend:
-		kv.storage[op.Key] += op.Value
-	}
-	kv.lastClntOpSet[op.Clnt] = &OpCache{
-		Key: op.Key, Value: op.Value,
-		OpType: op.OpType,
-		Seq: op.Seq, Clnt: op.Clnt,
-		ReplyVal: reply.Value,
-		ReplyErr: reply.Err,
-	}
-	return reply
 }
 
 func (kv *ShardKV) snapshotLoop() {
@@ -193,8 +242,9 @@ func (kv *ShardKV) snapshotLoop() {
 			kv.Lock()
 			w := new(bytes.Buffer)
 			e := labgob.NewEncoder(w)
-			e.Encode(kv.storage)
-			e.Encode(kv.lastClntOpSet)
+			e.Encode(kv.ShardMap)
+			e.Encode(kv.lastConfig)
+			e.Encode(kv.currConfig)
 			snapshot := w.Bytes()
 			if snapshot != nil {
 				go kv.rf.Snapshot(kv.lastApplied, snapshot)
@@ -212,16 +262,42 @@ func (kv *ShardKV) ApplySnapshot(data []byte) {
 	}
 	r := bytes.NewBuffer(data)
 	d := labgob.NewDecoder(r)
-	var storage KVMap
-	var lastClntOpSet clntIdOpContextMap
-	if d.Decode(&storage) != nil {
-		storage = make(KVMap)
+	var shardMap ShardMap
+	var lastConfig, currConfig shardctrler.Config
+	if d.Decode(&shardMap) != nil {
+		DPanicf(debugTest, "%v", kv)
+		shardMap = make(ShardMap)
 	}
-	if d.Decode(&lastClntOpSet) != nil {
-		lastClntOpSet = make(clntIdOpContextMap)
+	if d.Decode(&lastConfig) != nil {
+		DPanicf(debugTest, "%v", kv)
+		lastConfig = *shardctrler.NewConfig()
 	}
-	kv.storage, kv.lastClntOpSet = storage, lastClntOpSet
+	if d.Decode(&currConfig) != nil {
+		DPanicf(debugTest, "%v", kv)
+		currConfig = *shardctrler.NewConfig()
+	}
+	kv.ShardMap, kv.lastConfig, kv.currConfig = shardMap, lastConfig, currConfig
 	DPrintf(snapshotLog, "ApplySnapshot to SM %v %v", kv, kv.rf)
+}
+
+func (kv *ShardKV) pullConfigLoop() {
+	for !kv.killed() {
+		time.Sleep(ServerPullConfigInterval)
+		_, isLeader := kv.rf.GetState()
+		if isLeader == false {
+			continue
+		}
+		kv.Lock()
+		currCfgNum := kv.currConfig.Num
+		kv.Unlock()
+		if config := kv.ctrlerClerk.Query(-1); config.Num > currCfgNum {
+			DPrintf(debugTest, "%v %v", kv, &config)
+			kv.rf.Start(Op{
+				OpType:   OPPullConf,
+				Config:   config,
+			})
+		}
+	}
 }
 
 // Kill the tester calls Kill() when a ShardKV instance won't
@@ -268,6 +344,9 @@ func StartServer(servers []*labrpc.ClientEnd, me int, persister *raft.Persister,
 	// call labgob.Register on structures you want
 	// Go's RPC library to marshall/unmarshall.
 	labgob.Register(Op{})
+	labgob.Register(OpArgs{})
+	labgob.Register(OpReply{})
+	labgob.Register(Shard{})
 
 	kv := new(ShardKV)
 	kv.me = me
@@ -282,14 +361,14 @@ func StartServer(servers []*labrpc.ClientEnd, me int, persister *raft.Persister,
 	kv.applyCh = make(chan raft.ApplyMsg)
 	kv.rf = raft.Make(servers, me, persister, kv.applyCh)
 
-	kv.storage = make(KVMap)
-	kv.lastClntOpSet = make(clntIdOpContextMap)
-	kv.replyChanSet = make(logIndexReplyChanMap)
+	kv.ShardMap = make(ShardMap)
+	kv.replyChanMap = make(replyChanMap)
 	kv.lastApplied = -1
 	kv.ApplySnapshot(persister.ReadSnapshot())
 
 	go kv.run()
 	go kv.snapshotLoop()
+	go kv.pullConfigLoop()
 	go kv.debugGoroutine()
 
 	DPrintf(shardkv,"%v init", kv)

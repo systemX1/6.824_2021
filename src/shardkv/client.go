@@ -7,6 +7,7 @@ package shardkv
 
 import (
 	"../labrpc"
+	"fmt"
 	"sync"
 	"sync/atomic"
 )
@@ -14,18 +15,6 @@ import "crypto/rand"
 import "math/big"
 import "../shardctrler"
 import "time"
-
-// which shard is a key in?
-// please use this function,
-// and please do not change it.
-func key2shard(key string) int {
-	shard := 0
-	if len(key) > 0 {
-		shard = int(key[0])
-	}
-	shard %= shardctrler.NShards
-	return shard
-}
 
 func nrand() int64 {
 	max := big.NewInt(int64(1) << 62)
@@ -40,9 +29,13 @@ type Clerk struct {
 	config   shardctrler.Config
 	makeEnd  func(string) *labrpc.ClientEnd
 	// You will have to modify this struct.
-	leader   int32
 	clntId   int64
 	seqId    int64
+}
+
+func (ck *Clerk) String() string {
+	return fmt.Sprintf("[ck seq:%v clnt:%v cfg:%v]",
+		ck.seqId, ck.clntId % clntIdDebugMod , ck.config)
 }
 
 // MakeClerk the tester calls MakeClerk.
@@ -82,11 +75,11 @@ func (ck *Clerk) StartOp(args *OpArgs) string {
 					continue
 				}
 
-				DPrintf(clerk, "si:%v %v to Serv %v %v", si, ck, servers[si], args)
-				switch reply.Err {
+				DPrintf(clerk, "si:%v %v to Serv DONE %v %v %v", si, ck, servers[si], args, reply)
+				switch reply.RlyErr {
 				case OK, ErrNoKey:
-					return reply.Value
-				case ErrTimeout:
+					return reply.RlyVal
+				case ErrTimeout, ErrShardPreparing:
 					continue
 				case ErrWrongLeader:
 					time.Sleep(ClerkWrongLeaderInterval)
@@ -108,21 +101,27 @@ func (ck *Clerk) StartOp(args *OpArgs) string {
 // You will have to modify this function.
 func (ck *Clerk) Get(key string) string {
 	return ck.StartOp(&OpArgs{
-		Key:    key,
-		Value:  "",
-		OpType: OPGet,
-		Clnt:   ck.clntId,
+		Key:      key,
+		Value:    "",
+		OpType:   OPKV,
+		OpKVType: OPGet,
+		Clnt:     ck.clntId,
 	})
 }
 
 // PutAppend shared by Put and Append.
 // You will have to modify this function.
 func (ck *Clerk) PutAppend(key string, value string, op string) {
+	opKVType := OPPut
+	if op == "Append" {
+		opKVType = OPAppend
+	}
 	ck.StartOp(&OpArgs{
-		Key:    key,
-		Value:  value,
-		OpType: OPType(op),
-		Clnt:   ck.clntId,
+		Key:      key,
+		Value:    value,
+		OpType:   OPKV,
+		OpKVType: opKVType,
+		Clnt:     ck.clntId,
 	})
 }
 

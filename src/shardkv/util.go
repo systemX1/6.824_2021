@@ -2,7 +2,6 @@ package shardkv
 
 import (
 	"fmt"
-	"io"
 	"log"
 	"math"
 	"path"
@@ -14,8 +13,7 @@ var debugFilter func (a uint, b uint) bool
 func init() {
 	debugFilter = subset
 	log.SetFlags(log.Ltime | log.Lmicroseconds)
-	log.SetOutput(io.Discard)
-	//log.Lshortfile |
+	//log.SetOutput(io.Discard)
 }
 
 const (

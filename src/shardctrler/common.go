@@ -37,6 +37,12 @@ func (cf *Config) String() string {
 		cf.Num, cf.Shards, cf.Groups,
 	)
 }
+func NewConfig() *Config {
+	return &Config{
+		Shards: make([]int, NShards),
+		Groups: make(map[int] []string),
+	}
+}
 
 const (
 	ClerkRetryTimeout       = 50 * time.Millisecond

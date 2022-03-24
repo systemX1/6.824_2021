@@ -62,11 +62,14 @@ type ApplyMsg struct {
 
 func (msg *ApplyMsg) String() string {
 	if msg.CommandValid == true {
-		return fmt.Sprintf("[msg idx:%v cmd:%v]",
-			msg.CommandIndex, msg.Command,
+		//return fmt.Sprintf("\n[MSG idx:%v cmd:%v]",
+		//	msg.CommandIndex, msg.Command,
+		//)
+		return fmt.Sprintf("\n[MSG idx:%v cmd]",
+			msg.CommandIndex,
 		)
 	}
-	return fmt.Sprintf("[msg sn idx:%v t:%v l:%v]",
+	return fmt.Sprintf("\n[MSG sn idx:%v t:%v l:%v]",
 		msg.SnapshotIndex, msg.SnapshotTerm, len(msg.Snapshot),
 	)
 }
@@ -101,19 +104,24 @@ type Raft struct {
 }
 
 func (rf *Raft) String() string {
-	if rf.stat == Leader {
-		return fmt.Sprintf("[S%v %v t:%v vF:%v c:%v a:%v sn:%v %v m:%v n:%v]",
-			rf.me, rf.stat, rf.currTerm, rf.votedFor,
-			rf.rL.GetCommitIndex(), rf.rL.GetLastApplied(),
-			rf.lastIncludedIndex, rf.lastIncludedTerm,
-			rf.matchIndex, rf.nextIndex,
-		)
-	}
-	return fmt.Sprintf("[S%v %v t:%v vF:%v c:%v a:%v sn:%v %v]",
-		rf.me, rf.stat, rf.currTerm, rf.votedFor,
+	//if rf.stat == Leader {
+	//	return fmt.Sprintf("[S%v %v t:%v vF:%v c:%v a:%v sn:%v %v m:%v n:%v]",
+	//		rf.me, rf.stat, rf.currTerm, rf.votedFor,
+	//		rf.rL.GetCommitIndex(), rf.rL.GetLastApplied(),
+	//		rf.lastIncludedIndex, rf.lastIncludedTerm,
+	//		rf.matchIndex, rf.nextIndex,
+	//	)
+	//}
+	//return fmt.Sprintf("[S%v %v t:%v vF:%v c:%v a:%v sn:%v %v]",
+	//	rf.me, rf.stat, rf.currTerm, rf.votedFor,
+	//	rf.rL.GetCommitIndex(), rf.rL.GetLastApplied(),
+	//	rf.lastIncludedIndex, rf.lastIncludedTerm,
+	//)
+	return fmt.Sprintf("[S%v %v t:%v c:%v a:%v sn:%v %v]",
+		rf.me, rf.stat, rf.currTerm,
 		rf.rL.GetCommitIndex(), rf.rL.GetLastApplied(),
 		rf.lastIncludedIndex, rf.lastIncludedTerm,
-	)
+		)
 }
 
 // GetState return currentTerm and whether this server
