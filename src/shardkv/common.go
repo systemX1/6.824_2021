@@ -14,22 +14,27 @@ import (
 // You will have to modify these definitions.
 
 const (
-	ClerkRetryTimeout        = 20 * time.Millisecond
-	ClerkWrongGroupInterval  = 20 * time.Millisecond
+	ClerkRetryTimeout        = 50 * time.Millisecond
+	ClerkWrongGroupInterval  = 50 * time.Millisecond
 	ClerkWrongLeaderInterval = ClerkWrongGroupInterval
 	ServerApplyTimeout       = 2000 * time.Millisecond
 	ServerSnapshotInterval   = 200 * time.Millisecond
-	ServerPullConfigInterval = 100 * time.Millisecond
+	LoopInterval             = 100 * time.Millisecond
+	LeaderPullConfigInterval = LoopInterval
+	LeaderMigrationInterval  = LoopInterval
+	LeaderGCInterval         = LoopInterval
+	LeaderAppendNOOPInterval = 200 * time.Millisecond
 	clntIdDebugMod           = 100000
 )
 
 type Err uint8
 const (
-	OK             Err = iota
+	OK                Err = iota
 	ErrNoKey
 	ErrWrongLeader
 	ErrWrongGroup
-	ErrShardPreparing
+	ErrShardStatUnexpected
+	ErrWrongConfig
 	ErrTimeout
 )
 var errStr = []string{ "OK", "ErrNoKey", "ErrWrongLeader", "ErrWrongGroup", "ErrTimeout" }
@@ -43,6 +48,7 @@ const (
 	OPKV
 	OPAddShard
 	OPDelShard
+	OPAvailShard
 	NOOP
 )
 var opTypeStr = []string{ "OPPullConf", "OPKV", "OPAddShard", "OPDelShard", "NOOP" }
@@ -65,6 +71,7 @@ type ShardStat uint8
 const (
 	Available    ShardStat = iota
 	Preparing
+	GCWait
 	Removing
 )
 var shardStatStr = []string{ "Available", "Preparing", "Removing" }
@@ -81,7 +88,6 @@ func (oc *OpContext) String() string {
 		&oc.OpArgs, &oc.OpReply)
 }
 
-// OpArgs Put or Append
 type OpArgs struct {
 	OpType   OPType
 	OpKVType OPKVType
@@ -117,6 +123,19 @@ func (reply *OpReply) String() string {
 	return fmt.Sprintf("\n[REPLY %v v:%v]",
 		reply.RlyErr, reply.RlyVal,
 	)
+}
+
+type MigrationArgs struct {
+	ConfigNum     int
+	ShardNum      int
+	GC            bool
+}
+
+type MigrationReply struct {
+	RlyErr        Err
+	ConfigNum     int
+	Storage       KVMap
+	LastClntOpMap clntIdOpCtxMap
 }
 
 // which shard is a key in?

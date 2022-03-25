@@ -8,15 +8,15 @@ type Shard struct {
 	Num           int
 	Stat          ShardStat
 	Storage       KVMap
-	LastClntOpSet clntIdOpCtxMap
+	LastClntOpMap clntIdOpCtxMap
 }
 
-func NewShard(num int) Shard {
-	return Shard{
+func NewShard(num int, stat ShardStat) *Shard {
+	return &Shard{
 		Num:           num,
-		Stat:          Available,
+		Stat:          stat,
 		Storage:       make(KVMap),
-		LastClntOpSet: make(clntIdOpCtxMap),
+		LastClntOpMap: make(clntIdOpCtxMap),
 	}
 }
 
@@ -26,7 +26,7 @@ func (s *Shard) String() string {
 }
 
 func (s *Shard) isDuplicated(clntId, seqId int64) (*OpContext, bool) {
-	lastAppliedOp, ok := s.LastClntOpSet[clntId]
+	lastAppliedOp, ok := s.LastClntOpMap[clntId]
 	return lastAppliedOp, ok && seqId <= lastAppliedOp.Seq
 }
 

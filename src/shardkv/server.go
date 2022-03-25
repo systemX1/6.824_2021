@@ -17,7 +17,7 @@ import (
 
 type Op                   OpArgs
 type KVMap                map[string]string
-type ShardMap             map[int]Shard
+type ShardMap             map[int]*Shard
 type replyChan            chan *OpReply
 type replyChanMap         map[int]replyChan // (key: logIndex, val: replyChan)
 
@@ -61,6 +61,9 @@ type ShardKV struct {
 
 	lastConfig    shardctrler.Config
 	currConfig    shardctrler.Config
+
+	migrationCh   chan int
+	GCCh          chan int
 }
 
 func (kv *ShardKV) String() string {
@@ -83,18 +86,18 @@ func (kv *ShardKV) OpHandler(args *OpArgs, reply *OpReply) {
 	shard, ok := kv.ShardMap[shardNum]
 	if !ok  {
 		reply.RlyErr = ErrWrongGroup
-		DPrintf(debugTest, "reject %v %v", ErrWrongGroup, kv)
+		DPrintf(debugTest|shardkv, "reject %v %v", ErrWrongGroup, kv)
 		return
 	} else if shard.Stat == Preparing {
-		reply.RlyErr = ErrShardPreparing
-		DPrintf(debugTest, "reject %v %v", ErrShardPreparing, kv)
+		reply.RlyErr = ErrShardStatUnexpected
+		DPrintf(debugTest|shardkv, "reject %v %v", ErrShardStatUnexpected, kv)
 		return
 	}
 	var op = (Op)(*args)
 	logIndex, _, isLeader := kv.rf.Start(op)
 	if isLeader == false {
 		reply.RlyErr = ErrWrongLeader
-		DPrintf(debugTest, "reject %v %v", ErrWrongLeader, kv)
+		DPrintf(debugTest|shardkv, "reject %v %v", ErrWrongLeader, kv)
 		return
 	}
 
@@ -187,11 +190,12 @@ func (kv *ShardKV) applyOp(opCtx *OpContext) {
 	case OPPullConf:
 		kv.applyOpPullConf(opCtx)
 	case OPAddShard:
-
+		kv.applyAddShard(opCtx)
 	case OPDelShard:
-
+		kv.applyDelShard(opCtx)
+	case OPAvailShard:
+		kv.applyAvailShard(opCtx)
 	case NOOP:
-
 	default:
 		DPanicf(shardkv|debugError, "OpType ERROR %v %v", kv, &opCtx)
 	}
@@ -201,7 +205,7 @@ func (kv *ShardKV) applyOpKV(opCtx *OpContext) {
 	shardNum := key2shard(opCtx.Key)
 	shard, ok := kv.ShardMap[shardNum]
 	if !ok || shard.Stat == Preparing {
-		opCtx.RlyErr = ErrWrongGroup
+		opCtx.RlyErr = ErrShardStatUnexpected
 		return
 	}
 	switch opCtx.OpKVType {
@@ -215,21 +219,84 @@ func (kv *ShardKV) applyOpKV(opCtx *OpContext) {
 	case OPAppend:
 		shard.Storage[opCtx.Key] += opCtx.Value
 	}
-	shard.LastClntOpSet[opCtx.Clnt] = opCtx
+	shard.LastClntOpMap[opCtx.Clnt] = opCtx
 }
 
 func (kv *ShardKV) applyOpPullConf(opCtx *OpContext) {
-	if opCtx.Config.Num <= kv.currConfig.Num {
+	if opCtx.Config.Num != kv.currConfig.Num + 1 || opCtx.Config.Shards == nil {
+		DPrintf(debugTest|shardkv, "reject outdated config %v %v", kv, opCtx)
 		return
 	}
 	kv.lastConfig = kv.currConfig
 	kv.currConfig = opCtx.Config
 	DPrintf(debugTest, "%v %v", kv, &opCtx.Config)
+
+	// pull needed
 	for shardNum, GID := range kv.currConfig.Shards {
 		if GID == kv.GID {
-			kv.ShardMap[shardNum] = NewShard(shardNum)
+			if _, ok := kv.ShardMap[shardNum]; !ok {
+				if kv.lastConfig.Shards != nil && kv.lastConfig.Shards[shardNum] != 0 {
+					kv.ShardMap[shardNum] = NewShard(shardNum, Preparing)
+				} else {
+					kv.ShardMap[shardNum] = NewShard(shardNum, Available)
+				}
+			}
 		}
 	}
+	// remove needed
+	for shardNum := range kv.ShardMap {
+		if kv.currConfig.Shards[shardNum] != kv.GID {
+			if kv.ShardMap[shardNum].Stat != Available {
+				DPanicf(debugTest, "unexpected %v", kv)
+			}
+			kv.ShardMap[shardNum].Stat = Removing
+		}
+	}
+}
+
+func (kv *ShardKV) applyAddShard(opCtx *OpContext) {
+	defer DPrintf(debugError, "applyAddShard DONE %v %v", kv, opCtx)
+	if opCtx.Config.Num != kv.currConfig.Num {
+		opCtx.RlyErr = ErrWrongConfig
+		return
+	}
+	shardNum := opCtx.Shard.Num
+	shard, ok := kv.ShardMap[shardNum]
+	if !ok || shard.Stat != Preparing {
+		opCtx.RlyErr = ErrShardStatUnexpected
+		return
+	}
+	shard.Stat, shard.Storage, shard.LastClntOpMap = GCWait, opCtx.Storage, opCtx.LastClntOpMap
+}
+
+func (kv *ShardKV) applyDelShard(opCtx *OpContext) {
+	defer DPrintf(debugError, "applyDelShard DONE %v %v", kv, opCtx)
+	if opCtx.Config.Num != kv.currConfig.Num {
+		opCtx.RlyErr = ErrWrongConfig
+		return
+	}
+	shardNum := opCtx.Shard.Num
+	shard, ok := kv.ShardMap[shardNum]
+	if !ok || shard.Stat != Removing {
+		opCtx.RlyErr = ErrShardStatUnexpected
+		return
+	}
+    delete(kv.ShardMap, shardNum)
+}
+
+func (kv *ShardKV) applyAvailShard(opCtx *OpContext) {
+	defer DPrintf(debugError, "applyDelShard DONE %v %v", kv, opCtx)
+	if opCtx.Config.Num != kv.currConfig.Num {
+		opCtx.RlyErr = ErrWrongConfig
+		return
+	}
+	shardNum := opCtx.Shard.Num
+	shard, ok := kv.ShardMap[shardNum]
+	if !ok || shard.Stat != GCWait {
+		opCtx.RlyErr = ErrShardStatUnexpected
+		return
+	}
+	shard.Stat = Available
 }
 
 func (kv *ShardKV) snapshotLoop() {
@@ -280,24 +347,129 @@ func (kv *ShardKV) ApplySnapshot(data []byte) {
 	DPrintf(snapshotLog, "ApplySnapshot to SM %v %v", kv, kv.rf)
 }
 
-func (kv *ShardKV) pullConfigLoop() {
-	for !kv.killed() {
-		time.Sleep(ServerPullConfigInterval)
-		_, isLeader := kv.rf.GetState()
-		if isLeader == false {
-			continue
-		}
-		kv.Lock()
-		currCfgNum := kv.currConfig.Num
-		kv.Unlock()
-		if config := kv.ctrlerClerk.Query(-1); config.Num > currCfgNum {
-			DPrintf(debugTest, "%v %v", kv, &config)
-			kv.rf.Start(Op{
-				OpType:   OPPullConf,
-				Config:   config,
-			})
+func (kv *ShardKV) pullConfigAction() {
+	kv.Lock()
+	for shardNum := range kv.ShardMap {
+		if kv.ShardMap[shardNum].Stat != Available {
+			kv.Unlock()
+			break
 		}
 	}
+	currCfgNum := kv.currConfig.Num
+	kv.Unlock()
+	if config := kv.ctrlerClerk.Query(currCfgNum + 1); config.Num == currCfgNum + 1 {
+		DPrintf(debugTest, "pull Config %v %v", kv, &config)
+		kv.rf.Start(Op{
+			OpType:   OPPullConf,
+			Config:   config,
+		})
+	}
+}
+
+func (kv *ShardKV) migrationAction() {
+	kv.Lock()
+	var wg sync.WaitGroup
+	for shardNum, shard := range kv.ShardMap {
+		if shard.Stat == Preparing {
+			wg.Add(1)
+			GID := kv.lastConfig.Shards[shardNum]
+			servs := kv.lastConfig.Groups[GID]
+			go func() {
+				defer wg.Done()
+				args := &MigrationArgs{
+					ShardNum:  shardNum,
+					ConfigNum: kv.lastConfig.Num,
+					GC:        false,
+				}
+				reply := &MigrationReply{}
+				for _, serv := range servs {
+					servAddr := kv.makeEnd(serv)
+					if ok := servAddr.Call("ShardKV.MigrationHandler", args, reply); !ok || reply.RlyErr != OK {
+						DPrintf(shardkv, "pull shard failed %v %v", kv, args)
+					}
+					DPrintf(shardkv, "pull shard succ %v %v %v", kv, args, reply)
+					kv.rf.Start(Op{
+						OpType: OPAddShard,
+						Shard: Shard{Storage: reply.Storage, LastClntOpMap: reply.LastClntOpMap},
+					})
+				}
+			}()
+		}
+	}
+	kv.Unlock()
+	wg.Wait()
+}
+
+func (kv *ShardKV) MigrationHandler(args *MigrationArgs, reply *MigrationReply) {
+	if _, isLeader := kv.rf.GetState(); !isLeader {
+		reply.RlyErr = ErrWrongLeader
+		return
+	}
+	kv.Lock()
+	defer kv.Unlock()
+	defer DPrintf(shardkv, "MigrationHandle DONE %v %v", kv, args, reply)
+	reply.ConfigNum = kv.currConfig.Num + 1
+	if kv.currConfig.Num != args.ConfigNum  {
+		reply.RlyErr = ErrWrongConfig
+		return
+	}
+	shard, ok := kv.ShardMap[args.ShardNum]
+	if !ok {
+		DPanicf(debugError, "shard not exist %v %v", kv, args)
+	}
+	if shard.Stat != Removing {
+		reply.RlyErr = ErrShardStatUnexpected
+	}
+
+	if !args.GC {
+		for k, v := range shard.Storage {
+			reply.Storage[k] = v
+		}
+		for k, v := range shard.LastClntOpMap {
+			reply.LastClntOpMap[k] = v
+		}
+	} else {
+		delete(kv.ShardMap, args.ShardNum)
+	}
+	reply.RlyErr = OK
+}
+
+func (kv *ShardKV) GCAction() {
+	kv.Lock()
+	var wg sync.WaitGroup
+	for shardNum, shard := range kv.ShardMap {
+		if shard.Stat == GCWait {
+			wg.Add(1)
+			GID := kv.lastConfig.Shards[shardNum]
+			servs := kv.lastConfig.Groups[GID]
+			go func() {
+				defer wg.Done()
+				args := &MigrationArgs{
+					ShardNum:  shardNum,
+					ConfigNum: kv.lastConfig.Num,
+					GC:        true,
+				}
+				reply := &MigrationReply{}
+				for _, serv := range servs {
+					servAddr := kv.makeEnd(serv)
+					if ok := servAddr.Call("ShardKV.MigrationHandler", args, reply); !ok || reply.RlyErr != OK {
+						DPrintf(shardkv, "pull shard failed %v %v", kv, args)
+					}
+					DPrintf(shardkv, "pull shard succ %v %v %v", kv, args, reply)
+					kv.rf.Start(Op{
+						OpType: OPAddShard,
+						Shard: Shard{Storage: reply.Storage, LastClntOpMap: reply.LastClntOpMap},
+					})
+				}
+			}()
+		}
+	}
+	kv.Unlock()
+	wg.Wait()
+}
+
+func (kv *ShardKV) appendNOOPAction() {
+
 }
 
 // Kill the tester calls Kill() when a ShardKV instance won't
@@ -364,24 +536,36 @@ func StartServer(servers []*labrpc.ClientEnd, me int, persister *raft.Persister,
 	kv.ShardMap = make(ShardMap)
 	kv.replyChanMap = make(replyChanMap)
 	kv.lastApplied = -1
+	kv.lastConfig, kv.currConfig = shardctrler.Config{Num: 0}, shardctrler.Config{Num: 0}
 	kv.ApplySnapshot(persister.ReadSnapshot())
 
 	go kv.run()
 	go kv.snapshotLoop()
-	go kv.pullConfigLoop()
 	go kv.debugGoroutine()
+
+	go kv.LeaderDaemon(kv.pullConfigAction, LeaderPullConfigInterval)
+	go kv.LeaderDaemon(kv.migrationAction, LeaderMigrationInterval)
+	go kv.LeaderDaemon(kv.GCAction, LeaderGCInterval)
+	go kv.LeaderDaemon(kv.appendNOOPAction, LeaderAppendNOOPInterval)
 
 	DPrintf(shardkv,"%v init", kv)
 	return kv
+}
+
+func (kv *ShardKV) LeaderDaemon(action func(), interval time.Duration) {
+	for !kv.killed() {
+		time.Sleep(interval)
+		if _, isLeader := kv.rf.GetState(); !isLeader {
+			continue
+		}
+		action()
+	}
 }
 
 func (kv *ShardKV) debugGoroutine() bool {
 	t1 := time.Now()
 	for {
 		DPrintf(debugTest2, "Goroutine Num:%v %v", runtime.NumGoroutine(), time.Now().Sub(t1))
-		//if runtime.NumGoroutine() > 120 {
-		//	panic(1)
-		//}
 		time.Sleep(10 * time.Second)
 	}
 }

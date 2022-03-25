@@ -79,7 +79,7 @@ func (ck *Clerk) StartOp(args *OpArgs) string {
 				switch reply.RlyErr {
 				case OK, ErrNoKey:
 					return reply.RlyVal
-				case ErrTimeout, ErrShardPreparing:
+				case ErrTimeout, ErrShardStatUnexpected:
 					continue
 				case ErrWrongLeader:
 					time.Sleep(ClerkWrongLeaderInterval)

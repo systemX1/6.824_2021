@@ -24,7 +24,6 @@ const (
 	debugTest       uint = 1 << 6
 	debugTest2      uint = 1 << 7
 	debugError 		uint = 1 << 8
-	debugInfo 		uint = 1 << 9
 	debugConf = all
 	//debugConf = debugTest2 + debugTest
 	//debugConf = 0
