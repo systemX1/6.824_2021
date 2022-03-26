@@ -62,6 +62,9 @@ func (ck *Clerk) StartOp(args *OpArgs) string {
 	for {
 		shard := key2shard(args.Key)
 		gid := ck.config.Shards[shard]
+		args.Config.Num = ck.config.Num
+		DPrintf(debugTest, "StartOpStartOpGID %v", gid)
+
 		if servers, ok := ck.config.Groups[gid]; ok {
 			// try each server for the shard.
 			for si := 0; si < len(servers); si = (si + 1) % len(servers) {
@@ -79,11 +82,11 @@ func (ck *Clerk) StartOp(args *OpArgs) string {
 				switch reply.RlyErr {
 				case OK, ErrNoKey:
 					return reply.RlyVal
-				case ErrTimeout, ErrShardStatUnexpected:
+				case ErrTimeout:
 					continue
 				case ErrWrongLeader:
 					time.Sleep(ClerkWrongLeaderInterval)
-				case ErrWrongGroup:
+				case ErrWrongGroup, ErrShardStatUnexpected, ErrWrongConfig:
 					time.Sleep(ClerkWrongGroupInterval)
 					ck.config = ck.sm.Query(-1)
 					break

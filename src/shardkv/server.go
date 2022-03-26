@@ -204,6 +204,10 @@ func (kv *ShardKV) applyOp(opCtx *OpContext) {
 func (kv *ShardKV) applyOpKV(opCtx *OpContext) {
 	shardNum := key2shard(opCtx.Key)
 	shard, ok := kv.ShardMap[shardNum]
+	if opCtx.Config.Num != kv.currConfig.Num {
+		opCtx.RlyErr = ErrWrongConfig
+		return
+	}
 	if !ok || shard.Stat == Preparing || shard.Stat == Removing {
 		opCtx.RlyErr = ErrShardStatUnexpected
 		return
@@ -247,7 +251,7 @@ func (kv *ShardKV) applyOpPullConf(opCtx *OpContext) {
 	for shardNum := range kv.ShardMap {
 		if kv.currConfig.Shards[shardNum] != kv.GID {
 			if kv.ShardMap[shardNum].Stat != Available {
-				DPanicf(debugTest, "unexpected %v", kv)
+				DPanicf(debugTest, "Unexpected Shard%v.Stat != Available %v", shardNum, kv)
 			}
 			kv.ShardMap[shardNum].Stat = Removing
 		}
@@ -428,7 +432,7 @@ func (kv *ShardKV) MigrationHandler(args *MigrationArgs, reply *MigrationReply) 
 	}
 	shard, ok := kv.ShardMap[args.ShardNum]
 	if !ok {
-		DPanicf(debugError, "shard not exist %v %v", kv, args)
+		DPanicf(debugError, "Shard NOT EXIST %v %v", kv, args)
 	}
 	if shard.Stat != Removing {
 		reply.RlyErr = ErrShardStatUnexpected
@@ -443,7 +447,11 @@ func (kv *ShardKV) MigrationHandler(args *MigrationArgs, reply *MigrationReply) 
 			reply.LastClntOpMap[k] = v
 		}
 	} else {
-		delete(kv.ShardMap, args.ShardNum)
+		kv.rf.Start(Op{
+			OpType: OPDelShard,
+			Shard: Shard{Num: args.ShardNum},
+			Config: shardctrler.Config{Num: args.ConfigNum},
+		})
 	}
 	reply.RlyErr = OK
 }
@@ -453,30 +461,35 @@ func (kv *ShardKV) GCAction() {
 	var wg sync.WaitGroup
 	for shardNum, shard := range kv.ShardMap {
 		if shard.Stat == GCWait {
-			wg.Add(1)
 			GID := kv.lastConfig.Shards[shardNum]
 			servs := kv.lastConfig.Groups[GID]
-			go func() {
+			args := &MigrationArgs{
+				ShardNum:  shardNum,
+				ConfigNum: kv.currConfig.Num,
+				GC:        true,
+			}
+			DPrintf(debugTest, "To GID:%v %v %v %v", GID, servs, kv, args)
+
+			go func(servs []string, args *MigrationArgs) {
+				wg.Add(1)
 				defer wg.Done()
-				args := &MigrationArgs{
-					ShardNum:  shardNum,
-					ConfigNum: kv.lastConfig.Num,
-					GC:        true,
-				}
-				reply := &MigrationReply{}
+
 				for _, serv := range servs {
 					servAddr := kv.makeEnd(serv)
+					reply := &MigrationReply{}
 					if ok := servAddr.Call("ShardKV.MigrationHandler", args, reply); !ok || reply.RlyErr != OK {
-						DPrintf(shardkv, "GC failed %v %v %v %v", servAddr, kv, args, reply)
+						DPrintf(shardkv, "pull shard failed %v %v %v %v", serv, kv, args, reply)
+						continue
 					}
-					DPrintf(shardkv, "GC succ %v %v %v %v", servAddr, kv, args, reply)
+					DPrintf(shardkv, "pull shard succ %v %v %v %v", serv, kv, args, reply)
 					kv.rf.Start(Op{
 						OpType: OPAvailShard,
-						Shard: Shard{Storage: reply.Storage, LastClntOpMap: reply.LastClntOpMap},
+						Shard: Shard{Num: args.ShardNum},
 						Config: shardctrler.Config{Num: args.ConfigNum},
 					})
+					break
 				}
-			}()
+			}(servs, args)
 		}
 	}
 	kv.Unlock()
