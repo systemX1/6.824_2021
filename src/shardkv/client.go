@@ -59,14 +59,16 @@ func (ck *Clerk) StartOp(args *OpArgs) string {
 		ck.config = ck.sm.Query(-1)
 	}
 	args.Seq = ck.nextSeq()
+
 	for {
 		shard := key2shard(args.Key)
 		gid := ck.config.Shards[shard]
 		args.Config.Num = ck.config.Num
-		DPrintf(debugTest, "StartOpStartOpGID %v", gid)
+		DPrintf(debugTest, "StartOpGID %v %v", gid, args)
 
 		if servers, ok := ck.config.Groups[gid]; ok {
 			// try each server for the shard.
+			InnerForLoop:
 			for si := 0; si < len(servers); si = (si + 1) % len(servers) {
 				serv := ck.makeEnd(servers[si])
 				DPrintf(clerk, "si:%v %v to %v %v", si, ck, servers[si], args)
@@ -86,10 +88,10 @@ func (ck *Clerk) StartOp(args *OpArgs) string {
 					continue
 				case ErrWrongLeader:
 					time.Sleep(ClerkWrongLeaderInterval)
-				case ErrWrongGroup, ErrShardStatUnexpected, ErrWrongConfig:
+				case ErrWrongGroup, ErrShardStatUnexpected:
 					time.Sleep(ClerkWrongGroupInterval)
 					ck.config = ck.sm.Query(-1)
-					break
+					break InnerForLoop
 				default:
 					DPanicf(clerk, "si:%v %v to Serv %v return with ERROR Uninitialized %v %v", si, ck, servers[si], args, reply)
 				}

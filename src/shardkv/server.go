@@ -204,12 +204,8 @@ func (kv *ShardKV) applyOp(opCtx *OpContext) {
 func (kv *ShardKV) applyOpKV(opCtx *OpContext) {
 	shardNum := key2shard(opCtx.Key)
 	shard, ok := kv.ShardMap[shardNum]
-	if opCtx.Config.Num != kv.currConfig.Num {
-		opCtx.RlyErr = ErrWrongConfig
-		return
-	}
 	if !ok || shard.Stat == Preparing || shard.Stat == Removing {
-		opCtx.RlyErr = ErrShardStatUnexpected
+		opCtx.RlyErr = ErrWrongGroup
 		return
 	}
 	switch opCtx.OpKVType {
