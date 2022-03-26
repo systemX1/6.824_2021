@@ -22,7 +22,7 @@ func NewShard(num int, stat ShardStat) *Shard {
 
 func (s *Shard) String() string {
 	return fmt.Sprintf("[n:%v %v stor:%v]",
-		s.Num, s.Stat, s.Storage)
+		s.Num, s.Stat, &s.Storage)
 }
 
 func (s *Shard) isDuplicated(clntId, seqId int64) (*OpContext, bool) {

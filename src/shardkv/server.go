@@ -30,6 +30,23 @@ func (s *ShardMap) isDuplicated(clntId, seqId int64) (*OpContext, bool) {
 	return nil, false
 }
 
+func (kv *KVMap) String() string {
+	var sb strings.Builder
+	sb.WriteString("m[")
+	for k := range *kv {
+		sb.WriteString(k)
+		sb.WriteByte(':')
+		if len((*kv)[k]) >= 2 {
+			sb.WriteString((*kv)[k][:2])
+		} else {
+			sb.WriteString((*kv)[k])
+		}
+		sb.WriteByte(' ')
+	}
+	sb.WriteString("]")
+	return sb.String()
+}
+
 func (s *ShardMap) String() string {
 	var sb strings.Builder
 	sb.WriteString("[")
@@ -247,7 +264,7 @@ func (kv *ShardKV) applyOpPullConf(opCtx *OpContext) {
 	for shardNum := range kv.ShardMap {
 		if kv.currConfig.Shards[shardNum] != kv.GID {
 			if kv.ShardMap[shardNum].Stat != Available {
-				DPanicf(debugTest, "Unexpected Shard%v.Stat != Available %v", shardNum, kv)
+				DPrintf(debugTest, "Unexpected Shard%v.Stat != Available %v", shardNum, kv)
 			}
 			kv.ShardMap[shardNum].Stat = Removing
 		}
@@ -292,7 +309,7 @@ func (kv *ShardKV) applyDelShard(opCtx *OpContext) {
 }
 
 func (kv *ShardKV) applyAvailShard(opCtx *OpContext) {
-	defer DPrintf(debugError, "applyDelShard DONE %v %v", kv, opCtx)
+	defer DPrintf(debugError, "applyAvailShard DONE %v %v", kv, opCtx)
 	if opCtx.Config.Num != kv.currConfig.Num {
 		opCtx.RlyErr = ErrWrongConfig
 		return
@@ -378,17 +395,16 @@ func (kv *ShardKV) migrationAction() {
 	var wg sync.WaitGroup
 	for shardNum, shard := range kv.ShardMap {
 		if shard.Stat == Preparing {
+			wg.Add(1)
 			GID := kv.lastConfig.Shards[shardNum]
 			servs := kv.lastConfig.Groups[GID]
 			args := &MigrationArgs{
 				ShardNum:  shardNum,
 				ConfigNum: kv.currConfig.Num,
-				GC:        false,
 			}
 			DPrintf(debugTest, "To GID:%v %v %v %v", GID, servs, kv, args)
 
 			go func(servs []string, args *MigrationArgs) {
-				wg.Add(1)
 				defer wg.Done()
 
 				for _, serv := range servs {
@@ -420,36 +436,31 @@ func (kv *ShardKV) MigrationHandler(args *MigrationArgs, reply *MigrationReply) 
 	}
 	kv.Lock()
 	defer kv.Unlock()
-	defer DPrintf(shardkv, "MigrationHandle DONE %v %v %v", kv, args, reply)
+	defer DPrintf(shardkv, "DONE %v %v %v", kv, args, reply)
+	DPrintf(shardkv, "%v %v %v", kv, args, reply)
 	reply.ConfigNum = kv.currConfig.Num
-	if kv.currConfig.Num != args.ConfigNum  {
+	if kv.currConfig.Num != args.ConfigNum {
 		reply.RlyErr = ErrWrongConfig
 		return
 	}
 	shard, ok := kv.ShardMap[args.ShardNum]
 	if !ok {
-		DPanicf(debugError, "Shard NOT EXIST %v %v", kv, args)
+		DPrintf(debugError|shardkv, "Shard NOT EXIST %v %v", kv, args)
+		return
 	}
 	if shard.Stat != Removing {
 		reply.RlyErr = ErrShardStatUnexpected
 	}
 
-	if !args.GC {
-		reply.Storage, reply.LastClntOpMap = make(KVMap), make(clntIdOpCtxMap)
-		for k, v := range shard.Storage {
-			reply.Storage[k] = v
-		}
-		for k, v := range shard.LastClntOpMap {
-			reply.LastClntOpMap[k] = v
-		}
-	} else {
-		kv.rf.Start(Op{
-			OpType: OPDelShard,
-			Shard: Shard{Num: args.ShardNum},
-			Config: shardctrler.Config{Num: args.ConfigNum},
-		})
+
+	reply.Storage, reply.LastClntOpMap = make(KVMap), make(clntIdOpCtxMap)
+	for k, v := range shard.Storage {
+		reply.Storage[k] = v
 	}
-	reply.RlyErr = OK
+	for k, v := range shard.LastClntOpMap {
+		reply.LastClntOpMap[k] = v
+	}
+	reply.RlyErr, reply.GCDone = OK, true
 }
 
 func (kv *ShardKV) GCAction() {
@@ -457,32 +468,33 @@ func (kv *ShardKV) GCAction() {
 	var wg sync.WaitGroup
 	for shardNum, shard := range kv.ShardMap {
 		if shard.Stat == GCWait {
+			wg.Add(1)
 			GID := kv.lastConfig.Shards[shardNum]
 			servs := kv.lastConfig.Groups[GID]
 			args := &MigrationArgs{
 				ShardNum:  shardNum,
 				ConfigNum: kv.currConfig.Num,
-				GC:        true,
 			}
 			DPrintf(debugTest, "To GID:%v %v %v %v", GID, servs, kv, args)
 
 			go func(servs []string, args *MigrationArgs) {
-				wg.Add(1)
 				defer wg.Done()
 
 				for _, serv := range servs {
 					servAddr := kv.makeEnd(serv)
 					reply := &MigrationReply{}
-					if ok := servAddr.Call("ShardKV.MigrationHandler", args, reply); !ok || reply.RlyErr != OK {
-						DPrintf(shardkv, "pull shard failed %v %v %v %v", serv, kv, args, reply)
+					if ok := servAddr.Call("ShardKV.GCHandler", args, reply); !ok || reply.RlyErr != OK {
+						DPrintf(shardkv, "GC shard failed %v %v %v %v", serv, kv, args, reply)
 						continue
 					}
-					DPrintf(shardkv, "pull shard succ %v %v %v %v", serv, kv, args, reply)
-					kv.rf.Start(Op{
-						OpType: OPAvailShard,
-						Shard: Shard{Num: args.ShardNum},
-						Config: shardctrler.Config{Num: args.ConfigNum},
-					})
+					DPrintf(shardkv, "GC shard succ %v %v %v %v", serv, kv, args, reply)
+					if reply.GCDone == true {
+						kv.rf.Start(Op{
+							OpType: OPAvailShard,
+							Shard:  Shard{Num: args.ShardNum},
+							Config: shardctrler.Config{Num: args.ConfigNum},
+						})
+					}
 					break
 				}
 			}(servs, args)
@@ -490,6 +502,38 @@ func (kv *ShardKV) GCAction() {
 	}
 	kv.Unlock()
 	wg.Wait()
+}
+
+func (kv *ShardKV) GCHandler(args *MigrationArgs, reply *MigrationReply) {
+	if _, isLeader := kv.rf.GetState(); !isLeader {
+		reply.RlyErr = ErrWrongLeader
+		return
+	}
+	kv.Lock()
+	defer kv.Unlock()
+	defer DPrintf(shardkv, "DONE %v %v %v", kv, args, reply)
+	DPrintf(shardkv, "%v %v %v", kv, args, reply)
+	reply.ConfigNum = kv.currConfig.Num
+	if kv.currConfig.Num != args.ConfigNum {
+		reply.RlyErr = ErrWrongConfig
+		return
+	}
+	shard, ok := kv.ShardMap[args.ShardNum]
+	if !ok {
+		DPrintf(debugError|shardkv, "Shard NOT EXIST %v %v", kv, args)
+		reply.RlyErr, reply.GCDone = OK, true
+		return
+	}
+	if shard.Stat != Removing {
+		reply.RlyErr = ErrShardStatUnexpected
+	}
+	
+	kv.rf.Start(Op{
+		OpType: OPDelShard,
+		Shard:  Shard{Num: args.ShardNum},
+		Config: shardctrler.Config{Num: args.ConfigNum},
+	})
+	reply.RlyErr, reply.GCDone = OK, true
 }
 
 func (kv *ShardKV) appendNOOPAction() {
@@ -590,6 +634,9 @@ func (kv *ShardKV) debugGoroutine() bool {
 	t1 := time.Now()
 	for {
 		DPrintf(debugTest2, "Goroutine Num:%v %v", runtime.NumGoroutine(), time.Now().Sub(t1))
+		if runtime.NumGoroutine() > 500 {
+			DPanicf(debugError, "%v", kv)
+		}
 		time.Sleep(10 * time.Second)
 	}
 }

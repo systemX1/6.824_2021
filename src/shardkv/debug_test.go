@@ -14,6 +14,11 @@ func TestSth(t *testing.T) {
 	for i, s := range ss {
 		DPrintf(debugTest2, "%v %v", i, s)
 	}
+
+	kv := &KVMap{"5":"555", "1":"", "2":"2", "7":"7777"}
+	shard := NewShard(2, Available)
+	shard.Storage = *kv
+	DPrintf(debugTest2, "%v %v", kv, shard)
 }
 
 func TestShardKVapplyOpPullConf(t *testing.T) {

@@ -19,7 +19,7 @@ const (
 	ClerkWrongLeaderInterval = ClerkWrongGroupInterval
 	ServerApplyTimeout       = 2000 * time.Millisecond
 	ServerSnapshotInterval   = 200 * time.Millisecond
-	LoopInterval             = 200 * time.Millisecond
+	LoopInterval             = 100 * time.Millisecond
 	LeaderPullConfigInterval = LoopInterval
 	LeaderMigrationInterval  = LoopInterval
 	LeaderGCInterval         = LoopInterval
@@ -137,12 +137,11 @@ func (reply *OpReply) String() string {
 type MigrationArgs struct {
 	ConfigNum     int
 	ShardNum      int
-	GC            bool
 }
 
 func (m *MigrationArgs) String() string {
-	return fmt.Sprintf("  \n[MArg GC:%v cfg:%v shard:%v]",
-		m.GC, m.ConfigNum, m.ShardNum)
+	return fmt.Sprintf("  \n[MArg cfg:%v shard:%v]",
+		m.ConfigNum, m.ShardNum)
 }
 
 type MigrationReply struct {
@@ -150,11 +149,12 @@ type MigrationReply struct {
 	ConfigNum     int
 	Storage       KVMap
 	LastClntOpMap clntIdOpCtxMap
+	GCDone        bool
 }
 
 func (m *MigrationReply) String() string {
-	return fmt.Sprintf("  \n[MReply %v cfg:%v stor:%v las:%v]",
-		m.RlyErr, m.ConfigNum, m.Storage, m.LastClntOpMap)
+	return fmt.Sprintf("  \n[MReply %v cfg:%v stor:%v las:%v done:%v]",
+		m.RlyErr, m.ConfigNum, m.Storage, m.LastClntOpMap, m.GCDone)
 }
 
 // which shard is a key in?

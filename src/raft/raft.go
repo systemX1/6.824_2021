@@ -117,10 +117,10 @@ func (rf *Raft) String() string {
 	//	rf.rL.GetCommitIndex(), rf.rL.GetLastApplied(),
 	//	rf.lastIncludedIndex, rf.lastIncludedTerm,
 	//)
-	return fmt.Sprintf("[S%v %v t:%v c:%v a:%v sn:%v %v]",
+	return fmt.Sprintf("[S%v %v t:%v c:%v a:%v sn:%v %v l:%v]",
 		rf.me, rf.stat, rf.currTerm,
 		rf.rL.GetCommitIndex(), rf.rL.GetLastApplied(),
-		rf.lastIncludedIndex, rf.lastIncludedTerm,
+		rf.lastIncludedIndex, rf.lastIncludedTerm, rf.rL.Len(),
 		)
 }
 
@@ -131,6 +131,12 @@ func (rf *Raft) GetState() (int, bool) {
 	defer rf.Unlock()
 	// Your code here (2A).
 	return rf.currTerm, rf.stat == Leader
+}
+
+func (rf *Raft) IsCommited(index int) bool {
+	rf.Lock()
+	defer rf.Unlock()
+	return index <= rf.rL.GetCommitIndex() + 1
 }
 
 func (rf *Raft) setCurrTerm(term int) {

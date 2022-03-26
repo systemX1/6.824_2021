@@ -9,7 +9,7 @@ import (
 const (
 	// Time
 	heartbeatTimeout = 100 * time.Millisecond
-	applyInterval    = 10 * time.Millisecond
+	applyInterval    = 20 * time.Millisecond
 )
 
 // GetElectionTimeout time func
