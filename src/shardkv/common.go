@@ -104,22 +104,22 @@ type OpArgs struct {
 func (op *OpArgs) String() string {
 	switch op.OpType {
 	case OPKV:
-		return fmt.Sprintf("  \n[%v %v k:%v->%v v:%v seq:%v clnt:%v]",
+		return fmt.Sprintf("\n[%v %v k:%v->%v v:%v seq:%v clnt:%v]",
 			op.OpType, op.OpKVType, op.Key, key2shard(op.Key), op.Value, op.Seq, op.Clnt % clntIdDebugMod)
 	case OPPullConf:
-		return fmt.Sprintf("  \n[%v cfg:%v]",
+		return fmt.Sprintf("\n[%v cfg:%v]",
 			op.OpType, &op.Config)
 	case OPAddShard:
-		return fmt.Sprintf("  \n[%v cfg:%v shard:%v]",
+		return fmt.Sprintf("\n[%v cfg:%v shard:%v]",
 			op.OpType, op.Config.Num, &op.Shard)
 	case OPDelShard:
-		return fmt.Sprintf("  \n[%v cfg:%v shard:%v]",
+		return fmt.Sprintf("\n[%v cfg:%v shard:%v]",
 			op.OpType, op.Config.Num, &op.Shard)
 	case OPAvailShard:
-		return fmt.Sprintf("  \n[%v cfg:%v shard:%v]",
+		return fmt.Sprintf("\n[%v cfg:%v shard:%v]",
 			op.OpType, op.Config.Num, &op.Shard)
 	default:
-		return fmt.Sprintf("  \n[NO-OP]")
+		return fmt.Sprintf("\n[NO-OP]")
 	}
 }
 
@@ -129,22 +129,24 @@ type OpReply struct {
 }
 
 func (reply *OpReply) String() string {
-	return fmt.Sprintf("  \n[REPLY %v v:%v]",
+	return fmt.Sprintf("\n[REPLY %v v:%v]",
 		reply.RlyErr, reply.RlyVal,
 	)
 }
 
 type MigrationArgs struct {
+	GID           int
 	ConfigNum     int
 	ShardNum      int
 }
 
 func (m *MigrationArgs) String() string {
-	return fmt.Sprintf("  \n[MArg cfg:%v shard:%v]",
-		m.ConfigNum, m.ShardNum)
+	return fmt.Sprintf("\n[MArg cfg:%v shard:%v FROM:G%v]",
+		m.ConfigNum, m.ShardNum, m.GID)
 }
 
 type MigrationReply struct {
+	GID           int
 	RlyErr        Err
 	ConfigNum     int
 	Storage       KVMap
@@ -153,8 +155,8 @@ type MigrationReply struct {
 }
 
 func (m *MigrationReply) String() string {
-	return fmt.Sprintf("  \n[MReply %v cfg:%v stor:%v las:%v done:%v]",
-		m.RlyErr, m.ConfigNum, m.Storage, m.LastClntOpMap, m.GCDone)
+	return fmt.Sprintf("\n[MReply %v cfg:%v stor:%v las:%v done:%v TO:G%v]",
+		m.RlyErr, m.ConfigNum, m.Storage, m.LastClntOpMap, m.GCDone, m.GID)
 }
 
 // which shard is a key in?

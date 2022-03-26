@@ -399,6 +399,7 @@ func (kv *ShardKV) migrationAction() {
 			GID := kv.lastConfig.Shards[shardNum]
 			servs := kv.lastConfig.Groups[GID]
 			args := &MigrationArgs{
+				GID: kv.GID,
 				ShardNum:  shardNum,
 				ConfigNum: kv.currConfig.Num,
 			}
@@ -435,11 +436,12 @@ func (kv *ShardKV) MigrationHandler(args *MigrationArgs, reply *MigrationReply) 
 		return
 	}
 	kv.Lock()
-	defer kv.Unlock()
+	kv.Unlock()
 	defer DPrintf(shardkv, "DONE %v %v %v", kv, args, reply)
 	DPrintf(shardkv, "%v %v %v", kv, args, reply)
-	reply.ConfigNum = kv.currConfig.Num
-	if kv.currConfig.Num != args.ConfigNum {
+	reply.GID, reply.ConfigNum = kv.GID, kv.currConfig.Num
+
+	if kv.currConfig.Num < args.ConfigNum {
 		reply.RlyErr = ErrWrongConfig
 		return
 	}
@@ -451,7 +453,6 @@ func (kv *ShardKV) MigrationHandler(args *MigrationArgs, reply *MigrationReply) 
 	if shard.Stat != Removing {
 		reply.RlyErr = ErrShardStatUnexpected
 	}
-
 
 	reply.Storage, reply.LastClntOpMap = make(KVMap), make(clntIdOpCtxMap)
 	for k, v := range shard.Storage {
@@ -472,6 +473,7 @@ func (kv *ShardKV) GCAction() {
 			GID := kv.lastConfig.Shards[shardNum]
 			servs := kv.lastConfig.Groups[GID]
 			args := &MigrationArgs{
+				GID: kv.GID,
 				ShardNum:  shardNum,
 				ConfigNum: kv.currConfig.Num,
 			}
@@ -513,27 +515,24 @@ func (kv *ShardKV) GCHandler(args *MigrationArgs, reply *MigrationReply) {
 	defer kv.Unlock()
 	defer DPrintf(shardkv, "DONE %v %v %v", kv, args, reply)
 	DPrintf(shardkv, "%v %v %v", kv, args, reply)
-	reply.ConfigNum = kv.currConfig.Num
-	if kv.currConfig.Num != args.ConfigNum {
-		reply.RlyErr = ErrWrongConfig
+	reply.GID, reply.ConfigNum = kv.GID, kv.currConfig.Num
+
+	if kv.currConfig.Num > args.ConfigNum {
+		reply.RlyErr, reply.GCDone = OK, true
 		return
 	}
-	shard, ok := kv.ShardMap[args.ShardNum]
-	if !ok {
+	if _, ok := kv.ShardMap[args.ShardNum]; !ok {
 		DPrintf(debugError|shardkv, "Shard NOT EXIST %v %v", kv, args)
 		reply.RlyErr, reply.GCDone = OK, true
 		return
 	}
-	if shard.Stat != Removing {
-		reply.RlyErr = ErrShardStatUnexpected
-	}
-	
+
 	kv.rf.Start(Op{
 		OpType: OPDelShard,
 		Shard:  Shard{Num: args.ShardNum},
 		Config: shardctrler.Config{Num: args.ConfigNum},
 	})
-	reply.RlyErr, reply.GCDone = OK, true
+	reply.RlyErr, reply.GCDone = OK, false
 }
 
 func (kv *ShardKV) appendNOOPAction() {
