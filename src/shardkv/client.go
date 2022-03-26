@@ -35,7 +35,7 @@ type Clerk struct {
 
 func (ck *Clerk) String() string {
 	return fmt.Sprintf("[ck seq:%v clnt:%v cfg:%v]",
-		ck.seqId, ck.clntId % clntIdDebugMod , ck.config)
+		ck.seqId, ck.clntId % clntIdDebugMod, &ck.config)
 }
 
 // MakeClerk the tester calls MakeClerk.
@@ -66,16 +66,16 @@ func (ck *Clerk) StartOp(args *OpArgs) string {
 			// try each server for the shard.
 			for si := 0; si < len(servers); si = (si + 1) % len(servers) {
 				serv := ck.makeEnd(servers[si])
-				DPrintf(clerk, "si:%v %v to Serv %v %v", si, ck, servers[si], args)
+				DPrintf(clerk, "si:%v %v to %v %v", si, ck, servers[si], args)
 
 				reply := &OpReply{}
 				if ok := serv.Call("ShardKV.OpHandler", args, reply); !ok {
-					DPrintf(clerk, "si:%v %v to Serv %v failed %v %v", si, ck, servers[si], args, reply)
+					DPrintf(clerk, "si:%v %v to %v failed %v %v", si, ck, servers[si], args, reply)
 					time.Sleep(ClerkRetryTimeout)
 					continue
 				}
 
-				DPrintf(clerk, "si:%v %v to Serv DONE %v %v %v", si, ck, servers[si], args, reply)
+				DPrintf(clerk, "si:%v %v to %v DONE %v %v", si, ck, servers[si], args, reply)
 				switch reply.RlyErr {
 				case OK, ErrNoKey:
 					return reply.RlyVal

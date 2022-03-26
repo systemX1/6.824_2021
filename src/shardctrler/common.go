@@ -34,7 +34,7 @@ type Config struct {
 
 func (cf *Config) String() string {
 	return fmt.Sprintf("[cfg%v s:%v g:%v]",
-		cf.Num, cf.Shards, cf.Groups,
+		cf.Num, cf.Shards, len(cf.Groups),
 	)
 }
 func NewConfig() *Config {

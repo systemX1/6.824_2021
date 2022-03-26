@@ -19,7 +19,7 @@ const (
 	ClerkWrongLeaderInterval = ClerkWrongGroupInterval
 	ServerApplyTimeout       = 2000 * time.Millisecond
 	ServerSnapshotInterval   = 200 * time.Millisecond
-	LoopInterval             = 100 * time.Millisecond
+	LoopInterval             = 200 * time.Millisecond
 	LeaderPullConfigInterval = LoopInterval
 	LeaderMigrationInterval  = LoopInterval
 	LeaderGCInterval         = LoopInterval
@@ -37,7 +37,8 @@ const (
 	ErrWrongConfig
 	ErrTimeout
 )
-var errStr = []string{ "OK", "ErrNoKey", "ErrWrongLeader", "ErrWrongGroup", "ErrTimeout" }
+var errStr = []string{ "OK", "ErrNoKey", "ErrWrongLeader", "ErrWrongGroup",
+	"ErrShardStatUnexpected", "ErrWrongConfig", "ErrTimeout" }
 func (e Err) String() string {
 	return errStr[e]
 }
@@ -51,7 +52,8 @@ const (
 	OPAvailShard
 	NOOP
 )
-var opTypeStr = []string{ "OPPullConf", "OPKV", "OPAddShard", "OPDelShard", "NOOP" }
+var opTypeStr = []string{ "OPPullConf", "OPKV",
+	"OPAddShard", "OPDelShard", "OPAvailShard", "NOOP" }
 func (o OPType) String() string {
 	return opTypeStr[o]
 }
@@ -74,7 +76,7 @@ const (
 	GCWait
 	Removing
 )
-var shardStatStr = []string{ "Available", "Preparing", "Removing" }
+var shardStatStr = []string{ "Available", "Preparing", "GCWait", "Removing" }
 func (s ShardStat) String() string {
 	return shardStatStr[s]
 }
@@ -84,7 +86,7 @@ type OpContext struct {
 	OpReply
 }
 func (oc *OpContext) String() string {
-	return fmt.Sprintf("\n[CTX %v %v]",
+	return fmt.Sprintf("  \n[CTX %v %v]",
 		&oc.OpArgs, &oc.OpReply)
 }
 
@@ -102,15 +104,22 @@ type OpArgs struct {
 func (op *OpArgs) String() string {
 	switch op.OpType {
 	case OPKV:
-		return fmt.Sprintf("\n[%v %v k:%v v:%v seq:%v clnt:%v]",
-			op.OpType, op.OpKVType, op.Key, op.Value, op.Seq, op.Clnt % clntIdDebugMod,
-		)
+		return fmt.Sprintf("  \n[%v %v k:%v->%v v:%v seq:%v clnt:%v]",
+			op.OpType, op.OpKVType, op.Key, key2shard(op.Key), op.Value, op.Seq, op.Clnt % clntIdDebugMod)
 	case OPPullConf:
-		return fmt.Sprintf("\n[%v cfg:%v]",
-			op.OpType, op.Config,
-		)
+		return fmt.Sprintf("  \n[%v cfg:%v]",
+			op.OpType, &op.Config)
+	case OPAddShard:
+		return fmt.Sprintf("  \n[%v cfg:%v shard:%v]",
+			op.OpType, op.Config.Num, &op.Shard)
+	case OPDelShard:
+		return fmt.Sprintf("  \n[%v cfg:%v shard:%v]",
+			op.OpType, op.Config.Num, &op.Shard)
+	case OPAvailShard:
+		return fmt.Sprintf("  \n[%v cfg:%v shard:%v]",
+			op.OpType, op.Config.Num, &op.Shard)
 	default:
-		return fmt.Sprintf("\n[NO-OP]")
+		return fmt.Sprintf("  \n[NO-OP]")
 	}
 }
 
@@ -120,7 +129,7 @@ type OpReply struct {
 }
 
 func (reply *OpReply) String() string {
-	return fmt.Sprintf("\n[REPLY %v v:%v]",
+	return fmt.Sprintf("  \n[REPLY %v v:%v]",
 		reply.RlyErr, reply.RlyVal,
 	)
 }
@@ -131,11 +140,21 @@ type MigrationArgs struct {
 	GC            bool
 }
 
+func (m *MigrationArgs) String() string {
+	return fmt.Sprintf("  \n[MArg GC:%v cfg:%v shard:%v]",
+		m.GC, m.ConfigNum, m.ShardNum)
+}
+
 type MigrationReply struct {
 	RlyErr        Err
 	ConfigNum     int
 	Storage       KVMap
 	LastClntOpMap clntIdOpCtxMap
+}
+
+func (m *MigrationReply) String() string {
+	return fmt.Sprintf("  \n[MReply %v cfg:%v stor:%v las:%v]",
+		m.RlyErr, m.ConfigNum, m.Storage, m.LastClntOpMap)
 }
 
 // which shard is a key in?

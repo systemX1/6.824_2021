@@ -10,4 +10,12 @@ func TestSth(t *testing.T) {
 	DPrintf(debugTest2, "%v %v", m, v)
 	DPrintf(debugTest2, "%v", key2shard("0"))
 
+	ss := []string{"server-100-0", "server-100-1", "server-100-2"}
+	for i, s := range ss {
+		DPrintf(debugTest2, "%v %v", i, s)
+	}
+}
+
+func TestShardKVapplyOpPullConf(t *testing.T) {
+
 }

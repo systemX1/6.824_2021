@@ -67,9 +67,9 @@ type ShardKV struct {
 }
 
 func (kv *ShardKV) String() string {
-	return fmt.Sprintf("[ShardKV GID:%v %v a:%v Cfg:%v %v Shards:%v]",
-		kv.GID, kv.rf, kv.lastApplied, kv.currConfig, kv.lastConfig, &kv.ShardMap,
-	)
+	return fmt.Sprintf("[ShardKV GID:%v %v a:%v Cfg:%v%v Shards: %v %v]",
+		kv.GID, kv.rf, kv.lastApplied, &kv.currConfig, &kv.lastConfig,
+		len(kv.ShardMap), &kv.ShardMap)
 }
 
 func (kv *ShardKV) OpHandler(args *OpArgs, reply *OpReply) {
@@ -90,7 +90,7 @@ func (kv *ShardKV) OpHandler(args *OpArgs, reply *OpReply) {
 		return
 	} else if shard.Stat == Preparing {
 		reply.RlyErr = ErrShardStatUnexpected
-		DPrintf(debugTest|shardkv, "reject %v %v", ErrShardStatUnexpected, kv)
+		DPrintf(debugTest|shardkv, "reject %v %v %v", ErrShardStatUnexpected, kv, args)
 		return
 	}
 	var op = (Op)(*args)
@@ -204,7 +204,7 @@ func (kv *ShardKV) applyOp(opCtx *OpContext) {
 func (kv *ShardKV) applyOpKV(opCtx *OpContext) {
 	shardNum := key2shard(opCtx.Key)
 	shard, ok := kv.ShardMap[shardNum]
-	if !ok || shard.Stat == Preparing {
+	if !ok || shard.Stat == Preparing || shard.Stat == Removing {
 		opCtx.RlyErr = ErrShardStatUnexpected
 		return
 	}
@@ -227,9 +227,9 @@ func (kv *ShardKV) applyOpPullConf(opCtx *OpContext) {
 		DPrintf(debugTest|shardkv, "reject outdated config %v %v", kv, opCtx)
 		return
 	}
+	DPrintf(debugTest, "%v %v", kv, &opCtx.Config)
 	kv.lastConfig = kv.currConfig
 	kv.currConfig = opCtx.Config
-	DPrintf(debugTest, "%v %v", kv, &opCtx.Config)
 
 	// pull needed
 	for shardNum, GID := range kv.currConfig.Shards {
@@ -252,6 +252,7 @@ func (kv *ShardKV) applyOpPullConf(opCtx *OpContext) {
 			kv.ShardMap[shardNum].Stat = Removing
 		}
 	}
+	DPrintf(debugTest, "DONE %v %v", kv, &opCtx.Config)
 }
 
 func (kv *ShardKV) applyAddShard(opCtx *OpContext) {
@@ -267,6 +268,12 @@ func (kv *ShardKV) applyAddShard(opCtx *OpContext) {
 		return
 	}
 	shard.Stat, shard.Storage, shard.LastClntOpMap = GCWait, opCtx.Storage, opCtx.LastClntOpMap
+	if shard.Storage == nil {
+		shard.Storage = make(KVMap)
+	}
+	if shard.LastClntOpMap == nil {
+		shard.LastClntOpMap = make(clntIdOpCtxMap)
+	}
 }
 
 func (kv *ShardKV) applyDelShard(opCtx *OpContext) {
@@ -352,7 +359,7 @@ func (kv *ShardKV) pullConfigAction() {
 	for shardNum := range kv.ShardMap {
 		if kv.ShardMap[shardNum].Stat != Available {
 			kv.Unlock()
-			break
+			return
 		}
 	}
 	currCfgNum := kv.currConfig.Num
@@ -371,29 +378,35 @@ func (kv *ShardKV) migrationAction() {
 	var wg sync.WaitGroup
 	for shardNum, shard := range kv.ShardMap {
 		if shard.Stat == Preparing {
-			wg.Add(1)
 			GID := kv.lastConfig.Shards[shardNum]
 			servs := kv.lastConfig.Groups[GID]
-			go func() {
+			args := &MigrationArgs{
+				ShardNum:  shardNum,
+				ConfigNum: kv.currConfig.Num,
+				GC:        false,
+			}
+			DPrintf(debugTest, "To GID:%v %v %v %v", GID, servs, kv, args)
+
+			go func(servs []string, args *MigrationArgs) {
+				wg.Add(1)
 				defer wg.Done()
-				args := &MigrationArgs{
-					ShardNum:  shardNum,
-					ConfigNum: kv.lastConfig.Num,
-					GC:        false,
-				}
-				reply := &MigrationReply{}
+
 				for _, serv := range servs {
 					servAddr := kv.makeEnd(serv)
+					reply := &MigrationReply{}
 					if ok := servAddr.Call("ShardKV.MigrationHandler", args, reply); !ok || reply.RlyErr != OK {
-						DPrintf(shardkv, "pull shard failed %v %v", kv, args)
+						DPrintf(shardkv, "pull shard failed %v %v %v %v", serv, kv, args, reply)
+						continue
 					}
-					DPrintf(shardkv, "pull shard succ %v %v %v", kv, args, reply)
+					DPrintf(shardkv, "pull shard succ %v %v %v %v", serv, kv, args, reply)
 					kv.rf.Start(Op{
 						OpType: OPAddShard,
-						Shard: Shard{Storage: reply.Storage, LastClntOpMap: reply.LastClntOpMap},
+						Shard: Shard{Num: args.ShardNum, Storage: reply.Storage, LastClntOpMap: reply.LastClntOpMap},
+						Config: shardctrler.Config{Num: args.ConfigNum},
 					})
+					break
 				}
-			}()
+			}(servs, args)
 		}
 	}
 	kv.Unlock()
@@ -407,8 +420,8 @@ func (kv *ShardKV) MigrationHandler(args *MigrationArgs, reply *MigrationReply) 
 	}
 	kv.Lock()
 	defer kv.Unlock()
-	defer DPrintf(shardkv, "MigrationHandle DONE %v %v", kv, args, reply)
-	reply.ConfigNum = kv.currConfig.Num + 1
+	defer DPrintf(shardkv, "MigrationHandle DONE %v %v %v", kv, args, reply)
+	reply.ConfigNum = kv.currConfig.Num
 	if kv.currConfig.Num != args.ConfigNum  {
 		reply.RlyErr = ErrWrongConfig
 		return
@@ -422,6 +435,7 @@ func (kv *ShardKV) MigrationHandler(args *MigrationArgs, reply *MigrationReply) 
 	}
 
 	if !args.GC {
+		reply.Storage, reply.LastClntOpMap = make(KVMap), make(clntIdOpCtxMap)
 		for k, v := range shard.Storage {
 			reply.Storage[k] = v
 		}
@@ -453,12 +467,13 @@ func (kv *ShardKV) GCAction() {
 				for _, serv := range servs {
 					servAddr := kv.makeEnd(serv)
 					if ok := servAddr.Call("ShardKV.MigrationHandler", args, reply); !ok || reply.RlyErr != OK {
-						DPrintf(shardkv, "pull shard failed %v %v", kv, args)
+						DPrintf(shardkv, "GC failed %v %v %v %v", servAddr, kv, args, reply)
 					}
-					DPrintf(shardkv, "pull shard succ %v %v %v", kv, args, reply)
+					DPrintf(shardkv, "GC succ %v %v %v %v", servAddr, kv, args, reply)
 					kv.rf.Start(Op{
-						OpType: OPAddShard,
+						OpType: OPAvailShard,
 						Shard: Shard{Storage: reply.Storage, LastClntOpMap: reply.LastClntOpMap},
+						Config: shardctrler.Config{Num: args.ConfigNum},
 					})
 				}
 			}()
