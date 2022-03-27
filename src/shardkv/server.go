@@ -16,7 +16,6 @@ import (
 )
 
 type Op                   OpArgs
-type KVMap                map[string]string
 type ShardMap             map[int]*Shard
 type replyChan            chan *OpReply
 type replyChanMap         map[int]replyChan // (key: logIndex, val: replyChan)
@@ -28,23 +27,6 @@ func (s *ShardMap) isDuplicated(clntId, seqId int64) (*OpContext, bool) {
 		}
 	}
 	return nil, false
-}
-
-func (kv *KVMap) String() string {
-	var sb strings.Builder
-	sb.WriteString("m[")
-	for k := range *kv {
-		sb.WriteString(k)
-		sb.WriteByte(':')
-		if len((*kv)[k]) >= 2 {
-			sb.WriteString((*kv)[k][:2])
-		} else {
-			sb.WriteString((*kv)[k])
-		}
-		sb.WriteByte(' ')
-	}
-	sb.WriteString("]")
-	return sb.String()
 }
 
 func (s *ShardMap) String() string {
@@ -79,8 +61,6 @@ type ShardKV struct {
 	lastConfig    shardctrler.Config
 	currConfig    shardctrler.Config
 
-	migrationCh   chan int
-	GCCh          chan int
 }
 
 func (kv *ShardKV) String() string {
@@ -633,7 +613,7 @@ func (kv *ShardKV) debugGoroutine() bool {
 	t1 := time.Now()
 	for {
 		DPrintf(debugTest2, "Goroutine Num:%v %v", runtime.NumGoroutine(), time.Now().Sub(t1))
-		if runtime.NumGoroutine() > 500 {
+		if runtime.NumGoroutine() > 1000 {
 			DPanicf(debugError, "%v", kv)
 		}
 		time.Sleep(10 * time.Second)

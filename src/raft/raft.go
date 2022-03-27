@@ -69,7 +69,7 @@ func (msg *ApplyMsg) String() string {
 			msg.CommandIndex,
 		)
 	}
-	return fmt.Sprintf("\n[MSG sn idx:%v t:%v l:%v]",
+	return fmt.Sprintf("\n[MSG sn snIdx:%v t:%v l:%v]",
 		msg.SnapshotIndex, msg.SnapshotTerm, len(msg.Snapshot),
 	)
 }
@@ -117,11 +117,17 @@ func (rf *Raft) String() string {
 	//	rf.rL.GetCommitIndex(), rf.rL.GetLastApplied(),
 	//	rf.lastIncludedIndex, rf.lastIncludedTerm,
 	//)
+	if rf.stat == Leader {
+		return fmt.Sprintf("[S%v %v t:%v c:%v a:%v sn:%v %v l:%v m:%v n:%v]",
+			rf.me, rf.stat, rf.currTerm,
+			rf.rL.GetCommitIndex(), rf.rL.GetLastApplied(),
+			rf.lastIncludedIndex, rf.lastIncludedTerm, rf.rL.Len(),
+			rf.matchIndex, rf.nextIndex)
+	}
 	return fmt.Sprintf("[S%v %v t:%v c:%v a:%v sn:%v %v l:%v]",
 		rf.me, rf.stat, rf.currTerm,
 		rf.rL.GetCommitIndex(), rf.rL.GetLastApplied(),
-		rf.lastIncludedIndex, rf.lastIncludedTerm, rf.rL.Len(),
-		)
+		rf.lastIncludedIndex, rf.lastIncludedTerm, rf.rL.Len())
 }
 
 // GetState return currentTerm and whether this server
