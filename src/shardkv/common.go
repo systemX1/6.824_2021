@@ -14,16 +14,16 @@ import (
 // You will have to modify these definitions.
 
 const (
-	ClerkRetryTimeout        = 50 * time.Millisecond
-	ClerkWrongGroupInterval  = 50 * time.Millisecond
+	ClerkRetryTimeout        = 20 * time.Millisecond
+	ClerkWrongGroupInterval  = 20 * time.Millisecond
 	ClerkWrongLeaderInterval = ClerkWrongGroupInterval
-	ServerApplyTimeout       = 2000 * time.Millisecond
+	ServerApplyTimeout       = 1000 * time.Millisecond
 	ServerSnapshotInterval   = 100 * time.Millisecond
 	LoopInterval             = 70 * time.Millisecond
 	LeaderPullConfigInterval = LoopInterval
 	LeaderMigrationInterval  = LoopInterval
-	LeaderGCInterval         = 100 * time.Millisecond
-	LeaderAppendNOOPInterval = 200 * time.Millisecond
+	LeaderGCInterval         = 70 * time.Millisecond
+	LeaderAppendNOOPInterval = 200000 * time.Millisecond
 	clntIdDebugMod           = 100000
 )
 
@@ -160,7 +160,15 @@ func (m *MigrationReply) String() string {
 }
 
 type OpInfo struct {
+	Seq	     int64
+	Clnt     int64
+	OpReply
+}
 
+func (f *OpInfo) String() string {
+	return fmt.Sprintf("\n[Info seq:%v clnt:%v %v v:%v]",
+		f.Seq, f.Clnt, f.RlyErr, f.RlyVal,
+	)
 }
 
 // which shard is a key in?

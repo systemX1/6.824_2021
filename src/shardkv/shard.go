@@ -6,7 +6,7 @@ import (
 )
 
 type KVMap            map[string]string
-type clntIdOpCtxMap   map[int64]*OpContext // (key: clientId, val: lastAppliedOpContext)
+type clntIdOpCtxMap   map[int64]*OpInfo // (key: clientId, val: lastAppliedOpContext)
 
 func (kv *KVMap) String() string {
 	var sb strings.Builder
@@ -46,7 +46,7 @@ func (s *Shard) String() string {
 		s.Num, s.Stat, &s.Storage)
 }
 
-func (s *Shard) isDuplicated(clntId, seqId int64) (*OpContext, bool) {
+func (s *Shard) isDuplicated(clntId, seqId int64) (*OpInfo, bool) {
 	lastAppliedOp, ok := s.LastClntOpMap[clntId]
 	return lastAppliedOp, ok && seqId <= lastAppliedOp.Seq
 }

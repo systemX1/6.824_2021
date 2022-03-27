@@ -11,9 +11,9 @@
     - [x] Lab 3B
 - [x] [**Lab 4**](https://github.com/Ray-Eldath/MIT6.824/tree/raft-2021)
     - [x] Lab 4A
-    - [ ] Lab 4B
+    - [x] Lab 4B
 
-- [ ] [Challenge1](docs/lab4.md)
+- [x] [Challenge1](docs/lab4.md)
 - [x] [Challenge2](docs/lab4.md)
 
 

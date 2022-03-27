@@ -166,8 +166,8 @@ func checkDefault1(value reflect.Value, depth int, name string) {
 				// this warning typically arises if code re-uses the same RPC reply
 				// variable for multiple RPC calls, or if code restores persisted
 				// state into variable that already have non-default values.
-				fmt.Printf("labgob warning: Decoding into a non-default variable/field %v may not work\n",
-					what)
+				//fmt.Printf("labgob warning: Decoding into a non-default variable/field %v may not work\n",
+				//	what)
 			}
 			errorCount += 1
 			mu.Unlock()

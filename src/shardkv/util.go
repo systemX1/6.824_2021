@@ -2,6 +2,7 @@ package shardkv
 
 import (
 	"fmt"
+	"io"
 	"log"
 	"math"
 	"path"
@@ -13,7 +14,7 @@ var debugFilter func (a uint, b uint) bool
 func init() {
 	debugFilter = subset
 	log.SetFlags(log.Ltime | log.Lmicroseconds)
-	//log.SetOutput(io.Discard)
+	log.SetOutput(io.Discard)
 }
 
 const (
@@ -24,9 +25,9 @@ const (
 	debugTest       uint = 1 << 6
 	debugTest2      uint = 1 << 7
 	debugError 		uint = 1 << 8
-	debugConf = all
+	//debugConf = all
 	//debugConf = debugTest2 + debugTest
-	//debugConf = 0
+	debugConf = 0
 )
 
 // return if "a" is a subset of "b"

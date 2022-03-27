@@ -20,7 +20,7 @@ type ShardMap             map[int]*Shard
 type replyChan            chan *OpReply
 type replyChanMap         map[int]replyChan // (key: logIndex, val: replyChan)
 
-func (s *ShardMap) isDuplicated(clntId, seqId int64) (*OpContext, bool) {
+func (s *ShardMap) isDuplicated(clntId, seqId int64) (*OpInfo, bool) {
 	for _, shard := range *s {
 		if lastAppliedOp, ok := shard.isDuplicated(clntId, seqId); ok {
 			return lastAppliedOp, true
@@ -60,7 +60,6 @@ type ShardKV struct {
 
 	lastConfig    shardctrler.Config
 	currConfig    shardctrler.Config
-
 }
 
 func (kv *ShardKV) String() string {
@@ -73,7 +72,7 @@ func (kv *ShardKV) OpHandler(args *OpArgs, reply *OpReply) {
 	kv.Lock()
 	if lastOpCtx, ok := kv.isDuplicated(args.Clnt, args.Seq); ok {
 		reply.RlyVal, reply.RlyErr = lastOpCtx.RlyVal, lastOpCtx.RlyErr
-		DPrintf(shardkv, "Op Duplicated %v %v %v", kv, args, reply)
+		//DPrintf(shardkv, "Op Duplicated %v %v %v", kv, args, reply)
 		kv.Unlock()
 		return
 	}
@@ -83,23 +82,23 @@ func (kv *ShardKV) OpHandler(args *OpArgs, reply *OpReply) {
 	shard, ok := kv.ShardMap[shardNum]
 	if !ok  {
 		reply.RlyErr = ErrWrongGroup
-		DPrintf(debugTest|shardkv, "reject %v %v", ErrWrongGroup, kv)
+		//DPrintf(debugTest|shardkv, "reject %v %v", ErrWrongGroup, kv)
 		return
 	} else if shard.Stat == Preparing {
 		reply.RlyErr = ErrShardStatUnexpected
-		DPrintf(debugTest|shardkv, "reject %v %v %v", ErrShardStatUnexpected, kv, args)
+		//DPrintf(debugTest|shardkv, "reject %v %v %v", ErrShardStatUnexpected, kv, args)
 		return
 	}
 	var op = (Op)(*args)
 	logIndex, _, isLeader := kv.rf.Start(op)
 	if isLeader == false {
 		reply.RlyErr = ErrWrongLeader
-		DPrintf(debugTest|shardkv, "reject %v %v", ErrWrongLeader, kv)
+		//DPrintf(debugTest|shardkv, "reject %v %v", ErrWrongLeader, kv)
 		return
 	}
 
 	kv.Lock()
-	DPrintf(shardkv, "OpReceive %v %v", kv, args)
+	//DPrintf(shardkv, "OpReceive %v %v", kv, args)
 	replyChan := kv.appendApplyChan(logIndex)
 	kv.Unlock()
 	select {
@@ -112,7 +111,7 @@ func (kv *ShardKV) OpHandler(args *OpArgs, reply *OpReply) {
 	go func() {
 		kv.Lock()
 		defer kv.Unlock()
-		DPrintf(shardkv, "Op DONE %v %v %v", kv, args, reply)
+		//DPrintf(shardkv, "Op DONE %v %v %v", kv, args, reply)
 		delete(kv.replyChanMap, logIndex)
 	}()
 }
@@ -126,16 +125,16 @@ func (kv *ShardKV) appendApplyChan(key int) replyChan {
 func (kv *ShardKV) run() {
 	for {
 		if kv.killed() {
-			DPrintf(shardkv, "%v is killed %v", kv, kv.rf)
+			//DPrintf(shardkv, "%v is killed %v", kv, kv.rf)
 			return
 		}
 		select {
 		case applyMsg := <-kv.applyCh:
 			kv.Lock()
-			DPrintf(shardkv, "%v Receive applyMsg %v", kv, &applyMsg)
+			//DPrintf(shardkv, "%v Receive applyMsg %v", kv, &applyMsg)
 			if applyMsg.CommandValid {
 				if applyMsg.Command == nil || applyMsg.CommandIndex <= kv.lastApplied {
-					DPrintf(shardkv|debugError, "%v applyMsg ERROR or outdated %v", kv, &applyMsg)
+					//DPrintf(shardkv|debugError, "%v applyMsg ERROR or outdated %v", kv, &applyMsg)
 					kv.Unlock()
 					continue
 				}
@@ -144,10 +143,10 @@ func (kv *ShardKV) run() {
 					OpReply: OpReply{RlyErr: OK},
 				}
 
-				DPrintf(shardkv, "applyOp %v %v", kv, opCtx)
+				//DPrintf(shardkv, "applyOp %v %v", kv, opCtx)
 				kv.applyOp(opCtx)
 				kv.lastApplied = applyMsg.CommandIndex
-				DPrintf(shardkv, "applyOp DONE %v %v", kv, opCtx)
+				//DPrintf(shardkv, "applyOp DONE %v %v", kv, opCtx)
 
 				// reply clerk only if it is the leader
 				if currTerm, isLeader := kv.rf.GetState(); isLeader && currTerm == applyMsg.CommandTerm {
@@ -157,14 +156,14 @@ func (kv *ShardKV) run() {
 				}
 			} else if applyMsg.SnapshotValid {
 				if applyMsg.Snapshot == nil {
-					DPrintf(shardkv|debugError, "applyMsg ERROR %v %v", kv, &applyMsg)
+					//DPrintf(shardkv|debugError, "applyMsg ERROR %v %v", kv, &applyMsg)
 					kv.Unlock()
 					continue
 				}
 				if kv.rf.CondInstallSnapshot(applyMsg.SnapshotTerm, applyMsg.SnapshotIndex, applyMsg.Snapshot) {
 					kv.lastApplied = applyMsg.SnapshotIndex
 					kv.ApplySnapshot(applyMsg.Snapshot)
-					DPrintf(shardkv|debugError, "CondInstallSnapshot %v %v %v", kv, kv.rf, &applyMsg)
+					//DPrintf(shardkv|debugError, "CondInstallSnapshot %v %v %v", kv, kv.rf, &applyMsg)
 				}
 			} else {
 				DPanicf(shardkv|debugError, "applyMsg ERROR %v %v", kv, &applyMsg)
@@ -216,15 +215,19 @@ func (kv *ShardKV) applyOpKV(opCtx *OpContext) {
 	case OPAppend:
 		shard.Storage[opCtx.Key] += opCtx.Value
 	}
-	shard.LastClntOpMap[opCtx.Clnt] = opCtx
+	shard.LastClntOpMap[opCtx.Clnt] = &OpInfo{
+		Seq:     opCtx.Seq,
+		Clnt:    opCtx.Clnt,
+		OpReply: OpReply{opCtx.RlyErr, opCtx.RlyVal},
+	}
 }
 
 func (kv *ShardKV) applyOpPullConf(opCtx *OpContext) {
 	if opCtx.Config.Num != kv.currConfig.Num + 1 || opCtx.Config.Shards == nil {
-		DPrintf(debugTest|shardkv, "reject outdated config %v %v", kv, opCtx)
+		//DPrintf(debugTest|shardkv, "reject outdated config %v %v", kv, opCtx)
 		return
 	}
-	DPrintf(debugTest, "%v %v", kv, &opCtx.Config)
+	//DPrintf(debugTest, "%v %v", kv, &opCtx.Config)
 	kv.lastConfig = kv.currConfig
 	kv.currConfig = opCtx.Config
 
@@ -244,16 +247,16 @@ func (kv *ShardKV) applyOpPullConf(opCtx *OpContext) {
 	for shardNum := range kv.ShardMap {
 		if kv.currConfig.Shards[shardNum] != kv.GID {
 			if kv.ShardMap[shardNum].Stat != Available {
-				DPrintf(debugTest, "Unexpected Shard%v.Stat != Available %v", shardNum, kv)
+				//DPrintf(debugTest, "Unexpected Shard%v.Stat != Available %v", shardNum, kv)
 			}
 			kv.ShardMap[shardNum].Stat = Removing
 		}
 	}
-	DPrintf(debugTest, "DONE %v %v", kv, &opCtx.Config)
+	//DPrintf(debugTest, "DONE %v %v", kv, &opCtx.Config)
 }
 
 func (kv *ShardKV) applyAddShard(opCtx *OpContext) {
-	defer DPrintf(debugError, "applyAddShard DONE %v %v", kv, opCtx)
+	//defer //DPrintf(debugError, "applyAddShard DONE %v %v", kv, opCtx)
 	if opCtx.Config.Num != kv.currConfig.Num {
 		opCtx.RlyErr = ErrWrongConfig
 		return
@@ -274,7 +277,7 @@ func (kv *ShardKV) applyAddShard(opCtx *OpContext) {
 }
 
 func (kv *ShardKV) applyDelShard(opCtx *OpContext) {
-	defer DPrintf(debugError, "applyDelShard DONE %v %v", kv, opCtx)
+	//defer //DPrintf(debugError, "applyDelShard DONE %v %v", kv, opCtx)
 	if opCtx.Config.Num != kv.currConfig.Num {
 		opCtx.RlyErr = ErrWrongConfig
 		return
@@ -289,7 +292,7 @@ func (kv *ShardKV) applyDelShard(opCtx *OpContext) {
 }
 
 func (kv *ShardKV) applyAvailShard(opCtx *OpContext) {
-	defer DPrintf(debugError, "applyAvailShard DONE %v %v", kv, opCtx)
+	//defer //DPrintf(debugError, "applyAvailShard DONE %v %v", kv, opCtx)
 	if opCtx.Config.Num != kv.currConfig.Num {
 		opCtx.RlyErr = ErrWrongConfig
 		return
@@ -320,7 +323,7 @@ func (kv *ShardKV) snapshotLoop() {
 			if snapshot != nil {
 				go kv.rf.Snapshot(kv.lastApplied, snapshot)
 			}
-			DPrintf(snapshotLog, "do Snapshot %v %v", kv, kv.rf)
+			//DPrintf(snapshotLog, "do Snapshot %v %v", kv, kv.rf)
 			kv.Unlock()
 		}
 		time.Sleep(ServerSnapshotInterval)
@@ -348,7 +351,7 @@ func (kv *ShardKV) ApplySnapshot(data []byte) {
 		currConfig = *shardctrler.NewConfig()
 	}
 	kv.ShardMap, kv.lastConfig, kv.currConfig = shardMap, lastConfig, currConfig
-	DPrintf(snapshotLog, "ApplySnapshot to SM %v %v", kv, kv.rf)
+	//DPrintf(snapshotLog, "ApplySnapshot to SM %v %v", kv, kv.rf)
 }
 
 func (kv *ShardKV) pullConfigAction() {
@@ -362,7 +365,7 @@ func (kv *ShardKV) pullConfigAction() {
 	currCfgNum := kv.currConfig.Num
 	kv.Unlock()
 	if config := kv.ctrlerClerk.Query(currCfgNum + 1); config.Num == currCfgNum + 1 {
-		DPrintf(debugTest, "pull Config %v %v", kv, &config)
+		//DPrintf(debugTest, "pull Config %v %v", kv, &config)
 		kv.rf.Start(Op{
 			OpType:   OPPullConf,
 			Config:   config,
@@ -383,7 +386,7 @@ func (kv *ShardKV) migrationAction() {
 				ShardNum:  shardNum,
 				ConfigNum: kv.currConfig.Num,
 			}
-			DPrintf(debugTest, "To GID:%v %v %v %v", GID, servs, kv, args)
+			//DPrintf(debugTest, "To GID:%v %v %v %v", GID, servs, kv, args)
 
 			go func(servs []string, args *MigrationArgs) {
 				defer wg.Done()
@@ -392,10 +395,10 @@ func (kv *ShardKV) migrationAction() {
 					servAddr := kv.makeEnd(serv)
 					reply := &MigrationReply{}
 					if ok := servAddr.Call("ShardKV.MigrationHandler", args, reply); !ok || reply.RlyErr != OK {
-						DPrintf(shardkv, "pull shard failed %v %v %v %v", serv, kv, args, reply)
+						//DPrintf(shardkv, "pull shard failed %v %v %v %v", serv, kv, args, reply)
 						continue
 					}
-					DPrintf(shardkv, "pull shard succ %v %v %v %v", serv, kv, args, reply)
+					//DPrintf(shardkv, "pull shard succ %v %v %v %v", serv, kv, args, reply)
 					kv.rf.Start(Op{
 						OpType: OPAddShard,
 						Shard: Shard{Num: args.ShardNum, Storage: reply.Storage, LastClntOpMap: reply.LastClntOpMap},
@@ -417,8 +420,8 @@ func (kv *ShardKV) MigrationHandler(args *MigrationArgs, reply *MigrationReply) 
 	}
 	kv.Lock()
 	kv.Unlock()
-	defer DPrintf(shardkv, "DONE %v %v %v", kv, args, reply)
-	DPrintf(shardkv, "%v %v %v", kv, args, reply)
+	//defer //DPrintf(shardkv, "DONE %v %v %v", kv, args, reply)
+	//DPrintf(shardkv, "%v %v %v", kv, args, reply)
 	reply.GID, reply.ConfigNum = kv.GID, kv.currConfig.Num
 
 	if kv.currConfig.Num < args.ConfigNum {
@@ -427,7 +430,7 @@ func (kv *ShardKV) MigrationHandler(args *MigrationArgs, reply *MigrationReply) 
 	}
 	shard, ok := kv.ShardMap[args.ShardNum]
 	if !ok {
-		DPrintf(debugError|shardkv, "Shard NOT EXIST %v %v", kv, args)
+		//DPrintf(debugError|shardkv, "Shard NOT EXIST %v %v", kv, args)
 		return
 	}
 	if shard.Stat != Removing {
@@ -457,7 +460,7 @@ func (kv *ShardKV) GCAction() {
 				ShardNum:  shardNum,
 				ConfigNum: kv.currConfig.Num,
 			}
-			DPrintf(debugTest, "To GID:%v %v %v %v", GID, servs, kv, args)
+			//DPrintf(debugTest, "To GID:%v %v %v %v", GID, servs, kv, args)
 
 			go func(servs []string, args *MigrationArgs) {
 				defer wg.Done()
@@ -466,10 +469,10 @@ func (kv *ShardKV) GCAction() {
 					servAddr := kv.makeEnd(serv)
 					reply := &MigrationReply{}
 					if ok := servAddr.Call("ShardKV.GCHandler", args, reply); !ok || reply.RlyErr != OK {
-						DPrintf(shardkv, "GC shard failed %v %v %v %v", serv, kv, args, reply)
+						//DPrintf(shardkv, "GC shard failed %v %v %v %v", serv, kv, args, reply)
 						continue
 					}
-					DPrintf(shardkv, "GC shard succ %v %v %v %v", serv, kv, args, reply)
+					//DPrintf(shardkv, "GC shard succ %v %v %v %v", serv, kv, args, reply)
 					if reply.GCDone == true {
 						kv.rf.Start(Op{
 							OpType: OPAvailShard,
@@ -493,8 +496,8 @@ func (kv *ShardKV) GCHandler(args *MigrationArgs, reply *MigrationReply) {
 	}
 	kv.Lock()
 	defer kv.Unlock()
-	defer DPrintf(shardkv, "DONE %v %v %v", kv, args, reply)
-	DPrintf(shardkv, "%v %v %v", kv, args, reply)
+	//defer //DPrintf(shardkv, "DONE %v %v %v", kv, args, reply)
+	//DPrintf(shardkv, "%v %v %v", kv, args, reply)
 	reply.GID, reply.ConfigNum = kv.GID, kv.currConfig.Num
 
 	if kv.currConfig.Num > args.ConfigNum {
@@ -502,7 +505,7 @@ func (kv *ShardKV) GCHandler(args *MigrationArgs, reply *MigrationReply) {
 		return
 	}
 	if _, ok := kv.ShardMap[args.ShardNum]; !ok {
-		DPrintf(debugError|shardkv, "Shard NOT EXIST %v %v", kv, args)
+		//DPrintf(debugError|shardkv, "Shard NOT EXIST %v %v", kv, args)
 		reply.RlyErr, reply.GCDone = OK, true
 		return
 	}
@@ -588,14 +591,14 @@ func StartServer(servers []*labrpc.ClientEnd, me int, persister *raft.Persister,
 
 	go kv.run()
 	go kv.snapshotLoop()
-	go kv.debugGoroutine()
+	//go kv.debugGoroutine()
 
 	go kv.LeaderDaemon(kv.pullConfigAction, LeaderPullConfigInterval)
 	go kv.LeaderDaemon(kv.migrationAction, LeaderMigrationInterval)
 	go kv.LeaderDaemon(kv.GCAction, LeaderGCInterval)
 	go kv.LeaderDaemon(kv.appendNOOPAction, LeaderAppendNOOPInterval)
 
-	DPrintf(shardkv,"%v init", kv)
+	//DPrintf(shardkv,"%v init", kv)
 	return kv
 }
 
@@ -613,9 +616,9 @@ func (kv *ShardKV) debugGoroutine() bool {
 	t1 := time.Now()
 	for {
 		DPrintf(debugTest2, "Goroutine Num:%v %v", runtime.NumGoroutine(), time.Now().Sub(t1))
-		if runtime.NumGoroutine() > 1000 {
-			DPanicf(debugError, "%v", kv)
-		}
+		//if runtime.NumGoroutine() > 1000 {
+		//	DPanicf(debugError, "%v", kv)
+		//}
 		time.Sleep(10 * time.Second)
 	}
 }
