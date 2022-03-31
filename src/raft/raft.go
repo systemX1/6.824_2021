@@ -97,6 +97,7 @@ type Raft struct {
 	applyCh		chan ApplyMsg
 	replicatLock []*sync.Mutex
 	replicatCond []*sync.Cond
+	replicatCh   []chan struct{}
 
 	// 2D
 	lastIncludedIndex int
@@ -553,7 +554,11 @@ func (rf *Raft) startBroadcast(isHeartBeat bool) {
 		if isHeartBeat {
 			go rf.startReplication(i)
 		} else {
-			rf.replicatCond[i].Signal()
+			//rf.replicatCond[i].Signal()
+			select {
+			case rf.replicatCh[i] <- struct{}{}:
+			default:
+			}
 		}
 	}
 }
@@ -854,6 +859,7 @@ func Make(peers []*labrpc.ClientEnd, me int,
 		matchIndex:        make([]int, len(peers)),
 		replicatLock:      make([]*sync.Mutex, len(peers)),
 		replicatCond:      make([]*sync.Cond, len(peers)),
+		replicatCh:        make([]chan struct{}, len(peers)),
 		lastIncludedIndex: -1,
 		lastIncludedTerm:  -1,
 		rL:                NewRaftLog(),
@@ -867,7 +873,8 @@ func Make(peers []*labrpc.ClientEnd, me int,
 		}
 		rf.replicatLock[i] = &sync.Mutex{}
 		rf.replicatCond[i] = sync.NewCond(rf.replicatLock[i])
-		go rf.replicateLoop(i)
+		rf.replicatCh[i] = make(chan struct{})
+		go rf.replicateLoop2(i)
 	}
 
 	go rf.run()
@@ -951,6 +958,17 @@ func (rf *Raft) replicateLoop(serv int) {
 	for !rf.killed() {
 		for !rf.isNeedReplicate(serv) {
 			rf.replicatCond[serv].Wait()
+		}
+		DPrintf(replicator, "replicator%v startReplication %v %v", serv, rf, len(rf.rL.Entries))
+		rf.startReplication(serv)
+		DPrintf(replicator, "replicator%v Done %v %v", serv, rf, len(rf.rL.Entries))
+	}
+}
+
+func (rf *Raft) replicateLoop2(serv int) {
+	for !rf.killed() {
+		for !rf.isNeedReplicate(serv) {
+			<-rf.replicatCh[serv]
 		}
 		DPrintf(replicator, "replicator%v startReplication %v %v", serv, rf, len(rf.rL.Entries))
 		rf.startReplication(serv)

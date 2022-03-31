@@ -7,6 +7,7 @@ import (
 )
 
 type RfLog struct {
+	baseIndex       int
 	commitIndex 	int
 	lastApplied 	int
 	Entries     	[]LogEntry
@@ -14,7 +15,7 @@ type RfLog struct {
 }
 
 func NewRaftLog() *RfLog {
-	rL := &RfLog{commitIndex: -1, lastApplied: -1}
+	rL := &RfLog{baseIndex: -1, commitIndex: -1, lastApplied: -1}
 	rL.Entries = make([]LogEntry, 0, 20)
 	return rL
 }
@@ -277,8 +278,6 @@ func (rL *RfLog) getEntry(index int, typ LogEntryItem) interface{} {
 			return rL.Entries[entryIdx].Term
 		case Command:
 			return rL.Entries[entryIdx].Command
-		case Type:
-			return rL.Entries[entryIdx].Type
 		}
 	}
 	return nil
@@ -307,7 +306,7 @@ func (rL *RfLog) GetEntryTerm(index int) int {
 func (rL *RfLog) GetEntryCommand(index int) interface{} {
 	rL.Lock()
 	defer rL.Unlock()
-	if entry :=rL.getEntry(index, Type); entry != nil && entry.(LogEntryType) == Noop {
+	if entry :=rL.getEntry(index, Type); entry != nil {
 		return nil
 	}
 	return rL.getEntry(index, Command)
@@ -320,16 +319,10 @@ func (rL *RfLog) String() string {
 		rL.commitIndex, rL.lastApplied, len(rL.Entries), rL.Entries)
 }
 
-type LogEntryType uint8
-const (
-	Normal LogEntryType = iota
-	Noop
-)
 type LogEntry struct {
 	Index 	int
 	Term    int
 	Command interface{}
-	Type	LogEntryType
 }
 func (e LogEntry) String() string {
 	return fmt.Sprintf("{%v %v %v}", e.Index, e.Term, e.Command)
